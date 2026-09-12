@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Information about visiting hours, location, and guidelines for Espresso Day coffee shop.">
+    <meta name="author" content="Dilnaz Nurmaganova">
+    <title>Visit Us — Espresso Day</title>
+</head>
+<body>
+    <header>
+        <span style="font-weight: bold;">Espresso Day</span> <!-- Used span here because there is no appropriate semantic tag for an inline logo container in the header -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="visit.html">Visit</a></li>
+                <li><a href="booking.html">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Comment explaining the choice of the semantic tag -->
+        <!-- We chose section to separate the working hours block because it is a self-contained thematic section of the page -->
+        <section>
+            <h1>How to Find Us and When to Visit</h1>
+            <p>We welcome you every day at Espresso Day in the heart of the city. Our coffee shop is designed to give you a peaceful environment to enjoy a fresh cup of specialty coffee, relax, or work productively.</p>
+            
+            <h2>Opening Hours</h2>
+            <p>Mon–Fri: from <strong>08:00</strong> to <strong>22:00</strong></p>
+            <p>Sat–Sun: from <strong>09:00</strong> to <strong>23:00</strong></p>
+
+            <address>
+                Address: Syganak 24. Phone: <a href="tel:+77011234567">+7 (701) 123-45-67</a>. 
+                Email: <a href="mailto:info@espressoday.kz">info@espressoday.kz</a>.
+            </address>
+        </section>
+
+        <article>
+            <h2>House Rules</h2>
+            <p>To ensure a comfortable experience for everyone at Espresso Day, please note our guidelines. Vaping and smoking inside the main hall are <mark>strictly prohibited</mark>, though you are welcome to use our outdoor terrace.</p>
+            
+            <figure>
+                <img src="images/interior.jpg" alt="Cozy interior of Espresso Day coffee shop with comfortable soft sofas and green plants" width="400">
+                <figcaption>Our main guest hall</figcaption>
+            </figure>
+
+            <blockquote>
+                “Espresso Day is the absolute best place in town to grab a morning coffee and calmly work on your laptop.” 
+                <footer>— Aidar, regular guest, <time datetime="2026-05-14">May 14, 2026</time></footer>
+            </blockquote>
+        </article>
+
+        <aside>
+            <h3>Useful Links</h3>
+            <p>Check out our external profile: <a href="https://instagram.com" target="_blank" rel="noopener">Espresso Day on Instagram</a>.</p>
+            <p>Quick jump to the <a href="#faq">frequently asked questions</a> on this same page.</p>
+        </aside>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <p>Do you have Wi-Fi? Yes, the network <em>EspressoFree</em> is available to all customers free of charge.</p>
+            <!-- Example of using a div where no semantic tag fits -->
+            <div style="border-left: 3px solid #ccc; padding-left: 10px;">
+                <!-- Used a div because this is a purely stylistic wrapper for an administrative note that lacks independent semantic meaning as an article or section -->
+                <p><small>Staff note: Opening hours may vary on public holidays.</small></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Espresso Day. All rights reserved.</p>
+    </footer>
+</body>
+</html>
