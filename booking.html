@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a table at Espresso Day coffee shop online using our reservation form.">
+    <meta name="author" content="Dilnaz Nurmaganova">
+    <title>Table Reservation — Espresso Day</title>
+</head>
+<body>
+    <header>
+        <span style="font-weight: bold;">Espresso Day</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="visit.html">Visit</a></li>
+                <li><a href="booking.html">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Chose section for the form because the booking form represents a complete interactive functional block of the page -->
+        <section>
+            <h1>Table Reservation</h1>
+            <p>Fill out the form below to reserve a table at Espresso Day for your preferred time. Our manager will contact you shortly to confirm your booking.</p>
+
+            <!-- Table reservation form (no backend is implemented yet, data does not submit anywhere) -->
+            <form action="#" method="POST">
+                <!-- Note: The form does not send data anywhere yet since there is no server behind it -->
+                <fieldset>
+                    <legend>Guest Details & Reservation Parameters</legend>
+                    
+                    <div>
+                        <label for="fullname">Your Name:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+                    </div>
+
+                    <div>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+
+                    <div>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 700 000 00 00" required>
+                    </div>
+
+                    <div>
+                        <label for="guests">Number of Guests:</label>
+                        <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
+                    </div>
+
+                    <div>
+                        <label for="bookdate">Date of Visit:</label>
+                        <input type="date" id="bookdate" name="bookdate" required>
+                    </div>
+
+                    <div>
+                        <p>Preferred Seating Area:</p>
+                        <label><input type="radio" name="zone" value="window" checked> By the window</label>
+                        <label><input type="radio" name="zone" value="center"> Center of the hall</label>
+                        <label><input type="radio" name="zone" value="terrace"> Terrace</label>
+                    </div>
+
+                    <div>
+                        <label><input type="checkbox" name="high_chair" value="yes"> Need a baby high chair</label>
+                    </div>
+
+                    <div>
+                        <label for="coffee_pref">Favorite Drink Preference:</label>
+                        <select id="coffee_pref" name="coffee_pref">
+                            <option value="espresso">Double Espresso</option>
+                            <option value="cappuccino">Cappuccino</option>
+                            <option value="latte">Latte</option>
+                            <option value="americano">Americano</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="comment">Additional Comments:</label>
+                        <textarea id="comment" name="comment" rows="4" placeholder="Specify any other preferences..."></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit">Book Table</button>
+                        <button type="reset">Reset Form</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <h2>Important Reservation Policy</h2>
+            <p>Reservations are held for 15 minutes past the scheduled time, after which the table may be released to other guests unless you call us in advance at <a href="tel:+77011234567">+7 (701) 123-45-67</a> to notify us of a delay.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Espresso Day. All rights reserved.</p>
+    </footer>
+</body>
+</html>
