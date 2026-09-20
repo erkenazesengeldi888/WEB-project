@@ -3,389 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reviews, manager information, photos and feedback form for EspressoDay at Syganak 24 in Astana.">
-    <meta name="author" content="Student 3">
-    <title>Reviews - EspressoDay at Syganak 24</title>
+    <meta name="description" content="EspressoDay Reviews at Syganak 24">
+    <title>Reviews - EspressoDay</title>
 
-    <!-- Подключение базовых и персональных стилей -->
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/aisha.css">
 
-    <!-- Единственный разрешенный внутренний блок стилей для демонстрации каскада -->
+    <!-- Внутренний стиль по заданию -->
     <style>
-        /* Демонстрация каскада: этот стиль переопределяет цвет текста главного заголовка из base.css */
-        .main-title {
-            color: #2c1810;
+        .main-title, .page-header-title {
+            color: #C62828;
         }
     </style>
 </head>
-
 <body>
 
-<header class="site-header">
-    <h1 class="main-title">Reviews of EspressoDay at Syganak 24</h1>
-
-    <nav class="main-nav">
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="visit.html">Visit</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="reviews.html" class="active-link">Reviews</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="content-wrapper">
-
-    <section class="info-card">
-        <h2>Visitor Impressions</h2>
-
-        <p>
-            This page presents information about visitors' impressions
-            of EspressoDay at Syganak 24 in Astana. It includes photos
-            of the interior and bar area, information about the coffee
-            shop concept and a feedback form for visitors.
-        </p>
-
-        <p>
-            The page separates real information from personal opinions.
-            The manager's statement is presented as a direct quotation,
-            while the feedback form is provided for future visitor
-            responses. This makes the page useful both as an information
-            page and as an interactive part of the website.
-        </p>
-
-        <aside class="sidebar-info">
-            <h3>What Visitors Can Evaluate</h3>
-
-            <ul class="feature-list">
-                <li>Drink quality</li>
-                <li>Service speed</li>
-                <li>Interior atmosphere</li>
-                <li>Working conditions</li>
-                <li>Food and dessert selection</li>
+    <!-- Шапка сайта -->
+    <header class="main-header">
+        <div class="logo">EspressoDay</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coffee.html">Coffee Menu</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
-        </aside>
-    </section>
+        </nav>
+    </header>
 
+    <main class="container">
+        <h1 class="main-title">Interior & Customer Reviews</h1>
 
-    <section class="media-section">
-        <h2>Interior and Bar</h2>
+        <!-- Блок с картинками -->
+        <section class="gallery-container">
+            <h2>Interior and Bar</h2>
+            <div class="gallery-grid">
+                <img src="interior.jpg" alt="Interior of EspressoDay" class="review-img">
+                <img src="bar.jpg" alt="Bar area" class="review-img">
+            </div>
+            <p>The interior is an important part of the visitor experience. The bar is the main working area where drinks are prepared and orders are handled. Together, these spaces show how the coffee shop combines a practical service format with a comfortable environment.</p>
+        </section>
 
-        <div class="gallery-container">
-            <figure class="photo-card">
-                <img src="images/interior.jpeg"
-                     alt="Interior of EspressoDay with tables and visitor seating">
-                <figcaption>
-                    Interior of the EspressoDay coffee shop.
-                </figcaption>
-            </figure>
+        <!-- Отзывы -->
+        <section class="reviews-section">
+            <h2>Real Customer Reviews</h2>
+            
+            <div class="review-card">
+                <h3>Great coffee and cozy Kazakh aesthetic</h3>
+                <p class="author">Aruzhan K. — March 10, 2026</p>
+                <blockquote>
+                    "Очень уютная кофейня на Сыганак! Зашла взять кофе с собой перед учебой — сделали буквально за 3 минуты. Раф отличный, не слишком сладкий. Очень понравились элементы казахского интерьера. Обязательно вернусь еще!"
+                </blockquote>
+                <p class="rating">Rating: 5 / 5 ★★★★★</p>
+            </div>
+        </section>
 
-            <figure class="photo-card">
-                <img src="images/bar.jpeg"
-                     alt="Bar area of EspressoDay with the barista workspace">
-                <figcaption>
-                    Bar area where drinks are prepared.
-                </figcaption>
-            </figure>
-        </div>
-
-        <p class="section-description">
-            The interior is an important part of the visitor experience.
-            The bar is the main working area where drinks are prepared
-            and orders are handled. Together, these spaces show how
-            the coffee shop combines a practical service format with
-            a comfortable environment.
-        </p>
-    </section>
-
-    <!-- Секция с настоящими отзывами клиентов -->
-    <section class="reviews-section">
-        <h2>Real Customer Reviews</h2>
-
-        <!-- ID используется здесь, так как это уникальный блок главного реального отзыва на странице -->
-        <article id="featured-review" class="review-card">
-            <h3>Great coffee and cozy Kazakh aesthetic</h3>
-            <p class="review-author"><strong>Aruzhan K.</strong> &mdash; <time datetime="2026-03-10">March 10, 2026</time></p>
-            <blockquote class="user-quote">
-                "Очень уютная кофейня на Сыганак! Зашла взять кофе с собой перед учебой — сделали буквально за 3 минуты. Раф отличный, не слишком сладкий. Очень понравились элементы казахского интерьера. Обязательно вернусь еще!"
-            </blockquote>
-            <p class="review-rating">Rating: 5 / 5 &#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        </article>
-    </section>
-
-    <!-- ID manager-quote уникален и используется для точечной навигации по якорной ссылке -->
-    <section id="manager-quote" class="quote-section">
-        <h2>Manager's Statement</h2>
-
-        <article class="statement-card">
+        <!-- Слова менеджера -->
+        <section class="manager-section">
+            <h2>Manager's Statement</h2>
             <h3>Ulugbek Saydullaev Faizullaevich</h3>
-
-            <p>
-                The manager of the EspressoDay network describes the
-                concept through accessibility and fast service.
-                The <em>take away</em> format allows visitors to receive
-                their orders quickly, while the interior includes
-                elements of Kazakh ethnic style.
-            </p>
-
+            <p>The manager of the EspressoDay network describes the concept through accessibility and fast service. The <em>take away</em> format allows visitors to receive their orders quickly, while the interior includes elements of Kazakh ethnic style.</p>
             <blockquote>
-                "Кофейня формата take away, быстрая отдача блюд как и
-                напитков так и горячего в течении 5 минут без надобности
-                ждать по 20+ минут, концептия кофейни это максимальная
-                доступность в двух словах с оттенками казахского
-                этнического стиля."
+                "Кофейня формата take away, быстрая отдача блюд как и напитков так и горячего в течении 5 минут без надобности ждать по 20+ минут, концептия кофейни это максимальная доступность в двух словах с оттенками казахского этнического стиля."
             </blockquote>
+        </section>
+    </main>
 
-            <p>
-                <cite>
-                    Ulugbek Saydullaev Faizullaevich,
-                    manager of the EspressoDay coffee shop network.
-                </cite>
-            </p>
-
-            <p>
-                Statement date:
-                <time datetime="2026-09-15">September 13, 2026</time>.
-            </p>
-
-            <p>
-                The quotation above is presented as the manager's
-                statement rather than as an invented customer review.
-            </p>
-        </article>
-    </section>
-
-
-    <section class="table-section">
-        <h2>Opening Hours</h2>
-
-        <!-- Класс .opening-hours смысловой и описывает функцию элемента -->
-        <table class="opening-hours">
-            <caption>Opening hours of the Syganak 24 branch</caption>
-
-            <thead>
-                <tr>
-                    <th scope="col">Days</th>
-                    <th scope="col">Opening Hours</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>Monday - Friday</td>
-                    <td>07:30 - 23:00</td>
-                </tr>
-
-                <tr>
-                    <td>Saturday - Sunday</td>
-                    <td>08:00 - 23:00</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>
-            The coffee shop opens earlier on weekdays than on weekends.
-            Visitors can therefore use the branch for both morning
-            coffee and evening drinks.
-        </p>
-    </section>
-
-    <!-- ID feedback используется для уникальной формы на странице и для якорных ссылок -->
-    <section id="feedback" class="form-section">
-        <h2>Leave a Review</h2>
-
-        <p>
-            Visitors can use the form below to share their experience.
-            Required fields must be completed before the form can be
-            submitted. The form includes different HTML input types
-            to demonstrate a complete feedback interface.
-        </p>
-
-        <form action="#" method="post" class="feedback-form">
-
-            <fieldset>
-                <legend>Visitor Feedback</legend>
-
-                <label for="name">Name:</label>
-                <input type="text"
-                       id="name"
-                       name="name"
-                       placeholder="Enter your name"
-                       required>
-
-                <br><br>
-
-                <label for="email">Email:</label>
-                <input type="email"
-                       id="email"
-                       name="email"
-                       placeholder="example@mail.com"
-                       required>
-
-                <br><br>
-
-                <label for="phone">Phone:</label>
-                <input type="tel"
-                       id="phone"
-                       name="phone"
-                       placeholder="+7 700 000 00 00">
-
-                <br><br>
-
-                <label for="visit-date">Visit date:</label>
-                <input type="date"
-                       id="visit-date"
-                       name="visit-date"
-                       required>
-
-                <br><br>
-
-                <label for="rating">Rating from 1 to 5:</label>
-                <input type="number"
-                       id="rating"
-                       name="rating"
-                       min="1"
-                       max="5"
-                       placeholder="For example, 5"
-                       required>
-
-                <br><br>
-
-                <p>Would you visit the coffee shop again?</p>
-
-                <input type="radio"
-                       id="yes"
-                       name="return"
-                       value="yes"
-                       required>
-                <label for="yes">Yes</label>
-
-                <input type="radio"
-                       id="no"
-                       name="return"
-                       value="no">
-                <label for="no">No</label>
-
-                <br><br>
-
-                <label for="favorite">
-                    What did you like most?
-                </label>
-
-                <select id="favorite" name="favorite">
-                    <option value="coffee">Coffee</option>
-                    <option value="drinks">Drinks</option>
-                    <option value="food">Food</option>
-                    <option value="dessert">Desserts</option>
-                    <option value="interior">Interior</option>
-                    <option value="service">Service</option>
-                </select>
-
-                <br><br>
-
-                <label for="comment">Your review:</label>
-                <br>
-
-                <textarea id="comment"
-                          name="comment"
-                          rows="6"
-                          cols="45"
-                          placeholder="Write your experience"
-                          required></textarea>
-
-                <br><br>
-
-                <input type="checkbox"
-                       id="permission"
-                       name="permission"
-                       required>
-
-                <label for="permission">
-                    I agree that my review can be used in the student
-                    project.
-                </label>
-
-                <br><br>
-
-                <input type="submit" value="Submit Review" class="btn-primary">
-                <input type="reset" value="Reset Form" class="btn-secondary">
-
-            </fieldset>
-        </form>
-    </section>
-
-
-    <section class="contacts-section">
-        <h2>Contact Information</h2>
-
-        <p>
-            Address: Syganak 24, Astana.
-        </p>
-
-        <p>
-            Branch phone:
-            <a href="tel:+77714198457">8 771 419 8457</a>.
-        </p>
-
-        <p>
-            Network email:
-            <a href="mailto:Espressoday2023@gmail.com">
-                Espressoday2023@gmail.com
-            </a>.
-        </p>
-
-        <p>
-            Official website:
-            <a href="https://espressoday.kz/"
-               target="_blank"
-               rel="noopener noreferrer">
-                EspressoDay
-            </a>.
-        </p>
-
-        <!-- Единственный inline-стиль для демонстрации каскада -->
-        <p>
-            <span style="font-weight: bold; color: #8b4513;">Visitor feedback</span>
-            can help describe the experience at the coffee shop.
-            <!-- Этот inline-стиль переопределяет обычный вес и цвет текста для демонстрации каскада -->
-        </p>
-
-        <hr>
-
-        <p>
-            Contact symbols:
-            &copy; &nbsp; &mdash; &times; &#8376;
-        </p>
-
-        <p>
-            Quick links:
-            <a href="#feedback">feedback form</a>
-            and
-            <a href="#manager-quote">manager's statement</a>.
-        </p>
-    </section>
-
-</main>
-
-
-<footer class="site-footer">
-    <address>
-        EspressoDay, Syganak 24, Astana<br>
-        Phone:
-        <a href="tel:+77714198457">8 771 419 8457</a><br>
-        Email:
-        <a href="mailto:Espressoday2023@gmail.com">
-            Espressoday2023@gmail.com
-        </a>
-    </address>
-
-    <p>&copy; 2026 EspressoDay.</p>
-</footer>
+    <footer class="main-footer">
+        <p>&copy; 2026 EspressoDay. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
