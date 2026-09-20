@@ -1,0 +1,51 @@
+/* 
+  Color Palette (EspressoDay Brand):
+  1. #C62828 (Deep Red) - Primary brand color for header, navigation, and primary buttons.
+  2. #FFFFFF (Pure White) - Background for content cards, inputs, and active elements.
+  3. #1A1A1A (Dark Charcoal) - Main text color for maximum readability.
+  4. rgba(198, 40, 40, 0.08) (Light Red Tint) - Background highlights for active or focused states.
+  5. red (Named Color) - Used for critical borders to meet named color requirement.
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    background-color: #f9f9f9;
+    color: #1A1A1A;
+}
+
+/* Flexbox navigation row */
+.main-nav .nav-list,
+.navigation-bar .navigation-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    background-color: #C62828;
+    padding: 15px;
+}
+
+.main-nav a,
+.navigation-bar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.site-footer {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+}
