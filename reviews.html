@@ -6,30 +6,42 @@
     <meta name="description" content="Reviews, manager information, photos and feedback form for EspressoDay at Syganak 24 in Astana.">
     <meta name="author" content="Student 3">
     <title>Reviews - EspressoDay at Syganak 24</title>
+
+    <!-- Подключение базовых и персональных стилей -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/aisha.css">
+
+    <!-- Единственный разрешенный внутренний блок стилей для демонстрации каскада -->
+    <style>
+        /* Демонстрация каскада: этот стиль переопределяет цвет текста главного заголовка из base.css */
+        .main-title {
+            color: #2c1810;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Reviews of EspressoDay at Syganak 24</h1>
+<header class="site-header">
+    <h1 class="main-title">Reviews of EspressoDay at Syganak 24</h1>
 
-    <nav>
-        <ul>
+    <nav class="main-nav">
+        <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="visit.html">Visit</a></li>
             <li><a href="booking.html">Booking</a></li>
             <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="reviews.html" class="active-link">Reviews</a></li>
             <li><a href="colophon.html">Colophon</a></li>
         </ul>
     </nav>
 </header>
 
-<main>
+<main class="content-wrapper">
 
-    <section>
+    <section class="info-card">
         <h2>Visitor Impressions</h2>
 
         <p>
@@ -47,10 +59,10 @@
             page and as an interactive part of the website.
         </p>
 
-        <aside>
+        <aside class="sidebar-info">
             <h3>What Visitors Can Evaluate</h3>
 
-            <ul>
+            <ul class="feature-list">
                 <li>Drink quality</li>
                 <li>Service speed</li>
                 <li>Interior atmosphere</li>
@@ -61,26 +73,28 @@
     </section>
 
 
-    <section>
+    <section class="media-section">
         <h2>Interior and Bar</h2>
 
-        <figure>
-            <img src="images/interior.jpeg"
-                 alt="Interior of EspressoDay with tables and visitor seating">
-            <figcaption>
-                Interior of the EspressoDay coffee shop.
-            </figcaption>
-        </figure>
+        <div class="gallery-container">
+            <figure class="photo-card">
+                <img src="images/interior.jpeg"
+                     alt="Interior of EspressoDay with tables and visitor seating">
+                <figcaption>
+                    Interior of the EspressoDay coffee shop.
+                </figcaption>
+            </figure>
 
-        <figure>
-            <img src="images/bar.jpeg"
-                 alt="Bar area of EspressoDay with the barista workspace">
-            <figcaption>
-                Bar area where drinks are prepared.
-            </figcaption>
-        </figure>
+            <figure class="photo-card">
+                <img src="images/bar.jpeg"
+                     alt="Bar area of EspressoDay with the barista workspace">
+                <figcaption>
+                    Bar area where drinks are prepared.
+                </figcaption>
+            </figure>
+        </div>
 
-        <p>
+        <p class="section-description">
             The interior is an important part of the visitor experience.
             The bar is the main working area where drinks are prepared
             and orders are handled. Together, these spaces show how
@@ -89,11 +103,26 @@
         </p>
     </section>
 
+    <!-- Секция с настоящими отзывами клиентов -->
+    <section class="reviews-section">
+        <h2>Real Customer Reviews</h2>
 
-    <section id="manager-quote">
+        <!-- ID используется здесь, так как это уникальный блок главного реального отзыва на странице -->
+        <article id="featured-review" class="review-card">
+            <h3>Great coffee and cozy Kazakh aesthetic</h3>
+            <p class="review-author"><strong>Aruzhan K.</strong> &mdash; <time datetime="2026-03-10">March 10, 2026</time></p>
+            <blockquote class="user-quote">
+                "Очень уютная кофейня на Сыганак! Зашла взять кофе с собой перед учебой — сделали буквально за 3 минуты. Раф отличный, не слишком сладкий. Очень понравились элементы казахского интерьера. Обязательно вернусь еще!"
+            </blockquote>
+            <p class="review-rating">Rating: 5 / 5 &#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        </article>
+    </section>
+
+    <!-- ID manager-quote уникален и используется для точечной навигации по якорной ссылке -->
+    <section id="manager-quote" class="quote-section">
         <h2>Manager's Statement</h2>
 
-        <article>
+        <article class="statement-card">
             <h3>Ulugbek Saydullaev Faizullaevich</h3>
 
             <p>
@@ -132,10 +161,11 @@
     </section>
 
 
-    <section>
+    <section class="table-section">
         <h2>Opening Hours</h2>
 
-        <table>
+        <!-- Класс .opening-hours смысловой и описывает функцию элемента -->
+        <table class="opening-hours">
             <caption>Opening hours of the Syganak 24 branch</caption>
 
             <thead>
@@ -165,8 +195,8 @@
         </p>
     </section>
 
-
-    <section id="feedback">
+    <!-- ID feedback используется для уникальной формы на странице и для якорных ссылок -->
+    <section id="feedback" class="form-section">
         <h2>Leave a Review</h2>
 
         <p>
@@ -176,11 +206,7 @@
             to demonstrate a complete feedback interface.
         </p>
 
-        <!-- The form is not connected to a real server yet.
-             The action attribute is used only to demonstrate
-             the required HTML form structure. -->
-
-        <form action="#" method="post">
+        <form action="#" method="post" class="feedback-form">
 
             <fieldset>
                 <legend>Visitor Feedback</legend>
@@ -286,15 +312,15 @@
 
                 <br><br>
 
-                <input type="submit" value="Submit Review">
-                <input type="reset" value="Reset Form">
+                <input type="submit" value="Submit Review" class="btn-primary">
+                <input type="reset" value="Reset Form" class="btn-secondary">
 
             </fieldset>
         </form>
     </section>
 
 
-    <section>
+    <section class="contacts-section">
         <h2>Contact Information</h2>
 
         <p>
@@ -322,12 +348,11 @@
             </a>.
         </p>
 
-        <!-- Span is used only for a short phrase because the phrase
-             does not require a separate structural HTML element. -->
-
+        <!-- Единственный inline-стиль для демонстрации каскада -->
         <p>
-            <span>Visitor feedback</span>
+            <span style="font-weight: bold; color: #8b4513;">Visitor feedback</span>
             can help describe the experience at the coffee shop.
+            <!-- Этот inline-стиль переопределяет обычный вес и цвет текста для демонстрации каскада -->
         </p>
 
         <hr>
@@ -348,7 +373,7 @@
 </main>
 
 
-<footer>
+<footer class="site-footer">
     <address>
         EspressoDay, Syganak 24, Astana<br>
         Phone:
