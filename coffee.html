@@ -6,31 +6,42 @@
     <meta name="description" content="Coffee, drinks, menu information and photos of EspressoDay at Syganak 24 in Astana.">
     <meta name="author" content="Student 3">
     <title>Coffee and Drinks - EspressoDay at Syganak 24</title>
+
+    <!-- Подключение базовой таблицы стилей и персонального CSS-файла -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/aisha.css">
+
+    <!-- Единственный разрешенный внутренний блок стилей для демонстрации каскада -->
+    <style>
+        /* Демонстрация каскада: переопределяет цвет главного заголовка страницы из base.css */
+        .page-header-title {
+            color: #3d2314;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Coffee and Drinks at EspressoDay</h1>
+<header class="header-container">
+    <h1 class="page-header-title">Coffee and Drinks at EspressoDay</h1>
 
-    <nav>
-        <ul>
+    <nav class="navigation-bar">
+        <ul class="navigation-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="visit.html">Visit</a></li>
             <li><a href="booking.html">Booking</a></li>
-            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="coffee.html" class="active-page">Coffee</a></li>
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="colophon.html">Colophon</a></li>
-            
         </ul>
     </nav>
 </header>
 
-<main>
+<main class="main-content">
 
-    <section>
+    <section class="intro-section">
         <h2>Coffee and Signature Drinks</h2>
 
         <p>
@@ -47,7 +58,7 @@
             <strong>Şie Bumble</strong>, coffee with fresh juice,
             Kok Aspan lemonade and different types of raf coffee.
             New menu positions can be marked with
-            <mark>JANA</mark>, which means "new" in Kazakh.
+            <mark class="badge-new">JANA</mark>, which means "new" in Kazakh.
         </p>
 
         <p>
@@ -58,7 +69,7 @@
             of the coffee shop concept.
         </p>
 
-        <aside>
+        <aside class="branch-sidebar">
             <h3>Branch Information</h3>
 
             <p>
@@ -67,7 +78,7 @@
 
             <p>
                 Branch phone:
-                <a href="tel:+77714198457">8 771 419 8457</a>.
+                <a href="tel:+77714198457" class="contact-link">8 771 419 8457</a>.
             </p>
 
             <p>
@@ -78,42 +89,45 @@
     </section>
 
 
-    <section>
+    <section class="gallery-section">
         <h2>Photos of EspressoDay</h2>
 
-        <!-- Figure and figcaption are used to connect each photograph
-             with a meaningful description. -->
+        <!-- Контейнер для организации карточек галереи -->
+        <div class="photo-grid">
+            <figure class="media-card">
+                <img src="images/exterior.jpeg"
+                     alt="Exterior of the EspressoDay coffee shop at Syganak 24"
+                     class="responsive-img">
+                <figcaption class="media-caption">
+                    Exterior of the EspressoDay branch at Syganak 24.
+                </figcaption>
+            </figure>
 
-        <figure>
-            <img src="images/exterior.jpeg"
-                 alt="Exterior of the EspressoDay coffee shop at Syganak 24">
-            <figcaption>
-                Exterior of the EspressoDay branch at Syganak 24.
-            </figcaption>
-        </figure>
+            <figure class="media-card">
+                <img src="images/coffee-art.jpeg"
+                     alt="Coffee art on a drink served at EspressoDay"
+                     class="responsive-img">
+                <figcaption class="media-caption">
+                    Coffee art from the coffee shop.
+                </figcaption>
+            </figure>
 
-        <figure>
-            <img src="images/coffee-art.jpeg"
-                 alt="Coffee art on a drink served at EspressoDay">
-            <figcaption>
-                Coffee art from the coffee shop.
-            </figcaption>
-        </figure>
-
-        <figure>
-            <img src="images/menu.jpeg"
-                 alt="EspressoDay menu showing drinks and prices">
-            <figcaption>
-                Menu photographed at the coffee shop.
-            </figcaption>
-        </figure>
+            <figure class="media-card">
+                <img src="images/menu.jpeg"
+                     alt="EspressoDay menu showing drinks and prices"
+                     class="responsive-img">
+                <figcaption class="media-caption">
+                    Menu photographed at the coffee shop.
+                </figcaption>
+            </figure>
+        </div>
     </section>
 
 
-    <section>
+    <section class="concept-section">
         <h2>The Coffee Shop Concept</h2>
 
-        <article>
+        <article class="concept-article">
             <h3>Manager: Ulugbek Saydullaev Faizullaevich</h3>
 
             <p>
@@ -143,13 +157,14 @@
 
             <p>
                 The manager's original statement is presented on the
-                <a href="reviews.html#manager-quote">reviews page</a>.
+                <a href="reviews.html#manager-quote" class="inline-link">reviews page</a>.
             </p>
         </article>
     </section>
 
 
-    <section id="menu-table">
+    <!-- Уникальный ID для реализации якорного перехода -->
+    <section id="menu-table" class="pricing-section">
         <h2>Drinks and Prices</h2>
 
         <p>
@@ -158,7 +173,8 @@
             &#8376;.
         </p>
 
-        <table>
+        <!-- Смысловой класс таблицы напитков -->
+        <table class="drink-menu-table">
             <caption>Examples of EspressoDay drinks and prices</caption>
 
             <thead>
@@ -175,58 +191,58 @@
                     <td>Signature drinks</td>
                     <td>Kazakh Raf</td>
                     <td>350 ml</td>
-                    <td>1 490 &#8376;</td>
+                    <td class="price-cell">1 490 &#8376;</td>
                 </tr>
 
                 <tr>
                     <td>Signature drinks</td>
                     <td>Latte Qurt</td>
                     <td>350 ml</td>
-                    <td>1 490 &#8376;</td>
+                    <td class="price-cell">1 490 &#8376;</td>
                 </tr>
 
                 <tr>
                     <td>Fresh juice</td>
                     <td>Orange</td>
                     <td>450 ml</td>
-                    <td>2 390 &#8376;</td>
+                    <td class="price-cell">2 390 &#8376;</td>
                 </tr>
 
                 <tr>
                     <td>Baby drinks</td>
                     <td>Cocoa</td>
                     <td>350 ml</td>
-                    <td>990 &#8376;</td>
+                    <td class="price-cell">990 &#8376;</td>
                 </tr>
 
                 <tr>
                     <td>Tonic drinks</td>
                     <td>Espresso Tonic</td>
                     <td>450 ml</td>
-                    <td>1 790 &#8376;</td>
+                    <td class="price-cell">1 790 &#8376;</td>
                 </tr>
 
                 <tr>
                     <td>Smoothies</td>
                     <td>Strawberry</td>
                     <td>450 ml</td>
-                    <td>1 690 &#8376;</td>
+                    <td class="price-cell">1 690 &#8376;</td>
                 </tr>
             </tbody>
         </table>
 
-        <small>
+        <small class="disclaimer-text">
             Prices are based on the provided menu and may change.
         </small>
     </section>
 
 
-    <section>
+    <section class="categories-section">
         <h2>Drink Categories</h2>
 
         <h3>Main Categories</h3>
 
-        <ul>
+        <ul class="nested-category-list">
             <li>
                 Coffee drinks
                 <ul>
@@ -242,7 +258,7 @@
 
         <h3>Choosing a Drink</h3>
 
-        <ol start="3">
+        <ol start="3" class="guide-steps">
             <li>Choose a drink category.</li>
             <li>Choose the preferred size.</li>
             <li>Choose the flavour and place the order.</li>
@@ -250,7 +266,7 @@
 
         <h3>Useful Terms</h3>
 
-        <dl>
+        <dl class="terms-dictionary">
             <dt><abbr title="Take away">TA</abbr></dt>
             <dd>
                 A format where food or drinks are ordered to take away.
@@ -270,7 +286,8 @@
     </section>
 
 
-    <section id="work-info">
+    <!-- Уникальный ID для второй якорной ссылки -->
+    <section id="work-info" class="utility-section">
         <h2>Useful Information for Visitors</h2>
 
         <p>
@@ -293,45 +310,42 @@
             order. The goal is to make everyday coffee more accessible.
         </p>
 
-        <hr>
+        <hr class="section-divider">
 
-        <!-- Div is used only for grouping contact information because
-             there is no more specific semantic element for this group. -->
-
-        <div>
+        <div class="contact-block">
             Network email:
-            <a href="mailto:Espressoday2023@gmail.com">
+            <a href="mailto:Espressoday2023@gmail.com" class="contact-link">
                 Espressoday2023@gmail.com
             </a>
             &nbsp;&times;&nbsp;
             Network phone:
-            <a href="tel:+77079334240">
+            <a href="tel:+77079334240" class="contact-link">
                 +7 707 933 42 40
             </a>
         </div>
 
-        <!-- Span is used only to mark a short text fragment and is not
-             replacing a semantic structural element. -->
-
         <p>
             Official website:
-            <span>
+            <!-- Единственный inline-стиль для демонстрации каскада -->
+            <span style="font-weight: bold; color: #8b4513;">
                 <a href="https://espressoday.kz/"
                    target="_blank"
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   class="external-link">
                     EspressoDay
                 </a>
             </span>
+            <!-- Этот inline-стиль переопределяет стандартное форматирование текста для демонстрации спецификаций каскада -->
         </p>
 
         <p>
             Quick links:
-            <a href="#menu-table">drink prices</a>
+            <a href="#menu-table" class="anchor-link">drink prices</a>
             and
-            <a href="#work-info">visitor information</a>.
+            <a href="#work-info" class="anchor-link">visitor information</a>.
         </p>
 
-        <p>
+        <p class="copyright-notice">
             &copy; 2026 EspressoDay. All rights reserved.
         </p>
     </section>
@@ -339,18 +353,18 @@
 </main>
 
 
-<footer>
-    <address>
+<footer class="site-footer">
+    <address class="footer-address">
         EspressoDay, Syganak 24, Astana<br>
         Phone:
-        <a href="tel:+77714198457">8 771 419 8457</a><br>
+        <a href="tel:+77714198457" class="footer-link">8 771 419 8457</a><br>
         Email:
-        <a href="mailto:Espressoday2023@gmail.com">
+        <a href="mailto:Espressoday2023@gmail.com" class="footer-link">
             Espressoday2023@gmail.com
         </a>
     </address>
 
-    <p>&copy; 2026 EspressoDay.</p>
+    <p class="footer-copy">&copy; 2026 EspressoDay.</p>
 </footer>
 
 </body>
