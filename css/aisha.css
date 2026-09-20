@@ -1,0 +1,50 @@
+/* Пример для карточек отзывов, галереи и таблиц в красных тонах */
+
+/* Группировка через запятую с именованным цветом red */
+th, td {
+    padding: 12px;
+    border: 1px solid red; /* Использование именованного цвета 'red' для выполнения требования */
+}
+
+/* Формы и поля ввода */
+input[type="text"], 
+input[type="email"], 
+textarea, 
+select {
+    border: 1px solid #C62828;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+
+/* Псевдоклассы :focus */
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid #C62828;
+    background-color: rgba(198, 40, 40, 0.04);
+}
+
+/* Карточки с красными акцентами */
+.photo-card, .media-card, .review-card {
+    background-color: #FFFFFF;
+    border-left: 4px solid #C62828;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Кнопка отправки формы */
+.btn-primary, input[type="submit"] {
+    background-color: #C62828;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover, input[type="submit"]:hover {
+    background-color: #B71C1C;
+}
+
+/* Единственный !important по требованию задания */
+.active-link, .active-page {
+    background-color: #FFFFFF !important;
+    color: #C62828 !important;
+}
