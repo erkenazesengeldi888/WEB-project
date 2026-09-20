@@ -25,11 +25,11 @@
     <!-- Шапка сайта -->
     <header class="main-header">
         <div class="logo">EspressoDay</div>
-        <nav class="main-nav">
+        <nav class="main-navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="coffee.html">Coffee Menu</a></li>
-                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="reviews.html" class="active-page">Reviews</a></li>
                 <li><a href="booking.html">Booking</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
@@ -43,15 +43,15 @@
         <!-- Блок с интерьером и картинками -->
         <section class="gallery-container">
             <h2>Interior and Bar</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="interior.jpg" alt="Interior of EspressoDay" class="review-img">
-                    <p class="img-caption">Interior of the EspressoDay coffee shop.</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="bar.jpg" alt="Bar area of EspressoDay" class="review-img">
-                    <p class="img-caption">Bar area where drinks are prepared.</p>
-                </div>
+            <div class="photo-grid">
+                <figure class="media-card">
+                    <img src="interior.jpg" alt="Interior of EspressoDay" class="responsive-img">
+                    <figcaption class="media-caption">Interior of the EspressoDay coffee shop.</figcaption>
+                </figure>
+                <figure class="media-card">
+                    <img src="bar.jpg" alt="Bar area of EspressoDay" class="responsive-img">
+                    <figcaption class="media-caption">Bar area where drinks are prepared.</figcaption>
+                </figure>
             </div>
             <p class="description-text">
                 The interior is an important part of the visitor experience. The bar is the main working area where drinks are prepared and orders are handled. Together, these spaces show how the coffee shop combines a practical service format with a comfortable environment.
@@ -75,12 +75,12 @@
         <!-- Раздел с заявлением менеджера -->
         <section class="manager-section">
             <h2>Manager's Statement</h2>
-            <div class="manager-card">
+            <div class="review-card">
                 <h3>Ulugbek Saydullaev Faizullaevich</h3>
                 <p class="manager-intro">
                     The manager of the EspressoDay network describes the concept through accessibility and fast service. The <em>take away</em> format allows visitors to receive their orders quickly, while the interior includes elements of Kazakh ethnic style.
                 </p>
-                <blockquote class="manager-quote">
+                <blockquote id="manager-quote" class="manager-quote">
                     "Кофейня формата take away, быстрая отдача блюд как и напитков так и горячего в течении 5 минут без надобности ждать по 20+ минут, концепция кофейни это максимальная доступность в двух словах с оттенками казахского этнического стиля."
                 </blockquote>
             </div>
