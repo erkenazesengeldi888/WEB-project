@@ -1,79 +1,118 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Information about visiting hours, location, and guidelines for Espresso Day coffee shop.">
+    <meta name="description" content="Book a table at Espresso Day coffee shop online using our reservation form.">
     <meta name="author" content="Dilnaz Nurmaganova">
-    <title>Visit Us — Espresso Day</title>
-    <!-- Linking team base styles and personal stylesheet -->
+    <title>Table Reservation — Espresso Day</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/dilnaz.css">
+    <style>
+       /* Deliberate cascade demonstration: this page-only rule overrides the external .brand-mark letter-spacing. */
+        .brand-mark {
+            letter-spacing: 0.08em;
+        }
+    </style>
 </head>
-<body class="visit-page">
-    <!-- ID used here because the main header is unique and appears once per page -->
-    <header id="main-header" class="site-header">
-        <span style="font-weight: bold;" class="logo-text">Espresso Day</span> 
-        <nav class="nav-menu">
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="colophon.html">Colophon</a></li>
+<body>
+    <header class="site-header">
+        <!-- The single inline style deliberately demonstrates inline priority in the cascade. -->
+        <span class="brand-mark" style="font-weight: bold;">Espresso Day</span>
+        <nav class="main-navigation" aria-label="Main navigation">
+            <ul>
+               <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="visit.html" class="active-link">Visit</a></li>
+                <li><a href="visit.html">Visit Us</a></li>
                 <li><a href="booking.html">Booking</a></li>
+                <li><a href="coffee.html">Coffee</a></li>         
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="main-content">
-        <section class="info-section">
-            <h1 class="page-title">How to Find Us and When to Visit</h1>
-            <p class="intro-text">We welcome you every day at Espresso Day in the heart of the city. Our coffee shop is designed to give you a peaceful environment to enjoy a fresh cup of specialty coffee, relax, or work productively.</p>
-            
-            <h2 class="section-subtitle">Opening Hours</h2>
-            <p class="hours-info">Mon–Fri: from <strong>08:00</strong> to <strong>22:00</strong></p>
-            <p class="hours-info">Sat–Sun: from <strong>09:00</strong> to <strong>23:00</strong></p>
+    <main class="page-content">
+        <!-- Chose section for the form because the booking form represents a complete interactive functional block of the page -->
+        <section class="reservation-section form-section">
+            <h1 class="section-heading">Table Reservation</h1>
+            <p class="intro-copy"><img src="images/interior (1).jpg" alt="Cozy interior of Espresso Day coffee shop with comfortable soft sofas and green plants" width="300" class="interior-image">Fill out the form below to reserve a table at Espresso Day for your preferred time. Our manager will contact you shortly to confirm your booking.</p>
 
-            <address class="contact-address">
-                Address: Syganak 24. Phone: <a href="tel:+77011234567">+7 (701) 123-45-67</a>. 
-                Email: <a href="mailto:info@espressoday.kz">info@espressoday.kz</a>.
-            </address>
+            <!-- Table reservation form (no backend is implemented yet, data does not submit anywhere) -->
+            <form class="reservation-form" action="#" method="POST">
+                <!-- Note: The form does not send data anywhere yet since there is no server behind it -->
+                <fieldset class="form-panel">
+                    <legend>Guest Details &amp; Reservation Parameters</legend>
+                    
+                    <div class="form-field">
+                        <label for="fullname">Your Name:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 700 000 00 00" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="guests">Number of Guests:</label>
+                        <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="bookdate">Date of Visit:</label>
+                        <input type="date" id="bookdate" name="bookdate" required>
+                    </div>
+                    
+                    <div class="form-field choice-group">
+                        <p class="field-label">Preferred Seating Area:</p>
+                        <label><input type="radio" name="zone" value="window" checked> By the window</label>
+                        <label><input type="radio" name="zone" value="center"> Center of the hall</label>
+                        <label><input type="radio" name="zone" value="terrace"> Terrace</label>
+                    </div>
+
+                    <div class="form-field choice-group">
+                        <label><input type="checkbox" name="high_chair" value="yes"> Need a baby high chair</label>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="coffee_pref">Favorite Drink Preference:</label>
+                        <select id="coffee_pref" name="coffee_pref">
+                            <option value="espresso">Double Espresso</option>
+                            <option value="cappuccino">Cappuccino</option>
+                            <option value="latte">Latte</option>
+                            <option value="americano">Americano</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="comment">Additional Comments:</label>
+                        <textarea id="comment" name="comment" rows="4" placeholder="Specify any other preferences..."></textarea>
+                    </div>
+
+                    <div class="form-field action-row">
+                        <button class="primary-action" type="submit">Book Table</button>
+                        <button class="secondary-action" type="reset">Reset Form</button>
+                    </div>
+                </fieldset>
+            </form>
         </section>
 
-        <article class="rules-article">
-            <h2>House Rules</h2>
-            <p>To ensure a comfortable experience for everyone at Espresso Day, please note our guidelines. Vaping and smoking inside the main hall are <mark class="highlight-mark">strictly prohibited</mark>, though you are welcome to use our outdoor terrace.</p>
-            
-            <figure class="interior-figure">
-                <img src="images/interior (1).jpg" alt="Cozy interior of Espresso Day coffee shop with comfortable soft sofas and green plants" width="400" class="interior-image">
-                <figcaption class="image-caption">Our main guest hall</figcaption>
-            </figure>
-
-            <blockquote class="customer-quote">
-                “Espresso Day is the absolute best place in town to grab a morning coffee and calmly work on your laptop.” 
-                <footer>— Aidar, regular guest, <time datetime="2026-05-14">May 14, 2026</time></footer>
-            </blockquote>
-        </article>
-
-        <!-- ID used here because this sidebar element is unique and acts as an anchor-target container -->
-        <aside id="sidebar-links" class="useful-links-sidebar">
-            <h3>Useful Links</h3>
-            <p>Check out our external profile: <a href="https://instagram.com" target="_blank" rel="noopener">Espresso Day on Instagram</a>.</p>
-            <p>Quick jump to the <a href="#faq">frequently asked questions</a> on this same page.</p>
-        </aside>
-
-        <section id="faq" class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <p>Do you have Wi-Fi? Yes, the network <em>EspressoFree</em> is available to all customers free of charge.</p>
-            <div style="border-left: 3px solid #ccc; padding-left: 10px;" class="staff-note-box">
-                <p><small>Staff note: Opening hours may vary on public holidays.</small></p>
-            </div>
+        <section class="policy-section">
+            <h2 class="section-heading">Important Reservation Policy</h2>
+            <p class="policy-copy">Reservations are held for 15 minutes past the scheduled time, after which the table may be released to other guests unless you call us in advance at <a href="tel:+77011234567">+7 (701) 123-45-67</a> to notify us of a delay.</p>
         </section>
     </main>
 
     <footer class="site-footer">
         <p>&copy; 2026 Espresso Day. All rights reserved.</p>
+        <a class="quick-contact" href="tel:+77011234567">Call us</a>
     </footer>
 </body>
 </html>
