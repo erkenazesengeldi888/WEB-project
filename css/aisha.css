@@ -1,50 +1,394 @@
-/* Пример для карточек отзывов, галереи и таблиц в красных тонах */
+/*
+  Personal stylesheet for Aisha's coffee and reviews pages.
+  Palette: five colours maximum
+  red вЂ” a warm red accent highlights active links and actions.
+  #000000 вЂ” black provides strong headings and navigation contrast.
+  #FFFFFF вЂ” white keeps cards, images and table cells clean.
+  #F8F8F8 вЂ” soft gray separates content areas without heavy decoration.
+  #E5E5E5 вЂ” light borders separate cards, fields and table cells.
+*/
 
-/* Группировка через запятую с именованным цветом red */
-th, td {
-    padding: 12px;
-    border: 1px solid red; /* Использование именованного цвета 'red' для выполнения требования */
+:root {
+    --aisha-red: red;
+    --aisha-dark: #000000;
+    --aisha-white: #FFFFFF;
+    --aisha-surface: #F8F8F8;
+    --aisha-line: #E5E5E5;
 }
 
-/* Формы и поля ввода */
-input[type="text"], 
-input[type="email"], 
-textarea, 
-select {
-    border: 1px solid #C62828;
-    background-color: #FFFFFF;
+/* Universal selector: the personal pages use predictable box sizing. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--aisha-surface);
+    color: var(--aisha-dark);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+}
+
+/* Type selector and static positioning: the page header stays in normal flow. */
+header,
+.header-container,
+.main-header {
+    position: static;
+    padding: 25px 30px;
+    background-color: var(--aisha-red);
+    border-bottom: 4px solid var(--aisha-dark);
+    color: var(--aisha-dark);
+    text-align: center;
+}
+
+.page-header-title,
+.main-title,
+.logo {
+    margin: 0 0 20px;
+    color: var(--aisha-dark);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+/* Flexbox navigation: links wrap while preserving a horizontal row. */
+.main-navigation > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Child selector: only direct navigation items receive the flexible item rule. */
+.main-navigation > ul > li {
+    flex: 0 1 auto;
+}
+
+.main-navigation a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--aisha-dark);
     border-radius: 4px;
+    background-color: var(--aisha-dark);
+    color: var(--aisha-white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
 }
 
-/* Псевдоклассы :focus */
-input:focus, textarea:focus, select:focus {
-    outline: 2px solid #C62828;
-    background-color: rgba(198, 40, 40, 0.04);
+.main-navigation a:hover,
+.main-navigation a:focus {
+    background-color: var(--aisha-white);
+    color: var(--aisha-red);
+    outline: 2px solid var(--aisha-white);
+    outline-offset: 2px;
 }
 
-/* Карточки с красными акцентами */
-.photo-card, .media-card, .review-card {
-    background-color: #FFFFFF;
-    border-left: 4px solid #C62828;
+/* One deliberate priority demonstration: active-page background beats the shared navigation rule. */
+.main-navigation .active-link,
+.main-navigation .active-page {
+    background-color: var(--aisha-white) !important;
+    color: var(--aisha-red);
+}
+
+/* Grid gives the long coffee page a clear two-column reading structure. */
+.main-content,
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    width: min(1180px, calc(100% - 60px));
+    margin: 35px auto; /* Centering technique 1: auto margins center the reading area. */
+    padding: 0;
+}
+
+.main-content > section,
+.container > section,
+.gallery-container,
+.reviews-section,
+.manager-section {
+    grid-column: 1 / -1;
+    padding: 26px;
+    background-color: var(--aisha-white);
+    border: 1px solid var(--aisha-line);
+    border-left: 5px solid var(--aisha-red);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1,
+h2,
+h3,
+caption {
+    color: var(--aisha-dark);
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h2 {
+    margin: 0 0 20px;
+    border-bottom: 3px solid var(--aisha-red);
+    padding-bottom: 8px;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+h3 {
+    margin: 0 0 12px;
+    color: var(--aisha-red);
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+/* Gallery grid: repeat(), fr units, minmax(), and gap suit equal visual cards. */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Relative is the containing block for the caption's positioning context. */
+.media-card,
+.photo-card,
+.review-card {
+    position: relative;
+    margin: 0;
+    padding: 22px;
+    background-color: var(--aisha-white);
+    border: 1px solid var(--aisha-line);
+    border-left: 5px solid var(--aisha-red);
+    border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Кнопка отправки формы */
-.btn-primary, input[type="submit"] {
-    background-color: #C62828;
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    cursor: pointer;
+.photo-grid .media-card:first-child {
+    border-top: 4px solid var(--aisha-red);
 }
 
-.btn-primary:hover, input[type="submit"]:hover {
-    background-color: #B71C1C;
+.responsive-img,
+.media-card img,
+.photo-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid var(--aisha-dark);
+    border-radius: 6px;
 }
 
-/* Единственный !important по требованию задания */
-.active-link, .active-page {
-    background-color: #FFFFFF !important;
-    color: #C62828 !important;
+/* Pseudo-element: provides a small visual marker before every gallery caption. */
+.media-caption::before {
+    margin-right: 6px;
+    color: red;
+    content: "в—†";
+}
+
+.media-caption,
+figcaption {
+    margin-top: 10px;
+    color: var(--aisha-dark);
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.branch-sidebar {
+    grid-column: span 1;
+}
+
+.badge-new {
+    padding: 2px 7px;
+    background-color: var(--aisha-red);
+    color: var(--aisha-white);
+    font-weight: 800;
+}
+
+.contact-link,
+.inline-link,
+.external-link,
+.anchor-link,
+.footer-link {
+    color: var(--aisha-red);
+    font-weight: 700;
+}
+
+/* Descendant selector: nested list items are visually separated from their parent category. */
+.nested-category-list ul {
+    margin-top: 8px;
+    padding-left: 24px;
+    border-left: 3px solid var(--aisha-red);
+}
+
+.nested-category-list li,
+.guide-steps li {
+    margin-bottom: 7px;
+}
+
+.terms-dictionary {
+    display: grid;
+    grid-template-columns: minmax(70px, 0.3fr) minmax(0, 1fr);
+    gap: 10px 18px;
+    margin: 0;
+}
+
+.terms-dictionary dt {
+    color: var(--aisha-red);
+    font-weight: 800;
+}
+
+.terms-dictionary dd {
+    margin: 0;
+}
+
+/* Grouped selectors and attribute selectors style all table cells and form controls consistently. */
+th,
+td {
+    padding: 12px;
+    border: 1px solid red;
+    text-align: left;
+}
+
+.drink-menu-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: var(--aisha-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.drink-menu-table caption {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.drink-menu-table thead tr {
+    background-color: var(--aisha-dark);
+    color: var(--aisha-white);
+    text-transform: uppercase;
+}
+
+.drink-menu-table tbody tr:nth-child(even) {
+    background-color: var(--aisha-surface);
+}
+
+.drink-menu-table tbody tr:hover {
+    background-color: rgba(255, 0, 0, 0.08);
+}
+
+.price-cell {
+    color: var(--aisha-red);
+    font-weight: 800;
+    text-align: right;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    padding: 10px 12px;
+    border: 1px solid var(--aisha-red);
+    border-radius: 4px;
+    background-color: var(--aisha-white);
+    color: var(--aisha-dark);
+    font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--aisha-red);
+    outline-offset: 2px;
+    background-color: rgba(255, 0, 0, 0.04);
+}
+
+.review-card {
+    margin-bottom: 20px;
+}
+
+.review-card:last-child {
+    margin-bottom: 0;
+}
+
+.author,
+.rating {
+    color: var(--aisha-dark);
+    font-size: 0.95rem;
+}
+
+.rating {
+    color: var(--aisha-red);
+    font-weight: 800;
+}
+
+.review-quote,
+.manager-quote {
+    margin: 18px 0;
+    padding: 18px 22px;
+    background-color: var(--aisha-surface);
+    border-left: 5px solid var(--aisha-red);
+    font-style: italic;
+}
+
+#manager-quote:target,
+#menu-table:target,
+#work-info:target {
+    outline: 3px solid rgba(255, 0, 0, 0.35);
+    outline-offset: 6px;
+}
+
+.section-divider {
+    margin: 25px 0;
+    border: 0;
+    border-top: 2px solid var(--aisha-red);
+}
+
+.contact-block {
+    padding: 16px;
+    background-color: var(--aisha-surface);
+    border-left: 4px solid var(--aisha-red);
+}
+
+.disclaimer-text,
+.copyright-notice {
+    color: var(--aisha-dark);
+}
+
+/* Centering technique 2: flex alignment suits the compact contact block. */
+.footer-address,
+.footer-copy {
+    text-align: center;
+}
+
+/* The heading margin can collapse into a following block; footer padding keeps it separated. */
+.site-footer,
+.main-footer {
+    margin-top: 50px;
+    padding: 25px 20px;
+    border-top: 4px solid var(--aisha-red);
+    background-color: var(--aisha-dark);
+    color: var(--aisha-white);
+    text-align: center;
+}
+
+.site-footer a,
+.main-footer a {
+    color: var(--aisha-white);
 }
