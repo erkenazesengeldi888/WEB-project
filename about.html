@@ -3,79 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Information about Espresso Day coffee shop">
-    <meta name="author" content="Yerkenaz Aisha Dilya">
-
+    <meta name="description" content="About the Espresso Day coffee shop chain in Kazakhstan.">
+    <meta name="author" content="Yerkenaz">
     <title>Espresso Day — About</title>
-
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Yerkenaz.css">
+    <style>
+        /* Internal style block, the only one in the Yerkenaz pages. It exists to show the cascade:
+           it comes after the linked files, so its letter-spacing overrides the 0.02em set for
+           .detail-card h3 in Yerkenaz.css. */
+        .detail-card h3 {
+            letter-spacing: 0.08em;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <h1>About Espresso Day</h1>
+        <nav class="main-navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active-page" aria-current="page">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="visit.html">Visit Us</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <h1>About Espresso Day</h1>
+    <main class="page-main">
+        <section class="content-card about-section" id="about-intro">
+            <h2>About the Coffee Shop</h2>
+            <p><img class="float-photo" src="images/bar.jpeg" alt="The bar counter at Espresso Day with cups, syrups and snacks">EspressoDay was born in Astana and has grown into a network of 112 branches across Kazakhstan. It positions itself as a “second home” — a cozy place to relax, study, work, or meet friends, with a menu of coffee, lemonades, snacks, and desserts.</p>
+            <!-- Inline style, the only one in the Yerkenaz pages. It exists to show the cascade:
+                 inline beats every stylesheet rule, so it removes the bottom margin that base.css gives to p. -->
+            <p style="margin-bottom: 0;">Recognizable for its red-and-white style and active social media presence, EspressoDay has become a familiar part of everyday coffee culture in Kazakhstan.</p>
+        </section>
 
-    <nav class="main-navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="visit.html">Visit Us</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
-        </ul>
-    </nav>
-</header>
+        <section class="content-card atmosphere-section">
+            <h2>The Atmosphere</h2>
+            <article class="atmosphere-card">
+                <h3>What makes Espresso Day special?</h3>
+                <p>A recognizable red-and-white style, 112 branches across the country, and a varied menu make EspressoDay more than just a place to buy coffee — it's a familiar part of everyday coffee culture.</p>
+            </article>
+            <aside class="detail-card">
+                <h3>Who runs Espresso Day</h3>
+                <p>The whole Espresso Day chain is owned by <strong>Asylzhan Kazy</strong>. The Syganak 24 branch is run as a franchise, owned by <strong>Aida and Marat</strong> and managed day to day by <strong>Ulugbek Saydullaev Faizullaevich</strong>.</p>
+            </aside>
+        </section>
+    </main>
 
-<main>
-
-    <section class="about-section" id="about-intro">
-        <h2>About the Coffee Shop</h2>
-
-        <p>
-            EspressoDay Kazakhstan is a popular coffee shop chain in Kazakhstan, known for its cozy atmosphere and convenient locations. The brand was born in Astana and has grown into a large network with more than 130 coffee shops across the country. EspressoDay positions itself as a “second home” where customers can relax, study, work, or meet friends.
-        </p>
-        <p>
-            The coffee shop offers a variety of drinks, including classic coffee, refreshing lemonades, and seasonal beverages. Its menu also includes snacks, desserts, sandwiches, and other food options, making it suitable for both a quick coffee break and a longer visit.
-        </p>
-        <p>
-            EspressoDay has a recognizable red-and-white visual style and actively communicates with its audience through social media. The brand also participates in different events and collaborations, helping it stay connected with its customers.
-        </p>
-        <p>
-            With its combination of accessible locations, diverse menu, comfortable atmosphere, and recognizable branding, EspressoDay has become a familiar part of everyday coffee culture in Kazakhstan.
-        </p>
-    </section>
-
-    <section class="atmosphere-section">
-        <h2>The Atmosphere</h2>
-
-        <article class="atmosphere-card">
-            <h3>What makes Espresso Day special?</h3>
-            <p>
-                Its strong red-and-white visual identity makes the brand easy to recognize, while its large network of 130+ coffee shops across Kazakhstan makes it convenient for customers in different cities. The variety of drinks, snacks, and food also means there is something for different tastes.
-                Most importantly, EspressoDay combines coffee culture with a sense of community, making it more than just a place to buy coffee.
-            </p>
-        </article>
-
-        <aside class="detail-card">
-            <h3>A detail we noticed</h3>
-            <p>
-                The attention to detail in the interior design, with comfortable seating and ambient lighting, creates a welcoming environment that encourages customers to stay longer.
-            </p>
-        </aside>
-    </section>
-
-</main>
-
-<footer class="site-footer">
-    <p>Contact: +77000230088</p>
-    <p>© 2026 Espresso Day</p>
-</footer>
-
+    <footer>
+        <p>Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+        <p>&copy; 2026 Espresso Day</p>
+    </footer>
 </body>
 </html>

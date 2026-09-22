@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book a table at Espresso Day coffee shop online.">
-    <title>Table Reservation — Espresso Day</title>
+    <meta name="description" content="Request a table at Espresso Day coffee shop in Astana.">
+    <meta name="author" content="Dilnaz">
+    <title>Espresso Day — Booking</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/dilnaz.css">
 </head>
 <body>
     <header class="site-header">
-        <h2 class="brand-mark">Espresso Day</h2>
+        <p class="brand-mark">Espresso Day</p>
         <nav class="main-navigation" aria-label="Main navigation">
             <ul>
-              <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="visit.html">Visit Us</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="coffee.html">Coffee</a></li>         
+                <li><a href="booking.html" class="active-page" aria-current="page">Booking</a></li>
+                <li><a href="coffee.html">Coffee</a></li>
                 <li><a href="reviews.html">Reviews</a></li>
                 <li><a href="colophon.html">Colophon</a></li>
             </ul>
@@ -26,40 +27,67 @@
     </header>
 
     <main class="page-content">
-        <section class="reservation-section form-section">
+        <section class="reservation-section" id="reservation">
             <h1 class="section-heading">Reserve a Table</h1>
-            <p class="intro-copy"> <img src="images/image1.jpg" alt="Photo" width="300">Welcome to Espresso Day! Please fill out the simple form below to book your spot. Our friendly staff will review your reservation request and reach out to confirm your seating details as soon as possible. Enjoy fresh coffee, delicious pastries, and a warm atmosphere with us every single day.</p>
+            <p class="intro-copy"><img class="float-photo" src="images/food-table.jpg" alt="A bowl of food, a bottle of water and a red Espresso Day cup on a table">Fill in the form to request a table at Espresso Day. This is a demonstration form: it does not send data anywhere yet, so to book a table right now please call the coffee shop (see below).</p>
 
-            <form class="reservation-form" action="#" method="POST">
+            <form class="reservation-form" action="#" method="post">
                 <fieldset class="form-panel">
-                    <legend>Reservation Form</legend>
-                    
+                    <legend>Reservation details</legend>
+
                     <div class="form-field">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="fullname">Your name</label>
+                        <input type="text" id="fullname" name="fullname" autocomplete="name" required>
                     </div>
 
                     <div class="form-field">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
                     </div>
 
                     <div class="form-field">
-                        <label for="date">Date:</label>
-                        <input type="date" id="date" name="date" required>
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="guests">Number of guests</label>
+                        <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="bookdate">Date of visit</label>
+                        <input type="date" id="bookdate" name="bookdate" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="booktime">Time of visit</label>
+                        <input type="time" id="booktime" name="booktime" required>
+                    </div>
+
+                    <div class="form-field wide-field">
+                        <label for="comment">Comments</label>
+                        <textarea id="comment" name="comment" rows="4"></textarea>
                     </div>
 
                     <div class="form-field action-row">
-                        <button class="primary-action" type="submit">Submit</button>
+                        <button class="primary-action" type="submit">Request table</button>
+                        <button class="secondary-action" type="reset">Clear form</button>
                     </div>
                 </fieldset>
             </form>
         </section>
+
+        <section class="phone-booking">
+            <h2 class="section-heading">Book by phone</h2>
+            <p class="phone-copy">Call us on <a href="tel:+77714198457">+7 771 419 84 57</a> or message on Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a>.</p>
+        </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Espresso Day. All rights reserved.</p>
-        <a class="quick-contact" href="tel:+77011234567">Call us</a>
+        <p>Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+        <p>&copy; 2026 Espresso Day</p>
+        <a class="quick-contact" href="tel:+77714198457">Call us</a>
     </footer>
 </body>
 </html>

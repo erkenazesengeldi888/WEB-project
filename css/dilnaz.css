@@ -1,359 +1,477 @@
 /*
-  Palette: five colours maximum
-  #3B2418 espresso brown — connects the interface to coffee and gives strong contrast.
-  #F6EFE6 warm cream — keeps the large page areas calm and readable.
-  #D8A25E caramel — adds a warm accent for actions and focus states.
-  rgb(63, 81, 52) sage — gives secondary controls a natural supporting colour.
-  white — keeps text readable on the dark header and primary button.
+  Espresso Day — dilnaz.css (Dilnaz's personal stylesheet: booking.html and visit.html)
+  Loaded SECOND, after base.css. The palette and the two font families are defined in base.css;
+  the navigation and the footer colours are styled there too, so this file adds the page content.
 */
 
-:root {
-    --espresso-brown: #3B2418;
-    --warm-cream: #F6EFE6;
-    --caramel: #D8A25E;
-    --sage: rgb(63, 81, 52);
-    --paper: white;
-}
+/* ================= HEADER ================= */
 
-/* Universal selector: all elements use predictable box dimensions. */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--warm-cream);
-    color: var(--espresso-brown);
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
-
-/* Static is intentional: the shared header stays in normal document flow. */
+/* position: static is the default value: the header stays in the normal flow of the document,
+   so it pushes the content down and offsets (top, left) would do nothing to it. */
 .site-header {
     position: static;
-    padding: 26px 48px;
-    background-color: var(--espresso-brown);
-    border-bottom: 5px solid var(--caramel);
-    color: white;
 }
 
-/* Descendant selector: the brand sits inside the site header. */
+/* Wordmark. Descendant selector: .brand-mark inside .site-header.
+   One deliberate !important in this project: visit.html gives this element an inline style (font-weight: bold = 700).
+   An inline style beats every normal rule, and only !important can beat it, so it is used here to keep the brand weight at 800. */
 .site-header .brand-mark {
-    display: block;
     margin: 0 0 18px;
-    color: white;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 2rem;
-    font-weight: 800 !important; /* One deliberate priority override: the external rule wins over the inline demo weight. */
-    line-height: 1.1;
-    letter-spacing: 0.02em;
-}
-
-.main-navigation > ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px 18px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-/* Child selector: only direct navigation list items receive this spacing rule. */
-.main-navigation > ul > li {
-    flex: 0 1 auto;
-}
-
-.main-navigation a {
-    display: inline-block;
-    padding: 7px 10px;
-    border-radius: 5px;
-    color: white;
-    font-size: 0.95rem;
-    font-weight: 700;
+    color: var(--beige);
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em;
     line-height: 1.2;
-    letter-spacing: 0.03em;
-    text-decoration: none;
+    text-transform: uppercase;
 }
 
-.main-navigation a:hover,
-.main-navigation a:focus {
-    background-color: var(--caramel);
-    color: var(--espresso-brown);
-}
+/* ================= PAGE FRAME ================= */
 
-.main-navigation a:focus {
-    outline: 3px solid white;
-    outline-offset: 2px;
-}
-
+/* Centering technique 1 — margin: auto. The reading column has a fixed maximum width,
+   so auto side margins split the free space equally and centre the column. */
 .page-content {
-    width: min(1180px, calc(100% - 96px));
-    margin: 0 auto; /* Centering technique 1: margin auto suits the page's fixed reading column. */
-    padding: 48px 0;
+    width: min(1040px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 40px 0 0;
 }
 
-/*
-  Grid suits the reservation block better than flexbox because the heading, prose,
-  and form need a predictable two-column/whole-row relationship.
-  repeat(), fr units, gap, and minmax() are used deliberately here.
-*/
-.reservation-section {
-    position: relative; /* Relative is the containing block for the absolute section badge. */
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 26px 34px;
-    margin-bottom: 42px;
-    padding: 34px;
-    background-color: var(--paper);
-    border: 1px solid rgba(59, 36, 24, 0.18);
-    border-radius: 12px;
-    box-shadow: 0 10px 24px rgba(59, 36, 24, 0.1);
+.reservation-section,
+.visit-details,
+.branch-features,
+.phone-booking {
+    padding: 32px;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--burgundy);
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0 6px 18px rgba(27, 18, 17, 0.08);
 }
 
-/* First-child pseudo-class: styles the first section as the primary page block. */
-.page-content > section:first-child {
-    border-top: 7px solid var(--caramel);
+/* position: relative — the section is the containing block for its absolutely positioned badge.
+   Margin collapse I ran into: this section has margin-bottom 30px and the next block has margin-top 40px.
+   Vertical margins of neighbouring blocks collapse, so the gap is 40px, not 70px. */
+.reservation-section,
+.visit-details {
+    position: relative;
+    margin-bottom: 30px;
 }
 
-/* Pseudo-element: an absolute badge is placed inside the relative section. */
+.branch-features,
+.phone-booking {
+    margin-top: 40px;
+}
+
+/* position: absolute — a small label lifted out of the flow into the top right corner of the section. */
 .reservation-section::after {
     position: absolute;
-    top: 16px;
+    top: 18px;
     right: 22px;
-    padding: 4px 10px;
-    background-color: var(--caramel);
+    padding: 4px 12px;
     border-radius: 999px;
-    color: var(--espresso-brown);
-    content: "RESERVATION";
+    background-color: var(--sand);
+    color: var(--espresso);
+    content: "Table request";
     font-size: 0.7rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
-h1,
-h2,
+/* Id selector. An id is right here because the reservation block exists exactly once on the page
+   and is a link target (booking.html#reservation). */
+
+/* :target matches the element whose id is in the address bar after the # */
+#reservation:target {
+    outline: 3px solid rgba(110, 20, 35, 0.4);
+    outline-offset: 6px;
+}
+
+/* Grouping selector: page headings and legend share the heading family */
+.section-heading,
 legend {
-    color: var(--espresso-brown);
-    font-family: Georgia, "Times New Roman", Times, serif;
+    color: var(--espresso);
+    font-family: var(--font-heading);
 }
 
 .section-heading {
-    grid-column: 1 / -1;
-    margin: 0;
+    margin: 0 0 16px;
     font-size: 2rem;
     font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1.15;
-    letter-spacing: 0.01em;
 }
 
-/* Adjacent-sibling selector: the first paragraph directly following a heading gets introductory spacing. */
+/* Adjacent sibling selector: only the paragraph that comes right after the heading is an introduction */
 .section-heading + .intro-copy {
-    grid-column: 1 / -1;
-    margin: 0;
+    margin-bottom: 24px;
+    color: rgba(27, 18, 17, 0.85);
+    font-size: 1.1rem;
 }
 
-/* Float keeps the image beside the student's own explanatory paragraph. */
-.story-image {
+/* ================= FLOAT AND CLEAR ================= */
+
+/* The photo floats to the left inside the paragraph: the text wraps around it. */
+.float-photo {
     float: left;
-    width: 180px;
-    height: 125px;
-    margin: 0 24px 12px 0;
-    border: 4px solid var(--warm-cream);
+    width: 200px;
+    height: 140px;
+    margin: 4px 26px 12px 0;
+    border: 4px solid var(--sand);
     border-radius: 8px;
     object-fit: cover;
 }
 
-/* Without clear, the following form could rise beside the floated image. */
+/* clear: both on an empty block after the paragraph text.
+   Without it the paragraph would collapse to the height of its text, the floated photo would stick out of the bottom
+   and the form below would rise up and wrap around the photo. */
 .intro-copy::after {
     display: block;
     clear: both;
     content: "";
 }
 
+/* ================= BOOKING FORM: FLEX ================= */
+
 .reservation-form {
-    grid-column: 1 / -1;
-    width: 100%;
-    max-width: 920px;
-    margin: 0 auto; /* Centering technique 2: margin auto keeps the form readable inside the grid. */
+    margin: 0;
 }
 
 .form-panel {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 18px 22px;
     margin: 0;
     padding: 26px;
-    border: 2px solid rgba(59, 36, 24, 0.25);
+    border: 2px solid var(--sand);
     border-radius: 10px;
 }
 
-/* Child selector: the legend occupies a full row before the flexible fields. */
+/* Child selector: the legend is a direct child of the fieldset and takes a whole row */
 .form-panel > legend {
-    flex: 0 0 100%;
-    padding: 0 8px;
-    font-size: 1.25rem;
+    padding: 0 10px;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
-.form-field {
-    display: flex;
-    flex: 1 1 calc(50% - 22px); /* Items grow and shrink to keep two columns usable. */
-    flex-direction: column;
-    gap: 7px;
-    min-width: 260px;
-    padding: 14px;
-    background-color: rgba(246, 239, 230, 0.7);
-    border: 1px solid rgba(59, 36, 24, 0.14);
-    border-radius: 8px;
+/* SPECIFICITY EXPERIMENT — two rules fight over the background of .action-row, which is also a .form-field.
+   RULE 1 — specificity (0,2,0): two classes. It WINS against rule 2 even though rule 2 is written later. */
+.form-panel .form-field {
+    background-color: var(--beige);
 }
 
-.form-field label,
-.field-label {
-    margin: 0;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.choice-group {
-    flex-direction: column;
-    justify-content: center;
-}
-
-.choice-group label {
-    font-weight: 400;
-}
-
-/* Attribute selectors: required controls and email inputs share the visual input treatment. */
-input[required],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-input[type="number"],
-select,
-textarea {
-    width: 100%;
-    padding: 10px 12px;
-    background-color: var(--paper);
-    border: 1px solid rgba(59, 36, 24, 0.35);
-    border-radius: 5px;
-    color: var(--espresso-brown);
-    font: inherit;
-    line-height: 1.35;
-}
-
-textarea {
-    min-height: 110px;
-    resize: vertical;
-}
-
-/* ID selectors: each form control is unique per page, so IDs support precise focus and label associations. */
-#fullname:focus,
-#name:focus,
-#email:focus,
-#phone:focus,
-#bookdate:focus,
-#date:focus,
-#comment:focus,
-#guests:focus,
-#coffee_pref:focus {
-    border-color: var(--caramel);
-    outline: 3px solid rgba(216, 162, 94, 0.35);
-    outline-offset: 1px;
-}
-
+/* RULE 2 — specificity (0,1,0): one class. It LOSES to rule 1, so the button row would get a beige box.
+   Kept on purpose to show the conflict. */
 .action-row {
-    flex-basis: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center; /* Centering technique 3: flex centering suits a row of action buttons. */
-    align-items: center;
-    gap: 12px;
     background-color: transparent;
     border: 0;
 }
 
+/* RULE 3 — the fix, without !important: specificity (0,3,0), three classes, beats rule 1 (0,2,0). */
+.form-panel .form-field.action-row {
+    background-color: transparent;
+    border: 0;
+}
+
+/* Each field is a flex item that may grow and shrink, so two fields share a row and one wraps below when it is short of room.
+   It is also a flex column: label above the control. */
+.form-field {
+    display: flex;
+    flex: 1 1 calc(50% - 22px);
+    flex-direction: column;
+    gap: 7px;
+    min-width: 240px;
+    padding: 14px;
+    border: 1px solid var(--sand);
+    border-radius: 8px;
+}
+
+.wide-field {
+    flex-basis: 100%;
+}
+
+/* Universal selector: every direct child of a field may shrink, so long inputs never overflow the flex item */
+.form-field > * {
+    min-width: 0;
+}
+
+/* Descendant selector: labels inside fields */
+.form-field label {
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Attribute selectors: all text-like controls get the same look (input[type] and the tags without type) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--sand);
+    border-radius: 5px;
+    background-color: var(--white);
+    color: var(--espresso);
+    font: inherit;
+    line-height: 1.35;
+}
+
+/* Id selector: the comment box is unique on the page and is the only one that needs a minimum height */
+#comment {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* :focus — the control the visitor is typing in; :hover — the mouse is over it */
+input:hover,
+textarea:hover {
+    border-color: var(--burgundy);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--burgundy);
+    outline: 3px solid rgba(110, 20, 35, 0.25);
+    outline-offset: 1px;
+}
+
+/* Centering technique 2 — flex: justify-content and align-items centre a row of buttons
+   whose number and width may change, without any margin arithmetic. */
+.action-row {
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
 button {
-    padding: 11px 20px;
+    padding: 11px 22px;
     border: 2px solid transparent;
-    border-radius: 6px;
+    border-radius: 999px;
     cursor: pointer;
     font: inherit;
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     line-height: 1.2;
 }
 
 .primary-action {
-    background-color: var(--espresso-brown);
-    color: white;
+    background-color: var(--burgundy);
+    color: var(--white);
 }
 
 .secondary-action {
-    background-color: var(--sage);
-    color: white;
+    border-color: var(--espresso);
+    background-color: transparent;
+    color: var(--espresso);
 }
 
 button:hover,
 button:focus {
-    border-color: var(--caramel);
-    transform: translateY(-1px);
+    border-color: var(--sand);
+    background-color: var(--espresso);
+    color: var(--beige);
 }
 
-.policy-section {
+/* ================= PHONE BOOKING BLOCK ================= */
+
+/* Centering technique 3 — grid: place-items: center centres the heading and the text horizontally and vertically
+   in one line of CSS; it fits this small block because it has only two children. */
+.phone-booking {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    place-items: center; /* Grid centering is ideal for the compact policy block. */
-    gap: 12px;
-    padding: 30px 34px;
-    background-color: rgba(63, 81, 52, 0.1);
-    border-left: 6px solid var(--sage);
+    place-items: center;
+    gap: 6px;
     text-align: center;
 }
 
-.policy-section .section-heading {
-    font-size: 1.45rem;
+.phone-booking .section-heading {
+    margin: 0;
+    font-size: 1.5rem;
 }
 
-.policy-copy {
-    max-width: 780px;
+.phone-copy {
+    max-width: 700px;
     margin: 0;
 }
 
-.policy-copy a {
-    color: var(--sage);
-    font-weight: 800;
+/* Attribute selector: links that start with tel: or mailto: are bold and never split across lines */
+a[href^="tel:"],
+a[href^="mailto:"] {
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-.site-footer {
+.external-link {
+    font-weight: 700;
+}
+
+/* Attribute selector + ::after: a link that opens in a new tab (target="_blank") gets an arrow. */
+a[target="_blank"]::after {
+    margin-left: 4px;
+    content: "\2197";
+}
+
+/* ================= VISIT PAGE: GRID ================= */
+
+/* Grid suits this block better than flexbox: the heading spans the full width, and below it the card and the photo
+   need different column widths (3fr and 2fr) in the same row. That is placement in rows AND columns.
+   minmax() lets the first column shrink freely while the photo column never gets narrower than 260px. */
+.visit-details {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+    gap: 24px 32px;
+    align-items: start;
+}
+
+/* The heading spans both columns */
+.visit-details > .section-heading {
+    grid-column: 1 / span 2;
+    margin-bottom: 0;
+}
+
+.location-card h2 {
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.branch-address {
+    margin-bottom: 18px;
+    font-size: 1.15rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.contact-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 10px 22px;
+    margin: 0;
+}
+
+/* :first-child — the first term of the list has no top line */
+.contact-list dt {
+    padding-top: 10px;
+    border-top: 1px solid var(--sand);
+    color: var(--burgundy);
+    font-weight: 700;
+}
+
+.contact-list dt:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+/* Adjacent sibling selector: a description directly after a term gets the same line and spacing as its term */
+.contact-list dt + dd {
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--sand);
+}
+
+.contact-list dt:first-child + dd {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.place-photo {
     position: relative;
-    padding: 28px 48px;
-    background-color: var(--espresso-brown);
-    color: white;
+    margin: 0;
+    overflow: hidden;
+    border: 3px solid var(--espresso);
+    border-radius: 10px;
+}
+
+.place-photo img {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+
+.place-photo figcaption {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    background-color: rgba(27, 18, 17, 0.82);
+    color: var(--beige);
+    font-size: 0.85rem;
     text-align: center;
 }
 
-/* The original heading margin could collapse into the section; section padding prevents that visual jump. */
-.site-footer p {
-    margin: 0;
+/* ================= VISIT PAGE: FLEX LIST OF FEATURES ================= */
+
+.branch-features .section-heading {
+    font-size: 1.5rem;
 }
 
-/* Fixed positioning keeps the contact action visible while a long form is being completed. */
+.feature-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* flex: grow shrink basis — cards share the row, grow to fill it and shrink down to 200px */
+.feature-item {
+    flex: 1 1 220px;
+    padding: 18px 20px;
+    border-left: 4px solid var(--burgundy);
+    border-radius: 6px;
+    background-color: var(--beige);
+}
+
+/* :nth-child(even) — every second card is a little darker, so the cards are easy to tell apart */
+.feature-list > .feature-item:nth-child(even) {
+    background-color: rgba(217, 194, 163, 0.45);
+}
+
+/* ::before — a diamond marker in front of every card text, drawn by CSS */
+.feature-item::before {
+    margin-right: 8px;
+    color: var(--burgundy);
+    content: "\25C6";
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer p {
+    margin: 0 0 4px;
+}
+
+/* position: fixed — the "Call us" button stays in the corner of the window while the visitor scrolls,
+   so the phone number is always one tap away. */
 .quick-contact {
     position: fixed;
     right: 24px;
     bottom: 24px;
     z-index: 10;
-    padding: 10px 16px;
-    background-color: var(--caramel);
-    border: 2px solid var(--espresso-brown);
+    padding: 11px 20px;
+    border: 2px solid var(--espresso);
     border-radius: 999px;
-    color: var(--espresso-brown);
-    font-weight: 800;
+    background-color: var(--sand);
+    color: var(--espresso);
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .quick-contact:hover,
 .quick-contact:focus {
-    background-color: var(--espresso-brown);
-    color: white;
+    background-color: var(--burgundy);
+    color: var(--white);
 }
