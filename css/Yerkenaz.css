@@ -264,6 +264,13 @@ figcaption {
     grid-column: span 2;
 }
 
+/* position: sticky — now that the drinks list is long, the photo stays in view next to it
+   while the visitor scrolls, instead of sitting still and leaving empty space below itself. */
+.menu-page > .menu-figure {
+    position: sticky;
+    top: 24px;
+}
+
 /* ================= MENU TABLE ================= */
 
 .coffee-table {
@@ -331,45 +338,81 @@ figcaption {
 
 /* ================= OTHER DRINKS: FLEX ================= */
 
-/* Second flex container: a row of drink groups that wrap and grow */
+/* Second flex container: a column of category cards, each one full width and stacked with even gaps */
 .drink-card {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px 24px;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .drink-card > h2 {
-    flex: 1 0 100%;
     margin-bottom: 0;
 }
 
-/* Each group is itself a flex column: heading first, list below */
-.drink-group {
-    display: flex;
-    flex: 1 1 200px;
-    flex-direction: column;
+/* One card per drink category: heading, size label, then a price list */
+.menu-category {
+    padding: 18px 22px;
+    border: 1px solid var(--sand);
+    border-radius: 8px;
+    background-color: var(--beige);
 }
 
-.drink-group ul {
+.menu-category h3 {
+    margin-bottom: 2px;
+}
+
+.menu-sizes {
+    margin: 0 0 10px;
+    color: rgba(27, 18, 17, 0.55);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Name on the left, price on the right, dashed leader between them like a printed menu */
+.menu-list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.drink-group li {
-    padding: 8px 0;
-    white-space: nowrap;
+.menu-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 7px 0;
     border-bottom: 1px dashed var(--sand);
 }
 
 /* :first-child — no line above the first item of a list */
-.drink-group li:first-child {
+.menu-list li:first-child {
     padding-top: 0;
 }
 
-.drink-group li:last-child {
+.menu-list li:last-child {
     border-bottom: 0;
+}
+
+.menu-list .item-price {
+    flex-shrink: 0;
+    color: var(--burgundy);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Small pill for new menu positions, matching the red "JANA" tag on the printed menu */
+.new-badge {
+    margin-left: 6px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background-color: var(--burgundy);
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 /* ================= FIXED "BACK TO TOP" LINK (menu page) ================= */

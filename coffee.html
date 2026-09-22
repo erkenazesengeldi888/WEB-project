@@ -129,10 +129,11 @@
         <h2>The Coffee Shop Concept</h2>
 
         <article class="concept-article photo-card">
-            <h3>Branch manager: Ulugbek Saydullaev Faizullaevich</h3>
+            <p class="role-label">Branch Manager</p>
+            <h3>Ulugbek Saydullaev Faizullaevich</h3>
 
             <p>
-                <img src="images/coffee-art.jpeg" alt="Coffee art on a drink served at EspressoDay" class="float-photo">
+                <img src="images/bar.jpeg" alt="Coffee bar counter and espresso machine at EspressoDay" class="float-photo">
                 The manager of this Espresso Day branch is
                 <strong>Ulugbek Saydullaev Faizullaevich</strong>.
                 The branch itself runs as a franchise owned by
@@ -169,77 +170,145 @@
     </section>
 
 
-    <!-- Уникальный ID для реализации якорного перехода -->
-    <section id="menu-table" class="pricing-section">
-        <h2>Drinks and Prices</h2>
+    <!-- Уникальный ID для реализации якорного перехода. Полный прайс-лист живёт на menu.html — здесь только состав и кастомизация -->
+    <section id="menu-table" class="recipes-section">
+        <h2>Coffee Varieties</h2>
 
         <p>
-            The following table contains examples of drinks from the
-            provided EspressoDay menu. Prices are shown in tenge:
-            &#8376;.
+            Every drink on the menu starts from the same espresso shot.
+            Here is what separates one variety from the next.
         </p>
 
-        <!-- Смысловой класс таблицы напитков -->
         <table class="drink-menu-table">
-            <caption>Examples of EspressoDay drinks and prices</caption>
+            <caption>How each EspressoDay coffee variety is built</caption>
 
             <thead>
                 <tr>
-                    <th scope="col">Category</th>
                     <th scope="col">Drink</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Built With</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>Signature drinks</td>
-                    <td>Kazakh Raf</td>
-                    <td>350 ml</td>
-                    <td class="price-cell">1 490 &#8376;</td>
+                    <td>Espresso</td>
+                    <td>2 espresso shots, 60 ml</td>
                 </tr>
 
                 <tr>
-                    <td>Signature drinks</td>
-                    <td>Latte Qurt</td>
-                    <td>350 ml</td>
-                    <td class="price-cell">1 490 &#8376;</td>
+                    <td>Americano</td>
+                    <td>Espresso shot + hot water</td>
                 </tr>
 
                 <tr>
-                    <td>Fresh juice</td>
-                    <td>Orange</td>
-                    <td>450 ml</td>
-                    <td class="price-cell">2 390 &#8376;</td>
+                    <td>Latte</td>
+                    <td>Espresso shot + steamed milk, thin layer of foam</td>
                 </tr>
 
                 <tr>
-                    <td>Baby drinks</td>
-                    <td>Cocoa</td>
-                    <td>350 ml</td>
-                    <td class="price-cell">990 &#8376;</td>
+                    <td>Cappuccino</td>
+                    <td>Espresso shot + steamed milk + thick milk foam, in equal parts</td>
                 </tr>
 
                 <tr>
-                    <td>Tonic drinks</td>
-                    <td>Espresso Tonic</td>
-                    <td>450 ml</td>
-                    <td class="price-cell">1 790 &#8376;</td>
+                    <td>Flat White</td>
+                    <td>Espresso shot + steamed milk with fine microfoam, no thick foam layer</td>
                 </tr>
 
                 <tr>
-                    <td>Smoothies</td>
-                    <td>Strawberry</td>
-                    <td>450 ml</td>
-                    <td class="price-cell">1 690 &#8376;</td>
+                    <td>Raf</td>
+                    <td>Espresso shot + fresh cream, flavoured with syrup</td>
+                </tr>
+
+                <tr>
+                    <td>Spanish Latte</td>
+                    <td>Espresso shot + milk + condensed milk</td>
+                </tr>
+
+                <tr>
+                    <td>Mocaccino</td>
+                    <td>Espresso shot + milk + cocoa</td>
+                </tr>
+
+                <tr>
+                    <td>Şie Bumble</td>
+                    <td>Espresso shot + cherry juice + ice</td>
+                </tr>
+
+                <tr>
+                    <td>Bumble Coffee</td>
+                    <td>Espresso shot + fresh orange juice + ice</td>
                 </tr>
             </tbody>
         </table>
+    </section>
 
-        <small class="disclaimer-text">
-            Prices are based on the provided menu and may change.
-        </small>
+
+    <section class="customise-section">
+        <h2>Customise Your Coffee</h2>
+
+        <p>
+            Every drink can be adjusted to personal taste. Choosing the
+            bean roast is free; the extras below cost a little more, at
+            the prices shown next to each option.
+        </p>
+
+        <h3>Coffee Beans</h3>
+
+        <!-- Список выбора зерна, оформлен как две акцентные карточки -->
+        <ul class="bean-options">
+            <li>
+                <strong>80% Arabica, 20% Robusta</strong>
+                A fuller-bodied cup.
+            </li>
+            <li>
+                <strong>100% Arabica</strong>
+                A softer, more delicate roast.
+            </li>
+        </ul>
+
+        <p>
+            Beans are also sold to take home, in 250 g and 1 kg bags.
+        </p>
+
+        <h3>Milk Alternatives <span class="extra-price">+450 &#8376;</span></h3>
+
+        <ul class="chip-list">
+            <li>Coconut</li>
+            <li>Oat</li>
+            <li>Banana</li>
+            <li>Lactose-free</li>
+            <li>Almond</li>
+        </ul>
+
+        <h3>Decaf <span class="extra-price">+290 &#8376;</span></h3>
+
+        <p>
+            Decaf beans are available for guests who want the flavour
+            of coffee without the caffeine.
+        </p>
+
+        <h3>Syrups <span class="extra-price">+190 &#8376;</span></h3>
+
+        <ul class="chip-list">
+            <li>Caramel</li>
+            <li>Salted Caramel</li>
+            <li>Hazelnut</li>
+            <li>Popcorn</li>
+            <li>Macadamia</li>
+            <li>Vanilla</li>
+            <li>Coconut</li>
+            <li>Irish Cream</li>
+            <li>and more</li>
+        </ul>
+
+        <h3>Matcha</h3>
+
+        <p>
+            Two matcha options are available: classic
+            <strong>green matcha</strong> and vibrant
+            <strong>blue matcha</strong> (butterfly pea).
+        </p>
     </section>
 
 
@@ -351,7 +420,8 @@
 
         <p>
             Quick links:
-            <a href="#menu-table" class="anchor-link">drink prices</a>
+            <a href="#menu-table" class="anchor-link">coffee varieties</a>,
+            <a href="menu.html" class="inline-link">full menu and prices</a>
             and
             <a href="#work-info" class="anchor-link">visitor information</a>.
         </p>
