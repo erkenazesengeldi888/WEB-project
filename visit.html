@@ -1,15 +1,17 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book a table at Espresso Day coffee shop online using our reservation form.">
-    <meta name="author" content="Dilnaz Nurmaganova">
-    <title>Table Reservation — Espresso Day</title>
+    <meta name="description" content="How to find Espresso Day at Syganak 24 in Astana and what to expect at the branch.">
+    <meta name="author" content="Dilnaz">
+    <title>Espresso Day — Visit Us</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/dilnaz.css">
     <style>
-       /* Deliberate cascade demonstration: this page-only rule overrides the external .brand-mark letter-spacing. */
+        /* Internal style block, the only one in the Dilnaz pages. It exists to show the cascade:
+           it comes after the linked files, so its letter-spacing overrides the one set
+           for .brand-mark in dilnaz.css. */
         .brand-mark {
             letter-spacing: 0.08em;
         }
@@ -17,16 +19,18 @@
 </head>
 <body>
     <header class="site-header">
-        <!-- The single inline style deliberately demonstrates inline priority in the cascade. -->
-        <span class="brand-mark" style="font-weight: bold;">Espresso Day</span>
+        <!-- Inline style, the only one in the Dilnaz pages. It exists to show the cascade:
+             an inline declaration beats the stylesheets, but dilnaz.css answers it with the one
+             !important on .brand-mark, which beats inline styles. -->
+        <p class="brand-mark" style="font-weight: bold;">Espresso Day</p>
         <nav class="main-navigation" aria-label="Main navigation">
             <ul>
-               <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="visit.html">Visit Us</a></li>
+                <li><a href="visit.html" class="active-page" aria-current="page">Visit Us</a></li>
                 <li><a href="booking.html">Booking</a></li>
-                <li><a href="coffee.html">Coffee</a></li>         
+                <li><a href="coffee.html">Coffee</a></li>
                 <li><a href="reviews.html">Reviews</a></li>
                 <li><a href="colophon.html">Colophon</a></li>
             </ul>
@@ -34,85 +38,51 @@
     </header>
 
     <main class="page-content">
-        <!-- Chose section for the form because the booking form represents a complete interactive functional block of the page -->
-        <section class="reservation-section form-section">
-            <h1 class="section-heading">Table Reservation</h1>
-            <p class="intro-copy"><img src="images/interior (1).jpg" alt="Cozy interior of Espresso Day coffee shop with comfortable soft sofas and green plants" width="300" class="interior-image">Fill out the form below to reserve a table at Espresso Day for your preferred time. Our manager will contact you shortly to confirm your booking.</p>
+        <section class="visit-details">
+            <h1 class="section-heading">Visit Us</h1>
 
-            <!-- Table reservation form (no backend is implemented yet, data does not submit anywhere) -->
-            <form class="reservation-form" action="#" method="POST">
-                <!-- Note: The form does not send data anywhere yet since there is no server behind it -->
-                <fieldset class="form-panel">
-                    <legend>Guest Details &amp; Reservation Parameters</legend>
-                    
-                    <div class="form-field">
-                        <label for="fullname">Your Name:</label>
-                        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
-                    </div>
+            <article class="location-card">
+                <h2>Where to find us</h2>
+                <address class="branch-address">
+                    Syganak 24, Nura District, Astana, Kazakhstan<br>
+                    <a href="https://2gis.kz/astana/geo/70000001116765885" class="external-link" target="_blank" rel="noopener noreferrer">View on 2GIS</a>
+                </address>
+                <dl class="contact-list">
+                    <dt>Phone</dt>
+                    <dd><a href="tel:+77714198457">+7 771 419 84 57</a></dd>
+                    <dt>E-mail</dt>
+                    <dd><a href="mailto:Espressoday2023@gmail.com">Espressoday2023@gmail.com</a></dd>
+                    <dt>Instagram</dt>
+                    <dd><a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></dd>
+                    <dt>Opening hours</dt>
+                    <dd>Weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00</dd>
+                    <dt>Rating</dt>
+                    <dd>4.9 / 5 on <a href="https://2gis.kz/astana/geo/70000001116765885" class="external-link" target="_blank" rel="noopener noreferrer">2GIS</a> (31 reviews)</dd>
+                </dl>
+            </article>
 
-                    <div class="form-field">
-                        <label for="email">Email Address:</label>
-                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 700 000 00 00" required>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="guests">Number of Guests:</label>
-                        <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="bookdate">Date of Visit:</label>
-                        <input type="date" id="bookdate" name="bookdate" required>
-                    </div>
-                    
-                    <div class="form-field choice-group">
-                        <p class="field-label">Preferred Seating Area:</p>
-                        <label><input type="radio" name="zone" value="window" checked> By the window</label>
-                        <label><input type="radio" name="zone" value="center"> Center of the hall</label>
-                        <label><input type="radio" name="zone" value="terrace"> Terrace</label>
-                    </div>
-
-                    <div class="form-field choice-group">
-                        <label><input type="checkbox" name="high_chair" value="yes"> Need a baby high chair</label>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="coffee_pref">Favorite Drink Preference:</label>
-                        <select id="coffee_pref" name="coffee_pref">
-                            <option value="espresso">Double Espresso</option>
-                            <option value="cappuccino">Cappuccino</option>
-                            <option value="latte">Latte</option>
-                            <option value="americano">Americano</option>
-                        </select>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="comment">Additional Comments:</label>
-                        <textarea id="comment" name="comment" rows="4" placeholder="Specify any other preferences..."></textarea>
-                    </div>
-
-                    <div class="form-field action-row">
-                        <button class="primary-action" type="submit">Book Table</button>
-                        <button class="secondary-action" type="reset">Reset Form</button>
-                    </div>
-                </fieldset>
-            </form>
+            <figure class="place-photo">
+                <img src="images/exterior.jpeg" alt="The Espresso Day entrance at Syganak 24">
+                <figcaption>The entrance at Syganak 24.</figcaption>
+            </figure>
         </section>
 
-        <section class="policy-section">
-            <h2 class="section-heading">Important Reservation Policy</h2>
-            <p class="policy-copy">Reservations are held for 15 minutes past the scheduled time, after which the table may be released to other guests unless you call us in advance at <a href="tel:+77011234567">+7 (701) 123-45-67</a> to notify us of a delay.</p>
+        <section class="branch-features">
+            <h2 class="section-heading">At the branch</h2>
+            <ul class="feature-list">
+                <li class="feature-item">A power socket at every table, so you can study or work on a laptop.</li>
+                <li class="feature-item">Take away format: order a drink and leave in a few minutes.</li>
+                <li class="feature-item">Interior with elements of Kazakh ethnic style.</li>
+                <li class="feature-item">Coffee, tea, lemonades, fresh juices, smoothies and desserts.</li>
+                <li class="feature-item">10% cashback in the <strong>Espressoday</strong> app, at any branch.</li>
+            </ul>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Espresso Day. All rights reserved.</p>
-        <a class="quick-contact" href="tel:+77011234567">Call us</a>
+        <p>Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+        <p>&copy; 2026 Espresso Day</p>
+        <a class="quick-contact" href="tel:+77714198457">Call us</a>
     </footer>
 </body>
 </html>

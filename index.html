@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Information about Espresso Day coffee shop">
-    <meta name="author" content="Yerkenaz, Aisha, Dilya">
-
-    <title>Espresso Day Home</title>
-
-    
+    <meta name="description" content="Espresso Day is a coffee shop chain in Astana, Kazakhstan: menu, coffee, location and reviews.">
+    <meta name="author" content="Yerkenaz">
+    <title>Espresso Day — Home</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Yerkenaz.css">
 </head>
@@ -17,10 +13,9 @@
 <body>
     <header>
         <h1>Espresso Day</h1>
-
-        <nav class="main-navigation">
+        <nav class="main-navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active-page" aria-current="page">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="visit.html">Visit Us</a></li>
@@ -32,51 +27,52 @@
         </nav>
     </header>
 
-    <main>
-
-        <section>
+    <main class="page-main">
+        <section class="content-card welcome-section">
             <h2>Welcome to Espresso Day</h2>
-
-            <p>
-                Espresso Day is a modern coffee shop chain in Astana, Kazakhstan. It has several locations in different parts of the city, which makes it convenient for people to visit. The coffee shop is popular among young people, students, office workers, and anyone who enjoys good coffee and a comfortable atmosphere.
-            </p>
-            <p>
-                Espresso Day offers a variety of drinks, including espresso, cappuccino, latte, tea, and refreshing cold drinks. The menu also includes different desserts, pastries, cheesecakes, syrniki, and other light food. The coffee shop sometimes offers seasonal drinks, so customers can try something new depending on the time of year.
-            </p>
-            <p>
-                One of the main advantages of Espresso Day is its convenient format. Customers can come to the coffee shop to meet friends, study, work on a laptop, or simply relax with a cup of coffee. It is also possible to order a drink to take away, which is useful for people who are in a hurry.
-            </p>
-            <p>
-                The atmosphere in Espresso Day is modern and comfortable. The interior is designed for both short visits and longer stays. Many customers appreciate the friendly staff, good service, and quality of the drinks.
-            </p>
-            <p>
-                Espresso Day is a good example of a modern urban coffee shop in Astana. It combines a convenient location, a varied menu, comfortable places to sit, and a friendly atmosphere. For these reasons, it can be a good place to have coffee, meet friends, study, or take a short break during a busy day.
-            </p>
+            <p><img class="float-photo" src="images/interior.jpeg" alt="Tables and chairs by the large windows inside Espresso Day">Espresso Day is a coffee shop chain in Astana, Kazakhstan, with 112 branches across the country. It's a comfortable spot for coffee, dessert, a quick take away order, or a longer stay to study or work.</p>
+            <p>Take a look at the <a href="menu.html#coffee-menu">coffee menu</a> or go straight to <a href="booking.html#reservation">reserve a table</a>.</p>
         </section>
 
-
-        <section>
-            <h2>Our Coffee Shop</h2>
-
-            <article>
-                <h3>What makes Espresso Day special?</h3>
-
-                <p>
-                    Espresso Day is special because it combines good coffee, a cozy atmosphere, and a convenient location. It is not only a place to buy coffee, but also a comfortable space where people can meet friends, study, work, or relax. Its variety of drinks and desserts, modern atmosphere, and friendly service make it popular among young people in Astana.
-                </p>
-            </article>
+        <section class="content-card perks-section">
+            <h2>Why Espresso Day</h2>
+            <ul class="perks-grid">
+                <li class="perk-card">
+                    <span class="perk-icon" aria-hidden="true">☕</span>
+                    Coffee, lemonades, ice matcha and desserts
+                </li>
+                <li class="perk-card">
+                    <span class="perk-icon" aria-hidden="true">⚡</span>
+                    Take away format, ready in a few minutes
+                </li>
+                <li class="perk-card">
+                    <span class="perk-icon" aria-hidden="true">🔌</span>
+                    A power socket at every table
+                </li>
+                <li class="perk-card">
+                    <span class="perk-icon" aria-hidden="true">🏺</span>
+                    Interior with elements of Kazakh style
+                </li>
+                <li class="perk-card perk-app">
+                    <span class="perk-icon" aria-hidden="true">📱</span>
+                    <strong>Espressoday</strong> app — order ahead and get 10% cashback
+                </li>
+                <li class="perk-card">
+                    <span class="perk-icon" aria-hidden="true">📍</span>
+                    112 branches across Kazakhstan
+                </li>
+            </ul>
         </section>
 
-        <figure>
-            <img src="images/index.jpg.jpg" alt="Photo of Espresso Day">
+        <figure class="storefront-photo">
+            <img src="images/index.jpg" alt="Espresso Day entrance decorated with red flowers">
+            <figcaption>The Espresso Day entrance.</figcaption>
         </figure>
-
     </main>
 
     <footer>
-        <p>Contact: +77000230088 </p>
-        <p> 2026 Espresso Day</p>
+        <p>Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+        <p>&copy; 2026 Espresso Day</p>
     </footer>
-
 </body>
 </html>

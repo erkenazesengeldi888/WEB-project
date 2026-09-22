@@ -3,45 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Espresso Day coffee and drinks menu">
+    <meta name="description" content="Espresso Day coffee, lemonades and ice matcha with prices in tenge.">
     <meta name="author" content="Yerkenaz">
-
-    <title>Espresso Day Menu</title>
+    <title>Espresso Day — Menu</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Yerkenaz.css">
-
 </head>
 
 <body>
+    <header id="page-top">
+        <h1>Espresso Day Menu</h1>
+        <nav class="main-navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html" class="active-page" aria-current="page">Menu</a></li>
+                <li><a href="visit.html">Visit Us</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <h1>Espresso Day Menu</h1>
+    <main class="page-main menu-page">
+        <section class="content-card menu-intro">
+            <h2>Our Menu</h2>
+            <p>Coffee is served in three sizes. Prices are in tenge (&#8376;); a dash means the drink is not served in that size. Read more <a href="about.html#about-intro">about the coffee shop</a> or <a href="visit.html">visit us</a> in person.</p>
+        </section>
 
-    <nav class="main-navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="visit.html">Visit Us</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-
-    <section class="menu-intro">
-    <h2>Our Menu</h2>
-    </section>
-
-    <section class="coffee-section" id="coffee-menu">
-    <h2>Coffee</h2>
-
-        <table class="coffee-table">
+        <section class="content-card coffee-section" id="coffee-menu">
+            <h2>Coffee</h2>
+            <table class="coffee-table">
             <caption>Espresso Day Coffee Menu</caption>
 
             <thead>
@@ -57,95 +51,91 @@
 
                 <tr>
                     <th scope="row">Espresso</th>
-                    <td>690 ₸</td>
+                    <td class="price-cell">690 ₸</td>
                     <td>-</td>
                     <td>-</td>
                 </tr>
 
                 <tr>
                     <th scope="row">Americano</th>
-                    <td>890 ₸</td>
-                    <td>1090 ₸</td>
-                    <td>1190 ₸</td>
+                    <td class="price-cell">890 ₸</td>
+                    <td class="price-cell">1090 ₸</td>
+                    <td class="price-cell">1190 ₸</td>
                 </tr>
                  <tr>
                     <th scope="row">Mokkacino</th>
-                    <td>1390 ₸</td>
-                    <td>1490 ₸</td>
-                    <td>1590 ₸</td>
+                    <td class="price-cell">1390 ₸</td>
+                    <td class="price-cell">1490 ₸</td>
+                    <td class="price-cell">1590 ₸</td>
                 </tr>
                  <tr>
                     <th scope="row">Latte</th>
                     <td>-</td>
-                    <td>1190 ₸</td>
-                    <td>1390 ₸</td>
+                    <td class="price-cell">1190 ₸</td>
+                    <td class="price-cell">1390 ₸</td>
                 </tr>
                  <tr>
-                    <th scope="row">Cappucino</th>
-                    <td>1090 ₸</td>
-                    <td>1290 ₸</td>
-                    <td>1390 ₸</td>
+                    <th scope="row">Cappuccino</th>
+                    <td class="price-cell">1090 ₸</td>
+                    <td class="price-cell">1290 ₸</td>
+                    <td class="price-cell">1390 ₸</td>
                 </tr>
                  <tr>
                     <th scope="row">Flat white</th>
-                    <td>1190 ₸</td>
+                    <td class="price-cell">1190 ₸</td>
                     <td>-</td>
                     <td>-</td>
                 </tr>
                  <tr>
                     <th scope="row">Raf</th>
                     <td>-</td>
-                    <td>1590 ₸</td>
+                    <td class="price-cell">1590 ₸</td>
                     <td>-</td>
                 </tr>
                  <tr>
                     <th scope="row">Spanish latte</th>
                     <td>-</td>
-                    <td>1290 ₸</td>
-                    <td>1490 ₸</td>
+                    <td class="price-cell">1290 ₸</td>
+                    <td class="price-cell">1490 ₸</td>
                 </tr>
 
 
             </tbody>
         </table>
-    <section class="drinks-section">
+        </section>
 
-    <article class="drink-card">
-        <h2>Other Drinks</h2>
+        <section class="content-card drinks-section">
+            <article class="drink-card">
+                <h2>Other Drinks</h2>
+                <article class="drink-group">
+                    <h3>Lemonades</h3>
+                    <ul>
+                        <li>Qulynai — 1090 &#8376;</li>
+                        <li>Kiwi-lime — 1190 &#8376;</li>
+                        <li>Kók aspan — 1190 &#8376;</li>
+                    </ul>
+                </article>
+                <article class="drink-group">
+                    <h3>Ice Matcha</h3>
+                    <ul>
+                        <li>Green ice matcha — 1290 &#8376;</li>
+                        <li>Blue ice matcha — 1290 &#8376;</li>
+                    </ul>
+                </article>
+            </article>
+        </section>
 
-        <article>
-            <h3>Lemonades</h3>
+        <figure class="menu-figure">
+            <img src="images/menu.png" alt="Printed Espresso Day menu with photos of drinks and a price list">
+            <figcaption>The printed menu.</figcaption>
+        </figure>
+    </main>
 
-            <ul>
-                <li>Qulynai — 1090 ₸</li>
-                <li>Kiwi-lime — 1190 ₸</li>
-                <li>Kók aspan — 1190 ₸</li>
-            </ul>
-        </article>
+    <a class="back-to-top" href="#page-top">Back to top</a>
 
-        <article>
-            <h3>Ice Matcha</h3>
-
-            <ul>
-                <li>Green ice matcha — 1290 ₸</li>
-                <li>Blue ice matcha — 1290 ₸</li>
-            </ul>
-        </article>
-    </section>
-
-    <figure class="menu-figure">
-        <img src="images/menu.PNG" alt=" MENU PHOTO">
-        <figcaption>
-             MENU.
-        </figcaption>
-    </figure>
-
-</main>
-
-<footer class="site-footer">
-    <p>Contact: +77000230088</p>
-    <p> 2026 Espresso Day</p>
-</footer>
-
+    <footer>
+        <p>Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+        <p>&copy; 2026 Espresso Day</p>
+    </footer>
 </body>
 </html>

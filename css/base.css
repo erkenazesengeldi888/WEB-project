@@ -1,3 +1,31 @@
+/*
+  Espresso Day — base.css (written by the whole team, loaded FIRST on every page)
+
+  PALETTE (five colours):
+  #6e1423  deep burgundy — the "red" of the Espresso Day brand, but darker and calmer than pure red; used for accents, links and active states.
+  #1b1211  espresso black — the colour of strong coffee; used for header, footer and text so contrast is high.
+  #ffffff  white — clean surface for cards, tables and images so content stands out from the page.
+  #f5ede3  warm beige — page background; softer than white, feels like milk and paper cups.
+  #d9c2a3  sand — light latte tone for borders, dividers and text placed on dark backgrounds.
+
+  FONTS (two families):
+  Headings — Georgia serif: elegant, "café menu" feeling.
+  Body — Helvetica/Arial sans-serif: neutral and easy to read in long texts and tables.
+*/
+
+:root {
+    --burgundy: #6e1423;
+    --espresso: #1b1211;
+    --white: #ffffff;
+    --beige: #f5ede3;
+    --sand: #d9c2a3;
+
+    --font-heading: Georgia, "Times New Roman", Times, serif;
+    --font-body: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+}
+
+/* Universal selector: matches every element on every page.
+   border-box means width includes padding and border, so cards never grow wider than planned. */
 * {
     box-sizing: border-box;
 }
@@ -7,45 +35,140 @@ html {
 }
 
 body {
-    color: #111111;
     margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    background-color: var(--beige);
+    color: var(--espresso);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
 }
+
+/* Grouping selector: all headings share the serif family and a tight line-height. */
+h1,
+h2,
+h3 {
+    margin: 0 0 0.6em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.6rem;
+    letter-spacing: 0.02em;
+}
+
+h2 {
+    font-size: 1.7rem;
+    letter-spacing: 0.03em;
+}
+
+h3 {
+    color: var(--burgundy);
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: var(--burgundy);
+}
+
+a:hover {
+    color: var(--espresso);
+}
+
+/* ---------- Header ---------- */
 header {
-    padding: 20px;
+    padding: 32px 24px 26px;
+    background-color: var(--espresso);
+    background-image: radial-gradient(circle at 50% 0%, rgba(110, 20, 35, 0.6), rgba(27, 18, 17, 0) 70%);
+    border-bottom: 4px solid var(--burgundy);
+    color: var(--beige);
+    text-align: center;
 }
 
-main {
-    padding: 20px;
+header h1 {
+    color: var(--beige);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
 }
 
-footer {
-    padding: 20px;
-    margin-top: 30px;
-}
+/* ---------- Navigation: a flex row ---------- */
 .main-navigation ul {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    flex-direction: row;        /* items sit side by side */
+    flex-wrap: wrap;            /* on narrow windows links drop to a new line instead of overflowing */
+    justify-content: center;    /* centred along the main (horizontal) axis */
+    align-items: center;        /* centred along the cross (vertical) axis */
+    gap: 8px;                   /* even space between links without margins on each <li> */
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 .main-navigation a {
-    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--sand);
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 8px 12px;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.main-navigation a:hover {
-    text-decoration: underline;
-}
+
+/* :hover — mouse over a link; :focus — same feedback for keyboard users tabbing through the menu */
+.main-navigation a:hover,
 .main-navigation a:focus {
-    outline: 2px solid black;
+    border-color: var(--sand);
+    background-color: var(--burgundy);
+    color: var(--white);
+    outline: none;
+}
+
+/* The link of the page the visitor is currently on */
+.main-navigation .active-page {
+    border-color: var(--burgundy);
+    background-color: var(--burgundy);
+    color: var(--white);
+}
+
+/* ---------- Main ---------- */
+main {
+    padding: 40px 24px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    margin-top: 48px;
+    padding: 28px 24px;
+    border-top: 4px solid var(--burgundy);
+    background-color: var(--espresso);
+    color: var(--sand);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+footer p {
+    margin: 0 0 4px;
+}
+
+footer a {
+    color: var(--beige);
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--white);
 }

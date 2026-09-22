@@ -1,221 +1,161 @@
 /*
-  Personal stylesheet for Aisha's coffee and reviews pages.
-  Palette: five colours maximum
-  red вЂ” a warm red accent highlights active links and actions.
-  #000000 вЂ” black provides strong headings and navigation contrast.
-  #FFFFFF вЂ” white keeps cards, images and table cells clean.
-  #F8F8F8 вЂ” soft gray separates content areas without heavy decoration.
-  #E5E5E5 вЂ” light borders separate cards, fields and table cells.
+  Espresso Day — aisha.css (Aisha's personal stylesheet: coffee.html and reviews.html)
+  Loaded SECOND, after base.css, so any rule here with equal specificity overrides base.css.
+  The colour palette and the two font families are defined at the top of base.css.
 */
 
-:root {
-    --aisha-red: red;
-    --aisha-dark: #000000;
-    --aisha-white: #FFFFFF;
-    --aisha-surface: #F8F8F8;
-    --aisha-line: #E5E5E5;
-}
+/* ================= HEADER AND FIXED NAVIGATION ================= */
 
-/* Universal selector: the personal pages use predictable box sizing. */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--aisha-surface);
-    color: var(--aisha-dark);
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
-}
-
-/* Type selector and static positioning: the page header stays in normal flow. */
-header,
+/* Grouping selector: the coffee page header (.header-container) and the reviews page header (.main-header).
+   position: static is the default value: the header stays in the normal document flow,
+   so top/left/z-index would have no effect on it. The big top padding leaves room for the fixed nav bar. */
 .header-container,
 .main-header {
     position: static;
-    padding: 25px 30px;
-    background-color: var(--aisha-red);
-    border-bottom: 4px solid var(--aisha-dark);
-    color: var(--aisha-dark);
-    text-align: center;
+    padding: 104px 24px 40px;
 }
 
+/* Wordmark / page title. The coffee page overrides its colour in an internal <style> block (see coffee.html). */
 .page-header-title,
-.main-title,
 .logo {
-    margin: 0 0 20px;
-    color: var(--aisha-dark);
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-}
-
-/* Flexbox navigation: links wrap while preserving a horizontal row. */
-.main-navigation > ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
     margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-/* Child selector: only direct navigation items receive the flexible item rule. */
-.main-navigation > ul > li {
-    flex: 0 1 auto;
-}
-
-.main-navigation a {
-    display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid var(--aisha-dark);
-    border-radius: 4px;
-    background-color: var(--aisha-dark);
-    color: var(--aisha-white);
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: var(--beige);
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     line-height: 1.2;
-    text-decoration: none;
+    text-transform: uppercase;
 }
 
-.main-navigation a:hover,
-.main-navigation a:focus {
-    background-color: var(--aisha-white);
-    color: var(--aisha-red);
-    outline: 2px solid var(--aisha-white);
-    outline-offset: 2px;
+/* position: fixed — the nav bar is taken out of the flow and glued to the top of the window,
+   so the visitor can change page from anywhere on a long page. */
+.main-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 14px 24px;
+    border-bottom: 2px solid var(--burgundy);
+    background-color: rgba(27, 18, 17, 0.96);
 }
 
-/* One deliberate priority demonstration: active-page background beats the shared navigation rule. */
-.main-navigation .active-link,
-.main-navigation .active-page {
-    background-color: var(--aisha-white) !important;
-    color: var(--aisha-red);
-}
+/* ================= PAGE LAYOUT (CSS GRID) ================= */
 
-/* Grid gives the long coffee page a clear two-column reading structure. */
+/* Grid suits the page frame because it places blocks in rows AND columns at once:
+   some sections fill the whole width, two others sit side by side. Flexbox is one-dimensional and would need
+   wrappers or fixed widths to do the same.
+   Centering technique 1 — margin: auto: the block has a known width, so auto side margins split the free space equally. */
 .main-content,
 .container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
-    width: min(1180px, calc(100% - 60px));
-    margin: 35px auto; /* Centering technique 1: auto margins center the reading area. */
-    padding: 0;
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 40px 0 0;
 }
 
-.main-content > section,
-.container > section,
+/* Every top-level block of the page is a white card */
+.intro-section,
+.gallery-section,
+.concept-section,
+.pricing-section,
+.categories-section,
+.utility-section,
 .gallery-container,
 .reviews-section,
 .manager-section {
-    grid-column: 1 / -1;
-    padding: 26px;
-    background-color: var(--aisha-white);
-    border: 1px solid var(--aisha-line);
-    border-left: 5px solid var(--aisha-red);
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 32px;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--burgundy);
+    border-radius: 10px;
+    background-color: white; /* the one named colour of this stylesheet */
+    box-shadow: 0 6px 18px rgba(27, 18, 17, 0.08);
 }
 
-h1,
-h2,
-h3,
-caption {
-    color: var(--aisha-dark);
-    font-family: Georgia, "Times New Roman", Times, serif;
+/* Child selector: matches only <section> elements that are direct children of .main-content on coffee.html. */
+
+/* SPECIFICITY EXPERIMENT — two rules fight over grid-column of .categories-section and .utility-section.
+   RULE 1 — specificity (0,1,1): one class + one type. It WINS against rule 2 even though rule 2 comes later,
+   because the cascade compares specificity before source order. */
+.main-content > section {
+    grid-column: 1 / -1;
 }
+
+/* RULE 2 — specificity (0,1,0): one class only. It LOSES to rule 1 (0,1,0 < 0,1,1),
+   so these two sections would stay full-width. Kept on purpose to show the conflict. */
+.categories-section,
+.utility-section {
+    grid-column: auto;
+}
+
+/* RULE 3 — the fix, without !important: specificity (0,2,0) (two classes) beats rule 1 (0,1,1),
+   so the two sections finally take one column each and sit side by side. */
+.main-content > .categories-section,
+.main-content > .utility-section {
+    grid-column: auto;
+}
+
+/* The reviews page: the h1 spans the grid, the gallery is full-width, reviews and manager sit side by side */
+.main-title {
+    grid-column: 1 / -1;
+}
+
+.gallery-container {
+    grid-column: 1 / -1;
+}
+
+/* ================= HEADINGS AND TEXT INSIDE CARDS ================= */
 
 h2 {
-    margin: 0 0 20px;
-    border-bottom: 3px solid var(--aisha-red);
-    padding-bottom: 8px;
-    font-size: 1.6rem;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
-h3 {
-    margin: 0 0 12px;
-    color: var(--aisha-red);
-    font-size: 1.25rem;
-    line-height: 1.3;
-}
-
-p {
-    margin: 0 0 15px;
-}
-
-/* Gallery grid: repeat(), fr units, minmax(), and gap suit equal visual cards. */
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
-
-/* Relative is the containing block for the caption's positioning context. */
-.media-card,
-.photo-card,
-.review-card {
-    position: relative;
-    margin: 0;
-    padding: 22px;
-    background-color: var(--aisha-white);
-    border: 1px solid var(--aisha-line);
-    border-left: 5px solid var(--aisha-red);
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.photo-grid .media-card:first-child {
-    border-top: 4px solid var(--aisha-red);
-}
-
-.responsive-img,
-.media-card img,
-.photo-card img {
+/* ::after — a short burgundy bar under every card heading; it exists only in CSS, not in the HTML. */
+h2::after {
     display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border: 3px solid var(--aisha-dark);
-    border-radius: 6px;
+    width: 56px;
+    height: 3px;
+    margin-top: 12px;
+    background-color: var(--burgundy);
+    content: "";
 }
 
-/* Pseudo-element: provides a small visual marker before every gallery caption. */
-.media-caption::before {
-    margin-right: 6px;
-    color: red;
-    content: "в—†";
+/* Adjacent sibling selector: only the paragraph that comes directly AFTER an <h2> (the lead paragraph of a card) is larger. */
+h2 + p {
+    color: rgba(27, 18, 17, 0.8);
+    font-size: 1.12rem;
 }
 
-.media-caption,
-figcaption {
-    margin-top: 10px;
-    color: var(--aisha-dark);
-    font-size: 0.9rem;
-    font-style: italic;
-    text-align: center;
+/* Id selectors. An id is right here (not a class) because each of these blocks exists exactly once per page
+   and is the target of an anchor link (#menu-table, #work-info, #manager-quote), and an id must be unique to be a valid link target.
+   scroll-margin-top keeps the jumped-to block from hiding under the fixed nav bar. */
+#menu-table,
+#work-info,
+#manager-quote {
+    scroll-margin-top: 96px;
 }
 
-.branch-sidebar {
-    grid-column: span 1;
+/* :target matches the element whose id is in the current URL after the # */
+#menu-table:target,
+#work-info:target,
+#manager-quote:target {
+    outline: 3px solid rgba(110, 20, 35, 0.45);
+    outline-offset: 6px;
 }
 
-.badge-new {
-    padding: 2px 7px;
-    background-color: var(--aisha-red);
-    color: var(--aisha-white);
-    font-weight: 800;
+/* Attribute selector: matches links whose href starts with "tel:" or "mailto:" (phones and e-mails on both pages). */
+a[href^="tel:"],
+a[href^="mailto:"] {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Attribute selector + ::after: links that open in a new tab (target="_blank") get an arrow. */
+a[target="_blank"]::after {
+    content: " \2197";
 }
 
 .contact-link,
@@ -223,172 +163,349 @@ figcaption {
 .external-link,
 .anchor-link,
 .footer-link {
-    color: var(--aisha-red);
+    font-weight: 600;
+}
+
+.footer-link {
+    color: var(--beige);
+}
+
+/* Marker for new menu items: <mark class="badge-new">JANA</mark> */
+.badge-new {
+    padding: 2px 9px;
+    border-radius: 999px;
+    background-color: var(--burgundy);
+    color: var(--white);
+    font-size: 0.75rem;
     font-weight: 700;
+    letter-spacing: 0.12em;
 }
 
-/* Descendant selector: nested list items are visually separated from their parent category. */
-.nested-category-list ul {
-    margin-top: 8px;
-    padding-left: 24px;
-    border-left: 3px solid var(--aisha-red);
-}
+/* ================= COFFEE PAGE: INTRO (SECOND GRID) ================= */
 
-.nested-category-list li,
-.guide-steps li {
-    margin-bottom: 7px;
-}
-
-.terms-dictionary {
+/* A grid inside a card: text in the left column, the branch sidebar in a fixed-ish right column. */
+.intro-section {
     display: grid;
-    grid-template-columns: minmax(70px, 0.3fr) minmax(0, 1fr);
-    gap: 10px 18px;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+    column-gap: 36px;
+    align-items: start;
+}
+
+/* Child selector: headings and paragraphs directly inside .intro-section stay in the left column */
+.intro-section > h2,
+.intro-section > p {
+    grid-column: 1;
+}
+
+/* The sidebar spans four rows, so it stays beside the whole text instead of below it */
+.branch-sidebar {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    padding: 22px;
+    border-left: 4px solid var(--burgundy);
+    border-radius: 8px;
+    background-color: var(--beige);
+}
+
+/* ================= GALLERY: GRID MOSAIC (coffee page) ================= */
+
+/* Grid suits this gallery better than flexbox: one photo must span 2 columns AND 2 rows,
+   which is 2-D placement. In flexbox items only share one line at a time. */
+.gallery-section .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 210px;
+    gap: 18px;
+}
+
+/* Pseudo-class :first-child — the first photo (the building) is the big one */
+.gallery-section .media-card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* ================= GALLERY: FLEX ROW (reviews page) ================= */
+
+/* Flexbox suits two photos in one row: they only need to share a line and wrap when the window is narrow. */
+.gallery-container .photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* flex: grow shrink basis — cards may grow to fill the row, may shrink, and start at 280px */
+.gallery-container .media-card {
+    flex: 1 1 280px;
+}
+
+/* The interior photo grows twice as fast as the bar photo, so it is wider */
+.gallery-container .media-card:first-child {
+    flex-grow: 2;
+}
+
+.gallery-container .media-card img {
+    height: 320px;
+}
+
+/* ================= PHOTO CARDS (both pages) ================= */
+
+/* position: relative — the card becomes the containing block for its absolutely positioned caption. */
+.media-card {
+    position: relative;
     margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
 }
 
-.terms-dictionary dt {
-    color: var(--aisha-red);
-    font-weight: 800;
+.media-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.terms-dictionary dd {
-    margin: 0;
+.media-card:hover img {
+    transform: scale(1.06);
 }
 
-/* Grouped selectors and attribute selectors style all table cells and form controls consistently. */
-th,
-td {
-    padding: 12px;
-    border: 1px solid red;
-    text-align: left;
+/* position: absolute — the caption is lifted out of the flow and placed over the bottom of its photo.
+   Centering technique 2 — absolute positioning + transform: left: 50% moves the caption's left edge to the middle of the card,
+   translateX(-50%) shifts it back by half of its own width; this fits an overlay whose width we do not want to hardcode. */
+.media-caption {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    width: calc(100% - 28px);
+    padding: 8px 14px;
+    border-radius: 6px;
+    background-color: rgba(27, 18, 17, 0.82);
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    text-align: center;
+    transform: translateX(-50%);
 }
+
+/* ::before — a small decorative diamond in front of every caption */
+.media-caption::before {
+    margin-right: 8px;
+    color: var(--sand);
+    content: "\25C6";
+}
+
+.responsive-img {
+    max-width: 100%;
+}
+
+/* ================= FLOAT AND CLEAR (coffee page, "concept" article) ================= */
+
+/* Image floated to the right inside a paragraph: the text of the paragraph wraps around it. */
+.float-photo {
+    float: right;
+    width: 240px;
+    height: 180px;
+    margin: 4px 0 12px 28px;
+    object-fit: cover;
+    border: 4px solid var(--sand);
+    border-radius: 8px;
+}
+
+/* clear: both — the last paragraph starts BELOW the floated photo.
+   Without clear the photo could stick out of the bottom of the card (the card ignores floats when it calculates its height),
+   and the last paragraph would keep wrapping around a photo that is hanging outside the card. */
+.concept-article > p:last-child {
+    clear: both;
+    margin-bottom: 0;
+}
+
+.concept-article {
+    padding: 4px 0 0;
+}
+
+/* ================= TABLE ================= */
 
 .drink-menu-table {
     width: 100%;
-    margin: 20px 0;
+    margin: 20px 0 12px;
     border-collapse: collapse;
-    background-color: var(--aisha-white);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    background-color: var(--white);
 }
 
 .drink-menu-table caption {
     margin-bottom: 10px;
+    color: var(--burgundy);
+    font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 700;
     text-align: left;
 }
 
-.drink-menu-table thead tr {
-    background-color: var(--aisha-dark);
-    color: var(--aisha-white);
+.drink-menu-table th,
+.drink-menu-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--sand);
+    text-align: left;
+}
+
+.drink-menu-table thead th {
+    background-color: var(--espresso);
+    color: var(--beige);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
+/* :nth-child(even) — every second row of the table body gets a beige stripe */
 .drink-menu-table tbody tr:nth-child(even) {
-    background-color: var(--aisha-surface);
+    background-color: var(--beige);
 }
 
 .drink-menu-table tbody tr:hover {
-    background-color: rgba(255, 0, 0, 0.08);
+    background-color: rgba(217, 194, 163, 0.55);
 }
 
 .price-cell {
-    color: var(--aisha-red);
-    font-weight: 800;
+    color: var(--burgundy);
+    font-weight: 700;
     text-align: right;
+    white-space: nowrap;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="date"],
-textarea,
-select {
-    padding: 10px 12px;
-    border: 1px solid var(--aisha-red);
-    border-radius: 4px;
-    background-color: var(--aisha-white);
-    color: var(--aisha-dark);
-    font: inherit;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: 2px solid var(--aisha-red);
-    outline-offset: 2px;
-    background-color: rgba(255, 0, 0, 0.04);
-}
-
-.review-card {
-    margin-bottom: 20px;
-}
-
-.review-card:last-child {
-    margin-bottom: 0;
-}
-
-.author,
-.rating {
-    color: var(--aisha-dark);
-    font-size: 0.95rem;
-}
-
-.rating {
-    color: var(--aisha-red);
-    font-weight: 800;
-}
-
-.review-quote,
-.manager-quote {
-    margin: 18px 0;
-    padding: 18px 22px;
-    background-color: var(--aisha-surface);
-    border-left: 5px solid var(--aisha-red);
+.disclaimer-text {
+    color: rgba(27, 18, 17, 0.65);
     font-style: italic;
 }
 
-#manager-quote:target,
-#menu-table:target,
-#work-info:target {
-    outline: 3px solid rgba(255, 0, 0, 0.35);
-    outline-offset: 6px;
+/* ================= LISTS AND DICTIONARY ================= */
+
+.nested-category-list,
+.guide-steps {
+    margin: 0 0 20px;
+    padding-left: 22px;
+}
+
+.nested-category-list li,
+.guide-steps li {
+    margin-bottom: 6px;
+}
+
+/* Descendant selector: a <ul> anywhere inside .nested-category-list, i.e. the sub-list under "Coffee drinks". */
+.nested-category-list ul {
+    margin-top: 6px;
+    padding-left: 22px;
+    border-left: 3px solid var(--sand);
+}
+
+/* :first-child — the first category ("Coffee drinks") is the main one and is bold */
+.nested-category-list > li:first-child {
+    font-weight: 700;
+}
+
+.terms-dictionary {
+    display: grid;
+    grid-template-columns: minmax(64px, auto) 1fr;
+    gap: 6px 20px;
+    margin: 0;
+}
+
+/* Child selector: only <dt> elements directly inside the dictionary */
+.terms-dictionary > dt {
+    color: var(--burgundy);
+    font-weight: 700;
+}
+
+/* Adjacent sibling selector: the <dd> that comes right after a <dt> gets a dashed separator */
+.terms-dictionary dt + dd {
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--sand);
 }
 
 .section-divider {
-    margin: 25px 0;
+    margin: 26px 0;
     border: 0;
-    border-top: 2px solid var(--aisha-red);
+    border-top: 2px solid var(--sand);
 }
 
 .contact-block {
-    padding: 16px;
-    background-color: var(--aisha-surface);
-    border-left: 4px solid var(--aisha-red);
+    padding: 16px 20px;
+    border-left: 4px solid var(--burgundy);
+    border-radius: 6px;
+    background-color: var(--beige);
 }
 
-.disclaimer-text,
 .copyright-notice {
-    color: var(--aisha-dark);
+    margin-bottom: 0;
+    color: rgba(27, 18, 17, 0.65);
+    font-size: 0.9rem;
 }
 
-/* Centering technique 2: flex alignment suits the compact contact block. */
-.footer-address,
-.footer-copy {
-    text-align: center;
+/* ================= REVIEWS ================= */
+
+.review-card {
+    margin: 0;
 }
 
-/* The heading margin can collapse into a following block; footer padding keeps it separated. */
+.author {
+    margin-bottom: 1rem;
+    color: rgba(27, 18, 17, 0.7);
+    font-size: 0.95rem;
+}
+
+/* MARGIN COLLAPSE I ran into: .author has margin-bottom 1rem and this blockquote has margin-top 1.4rem.
+   I expected a 2.4rem gap, but the vertical margins of neighbouring blocks collapse, so the gap is only the larger one, 1.4rem.
+   I keep the margins on purpose and rely on that rule instead of adding empty elements or extra padding. */
+.review-quote,
+.manager-quote {
+    margin: 1.4rem 0;
+    padding: 18px 24px;
+    border-left: 4px solid var(--burgundy);
+    border-radius: 0 8px 8px 0;
+    background-color: var(--beige);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-style: italic;
+}
+
+.rating {
+    margin-bottom: 0;
+    color: var(--burgundy);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.manager-intro {
+    color: rgba(27, 18, 17, 0.8);
+}
+
+.description-text {
+    margin: 22px 0 0;
+}
+
+/* ================= FOOTER ================= */
+
+/* Centering technique 3 — flexbox: the footer is a column flex container, align-items centres each child horizontally
+   and justify-content centres the group vertically inside the padded box. Fits a few items of unknown width. */
 .site-footer,
 .main-footer {
-    margin-top: 50px;
-    padding: 25px 20px;
-    border-top: 4px solid var(--aisha-red);
-    background-color: var(--aisha-dark);
-    color: var(--aisha-white);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 56px;
 }
 
-.site-footer a,
-.main-footer a {
-    color: var(--aisha-white);
+.footer-address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.footer-copy {
+    margin: 0;
+    opacity: 0.8;
 }

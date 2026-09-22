@@ -1,210 +1,440 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/*
+  Espresso Day — Yerkenaz.css (Yerkenaz's personal stylesheet: index, about, menu, colophon)
+  Loaded SECOND, after base.css. The palette and the two font families are defined in base.css;
+  header, navigation and footer are styled there too, so this file only adds the page content.
+*/
 
-html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
+/* ================= HEADER ================= */
 
-body {
-    font-family: 'Arial', 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
-    color: #111111; /* Тёмный цвет текста для всей страницы */
-    background-color: #ffffff;
-}
-
-/* 2. Шапка и Навигация */
+/* Type selector. position: static is the default: the header stays in the normal flow of the document,
+   so it pushes the page content down and top/left/z-index would have no effect on it. */
 header {
-    background-color: #e50914; /* Красный фон шапки */
-    color: #000000;
-    padding: 25px 20px;
-    text-align: center;
-    border-bottom: 4px solid #000000;
+    position: static;
 }
 
-header h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #000000; /* Черный заголовок */
-    margin-bottom: 18px;
-    text-transform: uppercase;
+/* ================= PAGE FRAME ================= */
+
+/* Centering technique 1 — margin: auto. The column has a known maximum width,
+   so auto side margins share the free space equally and put it in the middle of the window. */
+.page-main {
+    width: min(1040px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 40px 0 0;
 }
 
-/* Навигация */
-.main-navigation ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
-}
-
-.main-navigation a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 8px 16px;
-    border-radius: 4px;
-    border: 1px solid #000000;
-    background-color: #000000;
-    transition: all 0.2s ease-in-out;
-}
-
-.main-navigation a:hover {
-    background-color: #ffffff;
-    color: #e50914;
-    border-color: #ffffff;
-}
-
-/* 3. Основной контент */
-main {
-    max-width: 900px;
-    margin: 35px auto;
-    padding: 0 20px;
-}
-
-section {
-    margin-bottom: 40px;
+/* Every block of content is a white card. Class selector, reused on all four pages. */
+.content-card {
+    margin-bottom: 28px;
+    padding: 32px;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--burgundy);
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0 6px 18px rgba(27, 18, 17, 0.08);
 }
 
 h2 {
-    font-size: 1.6rem;
-    color: #000000;
-    border-bottom: 3px solid #e50914;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-h3 {
-    font-size: 1.25rem;
-    color: #e50914;
-    margin-bottom: 12px;
+/* Pseudo-element ::after: a short burgundy bar under each h2, drawn by CSS only. */
+h2::after {
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin-top: 12px;
+    background-color: var(--burgundy);
+    content: "";
 }
 
-p {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: #111111; /* Чёрный цвет для абзацев */
-    font-weight: 400;
+/* Descendant selector: any paragraph inside a card (not the footer or header paragraphs). */
+.content-card p {
+    color: rgba(27, 18, 17, 0.88);
 }
 
-/* 4. Карточки и блоки описания */
-.drink-card article,
-.about-section,
-.atmosphere-card,
-.detail-card,
-main article {
-    background: #ffffff;
-    padding: 22px;
+/* Adjacent sibling selector: only the paragraph right after an h2 is introduced with a larger size. */
+h2 + p {
+    font-size: 1.1rem;
+}
+
+/* Id selectors. An id is right here because each of these blocks exists exactly once on its page
+   and is a link target (#coffee-menu, #about-intro) or the start of the page (#page-top). */
+/* :target matches the element whose id is in the address bar after the # */
+#coffee-menu:target,
+#about-intro:target {
+    outline: 3px solid rgba(110, 20, 35, 0.4);
+    outline-offset: 6px;
+}
+
+/* Attribute selector: phone links in the footer (href starts with "tel:") */
+footer a[href^="tel:"] {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.external-link {
+    font-weight: 700;
+}
+
+/* Attribute selector + ::after: a link that opens in a new tab (target="_blank") gets an arrow. */
+footer a[target="_blank"]::after {
+    margin-left: 4px;
+    content: "\2197";
+}
+
+/* ================= FLOAT AND CLEAR ================= */
+
+/* The photo floats to the right inside the first paragraph, so the text of that paragraph wraps around it. */
+.float-photo {
+    float: right;
+    width: 220px;
+    height: 120px;
+    margin: 4px 0 14px 28px;
+    border: 4px solid var(--sand);
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* clear: both — the last paragraph of the card starts below the photo.
+   Without clear, a photo taller than the short text would hang out of the bottom of the card,
+   because a card does not grow to contain its floated children. */
+.welcome-section > p:last-child,
+.about-section > p:last-child {
+    clear: both;
+}
+
+/* ================= HOME PAGE: PERKS GRID ================= */
+
+/* A short, scannable grid of highlights instead of another wall of text. */
+.perks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.perk-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    border-radius: 8px;
+    background-color: var(--beige);
+    line-height: 1.35;
+}
+
+.perk-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+/* The bonus app is the highlight of the grid, so it gets the brand colour and spans the full row. */
+.perk-app {
+    grid-column: 1 / -1;
+    background-color: var(--burgundy);
+    color: var(--beige);
+}
+
+/* ================= PHOTO FIGURES (index and menu) ================= */
+
+/* position: relative — the figure is the containing block for its absolutely positioned caption.
+   Margin collapse I ran into: the last card has margin-bottom 28px and this figure has margin-top 40px.
+   Vertical margins of neighbouring blocks collapse, so the gap is 40px, not 68px. */
+.storefront-photo,
+.menu-figure {
+    position: relative;
+    margin: 40px 0 0;
+    overflow: hidden;
+    border: 3px solid var(--espresso);
+    border-radius: 10px;
+    background-color: var(--espresso);
+}
+
+.storefront-photo {
+    max-width: 640px;
+    margin: 40px auto 0; /* auto side margins centre the narrower photo under the cards */
+}
+
+.storefront-photo img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: 50% 35%;
+}
+
+.menu-figure img {
+    display: block;
+    width: 100%;
+    max-height: 640px;
+    object-fit: contain;
+}
+
+/* position: absolute — the caption is taken out of the flow and laid over the bottom of the photo.
+   Centering technique 2 — absolute + transform: left: 50% puts the caption's left edge in the middle of the figure,
+   translateX(-50%) moves it back by half of its own width, so it stays centred whatever its text length. */
+figcaption {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    padding: 7px 16px;
     border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #e50914;
-    border-top: 1px solid #eeeeee;
-    border-right: 1px solid #eeeeee;
-    border-bottom: 1px solid #eeeeee;
+    background-color: rgba(27, 18, 17, 0.82);
+    color: var(--beige);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transform: translateX(-50%);
 }
 
-/* 5. Таблица цен */
+/* ================= ABOUT PAGE: FLEX ================= */
+
+/* Flexbox: the card and the aside sit in one row and wrap under each other on a narrow window.
+   Flex fits because they only share one line; no 2-D placement is needed here. */
+.atmosphere-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.atmosphere-section > h2 {
+    flex: 1 0 100%;
+    margin-bottom: 0;
+}
+
+/* flex: grow shrink basis — both may grow to share the row, may shrink, and start at 300px wide */
+.atmosphere-card {
+    flex: 2 1 300px;
+}
+
+.detail-card {
+    flex: 1 1 260px;
+    padding: 22px;
+    border-radius: 8px;
+    background-color: var(--beige);
+    text-align: center;
+}
+
+/* Centering technique 3 — grid: place-items centres the heading and text both ways.
+   It fits this small card because one property replaces the margin/flex juggling. */
+.detail-card {
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+
+.detail-card h3 {
+    letter-spacing: 0.02em;
+}
+
+/* Pseudo-class :first-child — the first card of the page gets a bigger top border */
+.page-main > .content-card:first-child {
+    border-top-width: 6px;
+}
+
+/* ================= MENU PAGE: GRID ================= */
+
+/* Grid suits the menu page better than flexbox: the table needs a whole row, while the drinks card and the photo
+   sit side by side under it. That is placement in rows AND columns, which flexbox does one line at a time. */
+.menu-page {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+/* Universal selector: every direct child of the grid may shrink below its content width,
+   otherwise a wide table could push the second column out of the page. */
+.menu-page > * {
+    min-width: 0;
+}
+
+/* Child selector: only cards that are direct children of the grid. The gap already separates them, so no margin. */
+.menu-page > .content-card,
+.menu-page > .menu-figure {
+    margin: 0;
+}
+
+/* The intro card and the table card span both columns */
+.menu-intro,
+.coffee-section {
+    grid-column: span 2;
+}
+
+/* ================= MENU TABLE ================= */
+
 .coffee-table {
     width: 100%;
+    margin: 20px 0 0;
     border-collapse: collapse;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-radius: 6px;
-    overflow: hidden;
-    margin: 20px 0;
-    border: 1px solid #e0e0e0;
 }
 
 .coffee-table caption {
-    font-weight: 700;
-    font-size: 1.1rem;
     margin-bottom: 10px;
-    color: #000000;
+    color: var(--burgundy);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
     text-align: left;
 }
 
-.coffee-table th, 
+.coffee-table th,
 .coffee-table td {
-    padding: 14px 16px;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--sand);
     text-align: center;
-    border-bottom: 1px solid #eeeeee;
 }
 
-.coffee-table thead tr {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 0.95rem;
+.coffee-table thead th {
+    background-color: var(--espresso);
+    color: var(--beige);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .coffee-table tbody th {
     text-align: left;
-    color: #000000;
-    font-weight: 600;
 }
 
+/* :nth-child(even) — every second row of the table body gets a beige stripe */
 .coffee-table tbody tr:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: var(--beige);
 }
 
 .coffee-table tbody tr:hover {
-    background-color: #fff0f0;
+    background-color: rgba(217, 194, 163, 0.55);
 }
 
-/* 6. Списки и изображения */
-.drink-card ul {
+/* SPECIFICITY EXPERIMENT — two rules give a different colour to the same price cells.
+   RULE 1 — specificity (0,1,1): one class + one type. It WINS against rule 2 even though rule 2 is written later,
+   because the cascade compares specificity before source order. */
+.coffee-table td {
+    color: var(--espresso);
+}
+
+/* RULE 2 — specificity (0,1,0): one class only. It LOSES to rule 1 (0,1,0 < 0,1,1), so prices stay black.
+   It stays here on purpose, to show the conflict. */
+.price-cell {
+    color: var(--burgundy);
+    font-weight: 700;
+}
+
+/* RULE 3 — the fix, without !important: specificity (0,2,0), two classes/types-in-class, beats rule 1 (0,1,1),
+   so the prices finally become burgundy. */
+.coffee-table .price-cell {
+    color: var(--burgundy);
+}
+
+/* ================= OTHER DRINKS: FLEX ================= */
+
+/* Second flex container: a row of drink groups that wrap and grow */
+.drink-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+}
+
+.drink-card > h2 {
+    flex: 1 0 100%;
+    margin-bottom: 0;
+}
+
+/* Each group is itself a flex column: heading first, list below */
+.drink-group {
+    display: flex;
+    flex: 1 1 200px;
+    flex-direction: column;
+}
+
+.drink-group ul {
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
-.drink-card li {
+.drink-group li {
     padding: 8px 0;
-    border-bottom: 1px dashed #cccccc;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    color: #111111;
+    white-space: nowrap;
+    border-bottom: 1px dashed var(--sand);
 }
 
-figure, .menu-figure {
-    text-align: center;
-    margin: 30px 0;
+/* :first-child — no line above the first item of a list */
+.drink-group li:first-child {
+    padding-top: 0;
 }
 
-figure img, .menu-figure img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    border: 3px solid #000000;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+.drink-group li:last-child {
+    border-bottom: 0;
 }
 
-figcaption {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #333333;
-    font-style: italic;
+/* ================= FIXED "BACK TO TOP" LINK (menu page) ================= */
+
+/* position: fixed — the link is glued to the corner of the window, so on a long menu the visitor
+   can get back to the navigation from anywhere. */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+    padding: 10px 18px;
+    border: 2px solid var(--espresso);
+    border-radius: 999px;
+    background-color: var(--sand);
+    color: var(--espresso);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
-/* 7. Подвал (Footer) */
-footer, .site-footer {
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: 50px;
-    border-top: 4px solid #e50914;
+/* ::before — an arrow in front of the link text */
+.back-to-top::before {
+    margin-right: 6px;
+    content: "\2191";
 }
 
-footer p, .site-footer p {
-    margin: 5px 0;
-    font-size: 0.95rem;
-    color: #ffffff;
+.back-to-top:hover,
+.back-to-top:focus {
+    background-color: var(--burgundy);
+    color: var(--white);
+}
+
+/* ================= COLOPHON ================= */
+
+/* Code is the only place where a third family is used: a monospace stack, so characters line up. */
+code,
+kbd,
+samp,
+pre {
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.92rem;
+}
+
+code,
+kbd,
+samp {
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: var(--beige);
+}
+
+kbd {
+    border: 1px solid var(--sand);
+    border-bottom-width: 3px;
+}
+
+pre {
+    margin: 0;
+    padding: 18px 22px;
+    overflow-x: auto;
+    border-radius: 8px;
+    background-color: var(--espresso);
+    color: var(--beige);
+    line-height: 1.5;
 }

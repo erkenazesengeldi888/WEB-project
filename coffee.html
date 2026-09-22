@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Coffee, drinks, menu information and photos of EspressoDay at Syganak 24 in Astana.">
-    <meta name="author" content="Student 3">
+    <meta name="author" content="Aisha">
     <title>Coffee and Drinks - EspressoDay at Syganak 24</title>
 
     <!-- Подключение базовой таблицы стилей и персонального CSS-файла -->
@@ -13,9 +13,10 @@
 
     <!-- Единственный разрешенный внутренний блок стилей для демонстрации каскада -->
     <style>
-        /* Демонстрация каскада: переопределяет цвет главного заголовка страницы из base.css */
+        /* Cascade demonstration: this internal block comes after the linked files, so it overrides
+           the colour (beige) that aisha.css gives to .page-header-title. */
         .page-header-title {
-            color: #3d2314;
+            color: #d9c2a3;
         }
     </style>
 </head>
@@ -25,14 +26,14 @@
 <header class="header-container">
     <h1 class="page-header-title">Coffee and Drinks at EspressoDay</h1>
 
-    <nav class="main-navigation">
+    <nav class="main-navigation" aria-label="Main navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
-            <li><a href="visit.html">Visit</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
             <li><a href="booking.html">Booking</a></li>
-            <li><a href="coffee.html" class="active-page">Coffee</a></li>
+            <li><a href="coffee.html" class="active-page" aria-current="page">Coffee</a></li>
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="colophon.html">Colophon</a></li>
         </ul>
@@ -73,12 +74,12 @@
             <h3>Branch Information</h3>
 
             <p>
-                Address: Syganak 24, Astana.
+                Address: Syganak 24, Nura District, Astana.
             </p>
 
             <p>
                 Branch phone:
-                <a href="tel:+77714198457" class="contact-link">8 771 419 8457</a>.
+                <a href="tel:+77714198457" class="contact-link">+7 771 419 84 57</a>.
             </p>
 
             <p>
@@ -128,11 +129,16 @@
         <h2>The Coffee Shop Concept</h2>
 
         <article class="concept-article photo-card">
-            <h3>Manager: Ulugbek Saydullaev Faizullaevich</h3>
+            <h3>Branch manager: Ulugbek Saydullaev Faizullaevich</h3>
 
             <p>
-                The manager of the EspressoDay coffee shop network is
+                <img src="images/coffee-art.jpeg" alt="Coffee art on a drink served at EspressoDay" class="float-photo">
+                The manager of this Espresso Day branch is
                 <strong>Ulugbek Saydullaev Faizullaevich</strong>.
+                The branch itself runs as a franchise owned by
+                <strong>Aida and Marat</strong>, while the whole
+                Espresso Day chain is owned by
+                <strong>Asylzhan Kazy</strong>.
                 The main idea of the coffee shop is
                 <em>maximum accessibility</em> for visitors.
             </p>
@@ -258,7 +264,7 @@
 
         <h3>Choosing a Drink</h3>
 
-        <ol start="3" class="guide-steps">
+        <ol class="guide-steps">
             <li>Choose a drink category.</li>
             <li>Choose the preferred size.</li>
             <li>Choose the flavour and place the order.</li>
@@ -313,14 +319,19 @@
         <hr class="section-divider">
 
         <div class="contact-block">
-            Network email:
+            Email:
             <a href="mailto:Espressoday2023@gmail.com" class="contact-link">
                 Espressoday2023@gmail.com
             </a>
-            &nbsp;&times;&nbsp;
-            Network phone:
-            <a href="tel:+77079334240" class="contact-link">
-                +7 707 933 42 40
+            &middot;
+            Phone:
+            <a href="tel:+77714198457" class="contact-link">
+                +7 771 419 84 57
+            </a>
+            &middot;
+            Instagram:
+            <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                @espressoday_kz
             </a>
         </div>
 
@@ -355,12 +366,16 @@
 
 <footer class="site-footer">
     <address class="footer-address">
-        EspressoDay, Syganak 24, Astana<br>
+        EspressoDay, Syganak 24, Nura District, Astana<br>
         Phone:
-        <a href="tel:+77714198457" class="footer-link">8 771 419 8457</a><br>
+        <a href="tel:+77714198457" class="footer-link">+7 771 419 84 57</a><br>
         Email:
         <a href="mailto:Espressoday2023@gmail.com" class="footer-link">
             Espressoday2023@gmail.com
+        </a><br>
+        Instagram:
+        <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer" class="footer-link">
+            @espressoday_kz
         </a>
     </address>
 

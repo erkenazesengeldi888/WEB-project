@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EspressoDay Customer Reviews and Interior Gallery">
+    <meta name="description" content="EspressoDay customer review, manager statement and photos of the interior and bar.">
+    <meta name="author" content="Aisha">
     <title>Reviews - EspressoDay</title>
 
-    <!-- Подключение стилей -->
-    <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/aisha.css">
 
-    <!-- Внутреннее правило по заданию (Internal CSS) -->
+    <!-- Cascade demonstration: the only internal style block of this page. It comes after the linked files,
+         so it overrides the colour/alignment/margins that the external stylesheets give to .main-title. -->
     <style>
         .main-title, .page-header-title {
-            color: #C62828;
+            color: #6e1423;
             text-align: center;
             margin-top: 20px;
             margin-bottom: 25px;
@@ -22,34 +23,37 @@
 </head>
 <body>
 
-    <!-- Шапка сайта -->
+    <!-- Site header -->
     <header class="main-header">
-        <div class="logo">EspressoDay</div>
-        <nav class="main-navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="coffee.html">Coffee Menu</a></li>
-                <li><a href="reviews.html" class="active-page">Reviews</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </nav>
+        <p class="logo">EspressoDay</p>
+        <nav class="main-navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="reviews.html" class="active-page" aria-current="page">Reviews</a></li>
+            <li><a href="colophon.html">Colophon</a></li>
+        </ul>
+    </nav>
     </header>
 
-    <!-- Основной контент -->
+    <!-- Main content -->
     <main class="container">
-        <h1 class="main-title">Interior & Customer Reviews</h1>
+        <h1 class="main-title">Interior &amp; Customer Reviews</h1>
 
-        <!-- Блок с интерьером и картинками -->
+        <!-- Interior and bar photos -->
         <section class="gallery-container">
             <h2>Interior and Bar</h2>
             <div class="photo-grid">
                 <figure class="media-card">
-                    <img src="interior.jpg" alt="Interior of EspressoDay" class="responsive-img">
+                    <img src="images/interior.jpeg" alt="Interior of EspressoDay" class="responsive-img">
                     <figcaption class="media-caption">Interior of the EspressoDay coffee shop.</figcaption>
                 </figure>
                 <figure class="media-card">
-                    <img src="bar.jpg" alt="Bar area of EspressoDay" class="responsive-img">
+                    <img src="images/bar.jpeg" alt="Bar area of EspressoDay" class="responsive-img">
                     <figcaption class="media-caption">Bar area where drinks are prepared.</figcaption>
                 </figure>
             </div>
@@ -58,37 +62,38 @@
             </p>
         </section>
 
-        <!-- Раздел с отзывами -->
+        <!-- Customer reviews -->
         <section class="reviews-section">
             <h2>Real Customer Reviews</h2>
             
             <div class="review-card">
                 <h3>Great coffee and cozy Kazakh aesthetic</h3>
                 <p class="author"><strong>Aruzhan K.</strong> — <time datetime="2026-03-10">March 10, 2026</time></p>
-                <blockquote class="review-quote">
+                <blockquote class="review-quote" lang="ru">
                     "Очень уютная кофейня на Сыганак! Зашла взять кофе с собой перед учебой — сделали буквально за 3 минуты. Раф отличный, не слишком сладкий. Очень понравились элементы казахского интерьера. Обязательно вернусь еще!"
                 </blockquote>
                 <p class="rating">Rating: 5 / 5 ★★★★★</p>
             </div>
         </section>
 
-        <!-- Раздел с заявлением менеджера -->
+        <!-- Manager statement -->
         <section class="manager-section">
             <h2>Manager's Statement</h2>
             <div class="review-card">
-                <h3>Ulugbek Saydullaev Faizullaevich</h3>
+                <h3>Ulugbek Saydullaev Faizullaevich, branch manager</h3>
                 <p class="manager-intro">
-                    The manager of the EspressoDay network describes the concept through accessibility and fast service. The <em>take away</em> format allows visitors to receive their orders quickly, while the interior includes elements of Kazakh ethnic style.
+                    The manager of this Espresso Day branch describes the concept through accessibility and fast service. The <em>take away</em> format allows visitors to receive their orders quickly, while the interior includes elements of Kazakh ethnic style.
                 </p>
-                <blockquote id="manager-quote" class="manager-quote">
+                <blockquote id="manager-quote" class="manager-quote" lang="ru">
                     "Кофейня формата take away, быстрая отдача блюд как и напитков так и горячего в течении 5 минут без надобности ждать по 20+ минут, концепция кофейни это максимальная доступность в двух словах с оттенками казахского этнического стиля."
                 </blockquote>
             </div>
         </section>
     </main>
 
-    <!-- Подвал сайта -->
+    <!-- Site footer -->
     <footer class="main-footer">
+        <p>Contact: <a href="tel:+77714198457" class="footer-link">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="footer-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
         <p>&copy; 2026 EspressoDay. All rights reserved.</p>
     </footer>
 
