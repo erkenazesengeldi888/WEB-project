@@ -61,7 +61,8 @@
 .intro-section,
 .gallery-section,
 .concept-section,
-.pricing-section,
+.recipes-section,
+.customise-section,
 .categories-section,
 .utility-section,
 .gallery-container,
@@ -325,6 +326,20 @@ a[target="_blank"]::after {
     padding: 4px 0 0;
 }
 
+/* Small uppercase label sitting above the manager's name, instead of cramming both into one heading */
+.role-label {
+    margin: 0 0 2px;
+    color: rgba(27, 18, 17, 0.55);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.concept-article .role-label + h3 {
+    margin-bottom: 0.5em;
+}
+
 /* ================= TABLE ================= */
 
 .drink-menu-table {
@@ -378,6 +393,78 @@ a[target="_blank"]::after {
 .disclaimer-text {
     color: rgba(27, 18, 17, 0.65);
     font-style: italic;
+}
+
+/* Small price tag next to a customisation heading, e.g. "Syrups +190 ₸" */
+.extra-price {
+    color: var(--burgundy);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* ================= RECIPES AND CUSTOMISATION (coffee page) ================= */
+
+.recipes-section p,
+.customise-section p {
+    margin: 18px 0 0;
+}
+
+.customise-section h3 {
+    margin-top: 26px;
+}
+
+.customise-section h3:first-of-type {
+    margin-top: 20px;
+}
+
+/* Tag-cloud style list for menu names, milk options and syrups */
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chip-list li {
+    padding: 6px 16px;
+    border: 1px solid var(--sand);
+    border-radius: 999px;
+    background-color: var(--beige);
+    color: var(--espresso);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+/* Two accent cards for the bean choice, echoing .branch-sidebar's left-border treatment */
+.bean-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bean-options li {
+    padding: 16px 20px;
+    border-left: 4px solid var(--burgundy);
+    border-radius: 0 8px 8px 0;
+    background-color: var(--beige);
+    line-height: 1.6;
+}
+
+.bean-options strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--burgundy);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
 }
 
 /* ================= LISTS AND DICTIONARY ================= */
