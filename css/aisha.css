@@ -1,14 +1,3 @@
-/*
-  Espresso Day — aisha.css (Aisha's personal stylesheet: coffee.html and reviews.html)
-  Loaded SECOND, after base.css, so any rule here with equal specificity overrides base.css.
-  The colour palette and the two font families are defined at the top of base.css.
-*/
-
-/* ================= HEADER AND FIXED NAVIGATION ================= */
-
-/* Grouping selector: the coffee page header (.header-container) and the reviews page header (.main-header).
-   position: static is the default value: the header stays in the normal document flow,
-   so top/left/z-index would have no effect on it. The big top padding leaves room for the fixed nav bar. */
 .header-container,
 .main-header {
     position: static;
@@ -28,7 +17,7 @@
     text-transform: uppercase;
 }
 
-/* position: fixed — the nav bar is taken out of the flow and glued to the top of the window,
+/* position: fixed the nav bar is taken out of the flow and glued to the top of the window,
    so the visitor can change page from anywhere on a long page. */
 .main-navigation {
     position: fixed;
@@ -41,12 +30,6 @@
     background-color: rgba(27, 18, 17, 0.96);
 }
 
-/* ================= PAGE LAYOUT (CSS GRID) ================= */
-
-/* Grid suits the page frame because it places blocks in rows AND columns at once:
-   some sections fill the whole width, two others sit side by side. Flexbox is one-dimensional and would need
-   wrappers or fixed widths to do the same.
-   Centering technique 1 — margin: auto: the block has a known width, so auto side margins split the free space equally. */
 .main-content,
 .container {
     display: grid;
@@ -78,21 +61,21 @@
 
 /* Child selector: matches only <section> elements that are direct children of .main-content on coffee.html. */
 
-/* SPECIFICITY EXPERIMENT — two rules fight over grid-column of .categories-section and .utility-section.
-   RULE 1 — specificity (0,1,1): one class + one type. It WINS against rule 2 even though rule 2 comes later,
+/* SPECIFICITY EXPERIMENT two rules fight over grid-column of .categories-section and .utility-section.
+   RULE 1 specificity (0,1,1): one class + one type. It WINS against rule 2 even though rule 2 comes later,
    because the cascade compares specificity before source order. */
 .main-content > section {
     grid-column: 1 / -1;
 }
 
-/* RULE 2 — specificity (0,1,0): one class only. It LOSES to rule 1 (0,1,0 < 0,1,1),
+/* RULE 2 specificity (0,1,0): one class only. It LOSES to rule 1 (0,1,0 < 0,1,1),
    so these two sections would stay full-width. Kept on purpose to show the conflict. */
 .categories-section,
 .utility-section {
     grid-column: auto;
 }
 
-/* RULE 3 — the fix, without !important: specificity (0,2,0) (two classes) beats rule 1 (0,1,1),
+/* RULE 3 the fix, without !important: specificity (0,2,0) (two classes) beats rule 1 (0,1,1),
    so the two sections finally take one column each and sit side by side. */
 .main-content > .categories-section,
 .main-content > .utility-section {
@@ -108,13 +91,13 @@
     grid-column: 1 / -1;
 }
 
-/* ================= HEADINGS AND TEXT INSIDE CARDS ================= */
+/*  HEADINGS AND TEXT INSIDE CARDS  */
 
 h2 {
     text-transform: uppercase;
 }
 
-/* ::after — a short burgundy bar under every card heading; it exists only in CSS, not in the HTML. */
+/* ::after a short burgundy bar under every card heading; it exists only in CSS, not in the HTML. */
 h2::after {
     display: block;
     width: 56px;
@@ -182,7 +165,7 @@ a[target="_blank"]::after {
     letter-spacing: 0.12em;
 }
 
-/* ================= COFFEE PAGE: INTRO (SECOND GRID) ================= */
+/* COFFEE PAGE: INTRO (SECOND GRID) */
 
 /* A grid inside a card: text in the left column, the branch sidebar in a fixed-ish right column. */
 .intro-section {
@@ -208,10 +191,7 @@ a[target="_blank"]::after {
     background-color: var(--beige);
 }
 
-/* ================= GALLERY: GRID MOSAIC (coffee page) ================= */
-
-/* Grid suits this gallery better than flexbox: one photo must span 2 columns AND 2 rows,
-   which is 2-D placement. In flexbox items only share one line at a time. */
+/* GALLERY: GRID MOSAIC (coffee page) */
 .gallery-section .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -225,7 +205,7 @@ a[target="_blank"]::after {
     grid-row: span 2;
 }
 
-/* ================= GALLERY: FLEX ROW (reviews page) ================= */
+/*GALLERY: FLEX ROW (reviews page) */
 
 /* Flexbox suits two photos in one row: they only need to share a line and wrap when the window is narrow. */
 .gallery-container .photo-grid {
@@ -374,7 +354,7 @@ a[target="_blank"]::after {
     text-transform: uppercase;
 }
 
-/* :nth-child(even) — every second row of the table body gets a beige stripe */
+/* :nth-child(even) every second row of the table body gets a beige stripe */
 .drink-menu-table tbody tr:nth-child(even) {
     background-color: var(--beige);
 }
@@ -467,7 +447,7 @@ a[target="_blank"]::after {
     font-size: 1.1rem;
 }
 
-/* ================= LISTS AND DICTIONARY ================= */
+/* LISTS AND DICTIONARY */
 
 .nested-category-list,
 .guide-steps {
@@ -531,7 +511,7 @@ a[target="_blank"]::after {
     font-size: 0.9rem;
 }
 
-/* ================= REVIEWS ================= */
+/*  REVIEWS */
 
 .review-card {
     margin: 0;
@@ -573,9 +553,9 @@ a[target="_blank"]::after {
     margin: 22px 0 0;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
-/* Centering technique 3 — flexbox: the footer is a column flex container, align-items centres each child horizontally
+/* Centering technique 3 flexbox: the footer is a column flex container, align-items centres each child horizontally
    and justify-content centres the group vertically inside the padded box. Fits a few items of unknown width. */
 .site-footer,
 .main-footer {
