@@ -1,21 +1,7 @@
-/*
-  Espresso Day — Yerkenaz.css (Yerkenaz's personal stylesheet: index, about, menu, colophon)
-  Loaded SECOND, after base.css. The palette and the two font families are defined in base.css;
-  header, navigation and footer are styled there too, so this file only adds the page content.
-*/
-
-/* ================= HEADER ================= */
-
-/* Type selector. position: static is the default: the header stays in the normal flow of the document,
-   so it pushes the page content down and top/left/z-index would have no effect on it. */
 header {
     position: static;
 }
 
-/* ================= PAGE FRAME ================= */
-
-/* Centering technique 1 — margin: auto. The column has a known maximum width,
-   so auto side margins share the free space equally and put it in the middle of the window. */
 .page-main {
     width: min(1040px, calc(100% - 48px));
     margin: 0 auto;
@@ -37,7 +23,7 @@ h2 {
     text-transform: uppercase;
 }
 
-/* Pseudo-element ::after: a short burgundy bar under each h2, drawn by CSS only. */
+/* Pseudo-element ::after: a short burgundy bar under each h2 */
 h2::after {
     display: block;
     width: 56px;
@@ -47,18 +33,15 @@ h2::after {
     content: "";
 }
 
-/* Descendant selector: any paragraph inside a card (not the footer or header paragraphs). */
+/* Descendant selector: any paragraph inside a card (not the footer or header paragraphs) */
 .content-card p {
     color: rgba(27, 18, 17, 0.88);
 }
 
-/* Adjacent sibling selector: only the paragraph right after an h2 is introduced with a larger size. */
+/* Adjacent sibling selector: only the paragraph right after an h2 is introduced with a larger size */
 h2 + p {
     font-size: 1.1rem;
 }
-
-/* Id selectors. An id is right here because each of these blocks exists exactly once on its page
-   and is a link target (#coffee-menu, #about-intro) or the start of the page (#page-top). */
 /* :target matches the element whose id is in the address bar after the # */
 #coffee-menu:target,
 #about-intro:target {
@@ -82,8 +65,6 @@ footer a[target="_blank"]::after {
     content: "\2197";
 }
 
-/* ================= FLOAT AND CLEAR ================= */
-
 /* The photo floats to the right inside the first paragraph, so the text of that paragraph wraps around it. */
 .float-photo {
     float: right;
@@ -95,15 +76,10 @@ footer a[target="_blank"]::after {
     object-fit: cover;
 }
 
-/* clear: both — the last paragraph of the card starts below the photo.
-   Without clear, a photo taller than the short text would hang out of the bottom of the card,
-   because a card does not grow to contain its floated children. */
 .welcome-section > p:last-child,
 .about-section > p:last-child {
     clear: both;
 }
-
-/* ================= HOME PAGE: PERKS GRID ================= */
 
 /* A short, scannable grid of highlights instead of another wall of text. */
 .perks-grid {
@@ -137,11 +113,6 @@ footer a[target="_blank"]::after {
     color: var(--beige);
 }
 
-/* ================= PHOTO FIGURES (index and menu) ================= */
-
-/* position: relative — the figure is the containing block for its absolutely positioned caption.
-   Margin collapse I ran into: the last card has margin-bottom 28px and this figure has margin-top 40px.
-   Vertical margins of neighbouring blocks collapse, so the gap is 40px, not 68px. */
 .storefront-photo,
 .menu-figure {
     position: relative;
@@ -172,10 +143,6 @@ footer a[target="_blank"]::after {
     object-fit: contain;
 }
 
-/* position: absolute — the caption is taken out of the flow and laid over the bottom of the photo.
-   Centering technique 2 — absolute + transform: left: 50% puts the caption's left edge in the middle of the figure,
-   translateX(-50%) moves it back by half of its own width, so it stays centred whatever its text length. */
-figcaption {
     position: absolute;
     bottom: 14px;
     left: 50%;
@@ -189,10 +156,6 @@ figcaption {
     transform: translateX(-50%);
 }
 
-/* ================= ABOUT PAGE: FLEX ================= */
-
-/* Flexbox: the card and the aside sit in one row and wrap under each other on a narrow window.
-   Flex fits because they only share one line; no 2-D placement is needed here. */
 .atmosphere-section {
     display: flex;
     flex-direction: row;
@@ -218,8 +181,6 @@ figcaption {
     text-align: center;
 }
 
-/* Centering technique 3 — grid: place-items centres the heading and text both ways.
-   It fits this small card because one property replaces the margin/flex juggling. */
 .detail-card {
     display: grid;
     place-items: center;
@@ -235,10 +196,6 @@ figcaption {
     border-top-width: 6px;
 }
 
-/* ================= MENU PAGE: GRID ================= */
-
-/* Grid suits the menu page better than flexbox: the table needs a whole row, while the drinks card and the photo
-   sit side by side under it. That is placement in rows AND columns, which flexbox does one line at a time. */
 .menu-page {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -246,8 +203,6 @@ figcaption {
     align-items: start;
 }
 
-/* Universal selector: every direct child of the grid may shrink below its content width,
-   otherwise a wide table could push the second column out of the page. */
 .menu-page > * {
     min-width: 0;
 }
@@ -264,15 +219,12 @@ figcaption {
     grid-column: span 2;
 }
 
-/* position: sticky — now that the drinks list is long, the photo stays in view next to it
-   while the visitor scrolls, instead of sitting still and leaving empty space below itself. */
 .menu-page > .menu-figure {
     position: sticky;
     top: 24px;
 }
 
-/* ================= MENU TABLE ================= */
-
+/* menu table*/
 .coffee-table {
     width: 100%;
     margin: 20px 0 0;
@@ -307,7 +259,6 @@ figcaption {
     text-align: left;
 }
 
-/* :nth-child(even) — every second row of the table body gets a beige stripe */
 .coffee-table tbody tr:nth-child(even) {
     background-color: var(--beige);
 }
@@ -316,27 +267,20 @@ figcaption {
     background-color: rgba(217, 194, 163, 0.55);
 }
 
-/* SPECIFICITY EXPERIMENT — two rules give a different colour to the same price cells.
-   RULE 1 — specificity (0,1,1): one class + one type. It WINS against rule 2 even though rule 2 is written later,
-   because the cascade compares specificity before source order. */
 .coffee-table td {
     color: var(--espresso);
 }
 
-/* RULE 2 — specificity (0,1,0): one class only. It LOSES to rule 1 (0,1,0 < 0,1,1), so prices stay black.
-   It stays here on purpose, to show the conflict. */
-.price-cell {
     color: var(--burgundy);
     font-weight: 700;
 }
 
-/* RULE 3 — the fix, without !important: specificity (0,2,0), two classes/types-in-class, beats rule 1 (0,1,1),
-   so the prices finally become burgundy. */
+
 .coffee-table .price-cell {
     color: var(--burgundy);
 }
 
-/* ================= OTHER DRINKS: FLEX ================= */
+/* other drinks */
 
 /* Second flex container: a column of category cards, each one full width and stacked with even gaps */
 .drink-card {
@@ -415,10 +359,6 @@ figcaption {
     text-transform: uppercase;
 }
 
-/* ================= FIXED "BACK TO TOP" LINK (menu page) ================= */
-
-/* position: fixed — the link is glued to the corner of the window, so on a long menu the visitor
-   can get back to the navigation from anywhere. */
 .back-to-top {
     position: fixed;
     right: 24px;
@@ -448,7 +388,7 @@ figcaption {
     color: var(--white);
 }
 
-/* ================= COLOPHON ================= */
+/* colophon */
 
 /* Code is the only place where a third family is used: a monospace stack, so characters line up. */
 code,
