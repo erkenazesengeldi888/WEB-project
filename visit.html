@@ -6,83 +6,105 @@
     <meta name="description" content="How to find Espresso Day at Syganak 24 in Astana and what to expect at the branch.">
     <meta name="author" content="Dilnaz">
     <title>Espresso Day — Visit Us</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/dilnaz.css">
-    <style>
-        /* Internal style block, the only one in the Dilnaz pages. It exists to show the cascade:
-           it comes after the linked files, so its letter-spacing overrides the one set
-           for .brand-mark in dilnaz.css. */
-        .brand-mark {
-            letter-spacing: 0.08em;
-        }
-    </style>
+    <!-- Bootstrap version used on this page: 5.3.3 (CSS and JS bundle from the jsDelivr CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Our own stylesheet comes after Bootstrap so its brand colours and fonts win -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 <body>
-    <header class="site-header">
-        <!-- Inline style, the only one in the Dilnaz pages. It exists to show the cascade:
-             an inline declaration beats the stylesheets, but dilnaz.css answers it with the one
-             !important on .brand-mark, which beats inline styles. -->
-        <p class="brand-mark" style="font-weight: bold;">Espresso Day</p>
-        <nav class="main-navigation" aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="visit.html" class="active-page" aria-current="page">Visit Us</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="coffee.html">Coffee</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="colophon.html">Colophon</a></li>
-            </ul>
+    <header class="bg-dark text-light shadow">
+        <!-- Brand logo on a white strip, then the dark navigation bar, then the page title band -->
+        <p class="bg-white text-center py-4 mb-0">
+            <a class="d-inline-block" href="index.html"><img class="img-fluid" src="images/logo.svg" alt="Espresso Day" width="300" height="66"></a>
+        </p>
+        <div class="bg-white border-bottom">
+        <!-- container-fluid: the navigation bar must span the whole window width, edge to edge.
+             Page content below uses a fixed-width .container instead, so lines of text stay readable on wide screens. -->
+        <nav class="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
+            <div class="container-fluid">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+                <ul class="navbar-nav nav-pills gap-lg-2 text-uppercase small fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="visit.html" aria-current="page">Visit Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="coffee.html">Coffee</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                </ul>
+                </div>
+            </div>
         </nav>
+        </div>
+        <div class="bg-primary text-white text-center py-4 px-3">
+            <h1 class="display-5 text-uppercase mb-1">Visit Us</h1>
+            <p class="lead mb-0 text-light">Syganak 24, Nura District, Astana</p>
+        </div>
     </header>
 
-    <main class="page-content">
-        <section class="visit-details">
-            <h1 class="section-heading">Visit Us</h1>
+    <main class="container py-5">
+        <section class="mb-5">
+            <div class="row g-4">
+                <article class="col-12 col-lg-7">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h3">Where to find us</h2>
+                            <address>
+                                Syganak 24, Nura District, Astana, Kazakhstan<br>
+                                <a class="btn btn-outline-primary btn-sm mt-2" href="https://2gis.kz/astana/geo/70000001116765885" target="_blank" rel="noopener noreferrer">View on 2GIS</a>
+                            </address>
+                            <!-- Nested grid: a row inside the col-lg-7 column, using Bootstrap's horizontal description list -->
+                            <dl class="row mb-0">
+                            <dt class="col-sm-4">Phone</dt>
+                            <dd class="col-sm-8 text-break"><a href="tel:+77714198457">+7 771 419 84 57</a></dd>
+                            <dt class="col-sm-4">E-mail</dt>
+                            <dd class="col-sm-8 text-break"><a href="mailto:Espressoday2023@gmail.com">Espressoday2023@gmail.com</a></dd>
+                            <dt class="col-sm-4">Instagram</dt>
+                            <dd class="col-sm-8 text-break"><a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></dd>
+                            <dt class="col-sm-4">Opening hours</dt>
+                            <dd class="col-sm-8 text-break">Weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00</dd>
+                            <dt class="col-sm-4">Rating</dt>
+                            <dd class="col-sm-8 text-break">4.9 / 5 on <a href="https://2gis.kz/astana/geo/70000001116765885" target="_blank" rel="noopener noreferrer">2GIS</a> (31 reviews)</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </article>
 
-            <article class="location-card">
-                <h2>Where to find us</h2>
-                <address class="branch-address">
-                    Syganak 24, Nura District, Astana, Kazakhstan<br>
-                    <a href="https://2gis.kz/astana/geo/70000001116765885" class="external-link" target="_blank" rel="noopener noreferrer">View on 2GIS</a>
-                </address>
-                <dl class="contact-list">
-                    <dt>Phone</dt>
-                    <dd><a href="tel:+77714198457">+7 771 419 84 57</a></dd>
-                    <dt>E-mail</dt>
-                    <dd><a href="mailto:Espressoday2023@gmail.com">Espressoday2023@gmail.com</a></dd>
-                    <dt>Instagram</dt>
-                    <dd><a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></dd>
-                    <dt>Opening hours</dt>
-                    <dd>Weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00</dd>
-                    <dt>Rating</dt>
-                    <dd>4.9 / 5 on <a href="https://2gis.kz/astana/geo/70000001116765885" class="external-link" target="_blank" rel="noopener noreferrer">2GIS</a> (31 reviews)</dd>
-                </dl>
-            </article>
-
-            <figure class="place-photo">
-                <img src="images/exterior.jpeg" alt="The Espresso Day entrance at Syganak 24">
-                <figcaption>The entrance at Syganak 24.</figcaption>
-            </figure>
+                <figure class="col-12 col-lg-5 text-center">
+                    <div class="ratio ratio-4x3">
+                        <img class="rounded shadow-sm object-fit-cover" src="images/exterior.jpeg" alt="The Espresso Day entrance at Syganak 24">
+                    </div>
+                    <figcaption class="figure-caption mt-2">The entrance at Syganak 24.</figcaption>
+                </figure>
+            </div>
         </section>
 
-        <section class="branch-features">
-            <h2 class="section-heading">At the branch</h2>
-            <ul class="feature-list">
-                <li class="feature-item">A power socket at every table, so you can study or work on a laptop.</li>
-                <li class="feature-item">Take away format: order a drink and leave in a few minutes.</li>
-                <li class="feature-item">Interior with elements of Kazakh ethnic style.</li>
-                <li class="feature-item">Coffee, tea, lemonades, fresh juices, smoothies and desserts.</li>
-                <li class="feature-item">10% cashback in the <strong>Espressoday</strong> app, at any branch.</li>
+        <section>
+            <h2 class="text-center text-md-start mb-3">At the branch</h2>
+            <!-- Component: List group (Bootstrap docs "List group", flush variant).
+                 Changed: plain list items with our five branch features, in a white bordered box. -->
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item">A power socket at every table, so you can study or work on a laptop.</li>
+                <li class="list-group-item">Take away format: order a drink and leave in a few minutes.</li>
+                <li class="list-group-item">Interior with elements of Kazakh ethnic style.</li>
+                <li class="list-group-item">Coffee, tea, lemonades, fresh juices, smoothies and desserts.</li>
+                <li class="list-group-item">10% cashback in the <strong>Espressoday</strong> app, at any branch.</li>
             </ul>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" class="external-link" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
-        <p>&copy; 2026 Espresso Day</p>
-        <a class="quick-contact" href="tel:+77714198457">Call us</a>
+    <footer class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+        <div class="container">
+            <p class="mb-1">Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+            <p class="mb-2">&copy; 2026 Espresso Day</p>
+            <a class="btn btn-primary btn-sm d-md-none" href="tel:+77714198457">Call us</a>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
