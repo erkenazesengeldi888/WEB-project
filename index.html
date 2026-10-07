@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Espresso Day is a coffee shop chain in Astana, Kazakhstan: menu, coffee, location and reviews.">
-    <meta name="author" content="Yerkenaz">
+    <meta name="description" content="Espresso Day is a coffee shop chain in Astana, Kazakhstan: menu, pre-order, booking, opening hours and reviews.">
     <title>Espresso Day — Home</title>
+    <!-- Bootstrap 5.3.3 (CSS and JS bundle from the jsDelivr CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Our own stylesheet comes after Bootstrap so its brand colours and fonts win -->
+    <!-- Our correction layer goes after Bootstrap, so our colours, fonts and state classes override the defaults -->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 <body>
-    <header class="bg-dark text-light shadow">
-        <h1 class="bg-white text-center py-4 mb-0">
+    <header id="page-top" class="bg-dark text-light shadow">
+        <!-- Header (same on every page): logo on a white strip, then the menu, then the title band -->
+        <p class="bg-white text-center py-4 mb-0">
             <a class="d-inline-block" href="index.html"><img class="img-fluid" src="images/logo.svg" alt="Espresso Day" width="300" height="66"></a>
-        </h1>
+        </p>
         <div class="bg-white border-bottom">
         <nav class="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
             <div class="container-fluid">
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto" id="nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="mainNav">
@@ -27,6 +28,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
                     <li class="nav-item"><a class="nav-link" href="visit.html">Visit Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
                     <li class="nav-item"><a class="nav-link" href="coffee.html">Coffee</a></li>
@@ -37,14 +39,15 @@
         </nav>
         </div>
         <div class="bg-primary text-white text-center py-4 px-3">
-            <p class="display-6 mb-1">Coffee shop chain in Astana</p>
-            <p class="lead mb-0 text-light">112 branches across Kazakhstan: coffee, desserts and take away</p>
+            <h1 class="display-5 text-uppercase mb-1">Espresso Day</h1>
+            <p class="lead mb-0 text-light">Coffee shop chain in Astana &mdash; 112 branches across Kazakhstan: coffee, desserts and take away</p>
         </div>
     </header>
 
-    <main class="container py-5">
-        <section class="card shadow-sm mb-5">
+<main class="container py-5" id="main-content">
+        <section class="card shadow-sm mb-5" id="welcome">
             <div class="card-body p-4">
+                <!-- Nested grid: this row is inside the card, and the card is inside the container -->
                 <div class="row align-items-center g-4">
                     <div class="col-12 col-md-5">
                         <img class="img-fluid rounded" src="images/interior.jpeg" alt="Tables and chairs by the large windows inside Espresso Day">
@@ -54,17 +57,21 @@
                         <p class="lead">Espresso Day is a coffee shop chain in Astana, Kazakhstan, with 112 branches across the country. It's a comfortable spot for coffee, dessert, a quick take away order, or a longer stay to study or work.</p>
                         <p class="text-muted small">Take a look at the <a href="menu.html#coffee-menu">coffee menu</a> or go straight to <a href="booking.html#reservation">reserve a table</a>.</p>
                         <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
-                            <a class="btn btn-primary btn-lg" href="booking.html#reservation">Reserve a table</a>
-                            <a class="btn btn-outline-primary btn-lg" href="menu.html#coffee-menu">Coffee menu</a>
+                            <a class="btn btn-primary btn-lg" id="hero-book" href="booking.html#reservation">Reserve a table</a>
+                            <a class="btn btn-outline-primary btn-lg" id="hero-order" href="order.html#order-form">Pre-order drinks</a>
+                            <a class="btn btn-outline-primary btn-lg" id="hero-menu" href="menu.html#coffee-menu">Coffee menu</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5" id="why-espresso-day">
             <h2 class="text-center mb-4">Why Espresso Day</h2>
-            <ul class="row g-3 list-unstyled">
+            <!-- Component: Card (taken from the Bootstrap docs, Card page).
+                 What I changed: instead of an image, title and button, each card has an emoji and one short sentence.
+                 h-100 makes all six cards the same height, and the app card has a burgundy border. -->
+            <ul class="row g-3 list-unstyled" id="perk-list">
                 <li class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100 text-center shadow-sm">
                         <div class="card-body">
@@ -116,11 +123,46 @@
             </ul>
         </section>
 
-        <div class="row justify-content-center">
+        <section class="mb-5" id="find-us">
+            <h2 class="text-center mb-4">Find us</h2>
+            <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                    <div class="card h-100 shadow-sm" id="home-hours">
+                        <div class="card-body">
+                            <h3>Opening hours</h3>
+                            <table class="table table-striped align-middle mb-0" id="home-hours-table">
+                                <caption class="caption-top">Opening hours at Syganak 24</caption>
+                                <thead>
+                                    <tr><th scope="col">Days</th><th scope="col">Open</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><th scope="row">Monday &ndash; Friday</th><td>07:30&ndash;23:00</td></tr>
+                                    <tr><th scope="row">Saturday &amp; Sunday</th><td>08:00&ndash;23:00</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card h-100 shadow-sm" id="home-address">
+                        <div class="card-body">
+                            <h3>Address</h3>
+                            <address class="mb-3">Syganak 24, Nura District, Astana, Kazakhstan<br>Phone: <a href="tel:+77714198457">+7 771 419 84 57</a></address>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a class="btn btn-primary btn-sm" id="home-visit" href="visit.html#address">Visit Us page</a>
+                                <a class="btn btn-outline-primary btn-sm" id="home-2gis" href="https://2gis.kz/astana/geo/70000001116765885" target="_blank" rel="noopener noreferrer">View on 2GIS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row justify-content-center" id="entrance-photo">
             <div class="col-12 col-md-8 col-lg-6">
                 <figure class="text-center mb-0">
                 <div class="ratio ratio-4x3">
-                        <img class="rounded shadow object-fit-cover" src="images/outsideYerke.jpg" alt="Espresso Day entrance decorated with red flowers">
+                        <img class="rounded shadow object-fit-cover" src="images/entrance.jpg" alt="Espresso Day entrance decorated with red flowers">
                     </div>
                 <figcaption class="figure-caption mt-2">The Espresso Day entrance.</figcaption>
             </figure>
@@ -128,10 +170,20 @@
         </div>
     </main>
 
-    <footer class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+    <a class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 shadow" id="back-to-top" href="#page-top">Back to top</a>
+
+    <footer id="site-footer" class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+        <!-- Footer (same on every page) -->
         <div class="container">
-            <p class="mb-1">Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+            <address class="mb-2">
+                Espresso Day, Syganak 24, Nura District, Astana<br>
+                Open weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00<br>
+                Phone: <a href="tel:+77714198457">+7 771 419 84 57</a><br>
+                Email: <a href="mailto:Espressoday2023@gmail.com">Espressoday2023@gmail.com</a><br>
+                Instagram: <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a>
+            </address>
             <p class="mb-2">&copy; 2026 Espresso Day</p>
+            <a class="btn btn-primary btn-sm d-md-none" id="footer-call" href="tel:+77714198457">Call us</a>
         </div>
     </footer>
 
