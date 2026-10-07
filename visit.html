@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="How to find Espresso Day at Syganak 24 in Astana and what to expect at the branch.">
-    <meta name="author" content="Dilnaz">
+    <meta name="description" content="How to find Espresso Day at Syganak 24 in Astana, opening hours, contacts and a form for your questions.">
     <title>Espresso Day — Visit Us</title>
+    <!-- Bootstrap 5.3.3 (CSS and JS bundle from the jsDelivr CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Our correction layer goes after Bootstrap, so our colours, fonts and state classes override the defaults -->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 <body>
-    <header class="bg-dark text-light shadow">
+    <header id="page-top" class="bg-dark text-light shadow">
+        <!-- Header (same on every page): logo on a white strip, then the menu, then the title band -->
         <p class="bg-white text-center py-4 mb-0">
             <a class="d-inline-block" href="index.html"><img class="img-fluid" src="images/logo.svg" alt="Espresso Day" width="300" height="66"></a>
         </p>
         <div class="bg-white border-bottom">
         <nav class="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
             <div class="container-fluid">
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto" id="nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="mainNav">
@@ -26,6 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
                     <li class="nav-item"><a class="nav-link active" href="visit.html" aria-current="page">Visit Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
                     <li class="nav-item"><a class="nav-link" href="coffee.html">Coffee</a></li>
@@ -41,8 +44,8 @@
         </div>
     </header>
 
-    <main class="container py-5">
-        <section class="mb-5">
+<main class="container py-5" id="main-content">
+        <div class="mb-5" id="address">
             <div class="row g-4">
                 <article class="col-12 col-lg-7">
                     <div class="card h-100 shadow-sm">
@@ -52,7 +55,7 @@
                                 Syganak 24, Nura District, Astana, Kazakhstan<br>
                                 <a class="btn btn-outline-primary btn-sm mt-2" href="https://2gis.kz/astana/geo/70000001116765885" target="_blank" rel="noopener noreferrer">View on 2GIS</a>
                             </address>
-                            <!-- Nested grid: a row inside the col-lg-7 column, using Bootstrap's horizontal description list -->
+                            <!-- Nested grid: a row inside the col-lg-7 column, so the labels and values sit side by side -->
                             <dl class="row mb-0">
                             <dt class="col-sm-4">Phone</dt>
                             <dd class="col-sm-8 text-break"><a href="tel:+77714198457">+7 771 419 84 57</a></dd>
@@ -61,7 +64,7 @@
                             <dt class="col-sm-4">Instagram</dt>
                             <dd class="col-sm-8 text-break"><a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></dd>
                             <dt class="col-sm-4">Opening hours</dt>
-                            <dd class="col-sm-8 text-break">Weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00</dd>
+                            <dd class="col-sm-8 text-break"><a href="#opening-hours">See the hours table below</a></dd>
                             <dt class="col-sm-4">Rating</dt>
                             <dd class="col-sm-8 text-break">4.9 / 5 on <a href="https://2gis.kz/astana/geo/70000001116765885" target="_blank" rel="noopener noreferrer">2GIS</a> (31 reviews)</dd>
                             </dl>
@@ -76,11 +79,45 @@
                     <figcaption class="figure-caption mt-2">The entrance at Syganak 24.</figcaption>
                 </figure>
             </div>
+        </div>
+
+        <section class="mb-5" id="opening-hours">
+            <h2 class="text-center text-md-start mb-3">Opening hours</h2>
+            <div class="row g-4 align-items-start">
+                <div class="col-12 col-lg-7">
+                    <div class="table-responsive rounded shadow-sm">
+                        <table class="table table-striped align-middle mb-0" id="opening-hours-table">
+                                <caption class="caption-top">Opening hours at Syganak 24</caption>
+                                <thead>
+                                    <tr><th scope="col">Days</th><th scope="col">Open</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><th scope="row">Monday &ndash; Friday</th><td>07:30&ndash;23:00</td></tr>
+                                    <tr><th scope="row">Saturday &amp; Sunday</th><td>08:00&ndash;23:00</td></tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <div class="card shadow-sm border-primary border-2">
+                        <div class="card-body">
+                            <h3 class="h5">Planning your visit?</h3>
+                            <p>Reserve a table for your group, or order your drinks ahead and pick them up.</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a class="btn btn-primary btn-sm" id="visit-book" href="booking.html#reservation">Book a table</a>
+                                <a class="btn btn-outline-primary btn-sm" id="visit-order" href="order.html#order-form">Pre-order drinks</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section>
+        <section class="mb-5" id="branch-features">
             <h2 class="text-center text-md-start mb-3">At the branch</h2>
-            <ul class="list-group shadow-sm">
+            <!-- Component: List group (taken from the Bootstrap docs, List group page).
+                 What I changed: I put our five branch features in it, so it looks like a white box with lines between items. -->
+            <ul class="list-group shadow-sm" id="branch-feature-list">
                 <li class="list-group-item">A power socket at every table, so you can study or work on a laptop.</li>
                 <li class="list-group-item">Take away format: order a drink and leave in a few minutes.</li>
                 <li class="list-group-item">Interior with elements of Kazakh ethnic style.</li>
@@ -88,13 +125,83 @@
                 <li class="list-group-item">10% cashback in the <strong>Espressoday</strong> app, at any branch.</li>
             </ul>
         </section>
+
+        <section id="contact">
+            <h2 class="text-center text-md-start mb-3">Ask us a question</h2>
+            <div class="row g-4">
+                <div class="col-12 col-lg-7">
+                    <form id="contact-form" action="visit.html#contact-feedback" method="get">
+                        <fieldset class="bg-white border rounded shadow-sm p-4">
+                            <legend class="h3">Your question</legend>
+                            <p class="small text-muted">Fill in the form and press <strong>Send question</strong>. A confirmation appears under the form, and we answer by e-mail.</p>
+                            <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="contact-name">Your name</label>
+                            <input class="form-control" type="text" id="contact-name" name="name" autocomplete="name" required>
+                            <div class="invalid-feedback" id="contact-name-error">Please enter your name.</div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="contact-email">E-mail</label>
+                            <input class="form-control" type="email" id="contact-email" name="email" autocomplete="email" required>
+                            <div class="invalid-feedback" id="contact-email-error">Please enter a valid e-mail address.</div>
+                        </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="contact-topic">Topic</label>
+                                    <select class="form-select" id="contact-topic" name="topic" required>
+                                        <option value="">Choose a topic</option>
+                                        <option value="hours">Opening hours</option>
+                                        <option value="menu">Menu and prices</option>
+                                        <option value="booking">Booking a table</option>
+                                        <option value="order">Pre-order</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="other">Something else</option>
+                                    </select>
+                                    <div class="invalid-feedback" id="contact-topic-error">Please choose a topic.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="contact-message">Your question</label>
+                                    <textarea class="form-control" id="contact-message" name="message" rows="5" minlength="10" required></textarea>
+                                    <div class="invalid-feedback" id="contact-message-error">Please write at least 10 characters.</div>
+                                </div>
+                                <div class="col-12 d-flex flex-wrap gap-2">
+                                    <button class="btn btn-primary btn-lg" id="contact-submit" type="submit">Send question</button>
+                                    <button class="btn btn-outline-primary btn-lg" id="contact-reset" type="reset">Clear form</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-5" id="contact-feedback" aria-live="polite">
+                    <div class="alert alert-danger hidden" id="contact-error" role="alert">Your question was not sent. Please check the fields marked in red.</div>
+                    <div class="card shadow-sm" id="contact-result">
+                        <div class="card-body">
+                            <h3 class="h5">What happens next</h3>
+                            <p class="mb-0" id="contact-result-text">After you press <strong>Send question</strong>, a confirmation with your question appears here. We reply to the e-mail address you give.</p>
+                            <div class="alert alert-success hidden mt-3 mb-0" id="contact-success" role="status">
+                                <p class="fw-bold mb-1">Thank you, <span id="contact-success-name">&mdash;</span>. Your question is sent.</p>
+                                <p class="mb-0">Topic: <span id="contact-success-topic">&mdash;</span>. We will reply to <span id="contact-success-email">&mdash;</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+    <a class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 shadow" id="back-to-top" href="#page-top">Back to top</a>
+
+    <footer id="site-footer" class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+        <!-- Footer (same on every page) -->
         <div class="container">
-            <p class="mb-1">Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+            <address class="mb-2">
+                Espresso Day, Syganak 24, Nura District, Astana<br>
+                Open weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00<br>
+                Phone: <a href="tel:+77714198457">+7 771 419 84 57</a><br>
+                Email: <a href="mailto:Espressoday2023@gmail.com">Espressoday2023@gmail.com</a><br>
+                Instagram: <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a>
+            </address>
             <p class="mb-2">&copy; 2026 Espresso Day</p>
-            <a class="btn btn-primary btn-sm d-md-none" href="tel:+77714198457">Call us</a>
+            <a class="btn btn-primary btn-sm d-md-none" id="footer-call" href="tel:+77714198457">Call us</a>
         </div>
     </footer>
 
