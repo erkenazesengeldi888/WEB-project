@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Our correction layer goes after Bootstrap, so our colours, fonts and state classes override the defaults -->
     <link rel="stylesheet" href="css/custom.css">
+    <meta http-equiv="refresh" content="0; url=menu.html#checkout">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 <body>
@@ -45,106 +46,12 @@
     </header>
 
     <main class="container py-5" id="main-content">
-        <section class="card shadow-sm mb-5" id="order-intro">
+        <section class="card shadow-sm text-center">
             <div class="card-body p-4">
-                <h2 class="text-center text-md-start">Check your order and place it</h2>
-                <p class="lead mb-0">Drinks you added on the <a href="menu.html">Menu page</a> are listed here. Change the quantities, choose pick-up or delivery, and press <strong>Place order</strong>. You pay when you receive the order.</p>
+                <h2>Order from the menu</h2>
+                <p class="lead">Choose your drinks on the Menu page, then press <strong>Go to payment</strong> to pick pick-up or delivery, the time and your details.</p>
+                <a class="btn btn-primary btn-lg" href="menu.html#checkout">Go to your order</a>
             </div>
-        </section>
-
-        <form id="order-form" action="order.html#order-result" method="get">
-            <div class="row g-4">
-                <div class="col-12 col-lg-7">
-                    <fieldset class="bg-white border rounded shadow-sm p-4" id="order-details">
-                        <legend class="h3">Your details</legend>
-                        <div class="row g-3">
-                            <div class="col-12 col-md-6">
-                                <label class="form-label" for="order-name">Your name</label>
-                                <input class="form-control" type="text" id="order-name" name="name" autocomplete="name" required>
-                                <div class="invalid-feedback" id="order-name-error">Please enter your name.</div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label class="form-label" for="order-phone">Phone number</label>
-                                <input class="form-control" type="tel" id="order-phone" name="phone" autocomplete="tel" required>
-                                <div class="invalid-feedback" id="order-phone-error">Please enter a phone number we can call.</div>
-                            </div>
-                            <div class="col-12">
-                                <span class="form-label d-block" id="order-method-label">How do you want to get it?</span>
-                                <div class="btn-group w-100" role="group" aria-labelledby="order-method-label">
-                                    <input class="btn-check" type="radio" name="method" id="order-method-pickup" value="pickup" checked>
-                                    <label class="btn btn-outline-primary" for="order-method-pickup">Pick up</label>
-                                    <input class="btn-check" type="radio" name="method" id="order-method-delivery" value="delivery">
-                                    <label class="btn btn-outline-primary" for="order-method-delivery">Delivery</label>
-                                </div>
-                            </div>
-                            <div class="col-12" id="order-pickup-info">
-                                <p class="mb-0 small"><strong>Pick-up address:</strong> Espresso Day, Syganak 24, Nura District, Astana.</p>
-                            </div>
-                            <div class="col-12 hidden" id="order-delivery-fields">
-                                <label class="form-label" for="order-address">Delivery address</label>
-                                <input class="form-control" type="text" id="order-address" name="address" autocomplete="street-address" placeholder="Street, building, apartment">
-                                <div class="invalid-feedback" id="order-address-error">Please enter the delivery address.</div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label class="form-label" for="order-time" id="order-time-label">Pick-up time</label>
-                                <input class="form-control" type="time" id="order-time" name="pickup_time" required min="07:30" max="22:30">
-                                <div class="invalid-feedback" id="order-time-error">Please choose a time between 07:30 and 22:30.</div>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label" for="order-comment">Comment for the barista</label>
-                                <textarea class="form-control" id="order-comment" name="comment" rows="3"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="order-consent" name="consent" required>
-                                    <label class="form-check-label" for="order-consent">I will pay for this order when I receive it.</label>
-                                    <div class="invalid-feedback" id="order-consent-error">Please confirm that you will pay for the order.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="col-12 col-lg-5">
-                    <div class="sticky-lg-top" id="order-sidebar">
-                        <div class="card shadow-sm" id="order-summary">
-                            <div class="card-body">
-                                <h2 class="h3">Your order</h2>
-                                <ul class="list-group list-group-flush mb-3" id="order-items" aria-live="polite">
-                                    <li class="list-group-item px-0 text-muted" id="order-empty">Your order is empty. <a href="menu.html">Choose drinks on the Menu page</a>.</li>
-                                </ul>
-                                <p class="d-flex justify-content-between mb-1"><span>Drinks:</span> <strong id="order-count">0</strong></p>
-                                <p class="d-flex justify-content-between mb-1"><span>Method:</span> <strong id="order-method-text">Pick up</strong></p>
-                                <p class="d-flex justify-content-between fs-5 mb-3"><span>Total:</span> <strong class="text-primary" id="order-total">0 &#8376;</strong></p>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary btn-lg" id="order-submit" type="submit">Place order</button>
-                                    <button class="btn btn-outline-primary" id="order-reset" type="reset">Clear order</button>
-                                    <a class="btn btn-link" href="menu.html">&larr; Back to menu</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <section class="mt-5" id="order-feedback" aria-live="polite">
-            <div class="alert alert-danger hidden" id="order-error" role="alert">Your order is not complete yet. Add at least one drink and fill in your details.</div>
-            <div class="card shadow-sm" id="order-result">
-                <div class="card-body">
-                    <h2 class="h3">Order confirmation</h2>
-                    <p class="mb-0" id="order-result-text">After you press <strong>Place order</strong>, your order number, total and delivery or pick-up details appear here.</p>
-                    <div class="alert alert-success hidden mt-3 mb-0" id="order-success" role="status">
-                        <p class="fw-bold mb-1">Thank you, your order is placed. Order number: <span id="order-number">&mdash;</span></p>
-                        <p class="mb-0">Details: <span id="order-pickup">&mdash;</span>. Total to pay: <span id="order-final-total">&mdash;</span>.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="text-center text-md-start mt-5" id="order-help">
-            <h2>Need help?</h2>
-            <p>Call us on <a href="tel:+77714198457">+7 771 419 84 57</a>, or <a href="booking.html#reservation">book a table</a> if you would rather sit down.</p>
         </section>
     </main>
 
@@ -166,76 +73,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/cart.js"></script>
-    <script>
-    // Order page: shows the shared cart (js/cart.js) as the order, with pick-up or delivery details.
-    (function () {
-        var $ = function (id) { return document.getElementById(id); };
-        var form = $('order-form'), listEl = $('order-items');
-        function isDelivery() { return $('order-method-delivery').checked; }
-        function method() {
-            var d = isDelivery();
-            $('order-delivery-fields').classList.toggle('hidden', !d);
-            $('order-pickup-info').classList.toggle('hidden', d);
-            $('order-address').required = d;
-            $('order-time-label').textContent = d ? 'Delivery time' : 'Pick-up time';
-            $('order-method-text').textContent = d ? 'Delivery' : 'Pick up';
-        }
-        function step(sign, text, fn) {
-            var b = document.createElement('button'); b.type = 'button'; b.className = 'btn btn-outline-primary btn-sm cart-step';
-            b.textContent = sign; b.setAttribute('aria-label', text); b.addEventListener('click', fn); return b;
-        }
-        function sync() {
-            listEl.innerHTML = '';
-            var items = EDCart.items();
-            if (!items.length) {
-                var li = document.createElement('li');
-                li.className = 'list-group-item px-0 text-muted'; li.id = 'order-empty';
-                li.innerHTML = 'Your order is empty. <a href="menu.html">Choose drinks on the Menu page</a>.';
-                listEl.appendChild(li);
-            }
-            items.forEach(function (it) {
-                var li = document.createElement('li');
-                li.className = 'list-group-item px-0';
-                var top = document.createElement('div'); top.className = 'd-flex justify-content-between';
-                var t = document.createElement('span'); t.className = 'fw-semibold'; t.textContent = EDCart.label(it);
-                var rm = document.createElement('button'); rm.type = 'button'; rm.className = 'btn-close btn-sm'; rm.setAttribute('aria-label', 'Remove ' + it.name);
-                rm.addEventListener('click', function () { EDCart.setQty(it.name, it.size, it.price, 0); });
-                top.appendChild(t); top.appendChild(rm);
-                var row = document.createElement('div'); row.className = 'd-flex justify-content-between align-items-center mt-1';
-                var q = document.createElement('div'); q.className = 'd-flex align-items-center gap-2';
-                var num = document.createElement('span'); num.className = 'cart-qty'; num.textContent = it.qty;
-                q.appendChild(step('\u2212', 'Less ' + it.name, function () { EDCart.setQty(it.name, it.size, it.price, it.qty - 1); }));
-                q.appendChild(num);
-                q.appendChild(step('+', 'More ' + it.name, function () { EDCart.setQty(it.name, it.size, it.price, it.qty + 1); }));
-                var sum = document.createElement('strong'); sum.className = 'text-primary'; sum.textContent = EDCart.format(it.qty * it.price);
-                row.appendChild(q); row.appendChild(sum);
-                li.appendChild(top); li.appendChild(row); listEl.appendChild(li);
-            });
-            $('order-count').textContent = EDCart.count();
-            $('order-total').textContent = EDCart.format(EDCart.total());
-        }
-        form.setAttribute('novalidate', '');
-        form.addEventListener('change', function (e) { if (e.target.name === 'method') method(); });
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            form.classList.add('was-validated');
-            var ok = form.checkValidity() && EDCart.items().length > 0;
-            $('order-error').classList.toggle('hidden', ok);
-            if (!ok) { $('order-error').scrollIntoView({ block: 'center' }); return; }
-            $('order-number').textContent = 'ED-' + (1000 + Math.floor(Math.random() * 9000));
-            $('order-pickup').textContent = (isDelivery() ? 'delivery to ' + $('order-address').value + ' at ' : 'pick-up at ') + $('order-time').value;
-            $('order-final-total').textContent = EDCart.format(EDCart.total());
-            $('order-success').classList.remove('hidden');
-            $('order-result-text').classList.add('hidden');
-            EDCart.clear();
-            form.reset(); form.classList.remove('was-validated'); method();
-            $('order-result').scrollIntoView({ block: 'center' });
-        });
-        form.addEventListener('reset', function () { EDCart.clear(); $('order-error').classList.add('hidden'); setTimeout(method, 0); });
-        EDCart.onChange(sync);
-        sync(); method();
-    })();
-    </script>
 </body>
 </html>
