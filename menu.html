@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Espresso Day coffee, lemonades and ice matcha with prices in tenge.">
-    <meta name="author" content="Yerkenaz">
+    <meta name="description" content="Espresso Day menu: coffee, lemonades, matcha, tea and desserts with prices in tenge.">
     <title>Espresso Day — Menu</title>
+    <!-- Bootstrap 5.3.3 (CSS and JS bundle from the jsDelivr CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Our correction layer goes after Bootstrap, so our colours, fonts and state classes override the defaults -->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 <body>
-    <header class="bg-dark text-light shadow" id="page-top">
+    <header id="page-top" class="bg-dark text-light shadow">
+        <!-- Header (same on every page): logo on a white strip, then the menu, then the title band -->
         <p class="bg-white text-center py-4 mb-0">
             <a class="d-inline-block" href="index.html"><img class="img-fluid" src="images/logo.svg" alt="Espresso Day" width="300" height="66"></a>
         </p>
         <div class="bg-white border-bottom">
         <nav class="navbar navbar-expand-lg navbar-light" aria-label="Main navigation">
             <div class="container-fluid">
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto" id="nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="mainNav">
@@ -26,6 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="menu.html" aria-current="page">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
                     <li class="nav-item"><a class="nav-link" href="visit.html">Visit Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
                     <li class="nav-item"><a class="nav-link" href="coffee.html">Coffee</a></li>
@@ -41,289 +44,1453 @@
         </div>
     </header>
 
-    <main class="container py-5">
+<main class="container py-5" id="main-content">
         <section class="card shadow-sm mb-5">
             <div class="card-body p-4">
                 <h2 class="text-center text-md-start">Our Menu</h2>
-                <p class="mb-0">Coffee is served in three sizes. Prices are in tenge (&#8376;); a dash means the drink is not served in that size. Iced drinks, lemonades, teas and more are listed further down the page. Read more <a href="about.html#about-intro">about the coffee shop</a> or <a href="visit.html">visit us</a> in person.</p>
+                <p class="mb-0">Every drink has a photo and a price. Coffee comes in up to three sizes: pick a size and the price updates. Prices are in tenge (&#8376;). Use the search to find a drink fast. Read more <a href="about.html#about-intro">about the coffee shop</a> or <a href="visit.html">visit us</a> in person.</p>
             </div>
         </section>
 
-        <section class="mb-5" id="coffee-menu">
-            <h2 class="text-center text-md-start">Coffee</h2>
-            <div class="table-responsive rounded shadow-sm">
-            <table class="table table-striped table-hover align-middle text-center mb-0">
-            <caption class="caption-top text-center">Espresso Day Coffee Menu</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Drink</th>
-                    <th scope="col">250 ml</th>
-                    <th scope="col">350 ml</th>
-                    <th scope="col">450 ml</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Espresso</th>
-                    <td class="fw-bold text-primary">690 ₸</td>
-                    <td class="text-muted">-</td>
-                    <td class="text-muted">-</td>
-                </tr>
-                <tr>
-                    <th scope="row">Americano</th>
-                    <td class="fw-bold text-primary">890 ₸</td>
-                    <td class="fw-bold text-primary">1090 ₸</td>
-                    <td class="fw-bold text-primary">1190 ₸</td>
-                </tr>
-                 <tr>
-                    <th scope="row">Mokkacino</th>
-                    <td class="fw-bold text-primary">1390 ₸</td>
-                    <td class="fw-bold text-primary">1490 ₸</td>
-                    <td class="fw-bold text-primary">1590 ₸</td>
-                </tr>
-                 <tr>
-                    <th scope="row">Latte</th>
-                    <td class="text-muted">-</td>
-                    <td class="fw-bold text-primary">1190 ₸</td>
-                    <td class="fw-bold text-primary">1390 ₸</td>
-                </tr>
-                 <tr>
-                    <th scope="row">Cappuccino</th>
-                    <td class="fw-bold text-primary">1090 ₸</td>
-                    <td class="fw-bold text-primary">1290 ₸</td>
-                    <td class="fw-bold text-primary">1390 ₸</td>
-                </tr>
-                 <tr>
-                    <th scope="row">Flat white</th>
-                    <td class="fw-bold text-primary">1190 ₸</td>
-                    <td class="text-muted">-</td>
-                    <td class="text-muted">-</td>
-                </tr>
-                 <tr>
-                    <th scope="row">Raf</th>
-                    <td class="text-muted">-</td>
-                    <td class="fw-bold text-primary">1590 ₸</td>
-                    <td class="text-muted">-</td>
-                </tr>
-                 <tr>
-                    <th scope="row">Spanish latte</th>
-                    <td class="text-muted">-</td>
-                    <td class="fw-bold text-primary">1290 ₸</td>
-                    <td class="fw-bold text-primary">1490 ₸</td>
-                </tr>
-            </tbody>
-        </table>
-            </div>
-            <p class="mt-3">Any coffee can be made hotter on request.</p>
-        </section>
 
-        <div class="row mb-5">
-            <article class="col-12">
-                <h2 class="text-center text-md-start mb-4">Other Drinks</h2>
-                <div class="row g-4">
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Iced Coffee</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Iced Americano</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Iced Latte</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Iced Cappuccino</span><span class="fw-bold text-nowrap ms-3">1290 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Bumble Coffee</span><span class="fw-bold text-nowrap ms-3">1990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Şie Bumble</span><span class="fw-bold text-nowrap ms-3">1590 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Frappuccino</span><span class="fw-bold text-nowrap ms-3">1790 &#8376;</span></li>
-                            </ul>
+        <section class="mb-5" id="menu-tools">
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h2 class="h3">Find a drink</h2>
+                            <form id="menu-search-form" role="search" action="menu.html#menu-search-status" method="get">
+                                <div class="row g-2">
+                                    <div class="col-12 col-md-5">
+                                        <label class="form-label" for="menu-search">Drink name</label>
+                                        <input class="form-control" type="search" id="menu-search" name="q" autocomplete="off" aria-describedby="menu-search-status">
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <label class="form-label" for="menu-category-filter">Category</label>
+                                        <select class="form-select" id="menu-category-filter" name="category">
+                                    <option value="all">All categories</option>
+                                    <option value="coffee">Coffee</option>
+                                    <option value="iced-coffee">Iced Coffee</option>
+                                    <option value="frappe">Frappé</option>
+                                    <option value="lemonades">Lemonades</option>
+                                    <option value="iced-matcha">Iced Matcha</option>
+                                    <option value="iced-tea">Iced Tea</option>
+                                    <option value="hot-drinks-teas">Hot Drinks (Teas)</option>
+                                    <option value="signature-drinks">Signature Drinks</option>
+                                    <option value="tonics">Tonics</option>
+                                    <option value="smoothies">Smoothies</option>
+                                    <option value="milkshakes">Milkshakes</option>
+                                    <option value="fresh-juice">Fresh Juice</option>
+                                    <option value="baby-drinks">Baby Drinks</option>
+                                    <option value="extras">Extras</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-3 d-flex align-items-end gap-2">
+                                        <button class="btn btn-primary flex-fill" id="menu-search-button" type="submit">Search</button>
+                                        <button class="btn btn-outline-primary flex-fill" id="menu-search-reset" type="reset">Clear</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="small text-muted mt-2 mb-0" id="menu-search-status" aria-live="polite">Showing the full menu. Type a drink name, for example latte, matcha or mojito, and choose Search to narrow it down.</p>
+                            <div class="alert alert-warning hidden mt-2 mb-0" id="menu-search-empty" role="status">No drink matches your search. Choose Clear to see the whole menu again.</div>
                         </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Lemonades</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Qulpynai</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Kiwi-Lime</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Kók Aspan</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Mojito</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Pineapple-Ginger</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Mojito Basil-Strawberry</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Mango-Passionfruit</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Iced Matcha</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Green Iced Matcha</span><span class="fw-bold text-nowrap ms-3">1290 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Blue Iced Matcha</span><span class="fw-bold text-nowrap ms-3">1290 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Erekşe Qúlpynay Matcha</span><span class="fw-bold text-nowrap ms-3">1990 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Iced Tea</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Mango-Passionfruit</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Pineapple-Ginger</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Basil-Strawberry</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Ǵajaiyp Ice Tea</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Samal Ice Tea</span><span class="fw-bold text-nowrap ms-3">1090 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Hot Drinks (Teas)</h3>
-                                <p class="text-muted small">350 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Moroccan</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Ginger</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Cranberry</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Sea Buckthorn</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Karak Tea</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Mulled Wine</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Green Matcha</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Blue Matcha</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Şie Şokolad <mark class="badge text-bg-primary">JANA</mark></span><span class="fw-bold text-nowrap ms-3">1390 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Gülşai Karkade <mark class="badge text-bg-primary">JANA</mark></span><span class="fw-bold text-nowrap ms-3">1390 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Purple Blue Tea <mark class="badge text-bg-primary">JANA</mark></span><span class="fw-bold text-nowrap ms-3">1390 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Signature Drinks</h3>
-                                <p class="text-muted small">350 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Kazakh Raf</span><span class="fw-bold text-nowrap ms-3">1490 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Salted Peanut Raf</span><span class="fw-bold text-nowrap ms-3">1490 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Vanilla-Strawberry Raf</span><span class="fw-bold text-nowrap ms-3">1490 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Latte Qurt</span><span class="fw-bold text-nowrap ms-3">1490 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Qanattandyratyn Raf <mark class="badge text-bg-primary">JANA</mark></span><span class="fw-bold text-nowrap ms-3">1690 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Almurt-Halva Raf <mark class="badge text-bg-primary">JANA</mark></span><span class="fw-bold text-nowrap ms-3">1690 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Tonics</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Espresso Tonic</span><span class="fw-bold text-nowrap ms-3">1790 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Matcha Tonic</span><span class="fw-bold text-nowrap ms-3">1490 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Şie Espresso Tonic</span><span class="fw-bold text-nowrap ms-3">1890 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Smoothies</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Strawberry</span><span class="fw-bold text-nowrap ms-3">1690 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Berry</span><span class="fw-bold text-nowrap ms-3">1690 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Milkshakes</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Vanilla Ice Cream</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Strawberry Mousse</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Banana Pudding</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Waffle-Popcorn</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Fresh Juice</h3>
-                                <p class="text-muted small">450 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Orange</span><span class="fw-bold text-nowrap ms-3">2390 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Apple</span><span class="fw-bold text-nowrap ms-3">1890 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Apple-Orange</span><span class="fw-bold text-nowrap ms-3">2190 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Baby Drinks</h3>
-                                <p class="text-muted small">350 ml</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Cocoa</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Hot Chocolate</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Strawberry Babyccino</span><span class="fw-bold text-nowrap ms-3">890 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body flex-grow-0">
-                                <h3>Extras</h3>
-                                <p class="text-muted small">Add to any drink</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Decaf</span><span class="fw-bold text-nowrap ms-3">+290 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Syrup</span><span class="fw-bold text-nowrap ms-3">+190 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Extra Shot</span><span class="fw-bold text-nowrap ms-3">+290 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Plant-Based Milk</span><span class="fw-bold text-nowrap ms-3">+450 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>EspressoDay Water</span><span class="fw-bold text-nowrap ms-3">550 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Coffee Beans, 250 g</span><span class="fw-bold text-nowrap ms-3">4500 &#8376;</span></li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>Coffee Beans, 1 kg</span><span class="fw-bold text-nowrap ms-3">14900 &#8376;</span></li>
-                            </ul>
-                        </div>
-                    </article>
+                    </div>
                 </div>
-            </article>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <figure class="text-center mb-0">
-                <img class="img-fluid rounded shadow" src="images/menu.jpeg" alt="Printed Espresso Day menu with photos of drinks and a price list">
-                <figcaption class="figure-caption mt-2">The menu.</figcaption>
-            </figure>
+                <div class="col-12 col-lg-4">
+                    <div class="card shadow-sm border-primary border-2 h-100">
+                        <div class="card-body">
+                            <h2 class="h3">Ready to order?</h2>
+                            <p>Add several drinks to your cart, choose the pick-up time, and we prepare the order at Syganak 24.</p>
+                            <a class="btn btn-primary btn-lg" id="menu-order-button" href="#cart-panel" data-bs-toggle="offcanvas" role="button" aria-controls="cart-panel">Open my cart</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <nav class="mt-4" aria-label="Menu categories" id="menu-category-nav">
+                <ul class="nav nav-pills justify-content-center justify-content-md-start gap-1 small">
+                        <li class="nav-item"><a class="nav-link" href="#coffee-menu">Coffee</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-iced-coffee">Iced Coffee</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-frappe">Frappé</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-lemonades">Lemonades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-iced-matcha">Iced Matcha</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-iced-tea">Iced Tea</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-hot-drinks-teas">Hot Drinks (Teas)</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-signature-drinks">Signature Drinks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-tonics">Tonics</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-smoothies">Smoothies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-milkshakes">Milkshakes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-fresh-juice">Fresh Juice</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-baby-drinks">Baby Drinks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#category-extras">Extras</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="mb-5 menu-category" id="coffee-menu" data-category="coffee">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Coffee</h2>
+                <span class="text-muted small">Pick a size, the price updates. Any coffee can be made hotter on request.</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="espresso" data-desc="A short, intense shot of coffee with a thick golden crema. The base of every other coffee drink." data-ingredients="Espresso Day blend coffee" data-volume="" data-name="Espresso">
+                            <img class="drink-photo" src="images/menu/espresso.jpg" alt="Espresso" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Espresso</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Espresso"><button type="button" class="drink-size btn btn-sm active" data-price="690" aria-pressed="true">250 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">690&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Espresso to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="americano" data-desc="Espresso topped up with hot water: a long, clean cup with a deep roasted taste." data-ingredients="Espresso Day blend coffee|Hot water" data-volume="" data-name="Americano">
+                            <img class="drink-photo" src="images/menu/americano.jpg" alt="Americano" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Americano</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Americano"><button type="button" class="drink-size btn btn-sm active" data-price="890" aria-pressed="true">250 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1090" aria-pressed="false">350 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1190" aria-pressed="false">450 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">890&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Americano to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="cappuccino" data-desc="Equal parts espresso, steamed milk and soft milk foam, finished with latte art." data-ingredients="Espresso Day blend coffee|Regular milk|Milk foam" data-volume="" data-name="Cappuccino">
+                            <img class="drink-photo" src="images/menu/cappuccino.jpg" alt="Cappuccino" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Cappuccino</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Cappuccino"><button type="button" class="drink-size btn btn-sm active" data-price="1090" aria-pressed="true">250 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1290" aria-pressed="false">350 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1390" aria-pressed="false">450 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Cappuccino to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="latte" data-desc="A mild, creamy coffee: espresso with plenty of steamed milk and a thin layer of foam." data-ingredients="Espresso Day blend coffee|Regular milk|Milk foam" data-volume="" data-name="Latte">
+                            <img class="drink-photo" src="images/menu/latte.jpg" alt="Latte" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Latte</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Latte"><button type="button" class="drink-size btn btn-sm active" data-price="1190" aria-pressed="true">350 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1390" aria-pressed="false">450 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Latte to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="flat-white" data-desc="A stronger, silkier cousin of the latte: espresso with a little velvety steamed milk." data-ingredients="Espresso Day blend coffee|Regular milk" data-volume="" data-name="Flat white">
+                            <img class="drink-photo" src="images/menu/flat-white.jpg" alt="Flat white" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Flat white</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Flat white"><button type="button" class="drink-size btn btn-sm active" data-price="1190" aria-pressed="true">250 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Flat white to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="mokkacino" data-desc="Cappuccino with chocolate: espresso, chocolate, steamed milk and foam." data-ingredients="Espresso Day blend coffee|Chocolate|Regular milk|Milk foam" data-volume="" data-name="Mokkacino">
+                            <img class="drink-photo" src="images/menu/mokkacino.jpg" alt="Mokkacino" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mokkacino</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Mokkacino"><button type="button" class="drink-size btn btn-sm active" data-price="1390" aria-pressed="true">250 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1490" aria-pressed="false">350 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1590" aria-pressed="false">450 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;390&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mokkacino to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="raf" data-desc="Espresso blended with hot cream and a touch of vanilla sugar, very soft and sweet." data-ingredients="Espresso Day blend coffee|Cream|Vanilla sugar" data-volume="" data-name="Raf">
+                            <img class="drink-photo" src="images/menu/raf.jpg" alt="Raf" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Raf</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Raf"><button type="button" class="drink-size btn btn-sm active" data-price="1590" aria-pressed="true">350 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;590&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Raf to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="spanish-latte" data-desc="A sweet latte made with condensed milk, rich and smooth." data-ingredients="Espresso Day blend coffee|Regular milk|Condensed milk" data-volume="" data-name="Spanish latte">
+                            <img class="drink-photo" src="images/menu/spanish-latte.jpg" alt="Spanish latte" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Spanish latte</button></h3>
+                                <div class="drink-sizes d-flex flex-wrap gap-1 mb-2" role="group" aria-label="Size, Spanish latte"><button type="button" class="drink-size btn btn-sm active" data-price="1290" aria-pressed="true">350 ml</button><button type="button" class="drink-size btn btn-sm" data-price="1490" aria-pressed="false">450 ml</button></div>
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;290&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Spanish latte to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-iced-coffee" data-category="iced-coffee">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Iced Coffee</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="iced-americano" data-desc="Espresso over ice with cold water: refreshing and bold." data-ingredients="Espresso Day blend coffee|Cold water|Ice" data-volume="450 ml" data-name="Iced Americano">
+                            <img class="drink-photo" src="images/menu/iced-americano.jpg" alt="Iced Americano" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Iced Americano</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Iced Americano to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="iced-latte" data-desc="Cold milk poured over espresso and ice, mild and creamy." data-ingredients="Espresso Day blend coffee|Regular milk|Ice" data-volume="450 ml" data-name="Iced Latte">
+                            <img class="drink-photo" src="images/menu/iced-latte.jpg" alt="Iced Latte" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Iced Latte</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Iced Latte to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="iced-cappuccino" data-desc="Espresso with cold milk and a cap of cold foam, served over ice." data-ingredients="Espresso Day blend coffee|Regular milk|Cold milk foam|Ice" data-volume="450 ml" data-name="Iced Cappuccino">
+                            <img class="drink-photo" src="images/menu/iced-cappuccino.jpg" alt="Iced Cappuccino" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Iced Cappuccino</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;290&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Iced Cappuccino to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="bumble-coffee" data-desc="Espresso poured over fresh orange juice and ice: sweet, sour and bitter at once." data-ingredients="Espresso Day blend coffee|Orange juice|Ice" data-volume="450 ml" data-name="Bumble Coffee">
+                            <img class="drink-photo" src="images/menu/bumble-coffee.jpg" alt="Bumble Coffee" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Bumble Coffee</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Bumble Coffee to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="sie-bumble" data-desc="Our Bumble with a berry twist: espresso poured over a berry-tea base and ice." data-ingredients="Espresso Day blend coffee|Berry tea (Şie)|Ice" data-volume="450 ml" data-name="Şie Bumble">
+                            <img class="drink-photo" src="images/menu/sie-bumble.jpg" alt="Şie Bumble" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Şie Bumble</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;590&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Şie Bumble to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="frappuccino" data-desc="A frozen blended coffee drink with milk, topped with a cap of cream and crumbs." data-ingredients="Espresso Day blend coffee|Regular milk|Syrup|Ice" data-volume="450 ml" data-name="Frappuccino">
+                            <img class="drink-photo" src="images/menu/frappuccino.jpg" alt="Frappuccino" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Frappuccino</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;790&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Frappuccino to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="espresso-cola-cream" data-desc="Espresso over cola and ice with a cream topping. Sparkling and unexpected." data-ingredients="Espresso Day blend coffee|Cola|Cream|Ice" data-volume="450 ml" data-name="Espresso Cola Cream">
+                            <img class="drink-photo" src="images/menu/espresso-cola-cream.jpg" alt="Espresso Cola Cream" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Espresso Cola Cream</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;890&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Espresso Cola Cream to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="iced-fury-urbech" data-desc="Iced coffee with milk and sweet urbech paste with chocolate drips: dessert in a glass." data-ingredients="Espresso Day blend coffee|Milk|Urbech paste|Chocolate sauce|Ice" data-volume="450 ml" data-name="Iced Fury Urbech">
+                            <img class="drink-photo" src="images/menu/iced-fury-urbech.jpg" alt="Iced Fury Urbech" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Iced Fury Urbech</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">2&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Iced Fury Urbech to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="glasse" data-desc="Iced coffee with milk and three scoops of ice cream drizzled with caramel." data-ingredients="Espresso Day blend coffee|Milk|Ice cream|Caramel sauce|Ice" data-volume="450 ml" data-name="Glasse">
+                            <img class="drink-photo" src="images/menu/glasse.jpg" alt="Glasse" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Glasse</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;790&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Glasse to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="affogato" data-desc="A classic Italian dessert: scoops of ice cream drowned in hot espresso." data-ingredients="Espresso Day blend coffee|Ice cream|Caramel sauce" data-volume="450 ml" data-name="Affogato">
+                            <img class="drink-photo" src="images/menu/affogato.jpg" alt="Affogato" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Affogato</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;290&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Affogato to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-frappe" data-category="frappe">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Frappé</h2>
+                <span class="text-muted small">Salted caramel, popcorn or pistachio</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="frappe-popcorn" data-desc="A blended frozen coffee with popcorn flavour, whipped cream and chocolate sauce." data-ingredients="Espresso Day blend coffee|Milk|Popcorn syrup|Whipped cream|Chocolate sauce|Ice" data-volume="" data-name="Frappé Popcorn">
+                            <img class="drink-photo" src="images/menu/frappe-popcorn.jpg" alt="Frappé Popcorn" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Frappé Popcorn</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;790&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Frappé Popcorn to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="frappe-salted-caramel" data-desc="A blended frozen coffee with salted caramel, whipped cream and caramel sauce." data-ingredients="Espresso Day blend coffee|Milk|Salted caramel|Whipped cream|Caramel sauce|Ice" data-volume="" data-name="Frappé Salted Caramel">
+                            <img class="drink-photo" src="images/menu/frappe-salted-caramel.jpg" alt="Frappé Salted Caramel" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Frappé Salted Caramel</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;790&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Frappé Salted Caramel to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="frappe-pistachio" data-desc="A blended frozen coffee with pistachio, whipped cream and crushed pistachio." data-ingredients="Espresso Day blend coffee|Milk|Pistachio syrup|Whipped cream|Crushed pistachio|Ice" data-volume="" data-name="Frappé Pistachio">
+                            <img class="drink-photo" src="images/menu/frappe-pistachio.jpg" alt="Frappé Pistachio" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Frappé Pistachio</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;790&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Frappé Pistachio to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-lemonades" data-category="lemonades">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Lemonades</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-qulpynai" data-desc="A bright strawberry lemonade with mint, served over ice." data-ingredients="Strawberry|Lemon|Mint|Sparkling water|Ice" data-volume="450 ml" data-name="Qulpynai">
+                            <img class="drink-photo" src="images/menu/lemonade-qulpynai.jpg" alt="Qulpynai" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Qulpynai</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Qulpynai to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-kiwi-lime" data-desc="Tart and sweet: kiwi and lime in sparkling water, with kiwi seeds." data-ingredients="Kiwi|Lime|Sparkling water|Ice" data-volume="450 ml" data-name="Kiwi-Lime">
+                            <img class="drink-photo" src="images/menu/lemonade-kiwi-lime.jpg" alt="Kiwi-Lime" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Kiwi-Lime</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Kiwi-Lime to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-kok-aspan" data-desc="Our blue lemonade with lime, mint and orange peel, garnished with a rose." data-ingredients="Blue curaçao syrup|Lime|Mint|Orange peel|Sparkling water|Ice" data-volume="450 ml" data-name="Kók Aspan">
+                            <img class="drink-photo" src="images/menu/lemonade-kok-aspan.jpg" alt="Kók Aspan" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Kók Aspan</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Kók Aspan to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-mojito" data-desc="Mint, lime and a little sugar in sparkling water, a classic non-alcoholic mojito." data-ingredients="Mint|Lime|Sugar|Sparkling water|Ice" data-volume="450 ml" data-name="Mojito">
+                            <img class="drink-photo" src="images/menu/lemonade-mojito.jpg" alt="Mojito" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mojito</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mojito to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-pineapple-ginger" data-desc="Sweet pineapple with a warm kick of ginger, served over ice." data-ingredients="Pineapple|Ginger|Lemon|Mint|Sparkling water|Ice" data-volume="450 ml" data-name="Pineapple-Ginger">
+                            <img class="drink-photo" src="images/menu/lemonade-pineapple-ginger.jpg" alt="Pineapple-Ginger" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Pineapple-Ginger</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Pineapple-Ginger to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-mojito-basil-strawberry" data-desc="A mojito with fresh basil and sweet strawberry." data-ingredients="Strawberry|Basil|Mint|Lime|Sparkling water|Ice" data-volume="450 ml" data-name="Mojito Basil-Strawberry">
+                            <img class="drink-photo" src="images/menu/lemonade-mojito-basil-strawberry.jpg" alt="Mojito Basil-Strawberry" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mojito Basil-Strawberry</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mojito Basil-Strawberry to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-mango-passionfruit" data-desc="Sweet mango and exotic passion fruit, with seeds and a mint leaf." data-ingredients="Mango|Passion fruit|Mint|Sparkling water|Ice" data-volume="450 ml" data-name="Mango-Passionfruit">
+                            <img class="drink-photo" src="images/menu/lemonade-mango-passionfruit.jpg" alt="Mango-Passionfruit" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mango-Passionfruit</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mango-Passionfruit to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="lemonade-klassikalyq" data-desc="The classic: fresh lemon juice and sparkling water with mint and orange." data-ingredients="Lemon juice|Orange|Mint|Sparkling water|Ice" data-volume="450 ml" data-name="Klassikalyq">
+                            <img class="drink-photo" src="images/menu/lemonade-klassikalyq.jpg" alt="Klassikalyq" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Klassikalyq</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Klassikalyq to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-iced-matcha" data-category="iced-matcha">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Iced Matcha</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="iced-green-matcha" data-desc="Green matcha whisked and poured over cold milk and ice." data-ingredients="Matcha|Milk|Ice" data-volume="450 ml" data-name="Green Iced Matcha">
+                            <img class="drink-photo" src="images/menu/iced-green-matcha.jpg" alt="Green Iced Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Green Iced Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;290&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Green Iced Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="iced-blue-matcha" data-desc="Blue matcha (butterfly pea flower) over cold milk and ice, gentle and calming." data-ingredients="Blue matcha|Milk|Ice" data-volume="450 ml" data-name="Blue Iced Matcha">
+                            <img class="drink-photo" src="images/menu/iced-blue-matcha.jpg" alt="Blue Iced Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Blue Iced Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;290&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Blue Iced Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="erekshe-qulpynai-matcha" data-desc="Three layers: strawberry, milk and green matcha. Sweet, light and beautiful." data-ingredients="Strawberry puree|Milk|Matcha|Ice" data-volume="450 ml" data-name="Erekşe Qúlpynay Matcha">
+                            <img class="drink-photo" src="images/menu/erekshe-qulpynai-matcha.jpg" alt="Erekşe Qúlpynay Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Erekşe Qúlpynay Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Erekşe Qúlpynay Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="kokos-matcha" data-desc="Blue matcha with coconut milk and a note of caramel, soft and refreshing." data-ingredients="Blue matcha|Coconut milk|Caramel|Ice" data-volume="450 ml" data-name="Kokos Matcha">
+                            <img class="drink-photo" src="images/menu/kokos-matcha.jpg" alt="Kokos Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Kokos Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;890&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Kokos Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="mango-matcha" data-desc="Tropical mango layered with milk and green matcha." data-ingredients="Mango puree|Milk|Matcha|Ice" data-volume="450 ml" data-name="Mango Matcha">
+                            <img class="drink-photo" src="images/menu/mango-matcha.jpg" alt="Mango Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mango Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;890&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mango Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="ice-ube-latte-peach" data-desc="Purple ube latte over a layer of peach, creamy and fruity." data-ingredients="Ube|Milk|Peach puree|Ice" data-volume="450 ml" data-name="Ice Ube Latte Peach">
+                            <img class="drink-photo" src="images/menu/ice-ube-latte-peach.jpg" alt="Ice Ube Latte Peach" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Ice Ube Latte Peach</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Ice Ube Latte Peach to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="ice-ube-latte-berry" data-desc="Purple ube latte over a layer of berry puree, creamy and fruity." data-ingredients="Ube|Milk|Berry puree|Ice" data-volume="450 ml" data-name="Ice Ube Latte Berry">
+                            <img class="drink-photo" src="images/menu/ice-ube-latte-berry.jpg" alt="Ice Ube Latte Berry" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Ice Ube Latte Berry</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Ice Ube Latte Berry to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-iced-tea" data-category="iced-tea">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Iced Tea</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="icetea-mango-passionfruit" data-desc="Chilled tea with mango and passion fruit, orange and mint." data-ingredients="Tea|Mango|Passion fruit|Orange|Mint|Ice" data-volume="450 ml" data-name="Mango-Passionfruit">
+                            <img class="drink-photo" src="images/menu/icetea-mango-passionfruit.jpg" alt="Mango-Passionfruit" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mango-Passionfruit</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mango-Passionfruit to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="icetea-pineapple-ginger" data-desc="Chilled tea with pineapple and ginger, light and refreshing." data-ingredients="Tea|Pineapple|Ginger|Mint|Ice" data-volume="450 ml" data-name="Pineapple-Ginger">
+                            <img class="drink-photo" src="images/menu/icetea-pineapple-ginger.jpg" alt="Pineapple-Ginger" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Pineapple-Ginger</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Pineapple-Ginger to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="icetea-basil-strawberry" data-desc="Chilled tea with strawberry and basil." data-ingredients="Tea|Strawberry|Basil|Lime|Ice" data-volume="450 ml" data-name="Basil-Strawberry">
+                            <img class="drink-photo" src="images/menu/icetea-basil-strawberry.jpg" alt="Basil-Strawberry" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Basil-Strawberry</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Basil-Strawberry to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="gajaiyp-icetea" data-desc="Our house iced tea with a fruity, summery flavour." data-ingredients="Tea|Fruit syrup|Mint|Ice" data-volume="450 ml" data-name="Ǵajaiyp Ice Tea">
+                            <img class="drink-photo" src="images/menu/gajaiyp-icetea.jpg" alt="Ǵajaiyp Ice Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Ǵajaiyp Ice Tea</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Ǵajaiyp Ice Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="samal-icetea" data-desc="A tropical iced tea: tropical fruit, sweet tea and an orange slice." data-ingredients="Tea|Tropical fruit|Orange|Mint|Ice" data-volume="450 ml" data-name="Samal Ice Tea">
+                            <img class="drink-photo" src="images/menu/samal-icetea.jpg" alt="Samal Ice Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Samal Ice Tea</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;090&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Samal Ice Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="kyoto-sencha-tea" data-desc="Japanese sencha green tea with orange, served cold over ice." data-ingredients="Sencha green tea|Orange|Ice" data-volume="450 ml" data-name="Kyoto Sencha Tea">
+                            <img class="drink-photo" src="images/menu/kyoto-sencha-tea.jpg" alt="Kyoto Sencha Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Kyoto Sencha Tea</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Kyoto Sencha Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="power-spirit-tea" data-desc="An energising iced tea with orange and mint." data-ingredients="Tea|Orange|Mint|Ice" data-volume="450 ml" data-name="Power Spirit Tea">
+                            <img class="drink-photo" src="images/menu/power-spirit-tea.jpg" alt="Power Spirit Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Power Spirit Tea</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Power Spirit Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-hot-drinks-teas" data-category="hot-drinks-teas">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Hot Drinks (Teas)</h2>
+                <span class="text-muted small">350 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="moroccan-tea" data-desc="Hot tea with warming spices and orange, cosy on a cold day." data-ingredients="Black tea|Cinnamon|Star anise|Orange" data-volume="350 ml" data-name="Moroccan">
+                            <img class="drink-photo" src="images/menu/moroccan-tea.jpg" alt="Moroccan" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Moroccan</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Moroccan to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="ginger-tea" data-desc="Hot tea with fresh ginger, lemon and orange to warm you up." data-ingredients="Tea|Ginger|Lemon|Orange" data-volume="350 ml" data-name="Ginger">
+                            <img class="drink-photo" src="images/menu/ginger-tea.jpg" alt="Ginger" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Ginger</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Ginger to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="cranberry-tea" data-desc="Tart and fruity hot tea with cranberries and a lemon slice." data-ingredients="Tea|Cranberry|Lemon" data-volume="350 ml" data-name="Cranberry">
+                            <img class="drink-photo" src="images/menu/cranberry-tea.jpg" alt="Cranberry" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Cranberry</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Cranberry to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="sea-buckthorn-tea" data-desc="A bright hot tea with sea buckthorn, orange and mint." data-ingredients="Tea|Sea buckthorn|Orange|Mint" data-volume="350 ml" data-name="Sea Buckthorn">
+                            <img class="drink-photo" src="images/menu/sea-buckthorn-tea.jpg" alt="Sea Buckthorn" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Sea Buckthorn</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Sea Buckthorn to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="karak-tea" data-desc="Strong spiced milk tea in the Karak style: sweet, thick and warming." data-ingredients="Black tea|Milk|Spices|Sugar" data-volume="350 ml" data-name="Karak Tea">
+                            <img class="drink-photo" src="images/menu/karak-tea.jpg" alt="Karak Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Karak Tea</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Karak Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="mulled-wine-tea" data-desc="A non-alcoholic mulled-wine style tea with cinnamon, anise and orange." data-ingredients="Fruit tea|Cinnamon|Star anise|Orange" data-volume="350 ml" data-name="Mulled Wine">
+                            <img class="drink-photo" src="images/menu/mulled-wine-tea.jpg" alt="Mulled Wine" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Mulled Wine</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Mulled Wine to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="green-matcha" data-desc="Hot green matcha latte with latte art." data-ingredients="Matcha|Milk" data-volume="350 ml" data-name="Green Matcha">
+                            <img class="drink-photo" src="images/menu/green-matcha.jpg" alt="Green Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Green Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Green Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="blue-matcha" data-desc="Hot blue matcha latte (butterfly pea flower), mild and creamy." data-ingredients="Blue matcha|Milk" data-volume="350 ml" data-name="Blue Matcha">
+                            <img class="drink-photo" src="images/menu/blue-matcha.jpg" alt="Blue Matcha" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Blue Matcha</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Blue Matcha to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="black-green-tea" data-desc="Classic tea by the cup: choose black or green." data-ingredients="Black or green tea" data-volume="350 ml" data-name="Black / Green Tea">
+                            <img class="drink-photo" src="images/menu/black-green-tea.jpg" alt="Black / Green Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Black / Green Tea</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">590&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Black / Green Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="sie-chocolate" data-desc="Hot chocolate with a tea (Şie) note: soft, sweet and warming." data-ingredients="Chocolate|Milk|Şie tea" data-volume="350 ml" data-name="Şie Şokolad">
+                            <img class="drink-photo" src="images/menu/sie-chocolate.jpg" alt="Şie Şokolad" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Şie Şokolad</button> <span class="badge text-bg-primary align-middle">JANA</span></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;390&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Şie Şokolad to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="gulshai-karkade" data-desc="Hibiscus (karkade) tea with lemon, mint and spices." data-ingredients="Hibiscus|Lemon|Mint|Cinnamon|Star anise" data-volume="350 ml" data-name="Gülşai Karkade">
+                            <img class="drink-photo" src="images/menu/gulshai-karkade.jpg" alt="Gülşai Karkade" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Gülşai Karkade</button> <span class="badge text-bg-primary align-middle">JANA</span></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;390&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Gülşai Karkade to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="purple-blue-tea" data-desc="Purple blue tea latte with lemon and ginger. Calming and a little bit magical." data-ingredients="Blue tea flower|Milk|Lemon|Ginger" data-volume="350 ml" data-name="Purple Blue Tea">
+                            <img class="drink-photo" src="images/menu/purple-blue-tea.jpg" alt="Purple Blue Tea" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Purple Blue Tea</button> <span class="badge text-bg-primary align-middle">JANA</span></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;390&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Purple Blue Tea to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-signature-drinks" data-category="signature-drinks">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Signature Drinks</h2>
+                <span class="text-muted small">350 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="raf-kazakh" data-desc="A raf with a Kazakh twist: cream and espresso with a sprinkle of toasted millet." data-ingredients="Espresso Day blend coffee|Cream|Millet topping" data-volume="350 ml" data-name="Kazakh Raf">
+                            <img class="drink-photo" src="images/menu/raf-kazakh.jpg" alt="Kazakh Raf" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Kazakh Raf</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Kazakh Raf to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="raf-salted-peanut" data-desc="A creamy raf with salted peanut: sweet and savoury, topped with crushed peanuts." data-ingredients="Espresso Day blend coffee|Cream|Salted peanut" data-volume="350 ml" data-name="Salted Peanut Raf">
+                            <img class="drink-photo" src="images/menu/raf-salted-peanut.jpg" alt="Salted Peanut Raf" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Salted Peanut Raf</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Salted Peanut Raf to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="raf-vanilla-strawberry" data-desc="A raf with vanilla and strawberry notes, topped with berry crumble." data-ingredients="Espresso Day blend coffee|Cream|Vanilla|Strawberry" data-volume="350 ml" data-name="Vanilla-Strawberry Raf">
+                            <img class="drink-photo" src="images/menu/raf-vanilla-strawberry.jpg" alt="Vanilla-Strawberry Raf" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Vanilla-Strawberry Raf</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Vanilla-Strawberry Raf to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="latte-qurt" data-desc="A latte with a sprinkle of qurt (dried cheese) and berry crumble: surprising and soft." data-ingredients="Espresso Day blend coffee|Regular milk|Qurt" data-volume="350 ml" data-name="Latte Qurt">
+                            <img class="drink-photo" src="images/menu/latte-qurt.jpg" alt="Latte Qurt" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Latte Qurt</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Latte Qurt to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="energy-raf" data-desc="An energising raf with espresso and cream." data-ingredients="Espresso Day blend coffee|Cream" data-volume="350 ml" data-name="Qanattandyratyn Raf">
+                            <img class="drink-photo" src="images/menu/energy-raf.jpg" alt="Qanattandyratyn Raf" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Qanattandyratyn Raf</button> <span class="badge text-bg-primary align-middle">JANA</span></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;690&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Qanattandyratyn Raf to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="almurt-halva-raf" data-desc="An east-meets-west raf with dried pear and halva." data-ingredients="Espresso Day blend coffee|Cream|Dried pear|Halva" data-volume="350 ml" data-name="Almurt-Halva Raf">
+                            <img class="drink-photo" src="images/menu/almurt-halva-raf.jpg" alt="Almurt-Halva Raf" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Almurt-Halva Raf</button> <span class="badge text-bg-primary align-middle">JANA</span></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;690&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Almurt-Halva Raf to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-tonics" data-category="tonics">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Tonics</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="espresso-tonic" data-desc="Espresso poured over tonic and ice: bitter, sparkling and very refreshing." data-ingredients="Espresso Day blend coffee|Tonic|Ice" data-volume="450 ml" data-name="Espresso Tonic">
+                            <img class="drink-photo" src="images/menu/espresso-tonic.jpg" alt="Espresso Tonic" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Espresso Tonic</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;790&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Espresso Tonic to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="matcha-tonic" data-desc="Green matcha over tonic and ice, light and fizzy." data-ingredients="Matcha|Tonic|Ice" data-volume="450 ml" data-name="Matcha Tonic">
+                            <img class="drink-photo" src="images/menu/matcha-tonic.jpg" alt="Matcha Tonic" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Matcha Tonic</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;490&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Matcha Tonic to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="sie-espresso-tonic" data-desc="Espresso tonic with a berry-tea (Şie) layer." data-ingredients="Espresso Day blend coffee|Tonic|Berry tea (Şie)|Ice" data-volume="450 ml" data-name="Şie Espresso Tonic">
+                            <img class="drink-photo" src="images/menu/sie-espresso-tonic.jpg" alt="Şie Espresso Tonic" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Şie Espresso Tonic</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;890&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Şie Espresso Tonic to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="tropical-matcha-tonic" data-desc="Matcha over tonic with a tropical fruit layer." data-ingredients="Matcha|Tonic|Tropical fruit puree|Ice" data-volume="450 ml" data-name="Tropikalyq Matcha Tonic">
+                            <img class="drink-photo" src="images/menu/tropical-matcha-tonic.jpg" alt="Tropikalyq Matcha Tonic" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Tropikalyq Matcha Tonic</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;990&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Tropikalyq Matcha Tonic to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-smoothies" data-category="smoothies">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Smoothies</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="smoothie-strawberry" data-desc="A thick, cold smoothie made from strawberries." data-ingredients="Strawberry|Ice" data-volume="450 ml" data-name="Strawberry">
+                            <img class="drink-photo" src="images/menu/smoothie-strawberry.jpg" alt="Strawberry" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Strawberry</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;690&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Strawberry to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="smoothie-berry" data-desc="A thick, cold smoothie with a mix of berries." data-ingredients="Mixed berries|Ice" data-volume="450 ml" data-name="Berry">
+                            <img class="drink-photo" src="images/menu/smoothie-berry.jpg" alt="Berry" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Berry</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;690&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Berry to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-milkshakes" data-category="milkshakes">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Milkshakes</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="shake-vanilla" data-desc="A creamy milkshake with vanilla ice cream." data-ingredients="Milk|Vanilla ice cream" data-volume="450 ml" data-name="Vanilla Ice Cream">
+                            <img class="drink-photo" src="images/menu/shake-vanilla.jpg" alt="Vanilla Ice Cream" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Vanilla Ice Cream</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Vanilla Ice Cream to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="shake-strawberry-mousse" data-desc="A light and delicate milkshake with strawberry and creamy mousse." data-ingredients="Milk|Strawberry|Mousse" data-volume="450 ml" data-name="Strawberry Mousse">
+                            <img class="drink-photo" src="images/menu/shake-strawberry-mousse.jpg" alt="Strawberry Mousse" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Strawberry Mousse</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Strawberry Mousse to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="shake-banana-pudding" data-desc="A thick milkshake with banana and creamy pudding." data-ingredients="Milk|Banana|Pudding" data-volume="450 ml" data-name="Banana Pudding">
+                            <img class="drink-photo" src="images/menu/shake-banana-pudding.jpg" alt="Banana Pudding" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Banana Pudding</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Banana Pudding to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="shake-waffle-popcorn" data-desc="A sweet milkshake with crisp waffle and salty popcorn notes." data-ingredients="Milk|Waffle|Popcorn" data-volume="450 ml" data-name="Waffle-Popcorn">
+                            <img class="drink-photo" src="images/menu/shake-waffle-popcorn.jpg" alt="Waffle-Popcorn" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Waffle-Popcorn</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Waffle-Popcorn to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-fresh-juice" data-category="fresh-juice">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Fresh Juice</h2>
+                <span class="text-muted small">450 ml</span>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="orange" data-desc="Freshly squeezed orange juice, nothing added." data-ingredients="Fresh oranges" data-volume="450 ml" data-name="Orange">
+                            <div class="drink-photo drink-photo-empty" role="img" aria-label="Orange">🍊</div>
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Orange</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">2&nbsp;390&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Orange to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="fresh-apple" data-desc="Freshly pressed apple juice: natural sweetness with a light tartness." data-ingredients="Fresh apples" data-volume="450 ml" data-name="Apple">
+                            <img class="drink-photo" src="images/menu/fresh-apple.jpg" alt="Apple" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Apple</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">1&nbsp;890&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Apple to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <article class="card drink-card h-100 shadow-sm menu-item" data-key="fresh-apple-orange" data-desc="Freshly pressed juice from apples and oranges." data-ingredients="Fresh apples|Fresh oranges" data-volume="450 ml" data-name="Apple-Orange">
+                            <img class="drink-photo" src="images/menu/fresh-apple-orange.jpg" alt="Apple-Orange" width="520" height="520" loading="lazy">
+                            <div class="card-body d-flex flex-column pb-2">
+                                <h3 class="h6 drink-name mb-2"><button type="button" class="drink-open stretched-link" aria-haspopup="dialog">Apple-Orange</button></h3>
+                                
+                                <div class="mt-auto d-flex justify-content-between align-items-center gap-2">
+                                    <span class="drink-price fw-bold text-primary">2&nbsp;190&nbsp;&#8376;</span>
+                                    <button type="button" class="btn btn-primary btn-sm add-to-cart" aria-label="Add Apple-Orange to cart">Add</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-baby-drinks" data-category="baby-drinks">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Baby Drinks</h2>
+                <span class="text-muted small">350 ml</span>
+            </div>
+            <div class="card shadow-sm">
+                <ul class="list-group list-group-flush">
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Cocoa"><span>Cocoa</span><span class="fw-bold text-nowrap ms-3">990 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Hot Chocolate"><span>Hot Chocolate</span><span class="fw-bold text-nowrap ms-3">1190 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Strawberry Babyccino"><span>Strawberry Babyccino</span><span class="fw-bold text-nowrap ms-3">890 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-5 menu-category" id="category-extras" data-category="extras">
+            <div class="d-flex flex-wrap align-items-baseline gap-2 mb-3">
+                <h2 class="h3 mb-0">Extras</h2>
+                <span class="text-muted small">Add to any drink</span>
+            </div>
+            <div class="card shadow-sm">
+                <ul class="list-group list-group-flush">
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Decaf"><span>Decaf</span><span class="fw-bold text-nowrap ms-3">+290 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Syrup"><span>Syrup</span><span class="fw-bold text-nowrap ms-3">+190 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Extra Shot"><span>Extra Shot</span><span class="fw-bold text-nowrap ms-3">+290 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Plant-Based Milk"><span>Plant-Based Milk</span><span class="fw-bold text-nowrap ms-3">+450 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="EspressoDay Water"><span>EspressoDay Water</span><span class="fw-bold text-nowrap ms-3">550 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Coffee Beans, 250 g"><span>Coffee Beans, 250 g</span><span class="fw-bold text-nowrap ms-3">4500 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                        <li class="list-group-item menu-item d-flex justify-content-between align-items-center" data-name="Coffee Beans, 1 kg"><span>Coffee Beans, 1 kg</span><span class="fw-bold text-nowrap ms-3">14900 &#8376;</span><button type="button" class="btn btn-primary btn-sm add-to-cart ms-3" aria-label="Add to cart">Add</button></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card shadow-sm border-primary border-2 text-center mb-5" id="menu-order-cta">
+            <div class="card-body p-4">
+                <h2 class="h3">Found something you like?</h2>
+                <p>Add it to a pick-up order, or book a table and sit down with it.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <a class="btn btn-primary btn-lg" id="menu-order-bottom" href="#cart-panel" data-bs-toggle="offcanvas" role="button" aria-controls="cart-panel">Open my cart</a>
+                    <a class="btn btn-outline-primary btn-lg" id="menu-book-bottom" href="booking.html#reservation">Book a table</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <a class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 shadow" href="#page-top">Back to top</a>
+    <!-- Drink details: opens when a card is clicked -->
+    <div class="modal fade" id="drink-modal" tabindex="-1" aria-labelledby="drink-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h2 class="h4 mb-0" id="drink-modal-title">Drink</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-12 col-md-5"><img class="img-fluid rounded drink-modal-photo" id="drink-modal-photo" src="" alt="" width="520" height="520"></div>
+                        <div class="col-12 col-md-7">
+                            <p class="text-muted small mb-1" id="drink-modal-meta"></p>
+                            <p class="fs-3 fw-bold text-primary mb-3" id="drink-modal-price"></p>
+                            <div id="drink-modal-sizes-wrap" class="mb-3">
+                                <p class="small fw-semibold mb-1">Size</p>
+                                <div class="d-flex flex-wrap gap-2" id="drink-modal-sizes" role="group" aria-label="Size"></div>
+                            </div>
+                            <p id="drink-modal-desc"></p>
+                            <p class="small fw-semibold mb-1">What is inside</p>
+                            <ul class="drink-ingredients" id="drink-modal-ingredients"></ul>
+                            <button type="button" class="btn btn-primary btn-lg w-100 mt-2" id="drink-modal-add">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <footer class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+    <!-- Cart: floating button + side panel (Bootstrap offcanvas). Items are kept in the browser, so they survive a page reload. -->
+    <button class="btn btn-primary shadow cart-fab" id="cart-open" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-panel" aria-controls="cart-panel">
+        <span aria-hidden="true">&#128722;</span> Cart
+        <span class="badge text-bg-light ms-1" id="cart-count">0</span>
+        <span class="cart-fab-total d-none d-sm-inline ms-1" id="cart-fab-total"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cart-panel" aria-labelledby="cart-title">
+        <div class="offcanvas-header border-bottom">
+            <h2 class="h4 mb-0" id="cart-title">Your cart</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close cart"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="cart-done" class="alert alert-success hidden" role="status">
+                <p class="fw-bold mb-1">Thank you, your order is placed. Order number: <span id="cart-done-number"></span></p>
+                <p class="mb-0">Pick-up time: <span id="cart-done-time"></span>. Total to pay at the counter: <span id="cart-done-total"></span>.</p>
+            </div>
+            <p class="text-muted" id="cart-empty">Your cart is empty. Press <strong>Add</strong> on any drink.</p>
+            <ul class="list-group list-group-flush mb-3" id="cart-items" aria-live="polite"></ul>
+            <p class="d-flex justify-content-between fs-5 mb-3 hidden" id="cart-total-row"><span>Total:</span> <strong class="text-primary" id="cart-total">0&nbsp;&#8376;</strong></p>
+            <form id="cart-form" class="hidden" novalidate>
+                <div class="mb-2">
+                    <label class="form-label" for="cart-name">Your name</label>
+                    <input class="form-control" type="text" id="cart-name" autocomplete="name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="cart-phone">Phone</label>
+                    <input class="form-control" type="tel" id="cart-phone" autocomplete="tel" required pattern="[0-9+\(\) ]{10,}">
+                    <div class="invalid-feedback">Please enter a phone number we can call.</div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="cart-time">Pick-up time</label>
+                    <input class="form-control" type="time" id="cart-time" required min="07:30" max="22:30">
+                    <div class="invalid-feedback">Please choose a pick-up time between 07:30 and 22:30.</div>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="cart-consent" required>
+                    <label class="form-check-label" for="cart-consent">I will pick up and pay at the counter</label>
+                    <div class="invalid-feedback">Please confirm that you will pick up the order.</div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-lg" type="submit">Place order</button>
+                    <button class="btn btn-outline-primary" type="button" id="cart-clear">Clear cart</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <a class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 shadow" id="back-to-top" href="#page-top">Back to top</a>
+
+    <footer id="site-footer" class="bg-dark text-center text-light border-top border-4 border-primary py-4 mt-5 small">
+        <!-- Footer (same on every page) -->
         <div class="container">
-            <p class="mb-1">Contact: <a href="tel:+77714198457">+7 771 419 84 57</a> &middot; Instagram <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a></p>
+            <address class="mb-2">
+                Espresso Day, Syganak 24, Nura District, Astana<br>
+                Open weekdays 07:30&ndash;23:00, weekends 08:00&ndash;23:00<br>
+                Phone: <a href="tel:+77714198457">+7 771 419 84 57</a><br>
+                Email: <a href="mailto:Espressoday2023@gmail.com">Espressoday2023@gmail.com</a><br>
+                Instagram: <a href="https://www.instagram.com/espressoday_kz/" target="_blank" rel="noopener noreferrer">@espressoday_kz</a>
+            </address>
             <p class="mb-2">&copy; 2026 Espresso Day</p>
+            <a class="btn btn-primary btn-sm d-md-none" id="footer-call" href="tel:+77714198457">Call us</a>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/cart.js"></script>
+    <script>
+    // Menu: size buttons change the price on a coffee card; search and category filter hide cards that do not match.
+    (function () {
+        var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '\u00a0\u20b8'; };
+        document.querySelectorAll('.drink-card').forEach(function (card) {
+            var price = card.querySelector('.drink-price');
+            card.querySelectorAll('.drink-size').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    card.querySelectorAll('.drink-size').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                    btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+                    price.textContent = fmt(btn.dataset.price);
+                });
+            });
+        });
+        var form = document.getElementById('menu-search-form'), q = document.getElementById('menu-search'),
+            cat = document.getElementById('menu-category-filter'), status = document.getElementById('menu-search-status'),
+            empty = document.getElementById('menu-search-empty'), cats = document.querySelectorAll('.menu-category'),
+            navLinks = document.querySelectorAll('#menu-category-nav .nav-item');
+        function apply() {
+            var term = q.value.trim().toLowerCase(), want = cat.value, shown = 0;
+            cats.forEach(function (c) {
+                var inCat = want === 'all' || c.dataset.category === want, any = false;
+                c.querySelectorAll('.menu-item').forEach(function (it) {
+                    var name = (it.dataset.name || it.textContent).toLowerCase();
+                    var ok = inCat && (!term || name.indexOf(term) !== -1);
+                    var holder = it.closest('.col') || it;
+                    holder.classList.toggle('hidden', !ok);
+                    if (ok) { any = true; shown++; }
+                });
+                c.classList.toggle('hidden', !any);
+            });
+            empty.classList.toggle('hidden', shown > 0);
+            status.textContent = (term || want !== 'all') ? 'Found ' + shown + ' drink' + (shown === 1 ? '' : 's') + '.' : 'Showing the full menu. Type a drink name, for example latte, matcha or mojito, and choose Search to narrow it down.';
+        }
+        form.addEventListener('submit', function (e) { e.preventDefault(); apply(); });
+        q.addEventListener('input', apply);
+        cat.addEventListener('change', apply);
+        form.addEventListener('reset', function () { setTimeout(apply, 0); });
+    })();
+    </script>
+    <script>
+    // Cart panel on the Menu page. The cart itself is shared with the Order page (js/cart.js).
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var list = $('cart-items'), form = $('cart-form');
+        function render() {
+            list.innerHTML = '';
+            EDCart.items().forEach(function (it) {
+                var li = document.createElement('li');
+                li.className = 'list-group-item px-0';
+                var top = document.createElement('div');
+                top.className = 'd-flex justify-content-between';
+                var t = document.createElement('span'); t.className = 'fw-semibold'; t.textContent = EDCart.label(it);
+                var rm = document.createElement('button'); rm.type = 'button'; rm.className = 'btn-close btn-sm'; rm.setAttribute('aria-label', 'Remove ' + it.name);
+                rm.addEventListener('click', function () { EDCart.setQty(it.name, it.size, it.price, 0); });
+                top.appendChild(t); top.appendChild(rm);
+                var row = document.createElement('div');
+                row.className = 'd-flex justify-content-between align-items-center mt-1';
+                var q = document.createElement('div'); q.className = 'd-flex align-items-center gap-2';
+                var minus = document.createElement('button'); minus.type = 'button'; minus.className = 'btn btn-outline-primary btn-sm cart-step'; minus.textContent = '\u2212'; minus.setAttribute('aria-label', 'Less ' + it.name);
+                var num = document.createElement('span'); num.className = 'cart-qty'; num.textContent = it.qty;
+                var plus = document.createElement('button'); plus.type = 'button'; plus.className = 'btn btn-outline-primary btn-sm cart-step'; plus.textContent = '+'; plus.setAttribute('aria-label', 'More ' + it.name);
+                minus.addEventListener('click', function () { EDCart.setQty(it.name, it.size, it.price, it.qty - 1); });
+                plus.addEventListener('click', function () { EDCart.setQty(it.name, it.size, it.price, it.qty + 1); });
+                q.appendChild(minus); q.appendChild(num); q.appendChild(plus);
+                var sum = document.createElement('strong'); sum.className = 'text-primary'; sum.textContent = EDCart.format(it.qty * it.price);
+                row.appendChild(q); row.appendChild(sum);
+                li.appendChild(top); li.appendChild(row); list.appendChild(li);
+            });
+            var has = EDCart.items().length > 0;
+            $('cart-empty').classList.toggle('hidden', has);
+            $('cart-total-row').classList.toggle('hidden', !has);
+            form.classList.toggle('hidden', !has);
+            $('cart-total').textContent = EDCart.format(EDCart.total());
+            $('cart-count').textContent = EDCart.count();
+            $('cart-fab-total').textContent = has ? EDCart.format(EDCart.total()) : '';
+        }
+        document.addEventListener('click', function (e) {
+            var b = e.target.closest('.add-to-cart');
+            if (!b) return;
+            var holder = b.closest('.menu-item'), name = holder.dataset.name, size = '', price;
+            var act = holder.querySelector('.drink-size.active');
+            if (act) { size = act.textContent.trim(); price = parseInt(act.dataset.price, 10); }
+            else {
+                price = parseInt(holder.querySelector('.drink-price, .fw-bold').textContent.replace(/\D/g, ''), 10);
+                // a drink without size buttons has one volume, taken from the category (the same label the Order page uses)
+                var note = holder.closest('.menu-category').querySelector('.text-muted.small');
+                var m = holder.dataset.volume || (note && note.textContent.match(/^\d+ ml$/) || [''])[0];
+                size = m || '';
+            }
+            EDCart.add(name, size, price);
+            $('cart-done').classList.add('hidden');
+            var old = b.textContent; b.textContent = '\u2713 Added'; b.classList.add('added');
+            setTimeout(function () { b.textContent = old; b.classList.remove('added'); }, 900);
+        });
+        $('cart-clear').addEventListener('click', function () { EDCart.clear(); });
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            form.classList.add('was-validated');
+            if (!form.checkValidity() || !EDCart.items().length) return;
+            $('cart-done-number').textContent = 'ED-' + (1000 + Math.floor(Math.random() * 9000));
+            $('cart-done-time').textContent = $('cart-time').value;
+            $('cart-done-total').textContent = EDCart.format(EDCart.total());
+            $('cart-done').classList.remove('hidden');
+            EDCart.clear();
+            form.reset(); form.classList.remove('was-validated');
+        });
+        EDCart.onChange(render);
+        render();
+    })();
+    </script>
+    <script>
+    // Drink details window: filled from the data-* attributes of the clicked card.
+    (function () {
+        var el = document.getElementById('drink-modal'), modal = new bootstrap.Modal(el), current = null;
+        var q = function (id) { return document.getElementById(id); };
+        var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₸'; };
+        function price() { var a = current.querySelector('.drink-size.active'); return a ? a.dataset.price : current.querySelector('.drink-price').textContent.replace(/\D/g, ''); }
+        function fill() {
+            var d = current.dataset, sizes = current.querySelectorAll('.drink-size'), act = current.querySelector('.drink-size.active');
+            q('drink-modal-price').textContent = fmt(price());
+            var meta = [];
+            if (sizes.length) meta.push(act.textContent.trim()); else if (d.volume) meta.push(d.volume);
+            meta.push(current.closest('.menu-category').querySelector('h2').textContent.trim());
+            q('drink-modal-meta').textContent = meta.join(' · ');
+            var wrap = q('drink-modal-sizes'); wrap.innerHTML = '';
+            q('drink-modal-sizes-wrap').classList.toggle('hidden', sizes.length < 2);
+            sizes.forEach(function (b) {
+                var n = document.createElement('button'); n.type = 'button';
+                n.className = 'drink-size btn btn-sm' + (b === act ? ' active' : ''); n.textContent = b.textContent;
+                n.setAttribute('aria-pressed', b === act ? 'true' : 'false');
+                n.addEventListener('click', function () { b.click(); fill(); });
+                wrap.appendChild(n);
+            });
+        }
+        document.addEventListener('click', function (e) {
+            var o = e.target.closest('.drink-open');
+            if (!o) return;
+            current = o.closest('.drink-card');
+            var d = current.dataset, img = current.querySelector('img.drink-photo'), ph = q('drink-modal-photo');
+            q('drink-modal-title').textContent = d.name;
+            if (img) { ph.src = img.src; ph.alt = d.name; ph.classList.remove('hidden'); } else ph.classList.add('hidden');
+            q('drink-modal-desc').textContent = d.desc;
+            var ul = q('drink-modal-ingredients'); ul.innerHTML = '';
+            d.ingredients.split('|').forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+            fill(); modal.show();
+        });
+        q('drink-modal-add').addEventListener('click', function () {
+            current.querySelector('.add-to-cart').click();
+            var b = this; b.textContent = '✓ Added to cart';
+            setTimeout(function () { b.textContent = 'Add to cart'; }, 1000);
+        });
+    })();
+    </script>
 </body>
 </html>
+          
