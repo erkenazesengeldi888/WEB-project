@@ -80,7 +80,6 @@ The old Assignment 2 stylesheets are deleted; `removed-css.md` lists what Bootst
 - Screenshots of every page at 375 px (phone) and 1280 px (desktop) are in `screenshots/`.
 
 ## Other files
-- `ai-log.md`: the AI log
 - `quality-pass.md`: the quality-pass list
 - `removed-css.md`: what Bootstrap replaced from Assignment 2
 
