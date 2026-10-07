@@ -100,8 +100,8 @@
                     <div class="card shadow-sm border-primary border-2 h-100">
                         <div class="card-body">
                             <h2 class="h3">Ready to order?</h2>
-                            <p>Add several drinks to your cart, choose the pick-up time, and we prepare the order at Syganak 24.</p>
-                            <a class="btn btn-primary btn-lg" id="menu-order-button" href="#cart-panel" data-bs-toggle="offcanvas" role="button" aria-controls="cart-panel">Open my cart</a>
+                            <p>Add drinks to your cart, then go to your order to choose pick-up or delivery.</p>
+                            <a class="btn btn-primary btn-lg" id="menu-order-button" href="order.html">Go to order</a>
                         </div>
                     </div>
                 </div>
@@ -1233,7 +1233,7 @@
                 <h2 class="h3">Found something you like?</h2>
                 <p>Add it to a pick-up order, or book a table and sit down with it.</p>
                 <div class="d-flex flex-wrap justify-content-center gap-2">
-                    <a class="btn btn-primary btn-lg" id="menu-order-bottom" href="#cart-panel" data-bs-toggle="offcanvas" role="button" aria-controls="cart-panel">Open my cart</a>
+                    <a class="btn btn-primary btn-lg" id="menu-order-bottom" href="order.html">Go to order</a>
                     <a class="btn btn-outline-primary btn-lg" id="menu-book-bottom" href="booking.html#reservation">Book a table</a>
                 </div>
             </div>
@@ -1282,39 +1282,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close cart"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column">
-            <div id="cart-done" class="alert alert-success hidden" role="status">
-                <p class="fw-bold mb-1">Thank you, your order is placed. Order number: <span id="cart-done-number"></span></p>
-                <p class="mb-0">Pick-up time: <span id="cart-done-time"></span>. Total to pay at the counter: <span id="cart-done-total"></span>.</p>
-            </div>
             <p class="text-muted" id="cart-empty">Your cart is empty. Press <strong>Add</strong> on any drink.</p>
             <ul class="list-group list-group-flush mb-3" id="cart-items" aria-live="polite"></ul>
             <p class="d-flex justify-content-between fs-5 mb-3 hidden" id="cart-total-row"><span>Total:</span> <strong class="text-primary" id="cart-total">0&nbsp;&#8376;</strong></p>
-            <form id="cart-form" class="hidden" novalidate>
-                <div class="mb-2">
-                    <label class="form-label" for="cart-name">Your name</label>
-                    <input class="form-control" type="text" id="cart-name" autocomplete="name" required>
-                    <div class="invalid-feedback">Please enter your name.</div>
-                </div>
-                <div class="mb-2">
-                    <label class="form-label" for="cart-phone">Phone</label>
-                    <input class="form-control" type="tel" id="cart-phone" autocomplete="tel" required pattern="[0-9+\(\) ]{10,}">
-                    <div class="invalid-feedback">Please enter a phone number we can call.</div>
-                </div>
-                <div class="mb-2">
-                    <label class="form-label" for="cart-time">Pick-up time</label>
-                    <input class="form-control" type="time" id="cart-time" required min="07:30" max="22:30">
-                    <div class="invalid-feedback">Please choose a pick-up time between 07:30 and 22:30.</div>
-                </div>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="cart-consent" required>
-                    <label class="form-check-label" for="cart-consent">I will pick up and pay at the counter</label>
-                    <div class="invalid-feedback">Please confirm that you will pick up the order.</div>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary btn-lg" type="submit">Place order</button>
-                    <button class="btn btn-outline-primary" type="button" id="cart-clear">Clear cart</button>
-                </div>
-            </form>
+            <div id="cart-actions" class="d-grid gap-2 hidden">
+                <a class="btn btn-primary btn-lg" id="cart-checkout" href="order.html">Go to order</a>
+                <button class="btn btn-outline-primary" type="button" id="cart-clear">Clear cart</button>
+            </div>
         </div>
     </div>
 
@@ -1381,7 +1355,7 @@
     // Cart panel on the Menu page. The cart itself is shared with the Order page (js/cart.js).
     (function () {
         var $ = function (id) { return document.getElementById(id); };
-        var list = $('cart-items'), form = $('cart-form');
+        var list = $('cart-items'), actions = $('cart-actions');
         function render() {
             list.innerHTML = '';
             EDCart.items().forEach(function (it) {
@@ -1409,7 +1383,7 @@
             var has = EDCart.items().length > 0;
             $('cart-empty').classList.toggle('hidden', has);
             $('cart-total-row').classList.toggle('hidden', !has);
-            form.classList.toggle('hidden', !has);
+            actions.classList.toggle('hidden', !has);
             $('cart-total').textContent = EDCart.format(EDCart.total());
             $('cart-count').textContent = EDCart.count();
             $('cart-fab-total').textContent = has ? EDCart.format(EDCart.total()) : '';
@@ -1428,22 +1402,10 @@
                 size = m || '';
             }
             EDCart.add(name, size, price);
-            $('cart-done').classList.add('hidden');
             var old = b.textContent; b.textContent = '\u2713 Added'; b.classList.add('added');
             setTimeout(function () { b.textContent = old; b.classList.remove('added'); }, 900);
         });
         $('cart-clear').addEventListener('click', function () { EDCart.clear(); });
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            form.classList.add('was-validated');
-            if (!form.checkValidity() || !EDCart.items().length) return;
-            $('cart-done-number').textContent = 'ED-' + (1000 + Math.floor(Math.random() * 9000));
-            $('cart-done-time').textContent = $('cart-time').value;
-            $('cart-done-total').textContent = EDCart.format(EDCart.total());
-            $('cart-done').classList.remove('hidden');
-            EDCart.clear();
-            form.reset(); form.classList.remove('was-validated');
-        });
         EDCart.onChange(render);
         render();
     })();
@@ -1493,4 +1455,3 @@
     </script>
 </body>
 </html>
-          
