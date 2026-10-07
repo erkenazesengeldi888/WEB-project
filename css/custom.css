@@ -260,7 +260,7 @@ tr.active > * {
 }
 
 .drink-card .drink-size,
-.drink-card .add-to-cart {
+.drink-card .drink-qty {
     position: relative;
     z-index: 2;                          /* stay clickable above the card-wide link */
 }
@@ -271,4 +271,94 @@ tr.active > * {
 
 .drink-ingredients {
     padding-left: 1.2rem;
+}
+
+/* ---------- Order page without a cart script ---------- */
+details.accordion-item > summary.accordion-button { list-style: none; cursor: pointer; }
+details.accordion-item > summary::-webkit-details-marker { display: none; }
+details.accordion-item:not([open]) > summary.accordion-button { background-color: var(--bs-body-bg); color: var(--bs-body-color); box-shadow: none; }
+details.accordion-item:not([open]) > summary.accordion-button::after { transform: none; }
+details.accordion-item[open] > summary.accordion-button { background-color: var(--bs-accordion-active-bg); color: var(--bs-accordion-active-color); }
+details.accordion-item[open] > summary.accordion-button::after { background-image: var(--bs-accordion-btn-active-icon); transform: var(--bs-accordion-btn-icon-transform); }
+.order-qty { width: 4.5rem; }
+#order-delivery-fields, .when-delivery { display: none; }
+#order-form:has(#order-method-delivery:checked) #order-delivery-fields { display: block; }
+#order-form:has(#order-method-delivery:checked) #order-pickup-info,
+#order-form:has(#order-method-delivery:checked) .when-pickup { display: none; }
+#order-form:has(#order-method-delivery:checked) .when-delivery { display: inline; }
+.form-control:user-invalid, .form-check-input:user-invalid { border-color: var(--bs-form-invalid-border-color); }
+:user-invalid ~ .invalid-feedback { display: block; }
+
+/* ---------- Menu = order form: checkout step shown by the #checkout link (no JavaScript) ---------- */
+#checkout:not(:target),
+#order-result:not(:target) {
+    display: none;
+}
+main:has(#checkout:target) > :not(#order-form),
+main:has(#checkout:target) #order-form > .menu-category,
+main:has(#order-result:target) > :not(#order-result),
+body:has(#checkout:target) .cart-fab,
+body:has(#order-result:target) .cart-fab {
+    display: none;
+}
+#order-form {
+    scroll-margin-top: 1rem;
+}
+.drink-qty .order-qty {
+    width: 4rem;
+}
+
+/* ---------- Quantity buttons and the order list ---------- */
+.qty-size { font-size: 0.8rem; line-height: 1.2; }
+.drink-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+.size-panels { width: 100%; margin-top: 0.4rem; }
+.size-panel { position: absolute; width: 0; height: 0; overflow: hidden; visibility: hidden; }
+.size-panel-single,
+.size-radio.z0:checked ~ .size-panels .pn0,
+.size-radio.z1:checked ~ .size-panels .pn1,
+.size-radio.z2:checked ~ .size-panels .pn2,
+.size-radio.z3:checked ~ .size-panels .pn3 { position: static; width: auto; height: auto; overflow: visible; visibility: visible; }
+.size-pill { --bs-btn-color: var(--bs-body-color); --bs-btn-border-color: var(--bs-border-color); --bs-btn-hover-border-color: var(--bs-primary); --bs-btn-hover-color: var(--bs-body-color); --bs-btn-hover-bg: rgba(110, 20, 35, 0.08); border-radius: 2rem; padding: 0.15rem 0.7rem; font-size: 0.85rem; }
+.btn-check:checked + .size-pill { background-color: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+.btn-check:focus-visible + .size-pill { outline: 3px solid var(--bs-primary); outline-offset: 2px; }
+.drink-card .size-pill, .drink-card .size-panels { position: relative; z-index: 2; }
+.qty-stepper { display: inline-flex; align-items: center; }
+.qty-step { display: none; align-items: center; gap: 0.4rem; }
+.qty-radio.r0:not(:checked) ~ .qty-stepper .qty-add { display: none; }
+.qty-radio.r1:checked ~ .qty-stepper .s1, .qty-radio.r2:checked ~ .qty-stepper .s2, .qty-radio.r3:checked ~ .qty-stepper .s3,
+.qty-radio.r4:checked ~ .qty-stepper .s4, .qty-radio.r5:checked ~ .qty-stepper .s5, .qty-radio.r6:checked ~ .qty-stepper .s6,
+.qty-radio.r7:checked ~ .qty-stepper .s7, .qty-radio.r8:checked ~ .qty-stepper .s8, .qty-radio.r9:checked ~ .qty-stepper .s9,
+.qty-radio.r10:checked ~ .qty-stepper .s10 { display: inline-flex; }
+.qty-radio:focus-visible ~ .qty-stepper { outline: 3px solid var(--bs-primary); outline-offset: 2px; }
+/* The old size buttons and price row are kept only for the details window */
+.drink-card .drink-sizes { display: none !important; }
+.drink-card .card-body > .mt-auto:not(.drink-qty) { display: none !important; }
+.sum { display: none; }
+#order-lines:not(:has(.sum:not([hidden]))) { margin-bottom: 0 !important; }
+#order-form:has(.qty-radio:not(.r0):checked) #order-empty { display: none; }
+#order-form:not(:has(.qty-radio:not(.r0):checked)) .order-total-row,
+#order-form:not(:has(.qty-radio:not(.r0):checked)) #order-submit { display: none; }
+.fab-total { white-space: nowrap; }
+
+/* Elements with a counter must keep a box, so "hidden" cards are moved out of the layout instead of display:none */
+#order-form .hidden,
+main:has(#checkout:target) #order-form > .menu-category {
+    display: block !important;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+main:has(#checkout:target) #order-form > .menu-category { display: block; }
+.when-checkout { display: none; }
+body:has(#checkout:target) .when-menu { display: none; }
+body:has(#checkout:target) .when-checkout { display: inline; }
+body:has(#checkout:target) .nav-link[href="menu.html"].active {
+    background: transparent;
+    color: var(--bs-nav-link-color);
+}
+body:has(#checkout:target) .nav-link[href="menu.html#checkout"] {
+    background-color: var(--bs-nav-pills-link-active-bg);
+    color: var(--bs-nav-pills-link-active-color);
 }
