@@ -1,3 +1,9 @@
+/*
+  Only small corrections on top of Bootstrap 5.3.3
+  Our colours: burgundy #6e1423, dark brown #1b1211, beige #f5ede3, sand #d9c2a3, white.
+*/
+
+/* Our colours. Bootstrap classes like .bg-dark, .text-primary and .border-primary take their colour from these variables */
 :root {
     --bs-primary: #6e1423;
     --bs-primary-rgb: 110, 20, 35;
@@ -13,12 +19,12 @@
     --bs-body-font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
 }
 
-/* Brand serif for headings (Bootstrap only offers the sans-serif body font) */
+/* Headings use Georgia, because Bootstrap has no serif font for headings */
 h1, h2, h3, h4, .h3, .display-4, .display-5, .display-6 {
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-/* Cards, tables, list groups and form fields take the page background; on beige they need to be white to stand out */
+/* Cards, tables, list groups and inputs would be beige like the page, so I made them white to stand out */
 .card,
 .table,
 .list-group,
@@ -26,7 +32,7 @@ h1, h2, h3, h4, .h3, .display-4, .display-5, .display-6 {
     --bs-body-bg: #fff;
 }
 
-/* Bootstrap buttons hard-code their blue in per-button variables, so the brand colour is set here */
+/* Bootstrap buttons have their own blue colour in each button class, so I change the colour here */
 .btn-primary {
     --bs-btn-bg: #6e1423;
     --bs-btn-border-color: #6e1423;
@@ -49,35 +55,220 @@ h1, h2, h3, h4, .h3, .display-4, .display-5, .display-6 {
     --bs-btn-disabled-border-color: #6e1423;
 }
 
-/* Small details Bootstrap does not cover */
+/* Small details that Bootstrap does not do */
 .navbar-nav {
-    letter-spacing: 0.1em;               /* café-menu feeling for the navigation labels */
+    letter-spacing: 0.1em;               /* a little space between letters in the menu, looks like a cafe menu */
 }
 
 .nav-pills {
-    --bs-nav-pills-link-active-bg: #6e1423;      /* the current-page pill, on the white navigation bar */
+    --bs-nav-pills-link-active-bg: #6e1423;      /* colour of the button of the current page */
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #1b1211;                       /* Bootstrap's default is a lighter grey; brand text reads better dark */
+    color: #1b1211;                       /* Bootstrap's grey is too light, dark brown is easier to read */
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
     color: #fff;
-    background-color: rgba(110, 20, 35, 0.85);  /* hover state on the white bar */
+    background-color: rgba(110, 20, 35, 0.85);  /* colour when you hover a menu link */
 }
 
 h3,
 .h3 {
-    color: var(--bs-primary);            /* card and section subheadings are burgundy, as in Assignment 2 */
+    color: var(--bs-primary);            /* h3 subheadings are burgundy, like in Assignment 2 */
 }
 
 footer a {
-    color: #f5ede3;                      /* .link-light is too bright on the espresso footer */
+    color: #f5ede3;                      /* .link-light is too bright on the dark footer */
 }
 
 
 code {
-    color: var(--bs-primary);            /* Bootstrap's default pink does not belong to the palette */
+    color: var(--bs-primary);            /* Bootstrap's pink code colour does not match our colours */
+}
+
+/* ---------- State classes ----------
+   Nothing switches them on yet. Later JavaScript only adds and removes these class names. */
+.hidden {
+    display: none !important;            /* hide an element (message, error, result) until it is needed */
+}
+
+.active:not(.nav-link):not(.btn):not(.list-group-item):not(.page-link) {
+    border-color: var(--bs-primary);     /* the current choice: a card, a row or a block */
+    box-shadow: 0 0 0 0.2rem rgba(110, 20, 35, 0.25);
+}
+
+tr.active > * {
+    background-color: rgba(110, 20, 35, 0.12);
+}
+
+.selected {
+    background-color: rgba(110, 20, 35, 0.08);   /* chosen item, for example a drink with a quantity above zero */
+    border-left: 4px solid var(--bs-primary);
+}
+
+.error,
+.form-control.error,
+.form-select.error {
+    color: #842029;                      /* error state for a field or a message */
+    border-color: #dc3545;
+}
+
+.form-control.error:focus,
+.form-select.error:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.success,
+.form-control.success,
+.form-select.success {
+    color: #0f5132;                      /* success state for a field or a message */
+    border-color: #198754;
+}
+
+.highlight {
+    background-color: #ffe9a8;           /* part of a name found by the menu search */
+    border-radius: 0.2rem;
+}
+
+/* Result boxes under the forms: the text inside is replaced later, so keep the line length readable */
+#booking-result,
+#order-result,
+#contact-result,
+#review-result {
+    overflow-wrap: anywhere;
+}
+
+/* Quantity boxes on the order page are narrow so the table fits on a phone */
+.order-qty {
+    min-width: 4.5rem;
+    max-width: 6rem;
+}
+
+/* The current page in the menu must stay readable: white text on the burgundy pill */
+.navbar-light .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+/* Open accordion header (order and about pages): Bootstrap's blue changed to our colours */
+.accordion {
+    --bs-accordion-active-bg: rgba(110, 20, 35, 0.1);
+    --bs-accordion-active-color: #6e1423;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(110, 20, 35, 0.25);
+}
+
+/* ---------- Menu drink cards (photo, name, price) ---------- */
+.drink-card {
+    overflow: hidden;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;   /* no movement, so the page never jumps */
+}
+
+.drink-card:hover {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0.5rem 1rem rgba(27, 18, 17, 0.15) !important;
+}
+
+.drink-photo {
+    display: block;
+    width: 100%;
+    height: auto;                        /* the height attribute in the HTML must not stretch the photo */
+    aspect-ratio: 1 / 1;                /* every photo is a white square, so the grid stays even */
+    object-fit: cover;
+    background-color: #fff;
+}
+
+.drink-photo-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background-color: #f5ede3;
+}
+
+.drink-size {
+    --bs-btn-color: var(--bs-body-color);
+    --bs-btn-border-color: var(--bs-border-color);
+    --bs-btn-hover-bg: rgba(110, 20, 35, 0.08);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-hover-color: var(--bs-body-color);
+    border-radius: 2rem;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.8rem;
+}
+
+.drink-size.active {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+.drink-price {
+    font-size: 1.05rem;
+    white-space: nowrap;
+}
+
+.menu-category {
+    scroll-margin-top: 1rem;
+}
+
+/* ---------- Cart ---------- */
+.cart-fab {
+    position: fixed;
+    right: 1rem;
+    bottom: 4rem;                        /* above the "Back to top" button */
+    z-index: 1030;
+    border-radius: 2rem;
+    padding: 0.6rem 1.1rem;
+}
+
+.add-to-cart.added {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.cart-step {
+    width: 2rem;
+    line-height: 1.2;
+    padding: 0.1rem 0;
+}
+
+.cart-qty {
+    min-width: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+#cart-panel {
+    --bs-offcanvas-width: 24rem;
+    background-color: var(--bs-body-bg);
+}
+
+/* ---------- Drink details window ---------- */
+.drink-open {
+    all: unset;                          /* the name looks like a normal title, but works as a button */
+    cursor: pointer;
+}
+
+.drink-open:focus-visible::after {
+    outline: 3px solid var(--bs-primary);     /* stretched-link covers the whole card, so the focus ring goes round it */
+    outline-offset: -3px;
+}
+
+.drink-card:has(.drink-open) {
+    cursor: pointer;
+}
+
+.drink-card .drink-size,
+.drink-card .add-to-cart {
+    position: relative;
+    z-index: 2;                          /* stay clickable above the card-wide link */
+}
+
+.drink-modal-photo {
+    background-color: #fff;
+}
+
+.drink-ingredients {
+    padding-left: 1.2rem;
 }
