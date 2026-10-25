@@ -1,8 +1,5 @@
 'use strict';
 
-/* One shared cart for the Menu and Order pages and the badge in the header.
-   Items live in the browser (localStorage), so every page and tab sees the same cart.
-   An item is { name, size, price, qty }; name + size identify it. */
 const EDCart = (() => {
     const KEY = 'espressoday-cart';
     const MAX = 10;
@@ -25,14 +22,12 @@ const EDCart = (() => {
         try {
             localStorage.setItem(KEY, JSON.stringify(items));
         } catch (error) {
-            // private mode: the cart still works on this page
         }
         changed();
     };
 
     const find = (name, size) => items.find((c) => c.name === name && c.size === size);
 
-    // The cart was changed on another page or tab
     window.addEventListener('storage', (event) => {
         if (event.key === KEY) {
             items = read();
