@@ -1,19 +1,13 @@
 'use strict';
 
-/* Booking page.
-   Feature 1: validation of the table request against the real opening hours of the chosen day, then a summary.
-   Feature 2: time slots for the chosen date are built as buttons; one press fills the time field. */
-
 const LAST_BOOKING = 60; // minutes: the last table starts one hour before closing
 const SLOT_STEP = 30;    // minutes between slots
 const bookingForm = $('booking-form');
 const dateInput = $('booking-date');
 const timeInput = $('booking-time');
 
-// The date field starts today; earlier days cannot be chosen
 dateInput.min = toDateInputValue(new Date());
 
-// ---------- time slots ----------
 const slotBox = makeEl('div', 'd-flex flex-wrap gap-1 mt-2');
 slotBox.id = 'booking-slots';
 slotBox.setAttribute('role', 'group');
@@ -53,7 +47,6 @@ slotBox.addEventListener('click', (event) => {
 dateInput.addEventListener('change', renderSlots);
 timeInput.addEventListener('input', renderSlots);
 
-// ---------- validation ----------
 function checkField(field) {
     const value = field.value;
     switch (field.id) {
@@ -106,7 +99,6 @@ function checkField(field) {
 }
 
 function validateBooking() {
-    // the date is checked first: the time rules depend on it
     const fields = ['booking-name', 'booking-email', 'booking-phone', 'booking-guests', 'booking-date', 'booking-time', 'booking-consent'].map($);
     return fields.map(checkField).every(Boolean);
 }
