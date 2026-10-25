@@ -1,8 +1,4 @@
 'use strict';
-
-/* About page: search in the common questions. Type a word, the questions that do not contain it are hidden;
-   the count, an empty message and a Clear button are shown. */
-
 const faqItems = [...document.querySelectorAll('#faq-list .accordion-item')];
 
 function buildFaqSearch() {
@@ -34,7 +30,6 @@ function buildFaqSearch() {
 
     $('faq-list').before(form, status, empty);
 
-    // Which questions contain every word typed (question and answer are both searched)
     function matches(item, words) {
         const text = item.textContent.toLowerCase();
         return words.every((word) => text.includes(word));
