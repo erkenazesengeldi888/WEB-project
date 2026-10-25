@@ -1,8 +1,5 @@
 'use strict';
 
-/* Coffee page: "Build your coffee" - choose a drink, extras and the number of cups, see the price at once,
-   then add the cup to the cart. The extras prices are the ones printed in "Customise Your Coffee". */
-
 function buildCalculator() {
     const section = makeEl('section', 'mb-5');
     section.id = 'coffee-calculator';
@@ -96,7 +93,6 @@ function buildCalculator() {
             qty.focus();
             return;
         }
-        // the cart keeps one line per name + size, so the name carries the extras
         const name = extrasName(state.drink.name, picker.options());
         EDCart.setQty(name, state.drink.size, state.one, EDCart.qty(name, state.drink.size) + state.count);
         done.classList.remove('hidden');
