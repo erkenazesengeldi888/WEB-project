@@ -1,4 +1,4 @@
-# Espresso Day: Web Technologies Midterm
+# Espresso Day: Web Technologies  
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
 Group: SE-2537
@@ -6,7 +6,7 @@ Students: Yerkenaz, Aisha, Dilnaz
 
 Espresso Day is a coffee shop chain with 112 branches across Kazakhstan. This site is for the Syganak 24 branch. A visitor can read about the shop, look at the menu and prices, pre-order drinks for pick-up, book a table, find the address and hours, ask a question and leave a review.
 
-The midterm version is **HTML and CSS only**. There is no JavaScript of our own: buttons and forms are finished and ready, and later assignments will bring them to life.
+The midterm version was **HTML and CSS only**. Assignments 4 and 5 add JavaScript (folder `js/`) without changing the HTML or the CSS: new elements are created with the DOM and styles are switched with `classList`.
 
 ## Pages
 
@@ -91,6 +91,7 @@ git push origin midterm
 ```
 After the tag, new elements and styles are produced by JavaScript only.
 
+
 ## JavaScript (Assignments 4 and 5)
 
 HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` tags at the end. The inline scripts that used to be in `menu.html` and `order.html` were moved to `js/menu.js` and `js/order.js`.
@@ -134,3 +135,33 @@ git tag assignment-5
 git push origin assignment-4 assignment-5
 ```
 
+## jQuery (Assignment 4, last assignment)
+
+jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity hash) on the three pages that use it: `about.html`, `booking.html`, `reviews.html`. The only HTML change is the `<script defer>` lines (jQuery first, then `js/jq-main.js`, then the page file). No plugins, no templates, no sliders. Our code runs inside `$(function () { ... })`.
+
+**Change in the old code:** the plain-JavaScript helper `const $ = (id) => document.getElementById(id)` was renamed to `byId`, because `$` now belongs to jQuery. (Rename only, no behaviour change; it is not a midterm HTML/CSS correction.)
+
+| File | What it holds |
+|---|---|
+| `js/jq-main.js` | jQuery helpers: `jqFieldState`, `jqLiveValidate`, `jqReveal`/`jqConceal` (fade with the `.hidden` class), `jqReport`, `jqDemoNote`, `jqScrollTo` |
+| `js/about.js` | FAQ search (rewritten, function 1) |
+| `js/booking.js` | Booking slots and validation (rewritten, function 2) |
+| `js/reviews.js` | Review cards, list, filter/sort and the review form (rewritten, function 3) |
+| `js/old-js-version.js` | The **old plain-JavaScript** versions of the three functions, **not linked to any page**, for comparison |
+
+### Where each requirement is
+| Requirement | Where |
+|---|---|
+| 3 rewritten functions with comments | `about.js` `buildFaqSearch` (l. 12); `booking.js` `checkField` (l. 73); `reviews.js` `reviewCard` (l. 23). Old versions: `old-js-version.js` |
+| Selectors: id, class, element, attribute, `:checked`, `:not()`, `:first` | `booking.js` l. 56 (`button[data-time]`), `reviews.js` l. 180 (`:checked`), `about.js` l. 51 (`:not(.hidden)`), `reviews.js` l. 222 (`:first`) |
+| Traversal: `.closest()`, `.find()`, `.siblings()`, `.parent()`, `.each()` | `reviews.js` l. 60, 189; `booking.js` l. 62, 129 |
+| `$(this)` | `booking.js` l. 57, `reviews.js` l. 59, `jq-main.js` l. 34 |
+| Chains of 3+ methods (one explained) | `booking.js` l. 60-62 (commented, 5 steps); `jq-main.js` l. 19-23 |
+| `.text()`, `.html()`, `.val()`, `.attr()`, `.prop()` | `about.js` l. 58-62 (`.html` with numbers only, `.text` for everything typed); `booking.js` l. 118-120 (`.prop('checked')` vs `.attr`) |
+| List made from an array with `.append()`/`.appendTo()` | `booking.js` l. 42 (slot buttons), `reviews.js` l. 23 and `renderReviews` (cards from `savedReviews`) |
+| Delegated handler | `reviews.js` l. 58 (`$list.on('click', '.review-delete', ...)`), `booking.js` l. 56, `jq-main.js` l. 33 |
+| Event types | click, submit, input, change, focusout, reset |
+| Effects | `fadeIn` (success box, new review), `fadeOut` with callback (delete a review, `reviews.js` l. 63), `slideToggle(250, callback)` (filter panel, l. 109), `animate` (scroll to the result, `jq-main.js`) |
+| Form validation | Booking form, `booking.js` l. 73-165: trimmed text, e-mail and phone format, guests 1-10, date not in the past, time inside the hours of that day, consent; one message beside each field; first wrong field gets focus; the error clears while typing; success summary only when all is valid, then the form is reset |
+
+Plain-language answers for the defense: `.text()` writes plain text (safe for anything the visitor typed), `.html()` parses markup (only for our own text). `.prop('checked')` is the current state of a checkbox; `.attr('checked')` is only what was written in the HTML. A delegated handler sits on a parent that already exists and checks, when a click bubbles up, whether the target matches the selector, so it also works for elements that were created later.
