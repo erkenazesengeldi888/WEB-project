@@ -336,6 +336,9 @@ document.addEventListener('click', (event) => {
 });
 
 byId('drink-modal-add').addEventListener('click', (event) => {
+    if (openCard === null) {
+        return;
+    }
     if (isCustom(openCard)) {
         const options = picker.options();
         EDCart.add(extrasName(openCard.dataset.name, options), currentSizeLabel(openCard), modalPrice());

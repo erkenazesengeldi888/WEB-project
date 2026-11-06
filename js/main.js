@@ -98,7 +98,7 @@ function initOpenStatus() {
     if (!band) {
         return;
     }
-    const badge = makeEl('span', 'badge rounded-pill mt-2');
+    const badge = makeEl('span', 'badge rounded-pill mt-2 fs-6 fw-normal');
     badge.id = 'open-status';
     badge.setAttribute('role', 'status');
     band.appendChild(badge);
@@ -106,7 +106,7 @@ function initOpenStatus() {
         const status = getOpenStatus(new Date());
         badge.textContent = status.text;
         badge.classList.toggle('text-bg-success', status.open);
-        badge.classList.toggle('text-bg-secondary', !status.open);
+        badge.classList.toggle('text-bg-light', !status.open);
     };
     update();
     setInterval(update, 60000);
@@ -140,3 +140,51 @@ function addDemoNote(successEl, text) {
     note.classList.add('demo-note');
     successEl.append(note);
 }
+
+/* Look of the pages (the CSS is frozen): this only adds ready-made Bootstrap classes, the same on every page.
+   Each rule is [selector, classes to add, classes to remove]. A MutationObserver runs the rules again for every element the
+   scripts create later (menu cards, review cards, windows), so new elements look the same as the old ones. */
+const LOOK_RULES = [
+    ['.card', 'rounded-4', ''],
+    ['.card:not(.border-primary):not(.border-2)', 'border-0', ''],
+    ['.card-img-top', 'rounded-top-4', ''],
+    ['fieldset.border.rounded', 'rounded-4', ''],
+    ['img.rounded, .rounded.img-fluid', 'rounded-4 shadow-sm', ''],
+    ['.table-responsive', 'rounded-4', ''],
+    ['.btn:not(.btn-close):not(.btn-link):not(.drink-size):not(.cart-step):not(.star-button):not(.photo-remove)', 'rounded-pill', ''],
+    ['.btn-group .btn', '', 'rounded-pill'],
+    ['header .bg-primary.text-white.text-center', 'py-5', 'py-4'],
+    ['#site-footer', 'py-5', 'py-4'],
+    ['main h2:not(.modal-title)', 'fw-semibold', ''],
+    ['main .lead', 'fw-normal', ''],
+    ['#menu-category-nav .nav-link', 'text-primary fw-semibold', ''],
+    ['.btn-link', 'text-primary', '']
+];
+
+function applyLook(root) {
+    LOOK_RULES.forEach(([selector, add, remove]) => {
+        const found = [...root.querySelectorAll(selector)];
+        if (root.matches(selector)) {
+            found.push(root);
+        }
+        found.forEach((element) => {
+            if (add) {
+                element.classList.add(...add.split(' '));
+            }
+            if (remove) {
+                element.classList.remove(...remove.split(' '));
+            }
+        });
+    });
+}
+
+applyLook(document.body);
+new MutationObserver((changes) => {
+    changes.forEach((change) => {
+        change.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) {
+                applyLook(node);
+            }
+        });
+    });
+}).observe(document.body, { childList: true, subtree: true });
