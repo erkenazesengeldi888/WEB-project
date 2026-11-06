@@ -163,7 +163,7 @@ function buildVarieties() {
         const row = makeEl('tr', variety.name === selected ? 'table-active' : '');
         const head = makeEl('th');
         head.scope = 'row';
-        const pick = makeEl('button', 'btn btn-link p-0 fw-bold text-start variety-pick');
+        const pick = makeEl('button', 'btn p-0 fw-bold text-start text-primary text-decoration-underline variety-pick');
         pick.type = 'button';
         pick.dataset.name = variety.name;
         appendMarked(pick, variety.name, query);

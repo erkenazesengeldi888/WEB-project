@@ -543,17 +543,45 @@ $(function () {
     const $filter = labelledSelect('review-filter', 'Show', [['all', 'All ratings'], ['5', '5 stars only'], ['4', '4 stars and more'], ['3', '3 stars and less']]);
     const $sort = labelledSelect('review-sort', 'Order', [['new', 'Newest first'], ['high', 'Highest rating first'], ['low', 'Lowest rating first']]);
 
-    const $reset = $('<button>', { type: 'button', id: 'review-filter-reset', 'class': 'btn btn-outline-primary btn-sm mb-3 me-2', text: 'Reset filters' });
+    const $reset = $('<button>', { type: 'button', id: 'review-filter-reset', 'class': 'btn btn-outline-primary btn-sm', text: 'Reset filters' });
     const $toggle = $('<button>', {
         type: 'button',
         id: 'review-filter-toggle',
-        'class': 'btn btn-outline-secondary btn-sm mb-3',
+        'class': 'btn btn-outline-secondary btn-sm',
         'aria-expanded': 'true',
         'aria-controls': 'review-controls',
         text: 'Hide filters'
     });
     const $stats = $('<p>', { id: 'review-stats', 'class': 'small mb-3', 'aria-live': 'polite' });
-    $('#rating-summary').after($reset, $toggle, $controls, $stats);
+    const $buttons = $('<div>', { 'class': 'd-flex flex-wrap gap-2 mb-3' }).append($reset, $toggle);
+
+    // The overview, as on 2GIS: the average with stars, and a bar for every rating with the number of reviews.
+    // It counts all reviews of the page, whatever the filter says.
+    const $summary = $('<div>', { id: 'review-summary', 'class': 'card shadow-sm mb-3' });
+    function renderSummary(all) {
+        const ratings = all.map(($c) => Number($c.attr('data-rating')));
+        const average = averageRating(ratings);
+        const $left = $('<div>', { 'class': 'text-center' }).append(
+            $('<div>', { 'class': 'display-5 fw-bold text-primary lh-1', text: String(average) }),
+            ratingStars(Math.round(average)).addClass('justify-content-center d-flex'),
+            $('<div>', { 'class': 'small text-muted', text: ratings.length + ' review' + (ratings.length === 1 ? '' : 's') })
+        );
+        const $right = $('<div>', { 'class': 'flex-grow-1' });
+        [5, 4, 3, 2, 1].forEach(function (star) {
+            const count = ratings.filter((r) => r === star).length;
+            const share = ratings.length === 0 ? 0 : Math.round((count / ratings.length) * 100);
+            $('<div>', { 'class': 'd-flex align-items-center gap-2 small' }).append(
+                $('<span>', { 'class': 'text-nowrap', text: star + ' \u2605' }),
+                $('<div>', { 'class': 'progress flex-grow-1', role: 'progressbar', 'aria-label': star + ' stars: ' + count, 'aria-valuenow': share, 'aria-valuemin': 0, 'aria-valuemax': 100 })
+                    .css('height', '8px')
+                    .append($('<div>', { 'class': 'progress-bar bg-warning' }).css('width', share + '%')),
+                $('<span>', { 'class': 'text-muted text-end', text: String(count) }).css('min-width', '1.5rem')
+            ).appendTo($right);
+        });
+        $summary.empty().append($('<div>', { 'class': 'card-body d-flex align-items-center gap-4' }).append($left, $right));
+    }
+
+    $('#rating-summary').after($summary, $buttons, $controls, $stats);
 
     // the button text changes in the callback, when the panel has finished moving
     $toggle.on('click', function () {
@@ -612,6 +640,7 @@ $(function () {
     function renderReviews() {
         const cards = [...SEED_REVIEWS, ...savedReviews].map((review) => (review.id === editingId ? editCard(review) : reviewCard(review)));
         const all = [$staticCard, ...cards];
+        renderSummary(all);
         const matching = sortCards(all.filter(($c) => matchesFilter(Number($c.attr('data-rating')), $filter.val())), $sort.val());
         const shown = matching.slice(0, visibleCount);
         $list.children().detach();
