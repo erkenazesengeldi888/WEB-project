@@ -518,6 +518,13 @@ $(function () {
         $list.find('[data-id="' + review.id + '"]').hide().fadeIn(400);
     });
 
+    // The manager's card is as high as its text, not as high as the long list of reviews; on a wide screen it stays in view
+    // (sticky) while the reviews are scrolled, so the right side is never an empty column.
+    $('#manager-quote').closest('section')
+        .addClass('align-self-start sticky-lg-top')
+        .css('top', '1rem')
+        .find('.card').removeClass('flex-grow-1');
+
     const $staticCard = $('#review-aruzhan');
     const staticRating = Number($staticCard.find('.badge').text().match(/(\d) \/ 5/)[1]);
     $staticCard.attr({
