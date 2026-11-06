@@ -161,15 +161,18 @@ const LOOK_RULES = [
     ['.btn-link', 'text-primary', '']
 ];
 
-// Fonts: Inter for the text and the headings. The font file is loaded from Google Fonts by a <link> made here
-// (the HTML and the CSS are frozen); the old fonts stay in the lists, so the page is readable while the fonts load or when they are off.
-const BODY_FONT = 'Inter, "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif';
+// Fonts: one family for the text and the headings, loaded from Google Fonts by a <link> made here (the HTML and the CSS are
+// frozen). The old fonts stay in the list, so the page is readable while the font loads or when it is off.
+// TRY A FONT: add ?font=Name to the address (for example reviews.html?font=Montserrat). Remove this when the font is chosen.
+const WANTED_FONT = new URLSearchParams(location.search).get('font');
+const FONT_NAME = /^[A-Za-z ]{2,30}$/.test(WANTED_FONT || '') ? WANTED_FONT : 'Nunito';
+const BODY_FONT = '"' + FONT_NAME + '", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif';
 const HEADING_FONT = BODY_FONT;
 const HEADING_SELECTOR = 'h1, h2, h3, h4, .h3, .display-4, .display-5, .display-6';
 
 const fontLink = makeEl('link');
 fontLink.rel = 'stylesheet';
-fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+fontLink.href = 'https://fonts.googleapis.com/css2?family=' + FONT_NAME.replace(/ /g, '+') + ':wght@400;500;600;700&display=swap';
 document.head.append(fontLink);
 document.documentElement.style.setProperty('--bs-body-font-family', BODY_FONT);
 
