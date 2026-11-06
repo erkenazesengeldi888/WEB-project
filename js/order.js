@@ -9,6 +9,10 @@ const LAST_BEFORE_CLOSE = 30; // minutes: the latest pick-up time is 30 minutes 
 const orderForm = byId('order-form');
 const itemsList = byId('order-items');
 
+// Payment: only cash, paid when the order is received (there is no online payment on this site)
+const CASH_TEXT = 'I will pay for this order in cash when I receive it.';
+const CASH_ERROR = 'Please confirm that you will pay for the order in cash when you receive it.';
+
 const isDelivery = () => byId('order-method-delivery').checked;
 
 function updateMethod() {
@@ -124,7 +128,7 @@ function checkField(field) {
             return setFieldState(field, '');
         }
         case 'order-consent':
-            return setFieldState(field, field.checked ? '' : 'Please confirm that you will pay for the order.');
+            return setFieldState(field, field.checked ? '' : CASH_ERROR);
         default:
             return true;
     }
@@ -210,3 +214,20 @@ EDCart.onChange(renderOrder);
 renderOrder();
 updateMethod();
 byId('order-time').value = suggestTime();
+
+// Say clearly, in four places, that the payment is in cash on receipt (the texts are changed, no element is added)
+function showCashPayment() {
+    byId('order-consent').labels[0].textContent = CASH_TEXT;
+    byId('order-consent-error').textContent = CASH_ERROR;
+
+    const lead = document.querySelector('main .lead');
+    lead.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.includes('You pay when you receive the order.')) {
+            node.textContent = node.textContent.replace('You pay when you receive the order.', 'Payment is in cash when you receive the order.');
+        }
+    });
+
+    byId('order-success').querySelectorAll('p')[1].append(' Payment: cash when you receive the order.');
+}
+
+showCashPayment();
