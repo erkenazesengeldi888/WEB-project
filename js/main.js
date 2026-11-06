@@ -161,6 +161,18 @@ const LOOK_RULES = [
     ['.btn-link', 'text-primary', '']
 ];
 
+// Fonts: Poppins for the text, Playfair Display for the headings. The font file is loaded from Google Fonts by a <link> made here
+// (the HTML and the CSS are frozen); the old fonts stay in the lists, so the page is readable while the fonts load or when they are off.
+const BODY_FONT = 'Poppins, "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif';
+const HEADING_FONT = '"Playfair Display", Georgia, "Times New Roman", Times, serif';
+const HEADING_SELECTOR = 'h1, h2, h3, h4, .h3, .display-4, .display-5, .display-6';
+
+const fontLink = makeEl('link');
+fontLink.rel = 'stylesheet';
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap';
+document.head.append(fontLink);
+document.documentElement.style.setProperty('--bs-body-font-family', BODY_FONT);
+
 function applyLook(root) {
     LOOK_RULES.forEach(([selector, add, remove]) => {
         const found = [...root.querySelectorAll(selector)];
@@ -175,6 +187,9 @@ function applyLook(root) {
                 element.classList.remove(...remove.split(' '));
             }
         });
+    });
+    [...root.querySelectorAll(HEADING_SELECTOR), ...(root.matches(HEADING_SELECTOR) ? [root] : [])].forEach((heading) => {
+        heading.style.fontFamily = HEADING_FONT;
     });
 }
 
