@@ -193,12 +193,45 @@ function applyLook(root) {
     });
 }
 
-applyLook(document.body);
+/* Smooth zoom of the pictures (the same on every page): the picture grows slowly inside its own frame, the frame clips the
+   edges, so nothing jumps over the neighbours. The frame is the parent of the picture: it gets overflow-hidden (and the same
+   rounded corners), the picture gets a long transition, and the mouse over the frame starts the zoom. */
+const ZOOM_SCALE = 1.1;
+const ZOOM_TRANSITION = 'transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1)';
+
+function applyZoom(root) {
+    const pictures = [...root.querySelectorAll('main img')];
+    if (root.matches('main img')) {
+        pictures.push(root);
+    }
+    pictures.filter((picture) => !picture.dataset.zoom && !picture.matches('.img-thumbnail, .drink-photo-empty')).forEach((picture) => {
+        const frame = picture.parentElement;
+        picture.dataset.zoom = 'on';
+        frame.classList.add('overflow-hidden');
+        if (picture.classList.contains('rounded-4')) {
+            frame.classList.add('rounded-4');
+        }
+        if (picture.classList.contains('rounded-top-4')) {
+            frame.classList.add('rounded-top-4');
+        }
+        picture.style.transition = ZOOM_TRANSITION;
+        picture.style.willChange = 'transform';
+        frame.addEventListener('mouseenter', () => { picture.style.transform = 'scale(' + ZOOM_SCALE + ')'; });
+        frame.addEventListener('mouseleave', () => { picture.style.transform = ''; });
+    });
+}
+
+function applyAll(root) {
+    applyLook(root);
+    applyZoom(root);
+}
+
+applyAll(document.body);
 new MutationObserver((changes) => {
     changes.forEach((change) => {
         change.addedNodes.forEach((node) => {
             if (node.nodeType === 1) {
-                applyLook(node);
+                applyAll(node);
             }
         });
     });

@@ -417,24 +417,6 @@ $(function () {
         return cardShell(review, $('<div>', { 'class': 'card-body' }).append($('<h3>', { 'class': 'h5', text: 'Edit your review' }), $editForm));
     }
 
-    // Zoom on hover: the photo grows with a transform (the picture is not reloaded, the page does not move).
-    // The styles are set here, in the script, because the CSS is frozen. A single big photo grows less: it is already wide.
-    $list.on('mouseenter', '.review-photo', function () {
-        const $photo = $(this);
-        const scale = $photo.parent().hasClass('col-12') ? 1.15 : 1.6;
-        $photo.css({ position: 'relative', zIndex: 10, cursor: 'zoom-in', transition: 'transform 0.2s ease', transform: 'scale(' + scale + ')' })
-            .addClass('shadow-lg');
-    }).on('mouseleave', '.review-photo', function () {
-        $(this).css({ zIndex: '', transform: '' }).removeClass('shadow-lg');
-    });
-
-    // The same zoom for the two pictures of the page (interior and bar); the handler sits on <main>, the pictures are inside <figure>
-    $('#main-content').on('mouseenter', 'figure img', function () {
-        $(this).css({ zIndex: 10, cursor: 'zoom-in', transition: 'transform 0.25s ease', transform: 'scale(1.15)' }).addClass('shadow-lg');
-    }).on('mouseleave', 'figure img', function () {
-        $(this).css({ zIndex: '', transform: '' }).removeClass('shadow-lg');
-    });
-
     const idOf = (element) => String($(element).closest('.review-item').attr('data-id'));
     const findSaved = (id) => savedReviews.find((r) => r.id === id);
 

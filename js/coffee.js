@@ -220,24 +220,3 @@ function buildVarieties() {
 
 buildCalculator();
 buildVarieties();
-
-// Zoom on hover for the pictures of the page (the photo cards and the bar): the picture grows with a transform
-// and goes back when the mouse leaves. The styles are set here because the CSS is frozen.
-document.querySelectorAll('#main-content img').forEach((picture) => {
-    picture.addEventListener('mouseenter', () => {
-        picture.style.transition = 'transform 0.25s ease';
-        picture.style.transform = 'scale(1.15)';
-        // z-index needs a positioned element; the photos inside .ratio already are (absolute), do not change those
-        if (getComputedStyle(picture).position === 'static') {
-            picture.style.position = 'relative';
-        }
-        picture.style.zIndex = '10';
-        picture.style.cursor = 'zoom-in';
-        picture.classList.add('shadow-lg');
-    });
-    picture.addEventListener('mouseleave', () => {
-        picture.style.transform = '';
-        picture.style.zIndex = '';
-        picture.classList.remove('shadow-lg');
-    });
-});
