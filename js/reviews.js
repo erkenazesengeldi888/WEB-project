@@ -101,46 +101,6 @@ const SEED_REVIEWS = [
         lang: 'ru',
         time: new Date(2026, 9, 18).getTime(),
         text: 'Кофе очень слабый и пресный, при том что мне делали покрепче'
-    },
-    {
-        id: 'site-dana',
-        seed: true,
-        source: 'this site',
-        name: 'Dana M.',
-        rating: 4,
-        time: new Date(2026, 9, 21).getTime(),
-        lang: 'ru',
-        text: 'Хороший флэт уайт и быстрое обслуживание. но людей много в обед, хорошо есть сайт для заказа'
-    },
-    {
-        id: 'site-timur',
-        seed: true,
-        source: 'this site',
-        name: 'Timur A.',
-        rating: 5,
-        time: new Date(2026, 9, 9).getTime(),
-        lang: 'ru',
-        text: 'Заказал два латте через страницу заказа, и когда пришёл, они были уже готовы. Очень удобно перед парами.'
-    },
-    {
-        id: 'site-alina',
-        seed: true,
-        source: 'this site',
-        name: 'Alina S.',
-        rating: 4,
-        time: new Date(2026, 8, 18).getTime(),
-        lang: 'ru',
-        text: 'Очень вкусный кофе. В обед была небольшая очередь, но персонал работал быстро и вежливо. Приду ещё утром.'
-    },
-    {
-        id: 'site-madina',
-        seed: true,
-        source: 'this site',
-        name: 'Madina K.',
-        rating: 5,
-        time: new Date(2026, 8, 25).getTime(),
-        lang: 'ru',
-        text: 'Пробовала напиток на овсяном молоке с дополнительным шотом, сделали ровно как я просила. Интерьер с казахскими узорами очень красивый.'
     }
 ];
 
