@@ -165,7 +165,7 @@ const LOOK_RULES = [
 // frozen). The old fonts stay in the list, so the page is readable while the font loads or when it is off.
 // TRY A FONT: add ?font=Name to the address (for example reviews.html?font=Montserrat). Remove this when the font is chosen.
 const WANTED_FONT = new URLSearchParams(location.search).get('font');
-const FONT_NAME = /^[A-Za-z ]{2,30}$/.test(WANTED_FONT || '') ? WANTED_FONT : 'Nunito';
+const FONT_NAME = /^[A-Za-z ]{2,30}$/.test(WANTED_FONT || '') ? WANTED_FONT : 'Montserrat';
 const BODY_FONT = '"' + FONT_NAME + '", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif';
 const HEADING_FONT = BODY_FONT;
 const HEADING_SELECTOR = 'h1, h2, h3, h4, .h3, .display-4, .display-5, .display-6';
