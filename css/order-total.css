@@ -1,0 +1,1203 @@
+/* Generated: order list and total are computed with CSS counters, no JavaScript.
+   A chosen quantity adds to the counters; the checkout list and the total read them. */
+#order-form {
+    counter-reset: total 0 cq-r-espresso-0 0 cl-r-espresso-0 0 cq-r-americano-0 0 cl-r-americano-0 0 cq-r-americano-1 0 cl-r-americano-1 0 cq-r-americano-2 0 cl-r-americano-2 0 cq-r-cappuccino-0 0 cl-r-cappuccino-0 0 cq-r-cappuccino-1 0 cl-r-cappuccino-1 0 cq-r-cappuccino-2 0 cl-r-cappuccino-2 0 cq-r-latte-0 0 cl-r-latte-0 0 cq-r-latte-1 0 cl-r-latte-1 0 cq-r-flat-white-0 0 cl-r-flat-white-0 0 cq-r-mokkacino-0 0 cl-r-mokkacino-0 0 cq-r-mokkacino-1 0 cl-r-mokkacino-1 0 cq-r-mokkacino-2 0 cl-r-mokkacino-2 0 cq-r-raf-0 0 cl-r-raf-0 0 cq-r-spanish-latte-0 0 cl-r-spanish-latte-0 0 cq-r-spanish-latte-1 0 cl-r-spanish-latte-1 0 cq-r-iced-americano-0 0 cl-r-iced-americano-0 0 cq-r-iced-latte-0 0 cl-r-iced-latte-0 0 cq-r-iced-cappuccino-0 0 cl-r-iced-cappuccino-0 0 cq-r-bumble-coffee-0 0 cl-r-bumble-coffee-0 0 cq-r-sie-bumble-0 0 cl-r-sie-bumble-0 0 cq-r-frappuccino-0 0 cl-r-frappuccino-0 0 cq-r-espresso-cola-cream-0 0 cl-r-espresso-cola-cream-0 0 cq-r-iced-fury-urbech-0 0 cl-r-iced-fury-urbech-0 0 cq-r-glasse-0 0 cl-r-glasse-0 0 cq-r-affogato-0 0 cl-r-affogato-0 0 cq-r-frappe-popcorn-0 0 cl-r-frappe-popcorn-0 0 cq-r-frappe-salted-caramel-0 0 cl-r-frappe-salted-caramel-0 0 cq-r-frappe-pistachio-0 0 cl-r-frappe-pistachio-0 0 cq-r-lemonade-qulpynai-0 0 cl-r-lemonade-qulpynai-0 0 cq-r-lemonade-kiwi-lime-0 0 cl-r-lemonade-kiwi-lime-0 0 cq-r-lemonade-kok-aspan-0 0 cl-r-lemonade-kok-aspan-0 0 cq-r-lemonade-mojito-0 0 cl-r-lemonade-mojito-0 0 cq-r-lemonade-pineapple-ginger-0 0 cl-r-lemonade-pineapple-ginger-0 0 cq-r-lemonade-mojito-basil-strawberry-0 0 cl-r-lemonade-mojito-basil-strawberry-0 0 cq-r-lemonade-mango-passionfruit-0 0 cl-r-lemonade-mango-passionfruit-0 0 cq-r-lemonade-klassikalyq-0 0 cl-r-lemonade-klassikalyq-0 0 cq-r-iced-green-matcha-0 0 cl-r-iced-green-matcha-0 0 cq-r-iced-blue-matcha-0 0 cl-r-iced-blue-matcha-0 0 cq-r-erekshe-qulpynai-matcha-0 0 cl-r-erekshe-qulpynai-matcha-0 0 cq-r-kokos-matcha-0 0 cl-r-kokos-matcha-0 0 cq-r-mango-matcha-0 0 cl-r-mango-matcha-0 0 cq-r-ice-ube-latte-peach-0 0 cl-r-ice-ube-latte-peach-0 0 cq-r-ice-ube-latte-berry-0 0 cl-r-ice-ube-latte-berry-0 0 cq-r-icetea-mango-passionfruit-0 0 cl-r-icetea-mango-passionfruit-0 0 cq-r-icetea-pineapple-ginger-0 0 cl-r-icetea-pineapple-ginger-0 0 cq-r-icetea-basil-strawberry-0 0 cl-r-icetea-basil-strawberry-0 0 cq-r-gajaiyp-icetea-0 0 cl-r-gajaiyp-icetea-0 0 cq-r-samal-icetea-0 0 cl-r-samal-icetea-0 0 cq-r-kyoto-sencha-tea-0 0 cl-r-kyoto-sencha-tea-0 0 cq-r-power-spirit-tea-0 0 cl-r-power-spirit-tea-0 0 cq-r-moroccan-tea-0 0 cl-r-moroccan-tea-0 0 cq-r-ginger-tea-0 0 cl-r-ginger-tea-0 0 cq-r-cranberry-tea-0 0 cl-r-cranberry-tea-0 0 cq-r-sea-buckthorn-tea-0 0 cl-r-sea-buckthorn-tea-0 0 cq-r-karak-tea-0 0 cl-r-karak-tea-0 0 cq-r-mulled-wine-tea-0 0 cl-r-mulled-wine-tea-0 0 cq-r-green-matcha-0 0 cl-r-green-matcha-0 0 cq-r-blue-matcha-0 0 cl-r-blue-matcha-0 0 cq-r-black-green-tea-0 0 cl-r-black-green-tea-0 0 cq-r-sie-chocolate-0 0 cl-r-sie-chocolate-0 0 cq-r-gulshai-karkade-0 0 cl-r-gulshai-karkade-0 0 cq-r-purple-blue-tea-0 0 cl-r-purple-blue-tea-0 0 cq-r-raf-kazakh-0 0 cl-r-raf-kazakh-0 0 cq-r-raf-salted-peanut-0 0 cl-r-raf-salted-peanut-0 0 cq-r-raf-vanilla-strawberry-0 0 cl-r-raf-vanilla-strawberry-0 0 cq-r-latte-qurt-0 0 cl-r-latte-qurt-0 0 cq-r-energy-raf-0 0 cl-r-energy-raf-0 0 cq-r-almurt-halva-raf-0 0 cl-r-almurt-halva-raf-0 0 cq-r-espresso-tonic-0 0 cl-r-espresso-tonic-0 0 cq-r-matcha-tonic-0 0 cl-r-matcha-tonic-0 0 cq-r-sie-espresso-tonic-0 0 cl-r-sie-espresso-tonic-0 0 cq-r-tropical-matcha-tonic-0 0 cl-r-tropical-matcha-tonic-0 0 cq-r-smoothie-strawberry-0 0 cl-r-smoothie-strawberry-0 0 cq-r-smoothie-berry-0 0 cl-r-smoothie-berry-0 0 cq-r-shake-vanilla-0 0 cl-r-shake-vanilla-0 0 cq-r-shake-strawberry-mousse-0 0 cl-r-shake-strawberry-mousse-0 0 cq-r-shake-banana-pudding-0 0 cl-r-shake-banana-pudding-0 0 cq-r-shake-waffle-popcorn-0 0 cl-r-shake-waffle-popcorn-0 0 cq-r-orange-0 0 cl-r-orange-0 0 cq-r-fresh-apple-0 0 cl-r-fresh-apple-0 0 cq-r-fresh-apple-orange-0 0 cl-r-fresh-apple-orange-0 0 cq-r-cocoa-0 0 cl-r-cocoa-0 0 cq-r-hot-chocolate-0 0 cl-r-hot-chocolate-0 0 cq-r-strawberry-babyccino-0 0 cl-r-strawberry-babyccino-0 0 cq-r-decaf-0 0 cl-r-decaf-0 0 cq-r-syrup-0 0 cl-r-syrup-0 0 cq-r-extra-shot-0 0 cl-r-extra-shot-0 0 cq-r-plant-based-milk-0 0 cl-r-plant-based-milk-0 0 cq-r-espressoday-water-0 0 cl-r-espressoday-water-0 0 cq-r-coffee-beans-250-g-0 0 cl-r-coffee-beans-250-g-0 0 cq-r-coffee-beans-1-kg-0 0 cl-r-coffee-beans-1-kg-0 0;
+}
+#r-espresso-0-1:checked ~ .qty-stepper { counter-increment: total 690 cq-r-espresso-0 1 cl-r-espresso-0 690; }
+#r-espresso-0-2:checked ~ .qty-stepper { counter-increment: total 1380 cq-r-espresso-0 2 cl-r-espresso-0 1380; }
+#r-espresso-0-3:checked ~ .qty-stepper { counter-increment: total 2070 cq-r-espresso-0 3 cl-r-espresso-0 2070; }
+#r-espresso-0-4:checked ~ .qty-stepper { counter-increment: total 2760 cq-r-espresso-0 4 cl-r-espresso-0 2760; }
+#r-espresso-0-5:checked ~ .qty-stepper { counter-increment: total 3450 cq-r-espresso-0 5 cl-r-espresso-0 3450; }
+#r-espresso-0-6:checked ~ .qty-stepper { counter-increment: total 4140 cq-r-espresso-0 6 cl-r-espresso-0 4140; }
+#r-espresso-0-7:checked ~ .qty-stepper { counter-increment: total 4830 cq-r-espresso-0 7 cl-r-espresso-0 4830; }
+#r-espresso-0-8:checked ~ .qty-stepper { counter-increment: total 5520 cq-r-espresso-0 8 cl-r-espresso-0 5520; }
+#r-espresso-0-9:checked ~ .qty-stepper { counter-increment: total 6210 cq-r-espresso-0 9 cl-r-espresso-0 6210; }
+#r-espresso-0-10:checked ~ .qty-stepper { counter-increment: total 6900 cq-r-espresso-0 10 cl-r-espresso-0 6900; }
+#r-americano-0-1:checked ~ .qty-stepper { counter-increment: total 890 cq-r-americano-0 1 cl-r-americano-0 890; }
+#r-americano-0-2:checked ~ .qty-stepper { counter-increment: total 1780 cq-r-americano-0 2 cl-r-americano-0 1780; }
+#r-americano-0-3:checked ~ .qty-stepper { counter-increment: total 2670 cq-r-americano-0 3 cl-r-americano-0 2670; }
+#r-americano-0-4:checked ~ .qty-stepper { counter-increment: total 3560 cq-r-americano-0 4 cl-r-americano-0 3560; }
+#r-americano-0-5:checked ~ .qty-stepper { counter-increment: total 4450 cq-r-americano-0 5 cl-r-americano-0 4450; }
+#r-americano-0-6:checked ~ .qty-stepper { counter-increment: total 5340 cq-r-americano-0 6 cl-r-americano-0 5340; }
+#r-americano-0-7:checked ~ .qty-stepper { counter-increment: total 6230 cq-r-americano-0 7 cl-r-americano-0 6230; }
+#r-americano-0-8:checked ~ .qty-stepper { counter-increment: total 7120 cq-r-americano-0 8 cl-r-americano-0 7120; }
+#r-americano-0-9:checked ~ .qty-stepper { counter-increment: total 8010 cq-r-americano-0 9 cl-r-americano-0 8010; }
+#r-americano-0-10:checked ~ .qty-stepper { counter-increment: total 8900 cq-r-americano-0 10 cl-r-americano-0 8900; }
+#r-americano-1-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-americano-1 1 cl-r-americano-1 1090; }
+#r-americano-1-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-americano-1 2 cl-r-americano-1 2180; }
+#r-americano-1-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-americano-1 3 cl-r-americano-1 3270; }
+#r-americano-1-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-americano-1 4 cl-r-americano-1 4360; }
+#r-americano-1-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-americano-1 5 cl-r-americano-1 5450; }
+#r-americano-1-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-americano-1 6 cl-r-americano-1 6540; }
+#r-americano-1-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-americano-1 7 cl-r-americano-1 7630; }
+#r-americano-1-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-americano-1 8 cl-r-americano-1 8720; }
+#r-americano-1-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-americano-1 9 cl-r-americano-1 9810; }
+#r-americano-1-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-americano-1 10 cl-r-americano-1 10900; }
+#r-americano-2-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-americano-2 1 cl-r-americano-2 1190; }
+#r-americano-2-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-americano-2 2 cl-r-americano-2 2380; }
+#r-americano-2-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-americano-2 3 cl-r-americano-2 3570; }
+#r-americano-2-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-americano-2 4 cl-r-americano-2 4760; }
+#r-americano-2-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-americano-2 5 cl-r-americano-2 5950; }
+#r-americano-2-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-americano-2 6 cl-r-americano-2 7140; }
+#r-americano-2-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-americano-2 7 cl-r-americano-2 8330; }
+#r-americano-2-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-americano-2 8 cl-r-americano-2 9520; }
+#r-americano-2-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-americano-2 9 cl-r-americano-2 10710; }
+#r-americano-2-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-americano-2 10 cl-r-americano-2 11900; }
+#r-cappuccino-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-cappuccino-0 1 cl-r-cappuccino-0 1090; }
+#r-cappuccino-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-cappuccino-0 2 cl-r-cappuccino-0 2180; }
+#r-cappuccino-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-cappuccino-0 3 cl-r-cappuccino-0 3270; }
+#r-cappuccino-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-cappuccino-0 4 cl-r-cappuccino-0 4360; }
+#r-cappuccino-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-cappuccino-0 5 cl-r-cappuccino-0 5450; }
+#r-cappuccino-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-cappuccino-0 6 cl-r-cappuccino-0 6540; }
+#r-cappuccino-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-cappuccino-0 7 cl-r-cappuccino-0 7630; }
+#r-cappuccino-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-cappuccino-0 8 cl-r-cappuccino-0 8720; }
+#r-cappuccino-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-cappuccino-0 9 cl-r-cappuccino-0 9810; }
+#r-cappuccino-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-cappuccino-0 10 cl-r-cappuccino-0 10900; }
+#r-cappuccino-1-1:checked ~ .qty-stepper { counter-increment: total 1290 cq-r-cappuccino-1 1 cl-r-cappuccino-1 1290; }
+#r-cappuccino-1-2:checked ~ .qty-stepper { counter-increment: total 2580 cq-r-cappuccino-1 2 cl-r-cappuccino-1 2580; }
+#r-cappuccino-1-3:checked ~ .qty-stepper { counter-increment: total 3870 cq-r-cappuccino-1 3 cl-r-cappuccino-1 3870; }
+#r-cappuccino-1-4:checked ~ .qty-stepper { counter-increment: total 5160 cq-r-cappuccino-1 4 cl-r-cappuccino-1 5160; }
+#r-cappuccino-1-5:checked ~ .qty-stepper { counter-increment: total 6450 cq-r-cappuccino-1 5 cl-r-cappuccino-1 6450; }
+#r-cappuccino-1-6:checked ~ .qty-stepper { counter-increment: total 7740 cq-r-cappuccino-1 6 cl-r-cappuccino-1 7740; }
+#r-cappuccino-1-7:checked ~ .qty-stepper { counter-increment: total 9030 cq-r-cappuccino-1 7 cl-r-cappuccino-1 9030; }
+#r-cappuccino-1-8:checked ~ .qty-stepper { counter-increment: total 10320 cq-r-cappuccino-1 8 cl-r-cappuccino-1 10320; }
+#r-cappuccino-1-9:checked ~ .qty-stepper { counter-increment: total 11610 cq-r-cappuccino-1 9 cl-r-cappuccino-1 11610; }
+#r-cappuccino-1-10:checked ~ .qty-stepper { counter-increment: total 12900 cq-r-cappuccino-1 10 cl-r-cappuccino-1 12900; }
+#r-cappuccino-2-1:checked ~ .qty-stepper { counter-increment: total 1390 cq-r-cappuccino-2 1 cl-r-cappuccino-2 1390; }
+#r-cappuccino-2-2:checked ~ .qty-stepper { counter-increment: total 2780 cq-r-cappuccino-2 2 cl-r-cappuccino-2 2780; }
+#r-cappuccino-2-3:checked ~ .qty-stepper { counter-increment: total 4170 cq-r-cappuccino-2 3 cl-r-cappuccino-2 4170; }
+#r-cappuccino-2-4:checked ~ .qty-stepper { counter-increment: total 5560 cq-r-cappuccino-2 4 cl-r-cappuccino-2 5560; }
+#r-cappuccino-2-5:checked ~ .qty-stepper { counter-increment: total 6950 cq-r-cappuccino-2 5 cl-r-cappuccino-2 6950; }
+#r-cappuccino-2-6:checked ~ .qty-stepper { counter-increment: total 8340 cq-r-cappuccino-2 6 cl-r-cappuccino-2 8340; }
+#r-cappuccino-2-7:checked ~ .qty-stepper { counter-increment: total 9730 cq-r-cappuccino-2 7 cl-r-cappuccino-2 9730; }
+#r-cappuccino-2-8:checked ~ .qty-stepper { counter-increment: total 11120 cq-r-cappuccino-2 8 cl-r-cappuccino-2 11120; }
+#r-cappuccino-2-9:checked ~ .qty-stepper { counter-increment: total 12510 cq-r-cappuccino-2 9 cl-r-cappuccino-2 12510; }
+#r-cappuccino-2-10:checked ~ .qty-stepper { counter-increment: total 13900 cq-r-cappuccino-2 10 cl-r-cappuccino-2 13900; }
+#r-latte-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-latte-0 1 cl-r-latte-0 1190; }
+#r-latte-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-latte-0 2 cl-r-latte-0 2380; }
+#r-latte-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-latte-0 3 cl-r-latte-0 3570; }
+#r-latte-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-latte-0 4 cl-r-latte-0 4760; }
+#r-latte-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-latte-0 5 cl-r-latte-0 5950; }
+#r-latte-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-latte-0 6 cl-r-latte-0 7140; }
+#r-latte-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-latte-0 7 cl-r-latte-0 8330; }
+#r-latte-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-latte-0 8 cl-r-latte-0 9520; }
+#r-latte-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-latte-0 9 cl-r-latte-0 10710; }
+#r-latte-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-latte-0 10 cl-r-latte-0 11900; }
+#r-latte-1-1:checked ~ .qty-stepper { counter-increment: total 1390 cq-r-latte-1 1 cl-r-latte-1 1390; }
+#r-latte-1-2:checked ~ .qty-stepper { counter-increment: total 2780 cq-r-latte-1 2 cl-r-latte-1 2780; }
+#r-latte-1-3:checked ~ .qty-stepper { counter-increment: total 4170 cq-r-latte-1 3 cl-r-latte-1 4170; }
+#r-latte-1-4:checked ~ .qty-stepper { counter-increment: total 5560 cq-r-latte-1 4 cl-r-latte-1 5560; }
+#r-latte-1-5:checked ~ .qty-stepper { counter-increment: total 6950 cq-r-latte-1 5 cl-r-latte-1 6950; }
+#r-latte-1-6:checked ~ .qty-stepper { counter-increment: total 8340 cq-r-latte-1 6 cl-r-latte-1 8340; }
+#r-latte-1-7:checked ~ .qty-stepper { counter-increment: total 9730 cq-r-latte-1 7 cl-r-latte-1 9730; }
+#r-latte-1-8:checked ~ .qty-stepper { counter-increment: total 11120 cq-r-latte-1 8 cl-r-latte-1 11120; }
+#r-latte-1-9:checked ~ .qty-stepper { counter-increment: total 12510 cq-r-latte-1 9 cl-r-latte-1 12510; }
+#r-latte-1-10:checked ~ .qty-stepper { counter-increment: total 13900 cq-r-latte-1 10 cl-r-latte-1 13900; }
+#r-flat-white-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-flat-white-0 1 cl-r-flat-white-0 1190; }
+#r-flat-white-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-flat-white-0 2 cl-r-flat-white-0 2380; }
+#r-flat-white-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-flat-white-0 3 cl-r-flat-white-0 3570; }
+#r-flat-white-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-flat-white-0 4 cl-r-flat-white-0 4760; }
+#r-flat-white-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-flat-white-0 5 cl-r-flat-white-0 5950; }
+#r-flat-white-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-flat-white-0 6 cl-r-flat-white-0 7140; }
+#r-flat-white-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-flat-white-0 7 cl-r-flat-white-0 8330; }
+#r-flat-white-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-flat-white-0 8 cl-r-flat-white-0 9520; }
+#r-flat-white-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-flat-white-0 9 cl-r-flat-white-0 10710; }
+#r-flat-white-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-flat-white-0 10 cl-r-flat-white-0 11900; }
+#r-mokkacino-0-1:checked ~ .qty-stepper { counter-increment: total 1390 cq-r-mokkacino-0 1 cl-r-mokkacino-0 1390; }
+#r-mokkacino-0-2:checked ~ .qty-stepper { counter-increment: total 2780 cq-r-mokkacino-0 2 cl-r-mokkacino-0 2780; }
+#r-mokkacino-0-3:checked ~ .qty-stepper { counter-increment: total 4170 cq-r-mokkacino-0 3 cl-r-mokkacino-0 4170; }
+#r-mokkacino-0-4:checked ~ .qty-stepper { counter-increment: total 5560 cq-r-mokkacino-0 4 cl-r-mokkacino-0 5560; }
+#r-mokkacino-0-5:checked ~ .qty-stepper { counter-increment: total 6950 cq-r-mokkacino-0 5 cl-r-mokkacino-0 6950; }
+#r-mokkacino-0-6:checked ~ .qty-stepper { counter-increment: total 8340 cq-r-mokkacino-0 6 cl-r-mokkacino-0 8340; }
+#r-mokkacino-0-7:checked ~ .qty-stepper { counter-increment: total 9730 cq-r-mokkacino-0 7 cl-r-mokkacino-0 9730; }
+#r-mokkacino-0-8:checked ~ .qty-stepper { counter-increment: total 11120 cq-r-mokkacino-0 8 cl-r-mokkacino-0 11120; }
+#r-mokkacino-0-9:checked ~ .qty-stepper { counter-increment: total 12510 cq-r-mokkacino-0 9 cl-r-mokkacino-0 12510; }
+#r-mokkacino-0-10:checked ~ .qty-stepper { counter-increment: total 13900 cq-r-mokkacino-0 10 cl-r-mokkacino-0 13900; }
+#r-mokkacino-1-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-mokkacino-1 1 cl-r-mokkacino-1 1490; }
+#r-mokkacino-1-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-mokkacino-1 2 cl-r-mokkacino-1 2980; }
+#r-mokkacino-1-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-mokkacino-1 3 cl-r-mokkacino-1 4470; }
+#r-mokkacino-1-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-mokkacino-1 4 cl-r-mokkacino-1 5960; }
+#r-mokkacino-1-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-mokkacino-1 5 cl-r-mokkacino-1 7450; }
+#r-mokkacino-1-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-mokkacino-1 6 cl-r-mokkacino-1 8940; }
+#r-mokkacino-1-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-mokkacino-1 7 cl-r-mokkacino-1 10430; }
+#r-mokkacino-1-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-mokkacino-1 8 cl-r-mokkacino-1 11920; }
+#r-mokkacino-1-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-mokkacino-1 9 cl-r-mokkacino-1 13410; }
+#r-mokkacino-1-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-mokkacino-1 10 cl-r-mokkacino-1 14900; }
+#r-mokkacino-2-1:checked ~ .qty-stepper { counter-increment: total 1590 cq-r-mokkacino-2 1 cl-r-mokkacino-2 1590; }
+#r-mokkacino-2-2:checked ~ .qty-stepper { counter-increment: total 3180 cq-r-mokkacino-2 2 cl-r-mokkacino-2 3180; }
+#r-mokkacino-2-3:checked ~ .qty-stepper { counter-increment: total 4770 cq-r-mokkacino-2 3 cl-r-mokkacino-2 4770; }
+#r-mokkacino-2-4:checked ~ .qty-stepper { counter-increment: total 6360 cq-r-mokkacino-2 4 cl-r-mokkacino-2 6360; }
+#r-mokkacino-2-5:checked ~ .qty-stepper { counter-increment: total 7950 cq-r-mokkacino-2 5 cl-r-mokkacino-2 7950; }
+#r-mokkacino-2-6:checked ~ .qty-stepper { counter-increment: total 9540 cq-r-mokkacino-2 6 cl-r-mokkacino-2 9540; }
+#r-mokkacino-2-7:checked ~ .qty-stepper { counter-increment: total 11130 cq-r-mokkacino-2 7 cl-r-mokkacino-2 11130; }
+#r-mokkacino-2-8:checked ~ .qty-stepper { counter-increment: total 12720 cq-r-mokkacino-2 8 cl-r-mokkacino-2 12720; }
+#r-mokkacino-2-9:checked ~ .qty-stepper { counter-increment: total 14310 cq-r-mokkacino-2 9 cl-r-mokkacino-2 14310; }
+#r-mokkacino-2-10:checked ~ .qty-stepper { counter-increment: total 15900 cq-r-mokkacino-2 10 cl-r-mokkacino-2 15900; }
+#r-raf-0-1:checked ~ .qty-stepper { counter-increment: total 1590 cq-r-raf-0 1 cl-r-raf-0 1590; }
+#r-raf-0-2:checked ~ .qty-stepper { counter-increment: total 3180 cq-r-raf-0 2 cl-r-raf-0 3180; }
+#r-raf-0-3:checked ~ .qty-stepper { counter-increment: total 4770 cq-r-raf-0 3 cl-r-raf-0 4770; }
+#r-raf-0-4:checked ~ .qty-stepper { counter-increment: total 6360 cq-r-raf-0 4 cl-r-raf-0 6360; }
+#r-raf-0-5:checked ~ .qty-stepper { counter-increment: total 7950 cq-r-raf-0 5 cl-r-raf-0 7950; }
+#r-raf-0-6:checked ~ .qty-stepper { counter-increment: total 9540 cq-r-raf-0 6 cl-r-raf-0 9540; }
+#r-raf-0-7:checked ~ .qty-stepper { counter-increment: total 11130 cq-r-raf-0 7 cl-r-raf-0 11130; }
+#r-raf-0-8:checked ~ .qty-stepper { counter-increment: total 12720 cq-r-raf-0 8 cl-r-raf-0 12720; }
+#r-raf-0-9:checked ~ .qty-stepper { counter-increment: total 14310 cq-r-raf-0 9 cl-r-raf-0 14310; }
+#r-raf-0-10:checked ~ .qty-stepper { counter-increment: total 15900 cq-r-raf-0 10 cl-r-raf-0 15900; }
+#r-spanish-latte-0-1:checked ~ .qty-stepper { counter-increment: total 1290 cq-r-spanish-latte-0 1 cl-r-spanish-latte-0 1290; }
+#r-spanish-latte-0-2:checked ~ .qty-stepper { counter-increment: total 2580 cq-r-spanish-latte-0 2 cl-r-spanish-latte-0 2580; }
+#r-spanish-latte-0-3:checked ~ .qty-stepper { counter-increment: total 3870 cq-r-spanish-latte-0 3 cl-r-spanish-latte-0 3870; }
+#r-spanish-latte-0-4:checked ~ .qty-stepper { counter-increment: total 5160 cq-r-spanish-latte-0 4 cl-r-spanish-latte-0 5160; }
+#r-spanish-latte-0-5:checked ~ .qty-stepper { counter-increment: total 6450 cq-r-spanish-latte-0 5 cl-r-spanish-latte-0 6450; }
+#r-spanish-latte-0-6:checked ~ .qty-stepper { counter-increment: total 7740 cq-r-spanish-latte-0 6 cl-r-spanish-latte-0 7740; }
+#r-spanish-latte-0-7:checked ~ .qty-stepper { counter-increment: total 9030 cq-r-spanish-latte-0 7 cl-r-spanish-latte-0 9030; }
+#r-spanish-latte-0-8:checked ~ .qty-stepper { counter-increment: total 10320 cq-r-spanish-latte-0 8 cl-r-spanish-latte-0 10320; }
+#r-spanish-latte-0-9:checked ~ .qty-stepper { counter-increment: total 11610 cq-r-spanish-latte-0 9 cl-r-spanish-latte-0 11610; }
+#r-spanish-latte-0-10:checked ~ .qty-stepper { counter-increment: total 12900 cq-r-spanish-latte-0 10 cl-r-spanish-latte-0 12900; }
+#r-spanish-latte-1-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-spanish-latte-1 1 cl-r-spanish-latte-1 1490; }
+#r-spanish-latte-1-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-spanish-latte-1 2 cl-r-spanish-latte-1 2980; }
+#r-spanish-latte-1-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-spanish-latte-1 3 cl-r-spanish-latte-1 4470; }
+#r-spanish-latte-1-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-spanish-latte-1 4 cl-r-spanish-latte-1 5960; }
+#r-spanish-latte-1-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-spanish-latte-1 5 cl-r-spanish-latte-1 7450; }
+#r-spanish-latte-1-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-spanish-latte-1 6 cl-r-spanish-latte-1 8940; }
+#r-spanish-latte-1-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-spanish-latte-1 7 cl-r-spanish-latte-1 10430; }
+#r-spanish-latte-1-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-spanish-latte-1 8 cl-r-spanish-latte-1 11920; }
+#r-spanish-latte-1-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-spanish-latte-1 9 cl-r-spanish-latte-1 13410; }
+#r-spanish-latte-1-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-spanish-latte-1 10 cl-r-spanish-latte-1 14900; }
+#r-iced-americano-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-iced-americano-0 1 cl-r-iced-americano-0 990; }
+#r-iced-americano-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-iced-americano-0 2 cl-r-iced-americano-0 1980; }
+#r-iced-americano-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-iced-americano-0 3 cl-r-iced-americano-0 2970; }
+#r-iced-americano-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-iced-americano-0 4 cl-r-iced-americano-0 3960; }
+#r-iced-americano-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-iced-americano-0 5 cl-r-iced-americano-0 4950; }
+#r-iced-americano-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-iced-americano-0 6 cl-r-iced-americano-0 5940; }
+#r-iced-americano-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-iced-americano-0 7 cl-r-iced-americano-0 6930; }
+#r-iced-americano-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-iced-americano-0 8 cl-r-iced-americano-0 7920; }
+#r-iced-americano-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-iced-americano-0 9 cl-r-iced-americano-0 8910; }
+#r-iced-americano-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-iced-americano-0 10 cl-r-iced-americano-0 9900; }
+#r-iced-latte-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-iced-latte-0 1 cl-r-iced-latte-0 1190; }
+#r-iced-latte-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-iced-latte-0 2 cl-r-iced-latte-0 2380; }
+#r-iced-latte-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-iced-latte-0 3 cl-r-iced-latte-0 3570; }
+#r-iced-latte-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-iced-latte-0 4 cl-r-iced-latte-0 4760; }
+#r-iced-latte-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-iced-latte-0 5 cl-r-iced-latte-0 5950; }
+#r-iced-latte-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-iced-latte-0 6 cl-r-iced-latte-0 7140; }
+#r-iced-latte-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-iced-latte-0 7 cl-r-iced-latte-0 8330; }
+#r-iced-latte-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-iced-latte-0 8 cl-r-iced-latte-0 9520; }
+#r-iced-latte-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-iced-latte-0 9 cl-r-iced-latte-0 10710; }
+#r-iced-latte-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-iced-latte-0 10 cl-r-iced-latte-0 11900; }
+#r-iced-cappuccino-0-1:checked ~ .qty-stepper { counter-increment: total 1290 cq-r-iced-cappuccino-0 1 cl-r-iced-cappuccino-0 1290; }
+#r-iced-cappuccino-0-2:checked ~ .qty-stepper { counter-increment: total 2580 cq-r-iced-cappuccino-0 2 cl-r-iced-cappuccino-0 2580; }
+#r-iced-cappuccino-0-3:checked ~ .qty-stepper { counter-increment: total 3870 cq-r-iced-cappuccino-0 3 cl-r-iced-cappuccino-0 3870; }
+#r-iced-cappuccino-0-4:checked ~ .qty-stepper { counter-increment: total 5160 cq-r-iced-cappuccino-0 4 cl-r-iced-cappuccino-0 5160; }
+#r-iced-cappuccino-0-5:checked ~ .qty-stepper { counter-increment: total 6450 cq-r-iced-cappuccino-0 5 cl-r-iced-cappuccino-0 6450; }
+#r-iced-cappuccino-0-6:checked ~ .qty-stepper { counter-increment: total 7740 cq-r-iced-cappuccino-0 6 cl-r-iced-cappuccino-0 7740; }
+#r-iced-cappuccino-0-7:checked ~ .qty-stepper { counter-increment: total 9030 cq-r-iced-cappuccino-0 7 cl-r-iced-cappuccino-0 9030; }
+#r-iced-cappuccino-0-8:checked ~ .qty-stepper { counter-increment: total 10320 cq-r-iced-cappuccino-0 8 cl-r-iced-cappuccino-0 10320; }
+#r-iced-cappuccino-0-9:checked ~ .qty-stepper { counter-increment: total 11610 cq-r-iced-cappuccino-0 9 cl-r-iced-cappuccino-0 11610; }
+#r-iced-cappuccino-0-10:checked ~ .qty-stepper { counter-increment: total 12900 cq-r-iced-cappuccino-0 10 cl-r-iced-cappuccino-0 12900; }
+#r-bumble-coffee-0-1:checked ~ .qty-stepper { counter-increment: total 1990 cq-r-bumble-coffee-0 1 cl-r-bumble-coffee-0 1990; }
+#r-bumble-coffee-0-2:checked ~ .qty-stepper { counter-increment: total 3980 cq-r-bumble-coffee-0 2 cl-r-bumble-coffee-0 3980; }
+#r-bumble-coffee-0-3:checked ~ .qty-stepper { counter-increment: total 5970 cq-r-bumble-coffee-0 3 cl-r-bumble-coffee-0 5970; }
+#r-bumble-coffee-0-4:checked ~ .qty-stepper { counter-increment: total 7960 cq-r-bumble-coffee-0 4 cl-r-bumble-coffee-0 7960; }
+#r-bumble-coffee-0-5:checked ~ .qty-stepper { counter-increment: total 9950 cq-r-bumble-coffee-0 5 cl-r-bumble-coffee-0 9950; }
+#r-bumble-coffee-0-6:checked ~ .qty-stepper { counter-increment: total 11940 cq-r-bumble-coffee-0 6 cl-r-bumble-coffee-0 11940; }
+#r-bumble-coffee-0-7:checked ~ .qty-stepper { counter-increment: total 13930 cq-r-bumble-coffee-0 7 cl-r-bumble-coffee-0 13930; }
+#r-bumble-coffee-0-8:checked ~ .qty-stepper { counter-increment: total 15920 cq-r-bumble-coffee-0 8 cl-r-bumble-coffee-0 15920; }
+#r-bumble-coffee-0-9:checked ~ .qty-stepper { counter-increment: total 17910 cq-r-bumble-coffee-0 9 cl-r-bumble-coffee-0 17910; }
+#r-bumble-coffee-0-10:checked ~ .qty-stepper { counter-increment: total 19900 cq-r-bumble-coffee-0 10 cl-r-bumble-coffee-0 19900; }
+#r-sie-bumble-0-1:checked ~ .qty-stepper { counter-increment: total 1590 cq-r-sie-bumble-0 1 cl-r-sie-bumble-0 1590; }
+#r-sie-bumble-0-2:checked ~ .qty-stepper { counter-increment: total 3180 cq-r-sie-bumble-0 2 cl-r-sie-bumble-0 3180; }
+#r-sie-bumble-0-3:checked ~ .qty-stepper { counter-increment: total 4770 cq-r-sie-bumble-0 3 cl-r-sie-bumble-0 4770; }
+#r-sie-bumble-0-4:checked ~ .qty-stepper { counter-increment: total 6360 cq-r-sie-bumble-0 4 cl-r-sie-bumble-0 6360; }
+#r-sie-bumble-0-5:checked ~ .qty-stepper { counter-increment: total 7950 cq-r-sie-bumble-0 5 cl-r-sie-bumble-0 7950; }
+#r-sie-bumble-0-6:checked ~ .qty-stepper { counter-increment: total 9540 cq-r-sie-bumble-0 6 cl-r-sie-bumble-0 9540; }
+#r-sie-bumble-0-7:checked ~ .qty-stepper { counter-increment: total 11130 cq-r-sie-bumble-0 7 cl-r-sie-bumble-0 11130; }
+#r-sie-bumble-0-8:checked ~ .qty-stepper { counter-increment: total 12720 cq-r-sie-bumble-0 8 cl-r-sie-bumble-0 12720; }
+#r-sie-bumble-0-9:checked ~ .qty-stepper { counter-increment: total 14310 cq-r-sie-bumble-0 9 cl-r-sie-bumble-0 14310; }
+#r-sie-bumble-0-10:checked ~ .qty-stepper { counter-increment: total 15900 cq-r-sie-bumble-0 10 cl-r-sie-bumble-0 15900; }
+#r-frappuccino-0-1:checked ~ .qty-stepper { counter-increment: total 1790 cq-r-frappuccino-0 1 cl-r-frappuccino-0 1790; }
+#r-frappuccino-0-2:checked ~ .qty-stepper { counter-increment: total 3580 cq-r-frappuccino-0 2 cl-r-frappuccino-0 3580; }
+#r-frappuccino-0-3:checked ~ .qty-stepper { counter-increment: total 5370 cq-r-frappuccino-0 3 cl-r-frappuccino-0 5370; }
+#r-frappuccino-0-4:checked ~ .qty-stepper { counter-increment: total 7160 cq-r-frappuccino-0 4 cl-r-frappuccino-0 7160; }
+#r-frappuccino-0-5:checked ~ .qty-stepper { counter-increment: total 8950 cq-r-frappuccino-0 5 cl-r-frappuccino-0 8950; }
+#r-frappuccino-0-6:checked ~ .qty-stepper { counter-increment: total 10740 cq-r-frappuccino-0 6 cl-r-frappuccino-0 10740; }
+#r-frappuccino-0-7:checked ~ .qty-stepper { counter-increment: total 12530 cq-r-frappuccino-0 7 cl-r-frappuccino-0 12530; }
+#r-frappuccino-0-8:checked ~ .qty-stepper { counter-increment: total 14320 cq-r-frappuccino-0 8 cl-r-frappuccino-0 14320; }
+#r-frappuccino-0-9:checked ~ .qty-stepper { counter-increment: total 16110 cq-r-frappuccino-0 9 cl-r-frappuccino-0 16110; }
+#r-frappuccino-0-10:checked ~ .qty-stepper { counter-increment: total 17900 cq-r-frappuccino-0 10 cl-r-frappuccino-0 17900; }
+#r-espresso-cola-cream-0-1:checked ~ .qty-stepper { counter-increment: total 1890 cq-r-espresso-cola-cream-0 1 cl-r-espresso-cola-cream-0 1890; }
+#r-espresso-cola-cream-0-2:checked ~ .qty-stepper { counter-increment: total 3780 cq-r-espresso-cola-cream-0 2 cl-r-espresso-cola-cream-0 3780; }
+#r-espresso-cola-cream-0-3:checked ~ .qty-stepper { counter-increment: total 5670 cq-r-espresso-cola-cream-0 3 cl-r-espresso-cola-cream-0 5670; }
+#r-espresso-cola-cream-0-4:checked ~ .qty-stepper { counter-increment: total 7560 cq-r-espresso-cola-cream-0 4 cl-r-espresso-cola-cream-0 7560; }
+#r-espresso-cola-cream-0-5:checked ~ .qty-stepper { counter-increment: total 9450 cq-r-espresso-cola-cream-0 5 cl-r-espresso-cola-cream-0 9450; }
+#r-espresso-cola-cream-0-6:checked ~ .qty-stepper { counter-increment: total 11340 cq-r-espresso-cola-cream-0 6 cl-r-espresso-cola-cream-0 11340; }
+#r-espresso-cola-cream-0-7:checked ~ .qty-stepper { counter-increment: total 13230 cq-r-espresso-cola-cream-0 7 cl-r-espresso-cola-cream-0 13230; }
+#r-espresso-cola-cream-0-8:checked ~ .qty-stepper { counter-increment: total 15120 cq-r-espresso-cola-cream-0 8 cl-r-espresso-cola-cream-0 15120; }
+#r-espresso-cola-cream-0-9:checked ~ .qty-stepper { counter-increment: total 17010 cq-r-espresso-cola-cream-0 9 cl-r-espresso-cola-cream-0 17010; }
+#r-espresso-cola-cream-0-10:checked ~ .qty-stepper { counter-increment: total 18900 cq-r-espresso-cola-cream-0 10 cl-r-espresso-cola-cream-0 18900; }
+#r-iced-fury-urbech-0-1:checked ~ .qty-stepper { counter-increment: total 2090 cq-r-iced-fury-urbech-0 1 cl-r-iced-fury-urbech-0 2090; }
+#r-iced-fury-urbech-0-2:checked ~ .qty-stepper { counter-increment: total 4180 cq-r-iced-fury-urbech-0 2 cl-r-iced-fury-urbech-0 4180; }
+#r-iced-fury-urbech-0-3:checked ~ .qty-stepper { counter-increment: total 6270 cq-r-iced-fury-urbech-0 3 cl-r-iced-fury-urbech-0 6270; }
+#r-iced-fury-urbech-0-4:checked ~ .qty-stepper { counter-increment: total 8360 cq-r-iced-fury-urbech-0 4 cl-r-iced-fury-urbech-0 8360; }
+#r-iced-fury-urbech-0-5:checked ~ .qty-stepper { counter-increment: total 10450 cq-r-iced-fury-urbech-0 5 cl-r-iced-fury-urbech-0 10450; }
+#r-iced-fury-urbech-0-6:checked ~ .qty-stepper { counter-increment: total 12540 cq-r-iced-fury-urbech-0 6 cl-r-iced-fury-urbech-0 12540; }
+#r-iced-fury-urbech-0-7:checked ~ .qty-stepper { counter-increment: total 14630 cq-r-iced-fury-urbech-0 7 cl-r-iced-fury-urbech-0 14630; }
+#r-iced-fury-urbech-0-8:checked ~ .qty-stepper { counter-increment: total 16720 cq-r-iced-fury-urbech-0 8 cl-r-iced-fury-urbech-0 16720; }
+#r-iced-fury-urbech-0-9:checked ~ .qty-stepper { counter-increment: total 18810 cq-r-iced-fury-urbech-0 9 cl-r-iced-fury-urbech-0 18810; }
+#r-iced-fury-urbech-0-10:checked ~ .qty-stepper { counter-increment: total 20900 cq-r-iced-fury-urbech-0 10 cl-r-iced-fury-urbech-0 20900; }
+#r-glasse-0-1:checked ~ .qty-stepper { counter-increment: total 1790 cq-r-glasse-0 1 cl-r-glasse-0 1790; }
+#r-glasse-0-2:checked ~ .qty-stepper { counter-increment: total 3580 cq-r-glasse-0 2 cl-r-glasse-0 3580; }
+#r-glasse-0-3:checked ~ .qty-stepper { counter-increment: total 5370 cq-r-glasse-0 3 cl-r-glasse-0 5370; }
+#r-glasse-0-4:checked ~ .qty-stepper { counter-increment: total 7160 cq-r-glasse-0 4 cl-r-glasse-0 7160; }
+#r-glasse-0-5:checked ~ .qty-stepper { counter-increment: total 8950 cq-r-glasse-0 5 cl-r-glasse-0 8950; }
+#r-glasse-0-6:checked ~ .qty-stepper { counter-increment: total 10740 cq-r-glasse-0 6 cl-r-glasse-0 10740; }
+#r-glasse-0-7:checked ~ .qty-stepper { counter-increment: total 12530 cq-r-glasse-0 7 cl-r-glasse-0 12530; }
+#r-glasse-0-8:checked ~ .qty-stepper { counter-increment: total 14320 cq-r-glasse-0 8 cl-r-glasse-0 14320; }
+#r-glasse-0-9:checked ~ .qty-stepper { counter-increment: total 16110 cq-r-glasse-0 9 cl-r-glasse-0 16110; }
+#r-glasse-0-10:checked ~ .qty-stepper { counter-increment: total 17900 cq-r-glasse-0 10 cl-r-glasse-0 17900; }
+#r-affogato-0-1:checked ~ .qty-stepper { counter-increment: total 1290 cq-r-affogato-0 1 cl-r-affogato-0 1290; }
+#r-affogato-0-2:checked ~ .qty-stepper { counter-increment: total 2580 cq-r-affogato-0 2 cl-r-affogato-0 2580; }
+#r-affogato-0-3:checked ~ .qty-stepper { counter-increment: total 3870 cq-r-affogato-0 3 cl-r-affogato-0 3870; }
+#r-affogato-0-4:checked ~ .qty-stepper { counter-increment: total 5160 cq-r-affogato-0 4 cl-r-affogato-0 5160; }
+#r-affogato-0-5:checked ~ .qty-stepper { counter-increment: total 6450 cq-r-affogato-0 5 cl-r-affogato-0 6450; }
+#r-affogato-0-6:checked ~ .qty-stepper { counter-increment: total 7740 cq-r-affogato-0 6 cl-r-affogato-0 7740; }
+#r-affogato-0-7:checked ~ .qty-stepper { counter-increment: total 9030 cq-r-affogato-0 7 cl-r-affogato-0 9030; }
+#r-affogato-0-8:checked ~ .qty-stepper { counter-increment: total 10320 cq-r-affogato-0 8 cl-r-affogato-0 10320; }
+#r-affogato-0-9:checked ~ .qty-stepper { counter-increment: total 11610 cq-r-affogato-0 9 cl-r-affogato-0 11610; }
+#r-affogato-0-10:checked ~ .qty-stepper { counter-increment: total 12900 cq-r-affogato-0 10 cl-r-affogato-0 12900; }
+#r-frappe-popcorn-0-1:checked ~ .qty-stepper { counter-increment: total 1790 cq-r-frappe-popcorn-0 1 cl-r-frappe-popcorn-0 1790; }
+#r-frappe-popcorn-0-2:checked ~ .qty-stepper { counter-increment: total 3580 cq-r-frappe-popcorn-0 2 cl-r-frappe-popcorn-0 3580; }
+#r-frappe-popcorn-0-3:checked ~ .qty-stepper { counter-increment: total 5370 cq-r-frappe-popcorn-0 3 cl-r-frappe-popcorn-0 5370; }
+#r-frappe-popcorn-0-4:checked ~ .qty-stepper { counter-increment: total 7160 cq-r-frappe-popcorn-0 4 cl-r-frappe-popcorn-0 7160; }
+#r-frappe-popcorn-0-5:checked ~ .qty-stepper { counter-increment: total 8950 cq-r-frappe-popcorn-0 5 cl-r-frappe-popcorn-0 8950; }
+#r-frappe-popcorn-0-6:checked ~ .qty-stepper { counter-increment: total 10740 cq-r-frappe-popcorn-0 6 cl-r-frappe-popcorn-0 10740; }
+#r-frappe-popcorn-0-7:checked ~ .qty-stepper { counter-increment: total 12530 cq-r-frappe-popcorn-0 7 cl-r-frappe-popcorn-0 12530; }
+#r-frappe-popcorn-0-8:checked ~ .qty-stepper { counter-increment: total 14320 cq-r-frappe-popcorn-0 8 cl-r-frappe-popcorn-0 14320; }
+#r-frappe-popcorn-0-9:checked ~ .qty-stepper { counter-increment: total 16110 cq-r-frappe-popcorn-0 9 cl-r-frappe-popcorn-0 16110; }
+#r-frappe-popcorn-0-10:checked ~ .qty-stepper { counter-increment: total 17900 cq-r-frappe-popcorn-0 10 cl-r-frappe-popcorn-0 17900; }
+#r-frappe-salted-caramel-0-1:checked ~ .qty-stepper { counter-increment: total 1790 cq-r-frappe-salted-caramel-0 1 cl-r-frappe-salted-caramel-0 1790; }
+#r-frappe-salted-caramel-0-2:checked ~ .qty-stepper { counter-increment: total 3580 cq-r-frappe-salted-caramel-0 2 cl-r-frappe-salted-caramel-0 3580; }
+#r-frappe-salted-caramel-0-3:checked ~ .qty-stepper { counter-increment: total 5370 cq-r-frappe-salted-caramel-0 3 cl-r-frappe-salted-caramel-0 5370; }
+#r-frappe-salted-caramel-0-4:checked ~ .qty-stepper { counter-increment: total 7160 cq-r-frappe-salted-caramel-0 4 cl-r-frappe-salted-caramel-0 7160; }
+#r-frappe-salted-caramel-0-5:checked ~ .qty-stepper { counter-increment: total 8950 cq-r-frappe-salted-caramel-0 5 cl-r-frappe-salted-caramel-0 8950; }
+#r-frappe-salted-caramel-0-6:checked ~ .qty-stepper { counter-increment: total 10740 cq-r-frappe-salted-caramel-0 6 cl-r-frappe-salted-caramel-0 10740; }
+#r-frappe-salted-caramel-0-7:checked ~ .qty-stepper { counter-increment: total 12530 cq-r-frappe-salted-caramel-0 7 cl-r-frappe-salted-caramel-0 12530; }
+#r-frappe-salted-caramel-0-8:checked ~ .qty-stepper { counter-increment: total 14320 cq-r-frappe-salted-caramel-0 8 cl-r-frappe-salted-caramel-0 14320; }
+#r-frappe-salted-caramel-0-9:checked ~ .qty-stepper { counter-increment: total 16110 cq-r-frappe-salted-caramel-0 9 cl-r-frappe-salted-caramel-0 16110; }
+#r-frappe-salted-caramel-0-10:checked ~ .qty-stepper { counter-increment: total 17900 cq-r-frappe-salted-caramel-0 10 cl-r-frappe-salted-caramel-0 17900; }
+#r-frappe-pistachio-0-1:checked ~ .qty-stepper { counter-increment: total 1790 cq-r-frappe-pistachio-0 1 cl-r-frappe-pistachio-0 1790; }
+#r-frappe-pistachio-0-2:checked ~ .qty-stepper { counter-increment: total 3580 cq-r-frappe-pistachio-0 2 cl-r-frappe-pistachio-0 3580; }
+#r-frappe-pistachio-0-3:checked ~ .qty-stepper { counter-increment: total 5370 cq-r-frappe-pistachio-0 3 cl-r-frappe-pistachio-0 5370; }
+#r-frappe-pistachio-0-4:checked ~ .qty-stepper { counter-increment: total 7160 cq-r-frappe-pistachio-0 4 cl-r-frappe-pistachio-0 7160; }
+#r-frappe-pistachio-0-5:checked ~ .qty-stepper { counter-increment: total 8950 cq-r-frappe-pistachio-0 5 cl-r-frappe-pistachio-0 8950; }
+#r-frappe-pistachio-0-6:checked ~ .qty-stepper { counter-increment: total 10740 cq-r-frappe-pistachio-0 6 cl-r-frappe-pistachio-0 10740; }
+#r-frappe-pistachio-0-7:checked ~ .qty-stepper { counter-increment: total 12530 cq-r-frappe-pistachio-0 7 cl-r-frappe-pistachio-0 12530; }
+#r-frappe-pistachio-0-8:checked ~ .qty-stepper { counter-increment: total 14320 cq-r-frappe-pistachio-0 8 cl-r-frappe-pistachio-0 14320; }
+#r-frappe-pistachio-0-9:checked ~ .qty-stepper { counter-increment: total 16110 cq-r-frappe-pistachio-0 9 cl-r-frappe-pistachio-0 16110; }
+#r-frappe-pistachio-0-10:checked ~ .qty-stepper { counter-increment: total 17900 cq-r-frappe-pistachio-0 10 cl-r-frappe-pistachio-0 17900; }
+#r-lemonade-qulpynai-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-lemonade-qulpynai-0 1 cl-r-lemonade-qulpynai-0 1090; }
+#r-lemonade-qulpynai-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-lemonade-qulpynai-0 2 cl-r-lemonade-qulpynai-0 2180; }
+#r-lemonade-qulpynai-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-lemonade-qulpynai-0 3 cl-r-lemonade-qulpynai-0 3270; }
+#r-lemonade-qulpynai-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-lemonade-qulpynai-0 4 cl-r-lemonade-qulpynai-0 4360; }
+#r-lemonade-qulpynai-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-lemonade-qulpynai-0 5 cl-r-lemonade-qulpynai-0 5450; }
+#r-lemonade-qulpynai-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-lemonade-qulpynai-0 6 cl-r-lemonade-qulpynai-0 6540; }
+#r-lemonade-qulpynai-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-lemonade-qulpynai-0 7 cl-r-lemonade-qulpynai-0 7630; }
+#r-lemonade-qulpynai-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-lemonade-qulpynai-0 8 cl-r-lemonade-qulpynai-0 8720; }
+#r-lemonade-qulpynai-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-lemonade-qulpynai-0 9 cl-r-lemonade-qulpynai-0 9810; }
+#r-lemonade-qulpynai-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-lemonade-qulpynai-0 10 cl-r-lemonade-qulpynai-0 10900; }
+#r-lemonade-kiwi-lime-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-lemonade-kiwi-lime-0 1 cl-r-lemonade-kiwi-lime-0 1190; }
+#r-lemonade-kiwi-lime-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-lemonade-kiwi-lime-0 2 cl-r-lemonade-kiwi-lime-0 2380; }
+#r-lemonade-kiwi-lime-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-lemonade-kiwi-lime-0 3 cl-r-lemonade-kiwi-lime-0 3570; }
+#r-lemonade-kiwi-lime-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-lemonade-kiwi-lime-0 4 cl-r-lemonade-kiwi-lime-0 4760; }
+#r-lemonade-kiwi-lime-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-lemonade-kiwi-lime-0 5 cl-r-lemonade-kiwi-lime-0 5950; }
+#r-lemonade-kiwi-lime-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-lemonade-kiwi-lime-0 6 cl-r-lemonade-kiwi-lime-0 7140; }
+#r-lemonade-kiwi-lime-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-lemonade-kiwi-lime-0 7 cl-r-lemonade-kiwi-lime-0 8330; }
+#r-lemonade-kiwi-lime-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-lemonade-kiwi-lime-0 8 cl-r-lemonade-kiwi-lime-0 9520; }
+#r-lemonade-kiwi-lime-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-lemonade-kiwi-lime-0 9 cl-r-lemonade-kiwi-lime-0 10710; }
+#r-lemonade-kiwi-lime-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-lemonade-kiwi-lime-0 10 cl-r-lemonade-kiwi-lime-0 11900; }
+#r-lemonade-kok-aspan-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-lemonade-kok-aspan-0 1 cl-r-lemonade-kok-aspan-0 1190; }
+#r-lemonade-kok-aspan-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-lemonade-kok-aspan-0 2 cl-r-lemonade-kok-aspan-0 2380; }
+#r-lemonade-kok-aspan-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-lemonade-kok-aspan-0 3 cl-r-lemonade-kok-aspan-0 3570; }
+#r-lemonade-kok-aspan-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-lemonade-kok-aspan-0 4 cl-r-lemonade-kok-aspan-0 4760; }
+#r-lemonade-kok-aspan-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-lemonade-kok-aspan-0 5 cl-r-lemonade-kok-aspan-0 5950; }
+#r-lemonade-kok-aspan-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-lemonade-kok-aspan-0 6 cl-r-lemonade-kok-aspan-0 7140; }
+#r-lemonade-kok-aspan-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-lemonade-kok-aspan-0 7 cl-r-lemonade-kok-aspan-0 8330; }
+#r-lemonade-kok-aspan-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-lemonade-kok-aspan-0 8 cl-r-lemonade-kok-aspan-0 9520; }
+#r-lemonade-kok-aspan-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-lemonade-kok-aspan-0 9 cl-r-lemonade-kok-aspan-0 10710; }
+#r-lemonade-kok-aspan-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-lemonade-kok-aspan-0 10 cl-r-lemonade-kok-aspan-0 11900; }
+#r-lemonade-mojito-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-lemonade-mojito-0 1 cl-r-lemonade-mojito-0 1090; }
+#r-lemonade-mojito-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-lemonade-mojito-0 2 cl-r-lemonade-mojito-0 2180; }
+#r-lemonade-mojito-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-lemonade-mojito-0 3 cl-r-lemonade-mojito-0 3270; }
+#r-lemonade-mojito-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-lemonade-mojito-0 4 cl-r-lemonade-mojito-0 4360; }
+#r-lemonade-mojito-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-lemonade-mojito-0 5 cl-r-lemonade-mojito-0 5450; }
+#r-lemonade-mojito-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-lemonade-mojito-0 6 cl-r-lemonade-mojito-0 6540; }
+#r-lemonade-mojito-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-lemonade-mojito-0 7 cl-r-lemonade-mojito-0 7630; }
+#r-lemonade-mojito-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-lemonade-mojito-0 8 cl-r-lemonade-mojito-0 8720; }
+#r-lemonade-mojito-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-lemonade-mojito-0 9 cl-r-lemonade-mojito-0 9810; }
+#r-lemonade-mojito-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-lemonade-mojito-0 10 cl-r-lemonade-mojito-0 10900; }
+#r-lemonade-pineapple-ginger-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-lemonade-pineapple-ginger-0 1 cl-r-lemonade-pineapple-ginger-0 1090; }
+#r-lemonade-pineapple-ginger-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-lemonade-pineapple-ginger-0 2 cl-r-lemonade-pineapple-ginger-0 2180; }
+#r-lemonade-pineapple-ginger-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-lemonade-pineapple-ginger-0 3 cl-r-lemonade-pineapple-ginger-0 3270; }
+#r-lemonade-pineapple-ginger-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-lemonade-pineapple-ginger-0 4 cl-r-lemonade-pineapple-ginger-0 4360; }
+#r-lemonade-pineapple-ginger-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-lemonade-pineapple-ginger-0 5 cl-r-lemonade-pineapple-ginger-0 5450; }
+#r-lemonade-pineapple-ginger-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-lemonade-pineapple-ginger-0 6 cl-r-lemonade-pineapple-ginger-0 6540; }
+#r-lemonade-pineapple-ginger-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-lemonade-pineapple-ginger-0 7 cl-r-lemonade-pineapple-ginger-0 7630; }
+#r-lemonade-pineapple-ginger-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-lemonade-pineapple-ginger-0 8 cl-r-lemonade-pineapple-ginger-0 8720; }
+#r-lemonade-pineapple-ginger-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-lemonade-pineapple-ginger-0 9 cl-r-lemonade-pineapple-ginger-0 9810; }
+#r-lemonade-pineapple-ginger-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-lemonade-pineapple-ginger-0 10 cl-r-lemonade-pineapple-ginger-0 10900; }
+#r-lemonade-mojito-basil-strawberry-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-lemonade-mojito-basil-strawberry-0 1 cl-r-lemonade-mojito-basil-strawberry-0 1090; }
+#r-lemonade-mojito-basil-strawberry-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-lemonade-mojito-basil-strawberry-0 2 cl-r-lemonade-mojito-basil-strawberry-0 2180; }
+#r-lemonade-mojito-basil-strawberry-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-lemonade-mojito-basil-strawberry-0 3 cl-r-lemonade-mojito-basil-strawberry-0 3270; }
+#r-lemonade-mojito-basil-strawberry-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-lemonade-mojito-basil-strawberry-0 4 cl-r-lemonade-mojito-basil-strawberry-0 4360; }
+#r-lemonade-mojito-basil-strawberry-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-lemonade-mojito-basil-strawberry-0 5 cl-r-lemonade-mojito-basil-strawberry-0 5450; }
+#r-lemonade-mojito-basil-strawberry-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-lemonade-mojito-basil-strawberry-0 6 cl-r-lemonade-mojito-basil-strawberry-0 6540; }
+#r-lemonade-mojito-basil-strawberry-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-lemonade-mojito-basil-strawberry-0 7 cl-r-lemonade-mojito-basil-strawberry-0 7630; }
+#r-lemonade-mojito-basil-strawberry-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-lemonade-mojito-basil-strawberry-0 8 cl-r-lemonade-mojito-basil-strawberry-0 8720; }
+#r-lemonade-mojito-basil-strawberry-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-lemonade-mojito-basil-strawberry-0 9 cl-r-lemonade-mojito-basil-strawberry-0 9810; }
+#r-lemonade-mojito-basil-strawberry-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-lemonade-mojito-basil-strawberry-0 10 cl-r-lemonade-mojito-basil-strawberry-0 10900; }
+#r-lemonade-mango-passionfruit-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-lemonade-mango-passionfruit-0 1 cl-r-lemonade-mango-passionfruit-0 1090; }
+#r-lemonade-mango-passionfruit-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-lemonade-mango-passionfruit-0 2 cl-r-lemonade-mango-passionfruit-0 2180; }
+#r-lemonade-mango-passionfruit-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-lemonade-mango-passionfruit-0 3 cl-r-lemonade-mango-passionfruit-0 3270; }
+#r-lemonade-mango-passionfruit-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-lemonade-mango-passionfruit-0 4 cl-r-lemonade-mango-passionfruit-0 4360; }
+#r-lemonade-mango-passionfruit-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-lemonade-mango-passionfruit-0 5 cl-r-lemonade-mango-passionfruit-0 5450; }
+#r-lemonade-mango-passionfruit-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-lemonade-mango-passionfruit-0 6 cl-r-lemonade-mango-passionfruit-0 6540; }
+#r-lemonade-mango-passionfruit-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-lemonade-mango-passionfruit-0 7 cl-r-lemonade-mango-passionfruit-0 7630; }
+#r-lemonade-mango-passionfruit-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-lemonade-mango-passionfruit-0 8 cl-r-lemonade-mango-passionfruit-0 8720; }
+#r-lemonade-mango-passionfruit-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-lemonade-mango-passionfruit-0 9 cl-r-lemonade-mango-passionfruit-0 9810; }
+#r-lemonade-mango-passionfruit-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-lemonade-mango-passionfruit-0 10 cl-r-lemonade-mango-passionfruit-0 10900; }
+#r-lemonade-klassikalyq-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-lemonade-klassikalyq-0 1 cl-r-lemonade-klassikalyq-0 1090; }
+#r-lemonade-klassikalyq-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-lemonade-klassikalyq-0 2 cl-r-lemonade-klassikalyq-0 2180; }
+#r-lemonade-klassikalyq-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-lemonade-klassikalyq-0 3 cl-r-lemonade-klassikalyq-0 3270; }
+#r-lemonade-klassikalyq-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-lemonade-klassikalyq-0 4 cl-r-lemonade-klassikalyq-0 4360; }
+#r-lemonade-klassikalyq-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-lemonade-klassikalyq-0 5 cl-r-lemonade-klassikalyq-0 5450; }
+#r-lemonade-klassikalyq-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-lemonade-klassikalyq-0 6 cl-r-lemonade-klassikalyq-0 6540; }
+#r-lemonade-klassikalyq-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-lemonade-klassikalyq-0 7 cl-r-lemonade-klassikalyq-0 7630; }
+#r-lemonade-klassikalyq-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-lemonade-klassikalyq-0 8 cl-r-lemonade-klassikalyq-0 8720; }
+#r-lemonade-klassikalyq-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-lemonade-klassikalyq-0 9 cl-r-lemonade-klassikalyq-0 9810; }
+#r-lemonade-klassikalyq-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-lemonade-klassikalyq-0 10 cl-r-lemonade-klassikalyq-0 10900; }
+#r-iced-green-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 1290 cq-r-iced-green-matcha-0 1 cl-r-iced-green-matcha-0 1290; }
+#r-iced-green-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 2580 cq-r-iced-green-matcha-0 2 cl-r-iced-green-matcha-0 2580; }
+#r-iced-green-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 3870 cq-r-iced-green-matcha-0 3 cl-r-iced-green-matcha-0 3870; }
+#r-iced-green-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 5160 cq-r-iced-green-matcha-0 4 cl-r-iced-green-matcha-0 5160; }
+#r-iced-green-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 6450 cq-r-iced-green-matcha-0 5 cl-r-iced-green-matcha-0 6450; }
+#r-iced-green-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 7740 cq-r-iced-green-matcha-0 6 cl-r-iced-green-matcha-0 7740; }
+#r-iced-green-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 9030 cq-r-iced-green-matcha-0 7 cl-r-iced-green-matcha-0 9030; }
+#r-iced-green-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 10320 cq-r-iced-green-matcha-0 8 cl-r-iced-green-matcha-0 10320; }
+#r-iced-green-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 11610 cq-r-iced-green-matcha-0 9 cl-r-iced-green-matcha-0 11610; }
+#r-iced-green-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 12900 cq-r-iced-green-matcha-0 10 cl-r-iced-green-matcha-0 12900; }
+#r-iced-blue-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 1290 cq-r-iced-blue-matcha-0 1 cl-r-iced-blue-matcha-0 1290; }
+#r-iced-blue-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 2580 cq-r-iced-blue-matcha-0 2 cl-r-iced-blue-matcha-0 2580; }
+#r-iced-blue-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 3870 cq-r-iced-blue-matcha-0 3 cl-r-iced-blue-matcha-0 3870; }
+#r-iced-blue-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 5160 cq-r-iced-blue-matcha-0 4 cl-r-iced-blue-matcha-0 5160; }
+#r-iced-blue-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 6450 cq-r-iced-blue-matcha-0 5 cl-r-iced-blue-matcha-0 6450; }
+#r-iced-blue-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 7740 cq-r-iced-blue-matcha-0 6 cl-r-iced-blue-matcha-0 7740; }
+#r-iced-blue-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 9030 cq-r-iced-blue-matcha-0 7 cl-r-iced-blue-matcha-0 9030; }
+#r-iced-blue-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 10320 cq-r-iced-blue-matcha-0 8 cl-r-iced-blue-matcha-0 10320; }
+#r-iced-blue-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 11610 cq-r-iced-blue-matcha-0 9 cl-r-iced-blue-matcha-0 11610; }
+#r-iced-blue-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 12900 cq-r-iced-blue-matcha-0 10 cl-r-iced-blue-matcha-0 12900; }
+#r-erekshe-qulpynai-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 1990 cq-r-erekshe-qulpynai-matcha-0 1 cl-r-erekshe-qulpynai-matcha-0 1990; }
+#r-erekshe-qulpynai-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 3980 cq-r-erekshe-qulpynai-matcha-0 2 cl-r-erekshe-qulpynai-matcha-0 3980; }
+#r-erekshe-qulpynai-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 5970 cq-r-erekshe-qulpynai-matcha-0 3 cl-r-erekshe-qulpynai-matcha-0 5970; }
+#r-erekshe-qulpynai-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 7960 cq-r-erekshe-qulpynai-matcha-0 4 cl-r-erekshe-qulpynai-matcha-0 7960; }
+#r-erekshe-qulpynai-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 9950 cq-r-erekshe-qulpynai-matcha-0 5 cl-r-erekshe-qulpynai-matcha-0 9950; }
+#r-erekshe-qulpynai-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 11940 cq-r-erekshe-qulpynai-matcha-0 6 cl-r-erekshe-qulpynai-matcha-0 11940; }
+#r-erekshe-qulpynai-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 13930 cq-r-erekshe-qulpynai-matcha-0 7 cl-r-erekshe-qulpynai-matcha-0 13930; }
+#r-erekshe-qulpynai-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 15920 cq-r-erekshe-qulpynai-matcha-0 8 cl-r-erekshe-qulpynai-matcha-0 15920; }
+#r-erekshe-qulpynai-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 17910 cq-r-erekshe-qulpynai-matcha-0 9 cl-r-erekshe-qulpynai-matcha-0 17910; }
+#r-erekshe-qulpynai-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 19900 cq-r-erekshe-qulpynai-matcha-0 10 cl-r-erekshe-qulpynai-matcha-0 19900; }
+#r-kokos-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 1890 cq-r-kokos-matcha-0 1 cl-r-kokos-matcha-0 1890; }
+#r-kokos-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 3780 cq-r-kokos-matcha-0 2 cl-r-kokos-matcha-0 3780; }
+#r-kokos-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 5670 cq-r-kokos-matcha-0 3 cl-r-kokos-matcha-0 5670; }
+#r-kokos-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 7560 cq-r-kokos-matcha-0 4 cl-r-kokos-matcha-0 7560; }
+#r-kokos-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 9450 cq-r-kokos-matcha-0 5 cl-r-kokos-matcha-0 9450; }
+#r-kokos-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 11340 cq-r-kokos-matcha-0 6 cl-r-kokos-matcha-0 11340; }
+#r-kokos-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 13230 cq-r-kokos-matcha-0 7 cl-r-kokos-matcha-0 13230; }
+#r-kokos-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 15120 cq-r-kokos-matcha-0 8 cl-r-kokos-matcha-0 15120; }
+#r-kokos-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 17010 cq-r-kokos-matcha-0 9 cl-r-kokos-matcha-0 17010; }
+#r-kokos-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 18900 cq-r-kokos-matcha-0 10 cl-r-kokos-matcha-0 18900; }
+#r-mango-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 1890 cq-r-mango-matcha-0 1 cl-r-mango-matcha-0 1890; }
+#r-mango-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 3780 cq-r-mango-matcha-0 2 cl-r-mango-matcha-0 3780; }
+#r-mango-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 5670 cq-r-mango-matcha-0 3 cl-r-mango-matcha-0 5670; }
+#r-mango-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 7560 cq-r-mango-matcha-0 4 cl-r-mango-matcha-0 7560; }
+#r-mango-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 9450 cq-r-mango-matcha-0 5 cl-r-mango-matcha-0 9450; }
+#r-mango-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 11340 cq-r-mango-matcha-0 6 cl-r-mango-matcha-0 11340; }
+#r-mango-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 13230 cq-r-mango-matcha-0 7 cl-r-mango-matcha-0 13230; }
+#r-mango-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 15120 cq-r-mango-matcha-0 8 cl-r-mango-matcha-0 15120; }
+#r-mango-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 17010 cq-r-mango-matcha-0 9 cl-r-mango-matcha-0 17010; }
+#r-mango-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 18900 cq-r-mango-matcha-0 10 cl-r-mango-matcha-0 18900; }
+#r-ice-ube-latte-peach-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-ice-ube-latte-peach-0 1 cl-r-ice-ube-latte-peach-0 1490; }
+#r-ice-ube-latte-peach-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-ice-ube-latte-peach-0 2 cl-r-ice-ube-latte-peach-0 2980; }
+#r-ice-ube-latte-peach-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-ice-ube-latte-peach-0 3 cl-r-ice-ube-latte-peach-0 4470; }
+#r-ice-ube-latte-peach-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-ice-ube-latte-peach-0 4 cl-r-ice-ube-latte-peach-0 5960; }
+#r-ice-ube-latte-peach-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-ice-ube-latte-peach-0 5 cl-r-ice-ube-latte-peach-0 7450; }
+#r-ice-ube-latte-peach-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-ice-ube-latte-peach-0 6 cl-r-ice-ube-latte-peach-0 8940; }
+#r-ice-ube-latte-peach-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-ice-ube-latte-peach-0 7 cl-r-ice-ube-latte-peach-0 10430; }
+#r-ice-ube-latte-peach-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-ice-ube-latte-peach-0 8 cl-r-ice-ube-latte-peach-0 11920; }
+#r-ice-ube-latte-peach-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-ice-ube-latte-peach-0 9 cl-r-ice-ube-latte-peach-0 13410; }
+#r-ice-ube-latte-peach-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-ice-ube-latte-peach-0 10 cl-r-ice-ube-latte-peach-0 14900; }
+#r-ice-ube-latte-berry-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-ice-ube-latte-berry-0 1 cl-r-ice-ube-latte-berry-0 1490; }
+#r-ice-ube-latte-berry-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-ice-ube-latte-berry-0 2 cl-r-ice-ube-latte-berry-0 2980; }
+#r-ice-ube-latte-berry-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-ice-ube-latte-berry-0 3 cl-r-ice-ube-latte-berry-0 4470; }
+#r-ice-ube-latte-berry-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-ice-ube-latte-berry-0 4 cl-r-ice-ube-latte-berry-0 5960; }
+#r-ice-ube-latte-berry-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-ice-ube-latte-berry-0 5 cl-r-ice-ube-latte-berry-0 7450; }
+#r-ice-ube-latte-berry-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-ice-ube-latte-berry-0 6 cl-r-ice-ube-latte-berry-0 8940; }
+#r-ice-ube-latte-berry-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-ice-ube-latte-berry-0 7 cl-r-ice-ube-latte-berry-0 10430; }
+#r-ice-ube-latte-berry-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-ice-ube-latte-berry-0 8 cl-r-ice-ube-latte-berry-0 11920; }
+#r-ice-ube-latte-berry-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-ice-ube-latte-berry-0 9 cl-r-ice-ube-latte-berry-0 13410; }
+#r-ice-ube-latte-berry-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-ice-ube-latte-berry-0 10 cl-r-ice-ube-latte-berry-0 14900; }
+#r-icetea-mango-passionfruit-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-icetea-mango-passionfruit-0 1 cl-r-icetea-mango-passionfruit-0 990; }
+#r-icetea-mango-passionfruit-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-icetea-mango-passionfruit-0 2 cl-r-icetea-mango-passionfruit-0 1980; }
+#r-icetea-mango-passionfruit-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-icetea-mango-passionfruit-0 3 cl-r-icetea-mango-passionfruit-0 2970; }
+#r-icetea-mango-passionfruit-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-icetea-mango-passionfruit-0 4 cl-r-icetea-mango-passionfruit-0 3960; }
+#r-icetea-mango-passionfruit-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-icetea-mango-passionfruit-0 5 cl-r-icetea-mango-passionfruit-0 4950; }
+#r-icetea-mango-passionfruit-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-icetea-mango-passionfruit-0 6 cl-r-icetea-mango-passionfruit-0 5940; }
+#r-icetea-mango-passionfruit-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-icetea-mango-passionfruit-0 7 cl-r-icetea-mango-passionfruit-0 6930; }
+#r-icetea-mango-passionfruit-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-icetea-mango-passionfruit-0 8 cl-r-icetea-mango-passionfruit-0 7920; }
+#r-icetea-mango-passionfruit-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-icetea-mango-passionfruit-0 9 cl-r-icetea-mango-passionfruit-0 8910; }
+#r-icetea-mango-passionfruit-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-icetea-mango-passionfruit-0 10 cl-r-icetea-mango-passionfruit-0 9900; }
+#r-icetea-pineapple-ginger-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-icetea-pineapple-ginger-0 1 cl-r-icetea-pineapple-ginger-0 990; }
+#r-icetea-pineapple-ginger-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-icetea-pineapple-ginger-0 2 cl-r-icetea-pineapple-ginger-0 1980; }
+#r-icetea-pineapple-ginger-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-icetea-pineapple-ginger-0 3 cl-r-icetea-pineapple-ginger-0 2970; }
+#r-icetea-pineapple-ginger-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-icetea-pineapple-ginger-0 4 cl-r-icetea-pineapple-ginger-0 3960; }
+#r-icetea-pineapple-ginger-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-icetea-pineapple-ginger-0 5 cl-r-icetea-pineapple-ginger-0 4950; }
+#r-icetea-pineapple-ginger-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-icetea-pineapple-ginger-0 6 cl-r-icetea-pineapple-ginger-0 5940; }
+#r-icetea-pineapple-ginger-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-icetea-pineapple-ginger-0 7 cl-r-icetea-pineapple-ginger-0 6930; }
+#r-icetea-pineapple-ginger-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-icetea-pineapple-ginger-0 8 cl-r-icetea-pineapple-ginger-0 7920; }
+#r-icetea-pineapple-ginger-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-icetea-pineapple-ginger-0 9 cl-r-icetea-pineapple-ginger-0 8910; }
+#r-icetea-pineapple-ginger-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-icetea-pineapple-ginger-0 10 cl-r-icetea-pineapple-ginger-0 9900; }
+#r-icetea-basil-strawberry-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-icetea-basil-strawberry-0 1 cl-r-icetea-basil-strawberry-0 990; }
+#r-icetea-basil-strawberry-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-icetea-basil-strawberry-0 2 cl-r-icetea-basil-strawberry-0 1980; }
+#r-icetea-basil-strawberry-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-icetea-basil-strawberry-0 3 cl-r-icetea-basil-strawberry-0 2970; }
+#r-icetea-basil-strawberry-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-icetea-basil-strawberry-0 4 cl-r-icetea-basil-strawberry-0 3960; }
+#r-icetea-basil-strawberry-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-icetea-basil-strawberry-0 5 cl-r-icetea-basil-strawberry-0 4950; }
+#r-icetea-basil-strawberry-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-icetea-basil-strawberry-0 6 cl-r-icetea-basil-strawberry-0 5940; }
+#r-icetea-basil-strawberry-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-icetea-basil-strawberry-0 7 cl-r-icetea-basil-strawberry-0 6930; }
+#r-icetea-basil-strawberry-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-icetea-basil-strawberry-0 8 cl-r-icetea-basil-strawberry-0 7920; }
+#r-icetea-basil-strawberry-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-icetea-basil-strawberry-0 9 cl-r-icetea-basil-strawberry-0 8910; }
+#r-icetea-basil-strawberry-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-icetea-basil-strawberry-0 10 cl-r-icetea-basil-strawberry-0 9900; }
+#r-gajaiyp-icetea-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-gajaiyp-icetea-0 1 cl-r-gajaiyp-icetea-0 1090; }
+#r-gajaiyp-icetea-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-gajaiyp-icetea-0 2 cl-r-gajaiyp-icetea-0 2180; }
+#r-gajaiyp-icetea-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-gajaiyp-icetea-0 3 cl-r-gajaiyp-icetea-0 3270; }
+#r-gajaiyp-icetea-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-gajaiyp-icetea-0 4 cl-r-gajaiyp-icetea-0 4360; }
+#r-gajaiyp-icetea-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-gajaiyp-icetea-0 5 cl-r-gajaiyp-icetea-0 5450; }
+#r-gajaiyp-icetea-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-gajaiyp-icetea-0 6 cl-r-gajaiyp-icetea-0 6540; }
+#r-gajaiyp-icetea-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-gajaiyp-icetea-0 7 cl-r-gajaiyp-icetea-0 7630; }
+#r-gajaiyp-icetea-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-gajaiyp-icetea-0 8 cl-r-gajaiyp-icetea-0 8720; }
+#r-gajaiyp-icetea-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-gajaiyp-icetea-0 9 cl-r-gajaiyp-icetea-0 9810; }
+#r-gajaiyp-icetea-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-gajaiyp-icetea-0 10 cl-r-gajaiyp-icetea-0 10900; }
+#r-samal-icetea-0-1:checked ~ .qty-stepper { counter-increment: total 1090 cq-r-samal-icetea-0 1 cl-r-samal-icetea-0 1090; }
+#r-samal-icetea-0-2:checked ~ .qty-stepper { counter-increment: total 2180 cq-r-samal-icetea-0 2 cl-r-samal-icetea-0 2180; }
+#r-samal-icetea-0-3:checked ~ .qty-stepper { counter-increment: total 3270 cq-r-samal-icetea-0 3 cl-r-samal-icetea-0 3270; }
+#r-samal-icetea-0-4:checked ~ .qty-stepper { counter-increment: total 4360 cq-r-samal-icetea-0 4 cl-r-samal-icetea-0 4360; }
+#r-samal-icetea-0-5:checked ~ .qty-stepper { counter-increment: total 5450 cq-r-samal-icetea-0 5 cl-r-samal-icetea-0 5450; }
+#r-samal-icetea-0-6:checked ~ .qty-stepper { counter-increment: total 6540 cq-r-samal-icetea-0 6 cl-r-samal-icetea-0 6540; }
+#r-samal-icetea-0-7:checked ~ .qty-stepper { counter-increment: total 7630 cq-r-samal-icetea-0 7 cl-r-samal-icetea-0 7630; }
+#r-samal-icetea-0-8:checked ~ .qty-stepper { counter-increment: total 8720 cq-r-samal-icetea-0 8 cl-r-samal-icetea-0 8720; }
+#r-samal-icetea-0-9:checked ~ .qty-stepper { counter-increment: total 9810 cq-r-samal-icetea-0 9 cl-r-samal-icetea-0 9810; }
+#r-samal-icetea-0-10:checked ~ .qty-stepper { counter-increment: total 10900 cq-r-samal-icetea-0 10 cl-r-samal-icetea-0 10900; }
+#r-kyoto-sencha-tea-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-kyoto-sencha-tea-0 1 cl-r-kyoto-sencha-tea-0 1490; }
+#r-kyoto-sencha-tea-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-kyoto-sencha-tea-0 2 cl-r-kyoto-sencha-tea-0 2980; }
+#r-kyoto-sencha-tea-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-kyoto-sencha-tea-0 3 cl-r-kyoto-sencha-tea-0 4470; }
+#r-kyoto-sencha-tea-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-kyoto-sencha-tea-0 4 cl-r-kyoto-sencha-tea-0 5960; }
+#r-kyoto-sencha-tea-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-kyoto-sencha-tea-0 5 cl-r-kyoto-sencha-tea-0 7450; }
+#r-kyoto-sencha-tea-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-kyoto-sencha-tea-0 6 cl-r-kyoto-sencha-tea-0 8940; }
+#r-kyoto-sencha-tea-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-kyoto-sencha-tea-0 7 cl-r-kyoto-sencha-tea-0 10430; }
+#r-kyoto-sencha-tea-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-kyoto-sencha-tea-0 8 cl-r-kyoto-sencha-tea-0 11920; }
+#r-kyoto-sencha-tea-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-kyoto-sencha-tea-0 9 cl-r-kyoto-sencha-tea-0 13410; }
+#r-kyoto-sencha-tea-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-kyoto-sencha-tea-0 10 cl-r-kyoto-sencha-tea-0 14900; }
+#r-power-spirit-tea-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-power-spirit-tea-0 1 cl-r-power-spirit-tea-0 1490; }
+#r-power-spirit-tea-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-power-spirit-tea-0 2 cl-r-power-spirit-tea-0 2980; }
+#r-power-spirit-tea-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-power-spirit-tea-0 3 cl-r-power-spirit-tea-0 4470; }
+#r-power-spirit-tea-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-power-spirit-tea-0 4 cl-r-power-spirit-tea-0 5960; }
+#r-power-spirit-tea-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-power-spirit-tea-0 5 cl-r-power-spirit-tea-0 7450; }
+#r-power-spirit-tea-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-power-spirit-tea-0 6 cl-r-power-spirit-tea-0 8940; }
+#r-power-spirit-tea-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-power-spirit-tea-0 7 cl-r-power-spirit-tea-0 10430; }
+#r-power-spirit-tea-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-power-spirit-tea-0 8 cl-r-power-spirit-tea-0 11920; }
+#r-power-spirit-tea-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-power-spirit-tea-0 9 cl-r-power-spirit-tea-0 13410; }
+#r-power-spirit-tea-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-power-spirit-tea-0 10 cl-r-power-spirit-tea-0 14900; }
+#r-moroccan-tea-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-moroccan-tea-0 1 cl-r-moroccan-tea-0 990; }
+#r-moroccan-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-moroccan-tea-0 2 cl-r-moroccan-tea-0 1980; }
+#r-moroccan-tea-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-moroccan-tea-0 3 cl-r-moroccan-tea-0 2970; }
+#r-moroccan-tea-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-moroccan-tea-0 4 cl-r-moroccan-tea-0 3960; }
+#r-moroccan-tea-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-moroccan-tea-0 5 cl-r-moroccan-tea-0 4950; }
+#r-moroccan-tea-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-moroccan-tea-0 6 cl-r-moroccan-tea-0 5940; }
+#r-moroccan-tea-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-moroccan-tea-0 7 cl-r-moroccan-tea-0 6930; }
+#r-moroccan-tea-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-moroccan-tea-0 8 cl-r-moroccan-tea-0 7920; }
+#r-moroccan-tea-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-moroccan-tea-0 9 cl-r-moroccan-tea-0 8910; }
+#r-moroccan-tea-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-moroccan-tea-0 10 cl-r-moroccan-tea-0 9900; }
+#r-ginger-tea-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-ginger-tea-0 1 cl-r-ginger-tea-0 990; }
+#r-ginger-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-ginger-tea-0 2 cl-r-ginger-tea-0 1980; }
+#r-ginger-tea-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-ginger-tea-0 3 cl-r-ginger-tea-0 2970; }
+#r-ginger-tea-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-ginger-tea-0 4 cl-r-ginger-tea-0 3960; }
+#r-ginger-tea-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-ginger-tea-0 5 cl-r-ginger-tea-0 4950; }
+#r-ginger-tea-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-ginger-tea-0 6 cl-r-ginger-tea-0 5940; }
+#r-ginger-tea-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-ginger-tea-0 7 cl-r-ginger-tea-0 6930; }
+#r-ginger-tea-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-ginger-tea-0 8 cl-r-ginger-tea-0 7920; }
+#r-ginger-tea-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-ginger-tea-0 9 cl-r-ginger-tea-0 8910; }
+#r-ginger-tea-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-ginger-tea-0 10 cl-r-ginger-tea-0 9900; }
+#r-cranberry-tea-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-cranberry-tea-0 1 cl-r-cranberry-tea-0 990; }
+#r-cranberry-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-cranberry-tea-0 2 cl-r-cranberry-tea-0 1980; }
+#r-cranberry-tea-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-cranberry-tea-0 3 cl-r-cranberry-tea-0 2970; }
+#r-cranberry-tea-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-cranberry-tea-0 4 cl-r-cranberry-tea-0 3960; }
+#r-cranberry-tea-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-cranberry-tea-0 5 cl-r-cranberry-tea-0 4950; }
+#r-cranberry-tea-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-cranberry-tea-0 6 cl-r-cranberry-tea-0 5940; }
+#r-cranberry-tea-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-cranberry-tea-0 7 cl-r-cranberry-tea-0 6930; }
+#r-cranberry-tea-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-cranberry-tea-0 8 cl-r-cranberry-tea-0 7920; }
+#r-cranberry-tea-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-cranberry-tea-0 9 cl-r-cranberry-tea-0 8910; }
+#r-cranberry-tea-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-cranberry-tea-0 10 cl-r-cranberry-tea-0 9900; }
+#r-sea-buckthorn-tea-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-sea-buckthorn-tea-0 1 cl-r-sea-buckthorn-tea-0 990; }
+#r-sea-buckthorn-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-sea-buckthorn-tea-0 2 cl-r-sea-buckthorn-tea-0 1980; }
+#r-sea-buckthorn-tea-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-sea-buckthorn-tea-0 3 cl-r-sea-buckthorn-tea-0 2970; }
+#r-sea-buckthorn-tea-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-sea-buckthorn-tea-0 4 cl-r-sea-buckthorn-tea-0 3960; }
+#r-sea-buckthorn-tea-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-sea-buckthorn-tea-0 5 cl-r-sea-buckthorn-tea-0 4950; }
+#r-sea-buckthorn-tea-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-sea-buckthorn-tea-0 6 cl-r-sea-buckthorn-tea-0 5940; }
+#r-sea-buckthorn-tea-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-sea-buckthorn-tea-0 7 cl-r-sea-buckthorn-tea-0 6930; }
+#r-sea-buckthorn-tea-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-sea-buckthorn-tea-0 8 cl-r-sea-buckthorn-tea-0 7920; }
+#r-sea-buckthorn-tea-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-sea-buckthorn-tea-0 9 cl-r-sea-buckthorn-tea-0 8910; }
+#r-sea-buckthorn-tea-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-sea-buckthorn-tea-0 10 cl-r-sea-buckthorn-tea-0 9900; }
+#r-karak-tea-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-karak-tea-0 1 cl-r-karak-tea-0 990; }
+#r-karak-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-karak-tea-0 2 cl-r-karak-tea-0 1980; }
+#r-karak-tea-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-karak-tea-0 3 cl-r-karak-tea-0 2970; }
+#r-karak-tea-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-karak-tea-0 4 cl-r-karak-tea-0 3960; }
+#r-karak-tea-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-karak-tea-0 5 cl-r-karak-tea-0 4950; }
+#r-karak-tea-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-karak-tea-0 6 cl-r-karak-tea-0 5940; }
+#r-karak-tea-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-karak-tea-0 7 cl-r-karak-tea-0 6930; }
+#r-karak-tea-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-karak-tea-0 8 cl-r-karak-tea-0 7920; }
+#r-karak-tea-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-karak-tea-0 9 cl-r-karak-tea-0 8910; }
+#r-karak-tea-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-karak-tea-0 10 cl-r-karak-tea-0 9900; }
+#r-mulled-wine-tea-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-mulled-wine-tea-0 1 cl-r-mulled-wine-tea-0 990; }
+#r-mulled-wine-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-mulled-wine-tea-0 2 cl-r-mulled-wine-tea-0 1980; }
+#r-mulled-wine-tea-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-mulled-wine-tea-0 3 cl-r-mulled-wine-tea-0 2970; }
+#r-mulled-wine-tea-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-mulled-wine-tea-0 4 cl-r-mulled-wine-tea-0 3960; }
+#r-mulled-wine-tea-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-mulled-wine-tea-0 5 cl-r-mulled-wine-tea-0 4950; }
+#r-mulled-wine-tea-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-mulled-wine-tea-0 6 cl-r-mulled-wine-tea-0 5940; }
+#r-mulled-wine-tea-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-mulled-wine-tea-0 7 cl-r-mulled-wine-tea-0 6930; }
+#r-mulled-wine-tea-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-mulled-wine-tea-0 8 cl-r-mulled-wine-tea-0 7920; }
+#r-mulled-wine-tea-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-mulled-wine-tea-0 9 cl-r-mulled-wine-tea-0 8910; }
+#r-mulled-wine-tea-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-mulled-wine-tea-0 10 cl-r-mulled-wine-tea-0 9900; }
+#r-green-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-green-matcha-0 1 cl-r-green-matcha-0 990; }
+#r-green-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-green-matcha-0 2 cl-r-green-matcha-0 1980; }
+#r-green-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-green-matcha-0 3 cl-r-green-matcha-0 2970; }
+#r-green-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-green-matcha-0 4 cl-r-green-matcha-0 3960; }
+#r-green-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-green-matcha-0 5 cl-r-green-matcha-0 4950; }
+#r-green-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-green-matcha-0 6 cl-r-green-matcha-0 5940; }
+#r-green-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-green-matcha-0 7 cl-r-green-matcha-0 6930; }
+#r-green-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-green-matcha-0 8 cl-r-green-matcha-0 7920; }
+#r-green-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-green-matcha-0 9 cl-r-green-matcha-0 8910; }
+#r-green-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-green-matcha-0 10 cl-r-green-matcha-0 9900; }
+#r-blue-matcha-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-blue-matcha-0 1 cl-r-blue-matcha-0 990; }
+#r-blue-matcha-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-blue-matcha-0 2 cl-r-blue-matcha-0 1980; }
+#r-blue-matcha-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-blue-matcha-0 3 cl-r-blue-matcha-0 2970; }
+#r-blue-matcha-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-blue-matcha-0 4 cl-r-blue-matcha-0 3960; }
+#r-blue-matcha-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-blue-matcha-0 5 cl-r-blue-matcha-0 4950; }
+#r-blue-matcha-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-blue-matcha-0 6 cl-r-blue-matcha-0 5940; }
+#r-blue-matcha-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-blue-matcha-0 7 cl-r-blue-matcha-0 6930; }
+#r-blue-matcha-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-blue-matcha-0 8 cl-r-blue-matcha-0 7920; }
+#r-blue-matcha-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-blue-matcha-0 9 cl-r-blue-matcha-0 8910; }
+#r-blue-matcha-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-blue-matcha-0 10 cl-r-blue-matcha-0 9900; }
+#r-black-green-tea-0-1:checked ~ .qty-stepper { counter-increment: total 590 cq-r-black-green-tea-0 1 cl-r-black-green-tea-0 590; }
+#r-black-green-tea-0-2:checked ~ .qty-stepper { counter-increment: total 1180 cq-r-black-green-tea-0 2 cl-r-black-green-tea-0 1180; }
+#r-black-green-tea-0-3:checked ~ .qty-stepper { counter-increment: total 1770 cq-r-black-green-tea-0 3 cl-r-black-green-tea-0 1770; }
+#r-black-green-tea-0-4:checked ~ .qty-stepper { counter-increment: total 2360 cq-r-black-green-tea-0 4 cl-r-black-green-tea-0 2360; }
+#r-black-green-tea-0-5:checked ~ .qty-stepper { counter-increment: total 2950 cq-r-black-green-tea-0 5 cl-r-black-green-tea-0 2950; }
+#r-black-green-tea-0-6:checked ~ .qty-stepper { counter-increment: total 3540 cq-r-black-green-tea-0 6 cl-r-black-green-tea-0 3540; }
+#r-black-green-tea-0-7:checked ~ .qty-stepper { counter-increment: total 4130 cq-r-black-green-tea-0 7 cl-r-black-green-tea-0 4130; }
+#r-black-green-tea-0-8:checked ~ .qty-stepper { counter-increment: total 4720 cq-r-black-green-tea-0 8 cl-r-black-green-tea-0 4720; }
+#r-black-green-tea-0-9:checked ~ .qty-stepper { counter-increment: total 5310 cq-r-black-green-tea-0 9 cl-r-black-green-tea-0 5310; }
+#r-black-green-tea-0-10:checked ~ .qty-stepper { counter-increment: total 5900 cq-r-black-green-tea-0 10 cl-r-black-green-tea-0 5900; }
+#r-sie-chocolate-0-1:checked ~ .qty-stepper { counter-increment: total 1390 cq-r-sie-chocolate-0 1 cl-r-sie-chocolate-0 1390; }
+#r-sie-chocolate-0-2:checked ~ .qty-stepper { counter-increment: total 2780 cq-r-sie-chocolate-0 2 cl-r-sie-chocolate-0 2780; }
+#r-sie-chocolate-0-3:checked ~ .qty-stepper { counter-increment: total 4170 cq-r-sie-chocolate-0 3 cl-r-sie-chocolate-0 4170; }
+#r-sie-chocolate-0-4:checked ~ .qty-stepper { counter-increment: total 5560 cq-r-sie-chocolate-0 4 cl-r-sie-chocolate-0 5560; }
+#r-sie-chocolate-0-5:checked ~ .qty-stepper { counter-increment: total 6950 cq-r-sie-chocolate-0 5 cl-r-sie-chocolate-0 6950; }
+#r-sie-chocolate-0-6:checked ~ .qty-stepper { counter-increment: total 8340 cq-r-sie-chocolate-0 6 cl-r-sie-chocolate-0 8340; }
+#r-sie-chocolate-0-7:checked ~ .qty-stepper { counter-increment: total 9730 cq-r-sie-chocolate-0 7 cl-r-sie-chocolate-0 9730; }
+#r-sie-chocolate-0-8:checked ~ .qty-stepper { counter-increment: total 11120 cq-r-sie-chocolate-0 8 cl-r-sie-chocolate-0 11120; }
+#r-sie-chocolate-0-9:checked ~ .qty-stepper { counter-increment: total 12510 cq-r-sie-chocolate-0 9 cl-r-sie-chocolate-0 12510; }
+#r-sie-chocolate-0-10:checked ~ .qty-stepper { counter-increment: total 13900 cq-r-sie-chocolate-0 10 cl-r-sie-chocolate-0 13900; }
+#r-gulshai-karkade-0-1:checked ~ .qty-stepper { counter-increment: total 1390 cq-r-gulshai-karkade-0 1 cl-r-gulshai-karkade-0 1390; }
+#r-gulshai-karkade-0-2:checked ~ .qty-stepper { counter-increment: total 2780 cq-r-gulshai-karkade-0 2 cl-r-gulshai-karkade-0 2780; }
+#r-gulshai-karkade-0-3:checked ~ .qty-stepper { counter-increment: total 4170 cq-r-gulshai-karkade-0 3 cl-r-gulshai-karkade-0 4170; }
+#r-gulshai-karkade-0-4:checked ~ .qty-stepper { counter-increment: total 5560 cq-r-gulshai-karkade-0 4 cl-r-gulshai-karkade-0 5560; }
+#r-gulshai-karkade-0-5:checked ~ .qty-stepper { counter-increment: total 6950 cq-r-gulshai-karkade-0 5 cl-r-gulshai-karkade-0 6950; }
+#r-gulshai-karkade-0-6:checked ~ .qty-stepper { counter-increment: total 8340 cq-r-gulshai-karkade-0 6 cl-r-gulshai-karkade-0 8340; }
+#r-gulshai-karkade-0-7:checked ~ .qty-stepper { counter-increment: total 9730 cq-r-gulshai-karkade-0 7 cl-r-gulshai-karkade-0 9730; }
+#r-gulshai-karkade-0-8:checked ~ .qty-stepper { counter-increment: total 11120 cq-r-gulshai-karkade-0 8 cl-r-gulshai-karkade-0 11120; }
+#r-gulshai-karkade-0-9:checked ~ .qty-stepper { counter-increment: total 12510 cq-r-gulshai-karkade-0 9 cl-r-gulshai-karkade-0 12510; }
+#r-gulshai-karkade-0-10:checked ~ .qty-stepper { counter-increment: total 13900 cq-r-gulshai-karkade-0 10 cl-r-gulshai-karkade-0 13900; }
+#r-purple-blue-tea-0-1:checked ~ .qty-stepper { counter-increment: total 1390 cq-r-purple-blue-tea-0 1 cl-r-purple-blue-tea-0 1390; }
+#r-purple-blue-tea-0-2:checked ~ .qty-stepper { counter-increment: total 2780 cq-r-purple-blue-tea-0 2 cl-r-purple-blue-tea-0 2780; }
+#r-purple-blue-tea-0-3:checked ~ .qty-stepper { counter-increment: total 4170 cq-r-purple-blue-tea-0 3 cl-r-purple-blue-tea-0 4170; }
+#r-purple-blue-tea-0-4:checked ~ .qty-stepper { counter-increment: total 5560 cq-r-purple-blue-tea-0 4 cl-r-purple-blue-tea-0 5560; }
+#r-purple-blue-tea-0-5:checked ~ .qty-stepper { counter-increment: total 6950 cq-r-purple-blue-tea-0 5 cl-r-purple-blue-tea-0 6950; }
+#r-purple-blue-tea-0-6:checked ~ .qty-stepper { counter-increment: total 8340 cq-r-purple-blue-tea-0 6 cl-r-purple-blue-tea-0 8340; }
+#r-purple-blue-tea-0-7:checked ~ .qty-stepper { counter-increment: total 9730 cq-r-purple-blue-tea-0 7 cl-r-purple-blue-tea-0 9730; }
+#r-purple-blue-tea-0-8:checked ~ .qty-stepper { counter-increment: total 11120 cq-r-purple-blue-tea-0 8 cl-r-purple-blue-tea-0 11120; }
+#r-purple-blue-tea-0-9:checked ~ .qty-stepper { counter-increment: total 12510 cq-r-purple-blue-tea-0 9 cl-r-purple-blue-tea-0 12510; }
+#r-purple-blue-tea-0-10:checked ~ .qty-stepper { counter-increment: total 13900 cq-r-purple-blue-tea-0 10 cl-r-purple-blue-tea-0 13900; }
+#r-raf-kazakh-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-raf-kazakh-0 1 cl-r-raf-kazakh-0 1490; }
+#r-raf-kazakh-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-raf-kazakh-0 2 cl-r-raf-kazakh-0 2980; }
+#r-raf-kazakh-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-raf-kazakh-0 3 cl-r-raf-kazakh-0 4470; }
+#r-raf-kazakh-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-raf-kazakh-0 4 cl-r-raf-kazakh-0 5960; }
+#r-raf-kazakh-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-raf-kazakh-0 5 cl-r-raf-kazakh-0 7450; }
+#r-raf-kazakh-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-raf-kazakh-0 6 cl-r-raf-kazakh-0 8940; }
+#r-raf-kazakh-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-raf-kazakh-0 7 cl-r-raf-kazakh-0 10430; }
+#r-raf-kazakh-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-raf-kazakh-0 8 cl-r-raf-kazakh-0 11920; }
+#r-raf-kazakh-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-raf-kazakh-0 9 cl-r-raf-kazakh-0 13410; }
+#r-raf-kazakh-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-raf-kazakh-0 10 cl-r-raf-kazakh-0 14900; }
+#r-raf-salted-peanut-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-raf-salted-peanut-0 1 cl-r-raf-salted-peanut-0 1490; }
+#r-raf-salted-peanut-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-raf-salted-peanut-0 2 cl-r-raf-salted-peanut-0 2980; }
+#r-raf-salted-peanut-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-raf-salted-peanut-0 3 cl-r-raf-salted-peanut-0 4470; }
+#r-raf-salted-peanut-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-raf-salted-peanut-0 4 cl-r-raf-salted-peanut-0 5960; }
+#r-raf-salted-peanut-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-raf-salted-peanut-0 5 cl-r-raf-salted-peanut-0 7450; }
+#r-raf-salted-peanut-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-raf-salted-peanut-0 6 cl-r-raf-salted-peanut-0 8940; }
+#r-raf-salted-peanut-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-raf-salted-peanut-0 7 cl-r-raf-salted-peanut-0 10430; }
+#r-raf-salted-peanut-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-raf-salted-peanut-0 8 cl-r-raf-salted-peanut-0 11920; }
+#r-raf-salted-peanut-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-raf-salted-peanut-0 9 cl-r-raf-salted-peanut-0 13410; }
+#r-raf-salted-peanut-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-raf-salted-peanut-0 10 cl-r-raf-salted-peanut-0 14900; }
+#r-raf-vanilla-strawberry-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-raf-vanilla-strawberry-0 1 cl-r-raf-vanilla-strawberry-0 1490; }
+#r-raf-vanilla-strawberry-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-raf-vanilla-strawberry-0 2 cl-r-raf-vanilla-strawberry-0 2980; }
+#r-raf-vanilla-strawberry-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-raf-vanilla-strawberry-0 3 cl-r-raf-vanilla-strawberry-0 4470; }
+#r-raf-vanilla-strawberry-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-raf-vanilla-strawberry-0 4 cl-r-raf-vanilla-strawberry-0 5960; }
+#r-raf-vanilla-strawberry-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-raf-vanilla-strawberry-0 5 cl-r-raf-vanilla-strawberry-0 7450; }
+#r-raf-vanilla-strawberry-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-raf-vanilla-strawberry-0 6 cl-r-raf-vanilla-strawberry-0 8940; }
+#r-raf-vanilla-strawberry-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-raf-vanilla-strawberry-0 7 cl-r-raf-vanilla-strawberry-0 10430; }
+#r-raf-vanilla-strawberry-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-raf-vanilla-strawberry-0 8 cl-r-raf-vanilla-strawberry-0 11920; }
+#r-raf-vanilla-strawberry-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-raf-vanilla-strawberry-0 9 cl-r-raf-vanilla-strawberry-0 13410; }
+#r-raf-vanilla-strawberry-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-raf-vanilla-strawberry-0 10 cl-r-raf-vanilla-strawberry-0 14900; }
+#r-latte-qurt-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-latte-qurt-0 1 cl-r-latte-qurt-0 1490; }
+#r-latte-qurt-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-latte-qurt-0 2 cl-r-latte-qurt-0 2980; }
+#r-latte-qurt-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-latte-qurt-0 3 cl-r-latte-qurt-0 4470; }
+#r-latte-qurt-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-latte-qurt-0 4 cl-r-latte-qurt-0 5960; }
+#r-latte-qurt-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-latte-qurt-0 5 cl-r-latte-qurt-0 7450; }
+#r-latte-qurt-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-latte-qurt-0 6 cl-r-latte-qurt-0 8940; }
+#r-latte-qurt-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-latte-qurt-0 7 cl-r-latte-qurt-0 10430; }
+#r-latte-qurt-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-latte-qurt-0 8 cl-r-latte-qurt-0 11920; }
+#r-latte-qurt-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-latte-qurt-0 9 cl-r-latte-qurt-0 13410; }
+#r-latte-qurt-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-latte-qurt-0 10 cl-r-latte-qurt-0 14900; }
+#r-energy-raf-0-1:checked ~ .qty-stepper { counter-increment: total 1690 cq-r-energy-raf-0 1 cl-r-energy-raf-0 1690; }
+#r-energy-raf-0-2:checked ~ .qty-stepper { counter-increment: total 3380 cq-r-energy-raf-0 2 cl-r-energy-raf-0 3380; }
+#r-energy-raf-0-3:checked ~ .qty-stepper { counter-increment: total 5070 cq-r-energy-raf-0 3 cl-r-energy-raf-0 5070; }
+#r-energy-raf-0-4:checked ~ .qty-stepper { counter-increment: total 6760 cq-r-energy-raf-0 4 cl-r-energy-raf-0 6760; }
+#r-energy-raf-0-5:checked ~ .qty-stepper { counter-increment: total 8450 cq-r-energy-raf-0 5 cl-r-energy-raf-0 8450; }
+#r-energy-raf-0-6:checked ~ .qty-stepper { counter-increment: total 10140 cq-r-energy-raf-0 6 cl-r-energy-raf-0 10140; }
+#r-energy-raf-0-7:checked ~ .qty-stepper { counter-increment: total 11830 cq-r-energy-raf-0 7 cl-r-energy-raf-0 11830; }
+#r-energy-raf-0-8:checked ~ .qty-stepper { counter-increment: total 13520 cq-r-energy-raf-0 8 cl-r-energy-raf-0 13520; }
+#r-energy-raf-0-9:checked ~ .qty-stepper { counter-increment: total 15210 cq-r-energy-raf-0 9 cl-r-energy-raf-0 15210; }
+#r-energy-raf-0-10:checked ~ .qty-stepper { counter-increment: total 16900 cq-r-energy-raf-0 10 cl-r-energy-raf-0 16900; }
+#r-almurt-halva-raf-0-1:checked ~ .qty-stepper { counter-increment: total 1690 cq-r-almurt-halva-raf-0 1 cl-r-almurt-halva-raf-0 1690; }
+#r-almurt-halva-raf-0-2:checked ~ .qty-stepper { counter-increment: total 3380 cq-r-almurt-halva-raf-0 2 cl-r-almurt-halva-raf-0 3380; }
+#r-almurt-halva-raf-0-3:checked ~ .qty-stepper { counter-increment: total 5070 cq-r-almurt-halva-raf-0 3 cl-r-almurt-halva-raf-0 5070; }
+#r-almurt-halva-raf-0-4:checked ~ .qty-stepper { counter-increment: total 6760 cq-r-almurt-halva-raf-0 4 cl-r-almurt-halva-raf-0 6760; }
+#r-almurt-halva-raf-0-5:checked ~ .qty-stepper { counter-increment: total 8450 cq-r-almurt-halva-raf-0 5 cl-r-almurt-halva-raf-0 8450; }
+#r-almurt-halva-raf-0-6:checked ~ .qty-stepper { counter-increment: total 10140 cq-r-almurt-halva-raf-0 6 cl-r-almurt-halva-raf-0 10140; }
+#r-almurt-halva-raf-0-7:checked ~ .qty-stepper { counter-increment: total 11830 cq-r-almurt-halva-raf-0 7 cl-r-almurt-halva-raf-0 11830; }
+#r-almurt-halva-raf-0-8:checked ~ .qty-stepper { counter-increment: total 13520 cq-r-almurt-halva-raf-0 8 cl-r-almurt-halva-raf-0 13520; }
+#r-almurt-halva-raf-0-9:checked ~ .qty-stepper { counter-increment: total 15210 cq-r-almurt-halva-raf-0 9 cl-r-almurt-halva-raf-0 15210; }
+#r-almurt-halva-raf-0-10:checked ~ .qty-stepper { counter-increment: total 16900 cq-r-almurt-halva-raf-0 10 cl-r-almurt-halva-raf-0 16900; }
+#r-espresso-tonic-0-1:checked ~ .qty-stepper { counter-increment: total 1790 cq-r-espresso-tonic-0 1 cl-r-espresso-tonic-0 1790; }
+#r-espresso-tonic-0-2:checked ~ .qty-stepper { counter-increment: total 3580 cq-r-espresso-tonic-0 2 cl-r-espresso-tonic-0 3580; }
+#r-espresso-tonic-0-3:checked ~ .qty-stepper { counter-increment: total 5370 cq-r-espresso-tonic-0 3 cl-r-espresso-tonic-0 5370; }
+#r-espresso-tonic-0-4:checked ~ .qty-stepper { counter-increment: total 7160 cq-r-espresso-tonic-0 4 cl-r-espresso-tonic-0 7160; }
+#r-espresso-tonic-0-5:checked ~ .qty-stepper { counter-increment: total 8950 cq-r-espresso-tonic-0 5 cl-r-espresso-tonic-0 8950; }
+#r-espresso-tonic-0-6:checked ~ .qty-stepper { counter-increment: total 10740 cq-r-espresso-tonic-0 6 cl-r-espresso-tonic-0 10740; }
+#r-espresso-tonic-0-7:checked ~ .qty-stepper { counter-increment: total 12530 cq-r-espresso-tonic-0 7 cl-r-espresso-tonic-0 12530; }
+#r-espresso-tonic-0-8:checked ~ .qty-stepper { counter-increment: total 14320 cq-r-espresso-tonic-0 8 cl-r-espresso-tonic-0 14320; }
+#r-espresso-tonic-0-9:checked ~ .qty-stepper { counter-increment: total 16110 cq-r-espresso-tonic-0 9 cl-r-espresso-tonic-0 16110; }
+#r-espresso-tonic-0-10:checked ~ .qty-stepper { counter-increment: total 17900 cq-r-espresso-tonic-0 10 cl-r-espresso-tonic-0 17900; }
+#r-matcha-tonic-0-1:checked ~ .qty-stepper { counter-increment: total 1490 cq-r-matcha-tonic-0 1 cl-r-matcha-tonic-0 1490; }
+#r-matcha-tonic-0-2:checked ~ .qty-stepper { counter-increment: total 2980 cq-r-matcha-tonic-0 2 cl-r-matcha-tonic-0 2980; }
+#r-matcha-tonic-0-3:checked ~ .qty-stepper { counter-increment: total 4470 cq-r-matcha-tonic-0 3 cl-r-matcha-tonic-0 4470; }
+#r-matcha-tonic-0-4:checked ~ .qty-stepper { counter-increment: total 5960 cq-r-matcha-tonic-0 4 cl-r-matcha-tonic-0 5960; }
+#r-matcha-tonic-0-5:checked ~ .qty-stepper { counter-increment: total 7450 cq-r-matcha-tonic-0 5 cl-r-matcha-tonic-0 7450; }
+#r-matcha-tonic-0-6:checked ~ .qty-stepper { counter-increment: total 8940 cq-r-matcha-tonic-0 6 cl-r-matcha-tonic-0 8940; }
+#r-matcha-tonic-0-7:checked ~ .qty-stepper { counter-increment: total 10430 cq-r-matcha-tonic-0 7 cl-r-matcha-tonic-0 10430; }
+#r-matcha-tonic-0-8:checked ~ .qty-stepper { counter-increment: total 11920 cq-r-matcha-tonic-0 8 cl-r-matcha-tonic-0 11920; }
+#r-matcha-tonic-0-9:checked ~ .qty-stepper { counter-increment: total 13410 cq-r-matcha-tonic-0 9 cl-r-matcha-tonic-0 13410; }
+#r-matcha-tonic-0-10:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-matcha-tonic-0 10 cl-r-matcha-tonic-0 14900; }
+#r-sie-espresso-tonic-0-1:checked ~ .qty-stepper { counter-increment: total 1890 cq-r-sie-espresso-tonic-0 1 cl-r-sie-espresso-tonic-0 1890; }
+#r-sie-espresso-tonic-0-2:checked ~ .qty-stepper { counter-increment: total 3780 cq-r-sie-espresso-tonic-0 2 cl-r-sie-espresso-tonic-0 3780; }
+#r-sie-espresso-tonic-0-3:checked ~ .qty-stepper { counter-increment: total 5670 cq-r-sie-espresso-tonic-0 3 cl-r-sie-espresso-tonic-0 5670; }
+#r-sie-espresso-tonic-0-4:checked ~ .qty-stepper { counter-increment: total 7560 cq-r-sie-espresso-tonic-0 4 cl-r-sie-espresso-tonic-0 7560; }
+#r-sie-espresso-tonic-0-5:checked ~ .qty-stepper { counter-increment: total 9450 cq-r-sie-espresso-tonic-0 5 cl-r-sie-espresso-tonic-0 9450; }
+#r-sie-espresso-tonic-0-6:checked ~ .qty-stepper { counter-increment: total 11340 cq-r-sie-espresso-tonic-0 6 cl-r-sie-espresso-tonic-0 11340; }
+#r-sie-espresso-tonic-0-7:checked ~ .qty-stepper { counter-increment: total 13230 cq-r-sie-espresso-tonic-0 7 cl-r-sie-espresso-tonic-0 13230; }
+#r-sie-espresso-tonic-0-8:checked ~ .qty-stepper { counter-increment: total 15120 cq-r-sie-espresso-tonic-0 8 cl-r-sie-espresso-tonic-0 15120; }
+#r-sie-espresso-tonic-0-9:checked ~ .qty-stepper { counter-increment: total 17010 cq-r-sie-espresso-tonic-0 9 cl-r-sie-espresso-tonic-0 17010; }
+#r-sie-espresso-tonic-0-10:checked ~ .qty-stepper { counter-increment: total 18900 cq-r-sie-espresso-tonic-0 10 cl-r-sie-espresso-tonic-0 18900; }
+#r-tropical-matcha-tonic-0-1:checked ~ .qty-stepper { counter-increment: total 1990 cq-r-tropical-matcha-tonic-0 1 cl-r-tropical-matcha-tonic-0 1990; }
+#r-tropical-matcha-tonic-0-2:checked ~ .qty-stepper { counter-increment: total 3980 cq-r-tropical-matcha-tonic-0 2 cl-r-tropical-matcha-tonic-0 3980; }
+#r-tropical-matcha-tonic-0-3:checked ~ .qty-stepper { counter-increment: total 5970 cq-r-tropical-matcha-tonic-0 3 cl-r-tropical-matcha-tonic-0 5970; }
+#r-tropical-matcha-tonic-0-4:checked ~ .qty-stepper { counter-increment: total 7960 cq-r-tropical-matcha-tonic-0 4 cl-r-tropical-matcha-tonic-0 7960; }
+#r-tropical-matcha-tonic-0-5:checked ~ .qty-stepper { counter-increment: total 9950 cq-r-tropical-matcha-tonic-0 5 cl-r-tropical-matcha-tonic-0 9950; }
+#r-tropical-matcha-tonic-0-6:checked ~ .qty-stepper { counter-increment: total 11940 cq-r-tropical-matcha-tonic-0 6 cl-r-tropical-matcha-tonic-0 11940; }
+#r-tropical-matcha-tonic-0-7:checked ~ .qty-stepper { counter-increment: total 13930 cq-r-tropical-matcha-tonic-0 7 cl-r-tropical-matcha-tonic-0 13930; }
+#r-tropical-matcha-tonic-0-8:checked ~ .qty-stepper { counter-increment: total 15920 cq-r-tropical-matcha-tonic-0 8 cl-r-tropical-matcha-tonic-0 15920; }
+#r-tropical-matcha-tonic-0-9:checked ~ .qty-stepper { counter-increment: total 17910 cq-r-tropical-matcha-tonic-0 9 cl-r-tropical-matcha-tonic-0 17910; }
+#r-tropical-matcha-tonic-0-10:checked ~ .qty-stepper { counter-increment: total 19900 cq-r-tropical-matcha-tonic-0 10 cl-r-tropical-matcha-tonic-0 19900; }
+#r-smoothie-strawberry-0-1:checked ~ .qty-stepper { counter-increment: total 1690 cq-r-smoothie-strawberry-0 1 cl-r-smoothie-strawberry-0 1690; }
+#r-smoothie-strawberry-0-2:checked ~ .qty-stepper { counter-increment: total 3380 cq-r-smoothie-strawberry-0 2 cl-r-smoothie-strawberry-0 3380; }
+#r-smoothie-strawberry-0-3:checked ~ .qty-stepper { counter-increment: total 5070 cq-r-smoothie-strawberry-0 3 cl-r-smoothie-strawberry-0 5070; }
+#r-smoothie-strawberry-0-4:checked ~ .qty-stepper { counter-increment: total 6760 cq-r-smoothie-strawberry-0 4 cl-r-smoothie-strawberry-0 6760; }
+#r-smoothie-strawberry-0-5:checked ~ .qty-stepper { counter-increment: total 8450 cq-r-smoothie-strawberry-0 5 cl-r-smoothie-strawberry-0 8450; }
+#r-smoothie-strawberry-0-6:checked ~ .qty-stepper { counter-increment: total 10140 cq-r-smoothie-strawberry-0 6 cl-r-smoothie-strawberry-0 10140; }
+#r-smoothie-strawberry-0-7:checked ~ .qty-stepper { counter-increment: total 11830 cq-r-smoothie-strawberry-0 7 cl-r-smoothie-strawberry-0 11830; }
+#r-smoothie-strawberry-0-8:checked ~ .qty-stepper { counter-increment: total 13520 cq-r-smoothie-strawberry-0 8 cl-r-smoothie-strawberry-0 13520; }
+#r-smoothie-strawberry-0-9:checked ~ .qty-stepper { counter-increment: total 15210 cq-r-smoothie-strawberry-0 9 cl-r-smoothie-strawberry-0 15210; }
+#r-smoothie-strawberry-0-10:checked ~ .qty-stepper { counter-increment: total 16900 cq-r-smoothie-strawberry-0 10 cl-r-smoothie-strawberry-0 16900; }
+#r-smoothie-berry-0-1:checked ~ .qty-stepper { counter-increment: total 1690 cq-r-smoothie-berry-0 1 cl-r-smoothie-berry-0 1690; }
+#r-smoothie-berry-0-2:checked ~ .qty-stepper { counter-increment: total 3380 cq-r-smoothie-berry-0 2 cl-r-smoothie-berry-0 3380; }
+#r-smoothie-berry-0-3:checked ~ .qty-stepper { counter-increment: total 5070 cq-r-smoothie-berry-0 3 cl-r-smoothie-berry-0 5070; }
+#r-smoothie-berry-0-4:checked ~ .qty-stepper { counter-increment: total 6760 cq-r-smoothie-berry-0 4 cl-r-smoothie-berry-0 6760; }
+#r-smoothie-berry-0-5:checked ~ .qty-stepper { counter-increment: total 8450 cq-r-smoothie-berry-0 5 cl-r-smoothie-berry-0 8450; }
+#r-smoothie-berry-0-6:checked ~ .qty-stepper { counter-increment: total 10140 cq-r-smoothie-berry-0 6 cl-r-smoothie-berry-0 10140; }
+#r-smoothie-berry-0-7:checked ~ .qty-stepper { counter-increment: total 11830 cq-r-smoothie-berry-0 7 cl-r-smoothie-berry-0 11830; }
+#r-smoothie-berry-0-8:checked ~ .qty-stepper { counter-increment: total 13520 cq-r-smoothie-berry-0 8 cl-r-smoothie-berry-0 13520; }
+#r-smoothie-berry-0-9:checked ~ .qty-stepper { counter-increment: total 15210 cq-r-smoothie-berry-0 9 cl-r-smoothie-berry-0 15210; }
+#r-smoothie-berry-0-10:checked ~ .qty-stepper { counter-increment: total 16900 cq-r-smoothie-berry-0 10 cl-r-smoothie-berry-0 16900; }
+#r-shake-vanilla-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-shake-vanilla-0 1 cl-r-shake-vanilla-0 1190; }
+#r-shake-vanilla-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-shake-vanilla-0 2 cl-r-shake-vanilla-0 2380; }
+#r-shake-vanilla-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-shake-vanilla-0 3 cl-r-shake-vanilla-0 3570; }
+#r-shake-vanilla-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-shake-vanilla-0 4 cl-r-shake-vanilla-0 4760; }
+#r-shake-vanilla-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-shake-vanilla-0 5 cl-r-shake-vanilla-0 5950; }
+#r-shake-vanilla-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-shake-vanilla-0 6 cl-r-shake-vanilla-0 7140; }
+#r-shake-vanilla-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-shake-vanilla-0 7 cl-r-shake-vanilla-0 8330; }
+#r-shake-vanilla-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-shake-vanilla-0 8 cl-r-shake-vanilla-0 9520; }
+#r-shake-vanilla-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-shake-vanilla-0 9 cl-r-shake-vanilla-0 10710; }
+#r-shake-vanilla-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-shake-vanilla-0 10 cl-r-shake-vanilla-0 11900; }
+#r-shake-strawberry-mousse-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-shake-strawberry-mousse-0 1 cl-r-shake-strawberry-mousse-0 1190; }
+#r-shake-strawberry-mousse-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-shake-strawberry-mousse-0 2 cl-r-shake-strawberry-mousse-0 2380; }
+#r-shake-strawberry-mousse-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-shake-strawberry-mousse-0 3 cl-r-shake-strawberry-mousse-0 3570; }
+#r-shake-strawberry-mousse-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-shake-strawberry-mousse-0 4 cl-r-shake-strawberry-mousse-0 4760; }
+#r-shake-strawberry-mousse-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-shake-strawberry-mousse-0 5 cl-r-shake-strawberry-mousse-0 5950; }
+#r-shake-strawberry-mousse-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-shake-strawberry-mousse-0 6 cl-r-shake-strawberry-mousse-0 7140; }
+#r-shake-strawberry-mousse-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-shake-strawberry-mousse-0 7 cl-r-shake-strawberry-mousse-0 8330; }
+#r-shake-strawberry-mousse-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-shake-strawberry-mousse-0 8 cl-r-shake-strawberry-mousse-0 9520; }
+#r-shake-strawberry-mousse-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-shake-strawberry-mousse-0 9 cl-r-shake-strawberry-mousse-0 10710; }
+#r-shake-strawberry-mousse-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-shake-strawberry-mousse-0 10 cl-r-shake-strawberry-mousse-0 11900; }
+#r-shake-banana-pudding-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-shake-banana-pudding-0 1 cl-r-shake-banana-pudding-0 1190; }
+#r-shake-banana-pudding-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-shake-banana-pudding-0 2 cl-r-shake-banana-pudding-0 2380; }
+#r-shake-banana-pudding-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-shake-banana-pudding-0 3 cl-r-shake-banana-pudding-0 3570; }
+#r-shake-banana-pudding-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-shake-banana-pudding-0 4 cl-r-shake-banana-pudding-0 4760; }
+#r-shake-banana-pudding-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-shake-banana-pudding-0 5 cl-r-shake-banana-pudding-0 5950; }
+#r-shake-banana-pudding-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-shake-banana-pudding-0 6 cl-r-shake-banana-pudding-0 7140; }
+#r-shake-banana-pudding-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-shake-banana-pudding-0 7 cl-r-shake-banana-pudding-0 8330; }
+#r-shake-banana-pudding-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-shake-banana-pudding-0 8 cl-r-shake-banana-pudding-0 9520; }
+#r-shake-banana-pudding-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-shake-banana-pudding-0 9 cl-r-shake-banana-pudding-0 10710; }
+#r-shake-banana-pudding-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-shake-banana-pudding-0 10 cl-r-shake-banana-pudding-0 11900; }
+#r-shake-waffle-popcorn-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-shake-waffle-popcorn-0 1 cl-r-shake-waffle-popcorn-0 1190; }
+#r-shake-waffle-popcorn-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-shake-waffle-popcorn-0 2 cl-r-shake-waffle-popcorn-0 2380; }
+#r-shake-waffle-popcorn-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-shake-waffle-popcorn-0 3 cl-r-shake-waffle-popcorn-0 3570; }
+#r-shake-waffle-popcorn-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-shake-waffle-popcorn-0 4 cl-r-shake-waffle-popcorn-0 4760; }
+#r-shake-waffle-popcorn-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-shake-waffle-popcorn-0 5 cl-r-shake-waffle-popcorn-0 5950; }
+#r-shake-waffle-popcorn-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-shake-waffle-popcorn-0 6 cl-r-shake-waffle-popcorn-0 7140; }
+#r-shake-waffle-popcorn-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-shake-waffle-popcorn-0 7 cl-r-shake-waffle-popcorn-0 8330; }
+#r-shake-waffle-popcorn-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-shake-waffle-popcorn-0 8 cl-r-shake-waffle-popcorn-0 9520; }
+#r-shake-waffle-popcorn-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-shake-waffle-popcorn-0 9 cl-r-shake-waffle-popcorn-0 10710; }
+#r-shake-waffle-popcorn-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-shake-waffle-popcorn-0 10 cl-r-shake-waffle-popcorn-0 11900; }
+#r-orange-0-1:checked ~ .qty-stepper { counter-increment: total 2390 cq-r-orange-0 1 cl-r-orange-0 2390; }
+#r-orange-0-2:checked ~ .qty-stepper { counter-increment: total 4780 cq-r-orange-0 2 cl-r-orange-0 4780; }
+#r-orange-0-3:checked ~ .qty-stepper { counter-increment: total 7170 cq-r-orange-0 3 cl-r-orange-0 7170; }
+#r-orange-0-4:checked ~ .qty-stepper { counter-increment: total 9560 cq-r-orange-0 4 cl-r-orange-0 9560; }
+#r-orange-0-5:checked ~ .qty-stepper { counter-increment: total 11950 cq-r-orange-0 5 cl-r-orange-0 11950; }
+#r-orange-0-6:checked ~ .qty-stepper { counter-increment: total 14340 cq-r-orange-0 6 cl-r-orange-0 14340; }
+#r-orange-0-7:checked ~ .qty-stepper { counter-increment: total 16730 cq-r-orange-0 7 cl-r-orange-0 16730; }
+#r-orange-0-8:checked ~ .qty-stepper { counter-increment: total 19120 cq-r-orange-0 8 cl-r-orange-0 19120; }
+#r-orange-0-9:checked ~ .qty-stepper { counter-increment: total 21510 cq-r-orange-0 9 cl-r-orange-0 21510; }
+#r-orange-0-10:checked ~ .qty-stepper { counter-increment: total 23900 cq-r-orange-0 10 cl-r-orange-0 23900; }
+#r-fresh-apple-0-1:checked ~ .qty-stepper { counter-increment: total 1890 cq-r-fresh-apple-0 1 cl-r-fresh-apple-0 1890; }
+#r-fresh-apple-0-2:checked ~ .qty-stepper { counter-increment: total 3780 cq-r-fresh-apple-0 2 cl-r-fresh-apple-0 3780; }
+#r-fresh-apple-0-3:checked ~ .qty-stepper { counter-increment: total 5670 cq-r-fresh-apple-0 3 cl-r-fresh-apple-0 5670; }
+#r-fresh-apple-0-4:checked ~ .qty-stepper { counter-increment: total 7560 cq-r-fresh-apple-0 4 cl-r-fresh-apple-0 7560; }
+#r-fresh-apple-0-5:checked ~ .qty-stepper { counter-increment: total 9450 cq-r-fresh-apple-0 5 cl-r-fresh-apple-0 9450; }
+#r-fresh-apple-0-6:checked ~ .qty-stepper { counter-increment: total 11340 cq-r-fresh-apple-0 6 cl-r-fresh-apple-0 11340; }
+#r-fresh-apple-0-7:checked ~ .qty-stepper { counter-increment: total 13230 cq-r-fresh-apple-0 7 cl-r-fresh-apple-0 13230; }
+#r-fresh-apple-0-8:checked ~ .qty-stepper { counter-increment: total 15120 cq-r-fresh-apple-0 8 cl-r-fresh-apple-0 15120; }
+#r-fresh-apple-0-9:checked ~ .qty-stepper { counter-increment: total 17010 cq-r-fresh-apple-0 9 cl-r-fresh-apple-0 17010; }
+#r-fresh-apple-0-10:checked ~ .qty-stepper { counter-increment: total 18900 cq-r-fresh-apple-0 10 cl-r-fresh-apple-0 18900; }
+#r-fresh-apple-orange-0-1:checked ~ .qty-stepper { counter-increment: total 2190 cq-r-fresh-apple-orange-0 1 cl-r-fresh-apple-orange-0 2190; }
+#r-fresh-apple-orange-0-2:checked ~ .qty-stepper { counter-increment: total 4380 cq-r-fresh-apple-orange-0 2 cl-r-fresh-apple-orange-0 4380; }
+#r-fresh-apple-orange-0-3:checked ~ .qty-stepper { counter-increment: total 6570 cq-r-fresh-apple-orange-0 3 cl-r-fresh-apple-orange-0 6570; }
+#r-fresh-apple-orange-0-4:checked ~ .qty-stepper { counter-increment: total 8760 cq-r-fresh-apple-orange-0 4 cl-r-fresh-apple-orange-0 8760; }
+#r-fresh-apple-orange-0-5:checked ~ .qty-stepper { counter-increment: total 10950 cq-r-fresh-apple-orange-0 5 cl-r-fresh-apple-orange-0 10950; }
+#r-fresh-apple-orange-0-6:checked ~ .qty-stepper { counter-increment: total 13140 cq-r-fresh-apple-orange-0 6 cl-r-fresh-apple-orange-0 13140; }
+#r-fresh-apple-orange-0-7:checked ~ .qty-stepper { counter-increment: total 15330 cq-r-fresh-apple-orange-0 7 cl-r-fresh-apple-orange-0 15330; }
+#r-fresh-apple-orange-0-8:checked ~ .qty-stepper { counter-increment: total 17520 cq-r-fresh-apple-orange-0 8 cl-r-fresh-apple-orange-0 17520; }
+#r-fresh-apple-orange-0-9:checked ~ .qty-stepper { counter-increment: total 19710 cq-r-fresh-apple-orange-0 9 cl-r-fresh-apple-orange-0 19710; }
+#r-fresh-apple-orange-0-10:checked ~ .qty-stepper { counter-increment: total 21900 cq-r-fresh-apple-orange-0 10 cl-r-fresh-apple-orange-0 21900; }
+#r-cocoa-0-1:checked ~ .qty-stepper { counter-increment: total 990 cq-r-cocoa-0 1 cl-r-cocoa-0 990; }
+#r-cocoa-0-2:checked ~ .qty-stepper { counter-increment: total 1980 cq-r-cocoa-0 2 cl-r-cocoa-0 1980; }
+#r-cocoa-0-3:checked ~ .qty-stepper { counter-increment: total 2970 cq-r-cocoa-0 3 cl-r-cocoa-0 2970; }
+#r-cocoa-0-4:checked ~ .qty-stepper { counter-increment: total 3960 cq-r-cocoa-0 4 cl-r-cocoa-0 3960; }
+#r-cocoa-0-5:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-cocoa-0 5 cl-r-cocoa-0 4950; }
+#r-cocoa-0-6:checked ~ .qty-stepper { counter-increment: total 5940 cq-r-cocoa-0 6 cl-r-cocoa-0 5940; }
+#r-cocoa-0-7:checked ~ .qty-stepper { counter-increment: total 6930 cq-r-cocoa-0 7 cl-r-cocoa-0 6930; }
+#r-cocoa-0-8:checked ~ .qty-stepper { counter-increment: total 7920 cq-r-cocoa-0 8 cl-r-cocoa-0 7920; }
+#r-cocoa-0-9:checked ~ .qty-stepper { counter-increment: total 8910 cq-r-cocoa-0 9 cl-r-cocoa-0 8910; }
+#r-cocoa-0-10:checked ~ .qty-stepper { counter-increment: total 9900 cq-r-cocoa-0 10 cl-r-cocoa-0 9900; }
+#r-hot-chocolate-0-1:checked ~ .qty-stepper { counter-increment: total 1190 cq-r-hot-chocolate-0 1 cl-r-hot-chocolate-0 1190; }
+#r-hot-chocolate-0-2:checked ~ .qty-stepper { counter-increment: total 2380 cq-r-hot-chocolate-0 2 cl-r-hot-chocolate-0 2380; }
+#r-hot-chocolate-0-3:checked ~ .qty-stepper { counter-increment: total 3570 cq-r-hot-chocolate-0 3 cl-r-hot-chocolate-0 3570; }
+#r-hot-chocolate-0-4:checked ~ .qty-stepper { counter-increment: total 4760 cq-r-hot-chocolate-0 4 cl-r-hot-chocolate-0 4760; }
+#r-hot-chocolate-0-5:checked ~ .qty-stepper { counter-increment: total 5950 cq-r-hot-chocolate-0 5 cl-r-hot-chocolate-0 5950; }
+#r-hot-chocolate-0-6:checked ~ .qty-stepper { counter-increment: total 7140 cq-r-hot-chocolate-0 6 cl-r-hot-chocolate-0 7140; }
+#r-hot-chocolate-0-7:checked ~ .qty-stepper { counter-increment: total 8330 cq-r-hot-chocolate-0 7 cl-r-hot-chocolate-0 8330; }
+#r-hot-chocolate-0-8:checked ~ .qty-stepper { counter-increment: total 9520 cq-r-hot-chocolate-0 8 cl-r-hot-chocolate-0 9520; }
+#r-hot-chocolate-0-9:checked ~ .qty-stepper { counter-increment: total 10710 cq-r-hot-chocolate-0 9 cl-r-hot-chocolate-0 10710; }
+#r-hot-chocolate-0-10:checked ~ .qty-stepper { counter-increment: total 11900 cq-r-hot-chocolate-0 10 cl-r-hot-chocolate-0 11900; }
+#r-strawberry-babyccino-0-1:checked ~ .qty-stepper { counter-increment: total 890 cq-r-strawberry-babyccino-0 1 cl-r-strawberry-babyccino-0 890; }
+#r-strawberry-babyccino-0-2:checked ~ .qty-stepper { counter-increment: total 1780 cq-r-strawberry-babyccino-0 2 cl-r-strawberry-babyccino-0 1780; }
+#r-strawberry-babyccino-0-3:checked ~ .qty-stepper { counter-increment: total 2670 cq-r-strawberry-babyccino-0 3 cl-r-strawberry-babyccino-0 2670; }
+#r-strawberry-babyccino-0-4:checked ~ .qty-stepper { counter-increment: total 3560 cq-r-strawberry-babyccino-0 4 cl-r-strawberry-babyccino-0 3560; }
+#r-strawberry-babyccino-0-5:checked ~ .qty-stepper { counter-increment: total 4450 cq-r-strawberry-babyccino-0 5 cl-r-strawberry-babyccino-0 4450; }
+#r-strawberry-babyccino-0-6:checked ~ .qty-stepper { counter-increment: total 5340 cq-r-strawberry-babyccino-0 6 cl-r-strawberry-babyccino-0 5340; }
+#r-strawberry-babyccino-0-7:checked ~ .qty-stepper { counter-increment: total 6230 cq-r-strawberry-babyccino-0 7 cl-r-strawberry-babyccino-0 6230; }
+#r-strawberry-babyccino-0-8:checked ~ .qty-stepper { counter-increment: total 7120 cq-r-strawberry-babyccino-0 8 cl-r-strawberry-babyccino-0 7120; }
+#r-strawberry-babyccino-0-9:checked ~ .qty-stepper { counter-increment: total 8010 cq-r-strawberry-babyccino-0 9 cl-r-strawberry-babyccino-0 8010; }
+#r-strawberry-babyccino-0-10:checked ~ .qty-stepper { counter-increment: total 8900 cq-r-strawberry-babyccino-0 10 cl-r-strawberry-babyccino-0 8900; }
+#r-decaf-0-1:checked ~ .qty-stepper { counter-increment: total 290 cq-r-decaf-0 1 cl-r-decaf-0 290; }
+#r-decaf-0-2:checked ~ .qty-stepper { counter-increment: total 580 cq-r-decaf-0 2 cl-r-decaf-0 580; }
+#r-decaf-0-3:checked ~ .qty-stepper { counter-increment: total 870 cq-r-decaf-0 3 cl-r-decaf-0 870; }
+#r-decaf-0-4:checked ~ .qty-stepper { counter-increment: total 1160 cq-r-decaf-0 4 cl-r-decaf-0 1160; }
+#r-decaf-0-5:checked ~ .qty-stepper { counter-increment: total 1450 cq-r-decaf-0 5 cl-r-decaf-0 1450; }
+#r-decaf-0-6:checked ~ .qty-stepper { counter-increment: total 1740 cq-r-decaf-0 6 cl-r-decaf-0 1740; }
+#r-decaf-0-7:checked ~ .qty-stepper { counter-increment: total 2030 cq-r-decaf-0 7 cl-r-decaf-0 2030; }
+#r-decaf-0-8:checked ~ .qty-stepper { counter-increment: total 2320 cq-r-decaf-0 8 cl-r-decaf-0 2320; }
+#r-decaf-0-9:checked ~ .qty-stepper { counter-increment: total 2610 cq-r-decaf-0 9 cl-r-decaf-0 2610; }
+#r-decaf-0-10:checked ~ .qty-stepper { counter-increment: total 2900 cq-r-decaf-0 10 cl-r-decaf-0 2900; }
+#r-syrup-0-1:checked ~ .qty-stepper { counter-increment: total 190 cq-r-syrup-0 1 cl-r-syrup-0 190; }
+#r-syrup-0-2:checked ~ .qty-stepper { counter-increment: total 380 cq-r-syrup-0 2 cl-r-syrup-0 380; }
+#r-syrup-0-3:checked ~ .qty-stepper { counter-increment: total 570 cq-r-syrup-0 3 cl-r-syrup-0 570; }
+#r-syrup-0-4:checked ~ .qty-stepper { counter-increment: total 760 cq-r-syrup-0 4 cl-r-syrup-0 760; }
+#r-syrup-0-5:checked ~ .qty-stepper { counter-increment: total 950 cq-r-syrup-0 5 cl-r-syrup-0 950; }
+#r-syrup-0-6:checked ~ .qty-stepper { counter-increment: total 1140 cq-r-syrup-0 6 cl-r-syrup-0 1140; }
+#r-syrup-0-7:checked ~ .qty-stepper { counter-increment: total 1330 cq-r-syrup-0 7 cl-r-syrup-0 1330; }
+#r-syrup-0-8:checked ~ .qty-stepper { counter-increment: total 1520 cq-r-syrup-0 8 cl-r-syrup-0 1520; }
+#r-syrup-0-9:checked ~ .qty-stepper { counter-increment: total 1710 cq-r-syrup-0 9 cl-r-syrup-0 1710; }
+#r-syrup-0-10:checked ~ .qty-stepper { counter-increment: total 1900 cq-r-syrup-0 10 cl-r-syrup-0 1900; }
+#r-extra-shot-0-1:checked ~ .qty-stepper { counter-increment: total 290 cq-r-extra-shot-0 1 cl-r-extra-shot-0 290; }
+#r-extra-shot-0-2:checked ~ .qty-stepper { counter-increment: total 580 cq-r-extra-shot-0 2 cl-r-extra-shot-0 580; }
+#r-extra-shot-0-3:checked ~ .qty-stepper { counter-increment: total 870 cq-r-extra-shot-0 3 cl-r-extra-shot-0 870; }
+#r-extra-shot-0-4:checked ~ .qty-stepper { counter-increment: total 1160 cq-r-extra-shot-0 4 cl-r-extra-shot-0 1160; }
+#r-extra-shot-0-5:checked ~ .qty-stepper { counter-increment: total 1450 cq-r-extra-shot-0 5 cl-r-extra-shot-0 1450; }
+#r-extra-shot-0-6:checked ~ .qty-stepper { counter-increment: total 1740 cq-r-extra-shot-0 6 cl-r-extra-shot-0 1740; }
+#r-extra-shot-0-7:checked ~ .qty-stepper { counter-increment: total 2030 cq-r-extra-shot-0 7 cl-r-extra-shot-0 2030; }
+#r-extra-shot-0-8:checked ~ .qty-stepper { counter-increment: total 2320 cq-r-extra-shot-0 8 cl-r-extra-shot-0 2320; }
+#r-extra-shot-0-9:checked ~ .qty-stepper { counter-increment: total 2610 cq-r-extra-shot-0 9 cl-r-extra-shot-0 2610; }
+#r-extra-shot-0-10:checked ~ .qty-stepper { counter-increment: total 2900 cq-r-extra-shot-0 10 cl-r-extra-shot-0 2900; }
+#r-plant-based-milk-0-1:checked ~ .qty-stepper { counter-increment: total 450 cq-r-plant-based-milk-0 1 cl-r-plant-based-milk-0 450; }
+#r-plant-based-milk-0-2:checked ~ .qty-stepper { counter-increment: total 900 cq-r-plant-based-milk-0 2 cl-r-plant-based-milk-0 900; }
+#r-plant-based-milk-0-3:checked ~ .qty-stepper { counter-increment: total 1350 cq-r-plant-based-milk-0 3 cl-r-plant-based-milk-0 1350; }
+#r-plant-based-milk-0-4:checked ~ .qty-stepper { counter-increment: total 1800 cq-r-plant-based-milk-0 4 cl-r-plant-based-milk-0 1800; }
+#r-plant-based-milk-0-5:checked ~ .qty-stepper { counter-increment: total 2250 cq-r-plant-based-milk-0 5 cl-r-plant-based-milk-0 2250; }
+#r-plant-based-milk-0-6:checked ~ .qty-stepper { counter-increment: total 2700 cq-r-plant-based-milk-0 6 cl-r-plant-based-milk-0 2700; }
+#r-plant-based-milk-0-7:checked ~ .qty-stepper { counter-increment: total 3150 cq-r-plant-based-milk-0 7 cl-r-plant-based-milk-0 3150; }
+#r-plant-based-milk-0-8:checked ~ .qty-stepper { counter-increment: total 3600 cq-r-plant-based-milk-0 8 cl-r-plant-based-milk-0 3600; }
+#r-plant-based-milk-0-9:checked ~ .qty-stepper { counter-increment: total 4050 cq-r-plant-based-milk-0 9 cl-r-plant-based-milk-0 4050; }
+#r-plant-based-milk-0-10:checked ~ .qty-stepper { counter-increment: total 4500 cq-r-plant-based-milk-0 10 cl-r-plant-based-milk-0 4500; }
+#r-espressoday-water-0-1:checked ~ .qty-stepper { counter-increment: total 550 cq-r-espressoday-water-0 1 cl-r-espressoday-water-0 550; }
+#r-espressoday-water-0-2:checked ~ .qty-stepper { counter-increment: total 1100 cq-r-espressoday-water-0 2 cl-r-espressoday-water-0 1100; }
+#r-espressoday-water-0-3:checked ~ .qty-stepper { counter-increment: total 1650 cq-r-espressoday-water-0 3 cl-r-espressoday-water-0 1650; }
+#r-espressoday-water-0-4:checked ~ .qty-stepper { counter-increment: total 2200 cq-r-espressoday-water-0 4 cl-r-espressoday-water-0 2200; }
+#r-espressoday-water-0-5:checked ~ .qty-stepper { counter-increment: total 2750 cq-r-espressoday-water-0 5 cl-r-espressoday-water-0 2750; }
+#r-espressoday-water-0-6:checked ~ .qty-stepper { counter-increment: total 3300 cq-r-espressoday-water-0 6 cl-r-espressoday-water-0 3300; }
+#r-espressoday-water-0-7:checked ~ .qty-stepper { counter-increment: total 3850 cq-r-espressoday-water-0 7 cl-r-espressoday-water-0 3850; }
+#r-espressoday-water-0-8:checked ~ .qty-stepper { counter-increment: total 4400 cq-r-espressoday-water-0 8 cl-r-espressoday-water-0 4400; }
+#r-espressoday-water-0-9:checked ~ .qty-stepper { counter-increment: total 4950 cq-r-espressoday-water-0 9 cl-r-espressoday-water-0 4950; }
+#r-espressoday-water-0-10:checked ~ .qty-stepper { counter-increment: total 5500 cq-r-espressoday-water-0 10 cl-r-espressoday-water-0 5500; }
+#r-coffee-beans-250-g-0-1:checked ~ .qty-stepper { counter-increment: total 4500 cq-r-coffee-beans-250-g-0 1 cl-r-coffee-beans-250-g-0 4500; }
+#r-coffee-beans-250-g-0-2:checked ~ .qty-stepper { counter-increment: total 9000 cq-r-coffee-beans-250-g-0 2 cl-r-coffee-beans-250-g-0 9000; }
+#r-coffee-beans-250-g-0-3:checked ~ .qty-stepper { counter-increment: total 13500 cq-r-coffee-beans-250-g-0 3 cl-r-coffee-beans-250-g-0 13500; }
+#r-coffee-beans-250-g-0-4:checked ~ .qty-stepper { counter-increment: total 18000 cq-r-coffee-beans-250-g-0 4 cl-r-coffee-beans-250-g-0 18000; }
+#r-coffee-beans-250-g-0-5:checked ~ .qty-stepper { counter-increment: total 22500 cq-r-coffee-beans-250-g-0 5 cl-r-coffee-beans-250-g-0 22500; }
+#r-coffee-beans-250-g-0-6:checked ~ .qty-stepper { counter-increment: total 27000 cq-r-coffee-beans-250-g-0 6 cl-r-coffee-beans-250-g-0 27000; }
+#r-coffee-beans-250-g-0-7:checked ~ .qty-stepper { counter-increment: total 31500 cq-r-coffee-beans-250-g-0 7 cl-r-coffee-beans-250-g-0 31500; }
+#r-coffee-beans-250-g-0-8:checked ~ .qty-stepper { counter-increment: total 36000 cq-r-coffee-beans-250-g-0 8 cl-r-coffee-beans-250-g-0 36000; }
+#r-coffee-beans-250-g-0-9:checked ~ .qty-stepper { counter-increment: total 40500 cq-r-coffee-beans-250-g-0 9 cl-r-coffee-beans-250-g-0 40500; }
+#r-coffee-beans-250-g-0-10:checked ~ .qty-stepper { counter-increment: total 45000 cq-r-coffee-beans-250-g-0 10 cl-r-coffee-beans-250-g-0 45000; }
+#r-coffee-beans-1-kg-0-1:checked ~ .qty-stepper { counter-increment: total 14900 cq-r-coffee-beans-1-kg-0 1 cl-r-coffee-beans-1-kg-0 14900; }
+#r-coffee-beans-1-kg-0-2:checked ~ .qty-stepper { counter-increment: total 29800 cq-r-coffee-beans-1-kg-0 2 cl-r-coffee-beans-1-kg-0 29800; }
+#r-coffee-beans-1-kg-0-3:checked ~ .qty-stepper { counter-increment: total 44700 cq-r-coffee-beans-1-kg-0 3 cl-r-coffee-beans-1-kg-0 44700; }
+#r-coffee-beans-1-kg-0-4:checked ~ .qty-stepper { counter-increment: total 59600 cq-r-coffee-beans-1-kg-0 4 cl-r-coffee-beans-1-kg-0 59600; }
+#r-coffee-beans-1-kg-0-5:checked ~ .qty-stepper { counter-increment: total 74500 cq-r-coffee-beans-1-kg-0 5 cl-r-coffee-beans-1-kg-0 74500; }
+#r-coffee-beans-1-kg-0-6:checked ~ .qty-stepper { counter-increment: total 89400 cq-r-coffee-beans-1-kg-0 6 cl-r-coffee-beans-1-kg-0 89400; }
+#r-coffee-beans-1-kg-0-7:checked ~ .qty-stepper { counter-increment: total 104300 cq-r-coffee-beans-1-kg-0 7 cl-r-coffee-beans-1-kg-0 104300; }
+#r-coffee-beans-1-kg-0-8:checked ~ .qty-stepper { counter-increment: total 119200 cq-r-coffee-beans-1-kg-0 8 cl-r-coffee-beans-1-kg-0 119200; }
+#r-coffee-beans-1-kg-0-9:checked ~ .qty-stepper { counter-increment: total 134100 cq-r-coffee-beans-1-kg-0 9 cl-r-coffee-beans-1-kg-0 134100; }
+#r-coffee-beans-1-kg-0-10:checked ~ .qty-stepper { counter-increment: total 149000 cq-r-coffee-beans-1-kg-0 10 cl-r-coffee-beans-1-kg-0 149000; }
+#order-form:has(#r-espresso-0-0:not(:checked)) .sum-r-espresso-0 { display: flex; }
+.sq-r-espresso-0::after { content: counter(cq-r-espresso-0); }
+.sl-r-espresso-0::after { content: counter(cl-r-espresso-0) "\00a0\20b8"; }
+#order-form:has(#r-americano-0-0:not(:checked)) .sum-r-americano-0 { display: flex; }
+.sq-r-americano-0::after { content: counter(cq-r-americano-0); }
+.sl-r-americano-0::after { content: counter(cl-r-americano-0) "\00a0\20b8"; }
+#order-form:has(#r-americano-1-0:not(:checked)) .sum-r-americano-1 { display: flex; }
+.sq-r-americano-1::after { content: counter(cq-r-americano-1); }
+.sl-r-americano-1::after { content: counter(cl-r-americano-1) "\00a0\20b8"; }
+#order-form:has(#r-americano-2-0:not(:checked)) .sum-r-americano-2 { display: flex; }
+.sq-r-americano-2::after { content: counter(cq-r-americano-2); }
+.sl-r-americano-2::after { content: counter(cl-r-americano-2) "\00a0\20b8"; }
+#order-form:has(#r-cappuccino-0-0:not(:checked)) .sum-r-cappuccino-0 { display: flex; }
+.sq-r-cappuccino-0::after { content: counter(cq-r-cappuccino-0); }
+.sl-r-cappuccino-0::after { content: counter(cl-r-cappuccino-0) "\00a0\20b8"; }
+#order-form:has(#r-cappuccino-1-0:not(:checked)) .sum-r-cappuccino-1 { display: flex; }
+.sq-r-cappuccino-1::after { content: counter(cq-r-cappuccino-1); }
+.sl-r-cappuccino-1::after { content: counter(cl-r-cappuccino-1) "\00a0\20b8"; }
+#order-form:has(#r-cappuccino-2-0:not(:checked)) .sum-r-cappuccino-2 { display: flex; }
+.sq-r-cappuccino-2::after { content: counter(cq-r-cappuccino-2); }
+.sl-r-cappuccino-2::after { content: counter(cl-r-cappuccino-2) "\00a0\20b8"; }
+#order-form:has(#r-latte-0-0:not(:checked)) .sum-r-latte-0 { display: flex; }
+.sq-r-latte-0::after { content: counter(cq-r-latte-0); }
+.sl-r-latte-0::after { content: counter(cl-r-latte-0) "\00a0\20b8"; }
+#order-form:has(#r-latte-1-0:not(:checked)) .sum-r-latte-1 { display: flex; }
+.sq-r-latte-1::after { content: counter(cq-r-latte-1); }
+.sl-r-latte-1::after { content: counter(cl-r-latte-1) "\00a0\20b8"; }
+#order-form:has(#r-flat-white-0-0:not(:checked)) .sum-r-flat-white-0 { display: flex; }
+.sq-r-flat-white-0::after { content: counter(cq-r-flat-white-0); }
+.sl-r-flat-white-0::after { content: counter(cl-r-flat-white-0) "\00a0\20b8"; }
+#order-form:has(#r-mokkacino-0-0:not(:checked)) .sum-r-mokkacino-0 { display: flex; }
+.sq-r-mokkacino-0::after { content: counter(cq-r-mokkacino-0); }
+.sl-r-mokkacino-0::after { content: counter(cl-r-mokkacino-0) "\00a0\20b8"; }
+#order-form:has(#r-mokkacino-1-0:not(:checked)) .sum-r-mokkacino-1 { display: flex; }
+.sq-r-mokkacino-1::after { content: counter(cq-r-mokkacino-1); }
+.sl-r-mokkacino-1::after { content: counter(cl-r-mokkacino-1) "\00a0\20b8"; }
+#order-form:has(#r-mokkacino-2-0:not(:checked)) .sum-r-mokkacino-2 { display: flex; }
+.sq-r-mokkacino-2::after { content: counter(cq-r-mokkacino-2); }
+.sl-r-mokkacino-2::after { content: counter(cl-r-mokkacino-2) "\00a0\20b8"; }
+#order-form:has(#r-raf-0-0:not(:checked)) .sum-r-raf-0 { display: flex; }
+.sq-r-raf-0::after { content: counter(cq-r-raf-0); }
+.sl-r-raf-0::after { content: counter(cl-r-raf-0) "\00a0\20b8"; }
+#order-form:has(#r-spanish-latte-0-0:not(:checked)) .sum-r-spanish-latte-0 { display: flex; }
+.sq-r-spanish-latte-0::after { content: counter(cq-r-spanish-latte-0); }
+.sl-r-spanish-latte-0::after { content: counter(cl-r-spanish-latte-0) "\00a0\20b8"; }
+#order-form:has(#r-spanish-latte-1-0:not(:checked)) .sum-r-spanish-latte-1 { display: flex; }
+.sq-r-spanish-latte-1::after { content: counter(cq-r-spanish-latte-1); }
+.sl-r-spanish-latte-1::after { content: counter(cl-r-spanish-latte-1) "\00a0\20b8"; }
+#order-form:has(#r-iced-americano-0-0:not(:checked)) .sum-r-iced-americano-0 { display: flex; }
+.sq-r-iced-americano-0::after { content: counter(cq-r-iced-americano-0); }
+.sl-r-iced-americano-0::after { content: counter(cl-r-iced-americano-0) "\00a0\20b8"; }
+#order-form:has(#r-iced-latte-0-0:not(:checked)) .sum-r-iced-latte-0 { display: flex; }
+.sq-r-iced-latte-0::after { content: counter(cq-r-iced-latte-0); }
+.sl-r-iced-latte-0::after { content: counter(cl-r-iced-latte-0) "\00a0\20b8"; }
+#order-form:has(#r-iced-cappuccino-0-0:not(:checked)) .sum-r-iced-cappuccino-0 { display: flex; }
+.sq-r-iced-cappuccino-0::after { content: counter(cq-r-iced-cappuccino-0); }
+.sl-r-iced-cappuccino-0::after { content: counter(cl-r-iced-cappuccino-0) "\00a0\20b8"; }
+#order-form:has(#r-bumble-coffee-0-0:not(:checked)) .sum-r-bumble-coffee-0 { display: flex; }
+.sq-r-bumble-coffee-0::after { content: counter(cq-r-bumble-coffee-0); }
+.sl-r-bumble-coffee-0::after { content: counter(cl-r-bumble-coffee-0) "\00a0\20b8"; }
+#order-form:has(#r-sie-bumble-0-0:not(:checked)) .sum-r-sie-bumble-0 { display: flex; }
+.sq-r-sie-bumble-0::after { content: counter(cq-r-sie-bumble-0); }
+.sl-r-sie-bumble-0::after { content: counter(cl-r-sie-bumble-0) "\00a0\20b8"; }
+#order-form:has(#r-frappuccino-0-0:not(:checked)) .sum-r-frappuccino-0 { display: flex; }
+.sq-r-frappuccino-0::after { content: counter(cq-r-frappuccino-0); }
+.sl-r-frappuccino-0::after { content: counter(cl-r-frappuccino-0) "\00a0\20b8"; }
+#order-form:has(#r-espresso-cola-cream-0-0:not(:checked)) .sum-r-espresso-cola-cream-0 { display: flex; }
+.sq-r-espresso-cola-cream-0::after { content: counter(cq-r-espresso-cola-cream-0); }
+.sl-r-espresso-cola-cream-0::after { content: counter(cl-r-espresso-cola-cream-0) "\00a0\20b8"; }
+#order-form:has(#r-iced-fury-urbech-0-0:not(:checked)) .sum-r-iced-fury-urbech-0 { display: flex; }
+.sq-r-iced-fury-urbech-0::after { content: counter(cq-r-iced-fury-urbech-0); }
+.sl-r-iced-fury-urbech-0::after { content: counter(cl-r-iced-fury-urbech-0) "\00a0\20b8"; }
+#order-form:has(#r-glasse-0-0:not(:checked)) .sum-r-glasse-0 { display: flex; }
+.sq-r-glasse-0::after { content: counter(cq-r-glasse-0); }
+.sl-r-glasse-0::after { content: counter(cl-r-glasse-0) "\00a0\20b8"; }
+#order-form:has(#r-affogato-0-0:not(:checked)) .sum-r-affogato-0 { display: flex; }
+.sq-r-affogato-0::after { content: counter(cq-r-affogato-0); }
+.sl-r-affogato-0::after { content: counter(cl-r-affogato-0) "\00a0\20b8"; }
+#order-form:has(#r-frappe-popcorn-0-0:not(:checked)) .sum-r-frappe-popcorn-0 { display: flex; }
+.sq-r-frappe-popcorn-0::after { content: counter(cq-r-frappe-popcorn-0); }
+.sl-r-frappe-popcorn-0::after { content: counter(cl-r-frappe-popcorn-0) "\00a0\20b8"; }
+#order-form:has(#r-frappe-salted-caramel-0-0:not(:checked)) .sum-r-frappe-salted-caramel-0 { display: flex; }
+.sq-r-frappe-salted-caramel-0::after { content: counter(cq-r-frappe-salted-caramel-0); }
+.sl-r-frappe-salted-caramel-0::after { content: counter(cl-r-frappe-salted-caramel-0) "\00a0\20b8"; }
+#order-form:has(#r-frappe-pistachio-0-0:not(:checked)) .sum-r-frappe-pistachio-0 { display: flex; }
+.sq-r-frappe-pistachio-0::after { content: counter(cq-r-frappe-pistachio-0); }
+.sl-r-frappe-pistachio-0::after { content: counter(cl-r-frappe-pistachio-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-qulpynai-0-0:not(:checked)) .sum-r-lemonade-qulpynai-0 { display: flex; }
+.sq-r-lemonade-qulpynai-0::after { content: counter(cq-r-lemonade-qulpynai-0); }
+.sl-r-lemonade-qulpynai-0::after { content: counter(cl-r-lemonade-qulpynai-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-kiwi-lime-0-0:not(:checked)) .sum-r-lemonade-kiwi-lime-0 { display: flex; }
+.sq-r-lemonade-kiwi-lime-0::after { content: counter(cq-r-lemonade-kiwi-lime-0); }
+.sl-r-lemonade-kiwi-lime-0::after { content: counter(cl-r-lemonade-kiwi-lime-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-kok-aspan-0-0:not(:checked)) .sum-r-lemonade-kok-aspan-0 { display: flex; }
+.sq-r-lemonade-kok-aspan-0::after { content: counter(cq-r-lemonade-kok-aspan-0); }
+.sl-r-lemonade-kok-aspan-0::after { content: counter(cl-r-lemonade-kok-aspan-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-mojito-0-0:not(:checked)) .sum-r-lemonade-mojito-0 { display: flex; }
+.sq-r-lemonade-mojito-0::after { content: counter(cq-r-lemonade-mojito-0); }
+.sl-r-lemonade-mojito-0::after { content: counter(cl-r-lemonade-mojito-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-pineapple-ginger-0-0:not(:checked)) .sum-r-lemonade-pineapple-ginger-0 { display: flex; }
+.sq-r-lemonade-pineapple-ginger-0::after { content: counter(cq-r-lemonade-pineapple-ginger-0); }
+.sl-r-lemonade-pineapple-ginger-0::after { content: counter(cl-r-lemonade-pineapple-ginger-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-mojito-basil-strawberry-0-0:not(:checked)) .sum-r-lemonade-mojito-basil-strawberry-0 { display: flex; }
+.sq-r-lemonade-mojito-basil-strawberry-0::after { content: counter(cq-r-lemonade-mojito-basil-strawberry-0); }
+.sl-r-lemonade-mojito-basil-strawberry-0::after { content: counter(cl-r-lemonade-mojito-basil-strawberry-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-mango-passionfruit-0-0:not(:checked)) .sum-r-lemonade-mango-passionfruit-0 { display: flex; }
+.sq-r-lemonade-mango-passionfruit-0::after { content: counter(cq-r-lemonade-mango-passionfruit-0); }
+.sl-r-lemonade-mango-passionfruit-0::after { content: counter(cl-r-lemonade-mango-passionfruit-0) "\00a0\20b8"; }
+#order-form:has(#r-lemonade-klassikalyq-0-0:not(:checked)) .sum-r-lemonade-klassikalyq-0 { display: flex; }
+.sq-r-lemonade-klassikalyq-0::after { content: counter(cq-r-lemonade-klassikalyq-0); }
+.sl-r-lemonade-klassikalyq-0::after { content: counter(cl-r-lemonade-klassikalyq-0) "\00a0\20b8"; }
+#order-form:has(#r-iced-green-matcha-0-0:not(:checked)) .sum-r-iced-green-matcha-0 { display: flex; }
+.sq-r-iced-green-matcha-0::after { content: counter(cq-r-iced-green-matcha-0); }
+.sl-r-iced-green-matcha-0::after { content: counter(cl-r-iced-green-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-iced-blue-matcha-0-0:not(:checked)) .sum-r-iced-blue-matcha-0 { display: flex; }
+.sq-r-iced-blue-matcha-0::after { content: counter(cq-r-iced-blue-matcha-0); }
+.sl-r-iced-blue-matcha-0::after { content: counter(cl-r-iced-blue-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-erekshe-qulpynai-matcha-0-0:not(:checked)) .sum-r-erekshe-qulpynai-matcha-0 { display: flex; }
+.sq-r-erekshe-qulpynai-matcha-0::after { content: counter(cq-r-erekshe-qulpynai-matcha-0); }
+.sl-r-erekshe-qulpynai-matcha-0::after { content: counter(cl-r-erekshe-qulpynai-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-kokos-matcha-0-0:not(:checked)) .sum-r-kokos-matcha-0 { display: flex; }
+.sq-r-kokos-matcha-0::after { content: counter(cq-r-kokos-matcha-0); }
+.sl-r-kokos-matcha-0::after { content: counter(cl-r-kokos-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-mango-matcha-0-0:not(:checked)) .sum-r-mango-matcha-0 { display: flex; }
+.sq-r-mango-matcha-0::after { content: counter(cq-r-mango-matcha-0); }
+.sl-r-mango-matcha-0::after { content: counter(cl-r-mango-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-ice-ube-latte-peach-0-0:not(:checked)) .sum-r-ice-ube-latte-peach-0 { display: flex; }
+.sq-r-ice-ube-latte-peach-0::after { content: counter(cq-r-ice-ube-latte-peach-0); }
+.sl-r-ice-ube-latte-peach-0::after { content: counter(cl-r-ice-ube-latte-peach-0) "\00a0\20b8"; }
+#order-form:has(#r-ice-ube-latte-berry-0-0:not(:checked)) .sum-r-ice-ube-latte-berry-0 { display: flex; }
+.sq-r-ice-ube-latte-berry-0::after { content: counter(cq-r-ice-ube-latte-berry-0); }
+.sl-r-ice-ube-latte-berry-0::after { content: counter(cl-r-ice-ube-latte-berry-0) "\00a0\20b8"; }
+#order-form:has(#r-icetea-mango-passionfruit-0-0:not(:checked)) .sum-r-icetea-mango-passionfruit-0 { display: flex; }
+.sq-r-icetea-mango-passionfruit-0::after { content: counter(cq-r-icetea-mango-passionfruit-0); }
+.sl-r-icetea-mango-passionfruit-0::after { content: counter(cl-r-icetea-mango-passionfruit-0) "\00a0\20b8"; }
+#order-form:has(#r-icetea-pineapple-ginger-0-0:not(:checked)) .sum-r-icetea-pineapple-ginger-0 { display: flex; }
+.sq-r-icetea-pineapple-ginger-0::after { content: counter(cq-r-icetea-pineapple-ginger-0); }
+.sl-r-icetea-pineapple-ginger-0::after { content: counter(cl-r-icetea-pineapple-ginger-0) "\00a0\20b8"; }
+#order-form:has(#r-icetea-basil-strawberry-0-0:not(:checked)) .sum-r-icetea-basil-strawberry-0 { display: flex; }
+.sq-r-icetea-basil-strawberry-0::after { content: counter(cq-r-icetea-basil-strawberry-0); }
+.sl-r-icetea-basil-strawberry-0::after { content: counter(cl-r-icetea-basil-strawberry-0) "\00a0\20b8"; }
+#order-form:has(#r-gajaiyp-icetea-0-0:not(:checked)) .sum-r-gajaiyp-icetea-0 { display: flex; }
+.sq-r-gajaiyp-icetea-0::after { content: counter(cq-r-gajaiyp-icetea-0); }
+.sl-r-gajaiyp-icetea-0::after { content: counter(cl-r-gajaiyp-icetea-0) "\00a0\20b8"; }
+#order-form:has(#r-samal-icetea-0-0:not(:checked)) .sum-r-samal-icetea-0 { display: flex; }
+.sq-r-samal-icetea-0::after { content: counter(cq-r-samal-icetea-0); }
+.sl-r-samal-icetea-0::after { content: counter(cl-r-samal-icetea-0) "\00a0\20b8"; }
+#order-form:has(#r-kyoto-sencha-tea-0-0:not(:checked)) .sum-r-kyoto-sencha-tea-0 { display: flex; }
+.sq-r-kyoto-sencha-tea-0::after { content: counter(cq-r-kyoto-sencha-tea-0); }
+.sl-r-kyoto-sencha-tea-0::after { content: counter(cl-r-kyoto-sencha-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-power-spirit-tea-0-0:not(:checked)) .sum-r-power-spirit-tea-0 { display: flex; }
+.sq-r-power-spirit-tea-0::after { content: counter(cq-r-power-spirit-tea-0); }
+.sl-r-power-spirit-tea-0::after { content: counter(cl-r-power-spirit-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-moroccan-tea-0-0:not(:checked)) .sum-r-moroccan-tea-0 { display: flex; }
+.sq-r-moroccan-tea-0::after { content: counter(cq-r-moroccan-tea-0); }
+.sl-r-moroccan-tea-0::after { content: counter(cl-r-moroccan-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-ginger-tea-0-0:not(:checked)) .sum-r-ginger-tea-0 { display: flex; }
+.sq-r-ginger-tea-0::after { content: counter(cq-r-ginger-tea-0); }
+.sl-r-ginger-tea-0::after { content: counter(cl-r-ginger-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-cranberry-tea-0-0:not(:checked)) .sum-r-cranberry-tea-0 { display: flex; }
+.sq-r-cranberry-tea-0::after { content: counter(cq-r-cranberry-tea-0); }
+.sl-r-cranberry-tea-0::after { content: counter(cl-r-cranberry-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-sea-buckthorn-tea-0-0:not(:checked)) .sum-r-sea-buckthorn-tea-0 { display: flex; }
+.sq-r-sea-buckthorn-tea-0::after { content: counter(cq-r-sea-buckthorn-tea-0); }
+.sl-r-sea-buckthorn-tea-0::after { content: counter(cl-r-sea-buckthorn-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-karak-tea-0-0:not(:checked)) .sum-r-karak-tea-0 { display: flex; }
+.sq-r-karak-tea-0::after { content: counter(cq-r-karak-tea-0); }
+.sl-r-karak-tea-0::after { content: counter(cl-r-karak-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-mulled-wine-tea-0-0:not(:checked)) .sum-r-mulled-wine-tea-0 { display: flex; }
+.sq-r-mulled-wine-tea-0::after { content: counter(cq-r-mulled-wine-tea-0); }
+.sl-r-mulled-wine-tea-0::after { content: counter(cl-r-mulled-wine-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-green-matcha-0-0:not(:checked)) .sum-r-green-matcha-0 { display: flex; }
+.sq-r-green-matcha-0::after { content: counter(cq-r-green-matcha-0); }
+.sl-r-green-matcha-0::after { content: counter(cl-r-green-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-blue-matcha-0-0:not(:checked)) .sum-r-blue-matcha-0 { display: flex; }
+.sq-r-blue-matcha-0::after { content: counter(cq-r-blue-matcha-0); }
+.sl-r-blue-matcha-0::after { content: counter(cl-r-blue-matcha-0) "\00a0\20b8"; }
+#order-form:has(#r-black-green-tea-0-0:not(:checked)) .sum-r-black-green-tea-0 { display: flex; }
+.sq-r-black-green-tea-0::after { content: counter(cq-r-black-green-tea-0); }
+.sl-r-black-green-tea-0::after { content: counter(cl-r-black-green-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-sie-chocolate-0-0:not(:checked)) .sum-r-sie-chocolate-0 { display: flex; }
+.sq-r-sie-chocolate-0::after { content: counter(cq-r-sie-chocolate-0); }
+.sl-r-sie-chocolate-0::after { content: counter(cl-r-sie-chocolate-0) "\00a0\20b8"; }
+#order-form:has(#r-gulshai-karkade-0-0:not(:checked)) .sum-r-gulshai-karkade-0 { display: flex; }
+.sq-r-gulshai-karkade-0::after { content: counter(cq-r-gulshai-karkade-0); }
+.sl-r-gulshai-karkade-0::after { content: counter(cl-r-gulshai-karkade-0) "\00a0\20b8"; }
+#order-form:has(#r-purple-blue-tea-0-0:not(:checked)) .sum-r-purple-blue-tea-0 { display: flex; }
+.sq-r-purple-blue-tea-0::after { content: counter(cq-r-purple-blue-tea-0); }
+.sl-r-purple-blue-tea-0::after { content: counter(cl-r-purple-blue-tea-0) "\00a0\20b8"; }
+#order-form:has(#r-raf-kazakh-0-0:not(:checked)) .sum-r-raf-kazakh-0 { display: flex; }
+.sq-r-raf-kazakh-0::after { content: counter(cq-r-raf-kazakh-0); }
+.sl-r-raf-kazakh-0::after { content: counter(cl-r-raf-kazakh-0) "\00a0\20b8"; }
+#order-form:has(#r-raf-salted-peanut-0-0:not(:checked)) .sum-r-raf-salted-peanut-0 { display: flex; }
+.sq-r-raf-salted-peanut-0::after { content: counter(cq-r-raf-salted-peanut-0); }
+.sl-r-raf-salted-peanut-0::after { content: counter(cl-r-raf-salted-peanut-0) "\00a0\20b8"; }
+#order-form:has(#r-raf-vanilla-strawberry-0-0:not(:checked)) .sum-r-raf-vanilla-strawberry-0 { display: flex; }
+.sq-r-raf-vanilla-strawberry-0::after { content: counter(cq-r-raf-vanilla-strawberry-0); }
+.sl-r-raf-vanilla-strawberry-0::after { content: counter(cl-r-raf-vanilla-strawberry-0) "\00a0\20b8"; }
+#order-form:has(#r-latte-qurt-0-0:not(:checked)) .sum-r-latte-qurt-0 { display: flex; }
+.sq-r-latte-qurt-0::after { content: counter(cq-r-latte-qurt-0); }
+.sl-r-latte-qurt-0::after { content: counter(cl-r-latte-qurt-0) "\00a0\20b8"; }
+#order-form:has(#r-energy-raf-0-0:not(:checked)) .sum-r-energy-raf-0 { display: flex; }
+.sq-r-energy-raf-0::after { content: counter(cq-r-energy-raf-0); }
+.sl-r-energy-raf-0::after { content: counter(cl-r-energy-raf-0) "\00a0\20b8"; }
+#order-form:has(#r-almurt-halva-raf-0-0:not(:checked)) .sum-r-almurt-halva-raf-0 { display: flex; }
+.sq-r-almurt-halva-raf-0::after { content: counter(cq-r-almurt-halva-raf-0); }
+.sl-r-almurt-halva-raf-0::after { content: counter(cl-r-almurt-halva-raf-0) "\00a0\20b8"; }
+#order-form:has(#r-espresso-tonic-0-0:not(:checked)) .sum-r-espresso-tonic-0 { display: flex; }
+.sq-r-espresso-tonic-0::after { content: counter(cq-r-espresso-tonic-0); }
+.sl-r-espresso-tonic-0::after { content: counter(cl-r-espresso-tonic-0) "\00a0\20b8"; }
+#order-form:has(#r-matcha-tonic-0-0:not(:checked)) .sum-r-matcha-tonic-0 { display: flex; }
+.sq-r-matcha-tonic-0::after { content: counter(cq-r-matcha-tonic-0); }
+.sl-r-matcha-tonic-0::after { content: counter(cl-r-matcha-tonic-0) "\00a0\20b8"; }
+#order-form:has(#r-sie-espresso-tonic-0-0:not(:checked)) .sum-r-sie-espresso-tonic-0 { display: flex; }
+.sq-r-sie-espresso-tonic-0::after { content: counter(cq-r-sie-espresso-tonic-0); }
+.sl-r-sie-espresso-tonic-0::after { content: counter(cl-r-sie-espresso-tonic-0) "\00a0\20b8"; }
+#order-form:has(#r-tropical-matcha-tonic-0-0:not(:checked)) .sum-r-tropical-matcha-tonic-0 { display: flex; }
+.sq-r-tropical-matcha-tonic-0::after { content: counter(cq-r-tropical-matcha-tonic-0); }
+.sl-r-tropical-matcha-tonic-0::after { content: counter(cl-r-tropical-matcha-tonic-0) "\00a0\20b8"; }
+#order-form:has(#r-smoothie-strawberry-0-0:not(:checked)) .sum-r-smoothie-strawberry-0 { display: flex; }
+.sq-r-smoothie-strawberry-0::after { content: counter(cq-r-smoothie-strawberry-0); }
+.sl-r-smoothie-strawberry-0::after { content: counter(cl-r-smoothie-strawberry-0) "\00a0\20b8"; }
+#order-form:has(#r-smoothie-berry-0-0:not(:checked)) .sum-r-smoothie-berry-0 { display: flex; }
+.sq-r-smoothie-berry-0::after { content: counter(cq-r-smoothie-berry-0); }
+.sl-r-smoothie-berry-0::after { content: counter(cl-r-smoothie-berry-0) "\00a0\20b8"; }
+#order-form:has(#r-shake-vanilla-0-0:not(:checked)) .sum-r-shake-vanilla-0 { display: flex; }
+.sq-r-shake-vanilla-0::after { content: counter(cq-r-shake-vanilla-0); }
+.sl-r-shake-vanilla-0::after { content: counter(cl-r-shake-vanilla-0) "\00a0\20b8"; }
+#order-form:has(#r-shake-strawberry-mousse-0-0:not(:checked)) .sum-r-shake-strawberry-mousse-0 { display: flex; }
+.sq-r-shake-strawberry-mousse-0::after { content: counter(cq-r-shake-strawberry-mousse-0); }
+.sl-r-shake-strawberry-mousse-0::after { content: counter(cl-r-shake-strawberry-mousse-0) "\00a0\20b8"; }
+#order-form:has(#r-shake-banana-pudding-0-0:not(:checked)) .sum-r-shake-banana-pudding-0 { display: flex; }
+.sq-r-shake-banana-pudding-0::after { content: counter(cq-r-shake-banana-pudding-0); }
+.sl-r-shake-banana-pudding-0::after { content: counter(cl-r-shake-banana-pudding-0) "\00a0\20b8"; }
+#order-form:has(#r-shake-waffle-popcorn-0-0:not(:checked)) .sum-r-shake-waffle-popcorn-0 { display: flex; }
+.sq-r-shake-waffle-popcorn-0::after { content: counter(cq-r-shake-waffle-popcorn-0); }
+.sl-r-shake-waffle-popcorn-0::after { content: counter(cl-r-shake-waffle-popcorn-0) "\00a0\20b8"; }
+#order-form:has(#r-orange-0-0:not(:checked)) .sum-r-orange-0 { display: flex; }
+.sq-r-orange-0::after { content: counter(cq-r-orange-0); }
+.sl-r-orange-0::after { content: counter(cl-r-orange-0) "\00a0\20b8"; }
+#order-form:has(#r-fresh-apple-0-0:not(:checked)) .sum-r-fresh-apple-0 { display: flex; }
+.sq-r-fresh-apple-0::after { content: counter(cq-r-fresh-apple-0); }
+.sl-r-fresh-apple-0::after { content: counter(cl-r-fresh-apple-0) "\00a0\20b8"; }
+#order-form:has(#r-fresh-apple-orange-0-0:not(:checked)) .sum-r-fresh-apple-orange-0 { display: flex; }
+.sq-r-fresh-apple-orange-0::after { content: counter(cq-r-fresh-apple-orange-0); }
+.sl-r-fresh-apple-orange-0::after { content: counter(cl-r-fresh-apple-orange-0) "\00a0\20b8"; }
+#order-form:has(#r-cocoa-0-0:not(:checked)) .sum-r-cocoa-0 { display: flex; }
+.sq-r-cocoa-0::after { content: counter(cq-r-cocoa-0); }
+.sl-r-cocoa-0::after { content: counter(cl-r-cocoa-0) "\00a0\20b8"; }
+#order-form:has(#r-hot-chocolate-0-0:not(:checked)) .sum-r-hot-chocolate-0 { display: flex; }
+.sq-r-hot-chocolate-0::after { content: counter(cq-r-hot-chocolate-0); }
+.sl-r-hot-chocolate-0::after { content: counter(cl-r-hot-chocolate-0) "\00a0\20b8"; }
+#order-form:has(#r-strawberry-babyccino-0-0:not(:checked)) .sum-r-strawberry-babyccino-0 { display: flex; }
+.sq-r-strawberry-babyccino-0::after { content: counter(cq-r-strawberry-babyccino-0); }
+.sl-r-strawberry-babyccino-0::after { content: counter(cl-r-strawberry-babyccino-0) "\00a0\20b8"; }
+#order-form:has(#r-decaf-0-0:not(:checked)) .sum-r-decaf-0 { display: flex; }
+.sq-r-decaf-0::after { content: counter(cq-r-decaf-0); }
+.sl-r-decaf-0::after { content: counter(cl-r-decaf-0) "\00a0\20b8"; }
+#order-form:has(#r-syrup-0-0:not(:checked)) .sum-r-syrup-0 { display: flex; }
+.sq-r-syrup-0::after { content: counter(cq-r-syrup-0); }
+.sl-r-syrup-0::after { content: counter(cl-r-syrup-0) "\00a0\20b8"; }
+#order-form:has(#r-extra-shot-0-0:not(:checked)) .sum-r-extra-shot-0 { display: flex; }
+.sq-r-extra-shot-0::after { content: counter(cq-r-extra-shot-0); }
+.sl-r-extra-shot-0::after { content: counter(cl-r-extra-shot-0) "\00a0\20b8"; }
+#order-form:has(#r-plant-based-milk-0-0:not(:checked)) .sum-r-plant-based-milk-0 { display: flex; }
+.sq-r-plant-based-milk-0::after { content: counter(cq-r-plant-based-milk-0); }
+.sl-r-plant-based-milk-0::after { content: counter(cl-r-plant-based-milk-0) "\00a0\20b8"; }
+#order-form:has(#r-espressoday-water-0-0:not(:checked)) .sum-r-espressoday-water-0 { display: flex; }
+.sq-r-espressoday-water-0::after { content: counter(cq-r-espressoday-water-0); }
+.sl-r-espressoday-water-0::after { content: counter(cl-r-espressoday-water-0) "\00a0\20b8"; }
+#order-form:has(#r-coffee-beans-250-g-0-0:not(:checked)) .sum-r-coffee-beans-250-g-0 { display: flex; }
+.sq-r-coffee-beans-250-g-0::after { content: counter(cq-r-coffee-beans-250-g-0); }
+.sl-r-coffee-beans-250-g-0::after { content: counter(cl-r-coffee-beans-250-g-0) "\00a0\20b8"; }
+#order-form:has(#r-coffee-beans-1-kg-0-0:not(:checked)) .sum-r-coffee-beans-1-kg-0 { display: flex; }
+.sq-r-coffee-beans-1-kg-0::after { content: counter(cq-r-coffee-beans-1-kg-0); }
+.sl-r-coffee-beans-1-kg-0::after { content: counter(cl-r-coffee-beans-1-kg-0) "\00a0\20b8"; }
+.order-total::after { content: counter(total) "\00a0\20b8"; }
+.fab-total::after { content: "\00b7\00a0" counter(total) "\00a0\20b8"; }

@@ -1,5 +1,6 @@
 'use strict';
 
+<<<<<<< HEAD
 /* Data of this page: how each coffee variety is built. The table in "Coffee Varieties" is made from this array. */
 const VARIETIES = [
     { name: 'Espresso', recipe: '2 espresso shots, 60 ml' },
@@ -14,6 +15,8 @@ const VARIETIES = [
     { name: 'Bumble Coffee', recipe: 'Espresso shot + fresh orange juice + ice' }
 ];
 
+=======
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 /* Coffee page: "Build your coffee" - choose a drink, extras and the number of cups, see the price at once,
    then add the cup to the cart. The extras prices are the ones printed in "Customise Your Coffee". */
 
@@ -120,6 +123,7 @@ function buildCalculator() {
     render();
 }
 
+<<<<<<< HEAD
 /* Coffee Varieties: the rows come from VARIETIES (the HTML table body is empty). A search field filters them, and a press on a
    name chooses that drink in "Build your coffee" below. */
 
@@ -220,3 +224,6 @@ function buildVarieties() {
 
 buildCalculator();
 buildVarieties();
+=======
+buildCalculator();
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057

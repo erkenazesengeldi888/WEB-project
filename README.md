@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Espresso Day: Web Technologies Midterm
+=======
+# Espresso Day: Web Technologies Endterm
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
 Group: SE-2537
@@ -84,12 +88,16 @@ The old Assignment 2 stylesheets are deleted; `removed-css.md` lists what Bootst
 - `removed-css.md`: what Bootstrap replaced from Assignment 2
 
 ## Freeze
+<<<<<<< HEAD
 The final commit is tagged `midterm`:
 ```
 git tag midterm
 git push origin midterm
 ```
 After the tag, new elements and styles are produced by JavaScript only.
+=======
+The repository keeps the midterm baseline. The endterm version adds behavior in JavaScript; generated content is created by code, and existing CSS state classes are switched by the scripts.
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 
 
 ## JavaScript (Assignments 4 and 5)
@@ -102,7 +110,11 @@ HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` t
 | `js/cart.js` | all pages | The shared cart, kept in `localStorage` |
 | `js/main.js` | all pages | Form helpers and the two team features (below) |
 | `js/extras.js` | Menu, Coffee | The drink extras picker: alternative milk with its kind, extra shot, decaf, any number of syrups, free additions (cinnamon, sugar, sweetener; milk for the Americano) |
+<<<<<<< HEAD
 | `about.js`, `menu.js`, `coffee.js`, `order.js`, `booking.js`, `visit.js`, `reviews.js` | one page each | Page features |
+=======
+| `js/index.js`, `about.js`, `menu.js`, `coffee.js`, `order.js`, `booking.js`, `visit.js`, `reviews.js` | one page each | Page features |
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 
 Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`, `document.write()`, inline handlers, and no user text through `innerHTML` (only `textContent`). `Math.random()` is used for the temporary order number (`ED-1234`, a reference for the page, not a server id) and for "Surprise me".
 
@@ -120,6 +132,10 @@ Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`
 | Booking | Choose a time quickly | Time slots every 30 minutes for the chosen date (today: only future times) | One press on a slot fills the time field | Yerkenaz |
 | Visit Us | Know today's hours | Today's row of the hours table is highlighted and a line "Today: ..." is added | The visitor sees today's hours and whether the shop is open | Dilnaz |
 | Visit Us | Ask a question | Question form: 5 fields checked, the second e-mail must equal the first, live character counter (10-500), confirmation saying nothing is sent | Confirmation with name, topic and e-mail | Dilnaz |
+<<<<<<< HEAD
+=======
+| Home | Decide what to drink | "What should I drink?": milk and maximum price choose coffees from the `DRINKS` array, with count, empty state, reset, "Pick one for me" (random) and Add | The matching coffees appear and can go to the cart | Yerkenaz |
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 | About | Find an answer fast | Search in the common questions (question and answer text), count, empty message, Clear | Only matching questions stay visible | Dilnaz |
 | Coffee | Know the price of my exact cup | "Build your coffee": coffee, kind of milk, extra shot, decaf, several syrups, free additions and number of cups give the price at once; Add to cart | Price per cup and total are shown and the cup goes to the cart | Aisha |
 | Reviews | Share an opinion | Review form with rating and text; the review is added to the list and kept in the browser; own reviews can be deleted | The new review appears first with a thank-you message | Dilnaz |
@@ -151,6 +167,7 @@ jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity has
 ### Where each requirement is
 | Requirement | Where |
 |---|---|
+<<<<<<< HEAD
 | 3 rewritten functions with comments | `about.js` `buildFaqSearch` (l. 12); `booking.js` `checkField` (l. 73); `reviews.js` `reviewCard`. Old versions: `old-js-version.js` |
 | Selectors: id, class, element, attribute, `:checked`, `:not()`, `:first` | `booking.js` l. 56 (`button[data-time]`), `reviews.js` `checkRating` (`:checked`), `about.js` l. 51 (`:not(.hidden)`), `reviews.js` submit handler (`.review-item:first`) |
 | Traversal: `.closest()`, `.find()`, `.siblings()`, `.parent()`, `.each()` | `reviews.js` (`.closest('.review-item')` in `idOf`, `.find()` in `checkRating`); `booking.js` l. 62, 129 |
@@ -161,10 +178,23 @@ jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity has
 | Delegated handler | `reviews.js` (`$list.on('click', '.review-edit' / '.review-delete' / '.review-edit-cancel', ...)`, `$list.on('submit', '.review-edit-form', ...)`, `$list.on('mouseenter', '.review-photo', ...)`), `booking.js` l. 56, `jq-main.js` l. 33 |
 | Event types | click, submit, input, change, focusout, reset |
 | Effects | `fadeIn` (success box, new review), `fadeOut` with callback (delete a review, after "Yes, delete" in the confirm window), `slideToggle(250, callback)` (filter panel), `animate` (scroll to the result, `jq-main.js`) |
+=======
+| 3 rewritten functions with comments | `about.js` `buildFaqSearch` (l. 12); `booking.js` `checkField` (l. 73); `reviews.js` `reviewCard` (l. 23). Old versions: `old-js-version.js` |
+| Selectors: id, class, element, attribute, `:checked`, `:not()`, `:first` | `booking.js` l. 56 (`button[data-time]`), `reviews.js` l. 180 (`:checked`), `about.js` l. 51 (`:not(.hidden)`), `reviews.js` l. 222 (`:first`) |
+| Traversal: `.closest()`, `.find()`, `.siblings()`, `.parent()`, `.each()` | `reviews.js` l. 60, 189; `booking.js` l. 62, 129 |
+| `$(this)` | `booking.js` l. 57, `reviews.js` l. 59, `jq-main.js` l. 34 |
+| Chains of 3+ methods (one explained) | `booking.js` l. 60-62 (commented, 5 steps); `jq-main.js` l. 19-23 |
+| `.text()`, `.html()`, `.val()`, `.attr()`, `.prop()` | `about.js` l. 58-62 (`.html` with numbers only, `.text` for everything typed); `booking.js` l. 118-120 (`.prop('checked')` vs `.attr`) |
+| List made from an array with `.append()`/`.appendTo()` | `booking.js` l. 42 (slot buttons), `reviews.js` l. 23 and `renderReviews` (cards from `savedReviews`) |
+| Delegated handler | `reviews.js` l. 58 (`$list.on('click', '.review-delete', ...)`), `booking.js` l. 56, `jq-main.js` l. 33 |
+| Event types | click, submit, input, change, focusout, reset |
+| Effects | `fadeIn` (success box, new review), `fadeOut` with callback (delete a review, `reviews.js` l. 63), `slideToggle(250, callback)` (filter panel, l. 109), `animate` (scroll to the result, `jq-main.js`) |
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 | Form validation | Booking form, `booking.js` l. 73-165: trimmed text, e-mail and phone format, guests 1-10, date not in the past, time inside the hours of that day, consent; one message beside each field; first wrong field gets focus; the error clears while typing; success summary only when all is valid, then the form is reset |
 
 Plain-language answers for the defense: `.text()` writes plain text (safe for anything the visitor typed), `.html()` parses markup (only for our own text). `.prop('checked')` is the current state of a checkbox; `.attr('checked')` is only what was written in the HTML. A delegated handler sits on a parent that already exists and checks, when a click bubbles up, whether the target matches the selector, so it also works for elements that were created later.
 
+<<<<<<< HEAD
 ## Endterm: Reviews and Coffee (Aisha)
 
 The HTML and CSS stay frozen. Everything new is made by the scripts; states are switched with Bootstrap classes and `.hidden`.
@@ -184,3 +214,28 @@ The HTML and CSS stay frozen. Everything new is made by the scripts; states are 
 - **Coffee Varieties:** the table body in `coffee.html` is now empty. The rows are made from the array `VARIETIES` in a loop. A search field filters them by name or by what the drink contains (found text is highlighted, there is a count and an empty message with a Clear button). A press on a name chooses that drink in "Build your coffee" and scrolls to it; a drink that is not in the order list says so.
 - **Events:** `submit`, `input`, `change`, `click`, `reset`, `mouseenter`, `mouseleave`. **Delegated handler:** one `click` handler on the table body catches the buttons that are made again at every search.
 - **Zoom:** the photos of the page grow when the mouse is over them.
+=======
+## Endterm additions since the midterm
+
+The midterm pages supplied the layout, menu, forms, team information, FAQ, opening-hours table, address, and review content. The endterm work makes those existing visitor journeys interactive and complete:
+
+| Existing page feature | Endterm extension | Implementation | Student |
+|---|---|---|---|
+| Shared page header and order link | Live open/closed status and cart count on every page | Plain JavaScript: `js/main.js`, `js/cart.js` | Team |
+| Menu and category browsing | Search, category filtering, empty state, surprise suggestion, customization and cart add | Plain JavaScript: `js/menu.js`, `js/extras.js` | Aisha |
+| Order form | Cart summary, calculated total, validation, confirmation and repeat last order | Plain JavaScript: `js/order.js` | Aisha |
+| Coffee extras information | Interactive price builder and add-to-cart flow | Plain JavaScript: `js/coffee.js`, `js/extras.js` | Aisha |
+| Home drink discovery | Milk/price filtering, empty state, random pick and cart add | Plain JavaScript: `js/index.js` | Yerkenaz |
+| About FAQ | Search questions and answers, result count, empty state and clear | jQuery: `js/about.js` | Dilnaz |
+| Booking form | Per-field validation, available time slots and completed request summary | jQuery: `js/booking.js` | Yerkenaz |
+| Visit hours and contact form | Today's hours highlight, live message count, full validation and confirmation | Plain JavaScript: `js/visit.js` | Dilnaz |
+| Reviews and review form | Validated local reviews, delete own reviews, filter, sort and rating summary | jQuery: `js/reviews.js` | Dilnaz |
+
+The plain-JavaScript and jQuery page features are in separate files. `js/data.js` contains the project data and shared calculations. Shared plain-JavaScript helpers in `js/main.js` support the site-wide status and cart display; they do not implement the jQuery page features.
+
+### Endterm final checks
+
+The source was checked for leftover Git conflict markers, inline `onclick` handlers, and whitespace errors. The pages still need a live walkthrough in a browser, including all forms with empty and malformed values, the empty-result states, phone-width layout, and a W3C validation pass. The walkthrough should be completed by a teammate or on another device before submission.
+
+The `endterm` tag and commit history requirement (four commits across three days, or six commits when working alone) must be completed from the contributors' own Git accounts after the live quality pass. This change session does not fabricate commit history or claim that the browser walkthrough has happened.
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
