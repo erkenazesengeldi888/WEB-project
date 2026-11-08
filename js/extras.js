@@ -1,8 +1,11 @@
 'use strict';
 
+<<<<<<< HEAD
 /* The "extras" picker used on the Coffee page and in the drink window on the Menu page:
    alternative milk (with the kind), extra shot, decaf, several syrups, and free additions (0 tenge). */
 
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function createExtrasPicker(prefix) {
     const element = makeEl('div', 'extras-picker');
     const listeners = [];
@@ -20,7 +23,10 @@ function createExtrasPicker(prefix) {
         return input;
     }
 
+<<<<<<< HEAD
     // syrups: any number, each adds its price
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     const syrupBox = makeEl('fieldset', 'mb-3');
     syrupBox.append(makeEl('legend', 'form-label fs-6', 'Syrups (+' + formatPrice(EXTRAS.syrup) + ' each, choose as many as you like)'));
     const grid = makeEl('div', 'row row-cols-2 row-cols-md-3 g-1');
@@ -71,7 +77,10 @@ function createExtrasPicker(prefix) {
             freeMilk: freeMilk.checked,
             free: freeBoxes.filter((b) => b.checked).map((b) => b.value)
         }),
+<<<<<<< HEAD
         // what the chosen drink allows: milk = it has milk, freeMilk = it can get a little milk for free (Americano)
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
         setTraits(traits) {
             milk.disabled = !traits.milk;
             if (!traits.milk) {

@@ -1,10 +1,13 @@
 'use strict';
 
+<<<<<<< HEAD
 /* Visit page.
    Feature 1: the row of the opening-hours table that is true today is highlighted, with a line "Today: ...".
    Feature 2: the question form with validation, a live character counter and a confirmation. */
 
 // ---------- opening hours: today ----------
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function markToday() {
     const now = new Date();
     const rows = document.querySelectorAll('#opening-hours-table tbody tr');
@@ -22,12 +25,20 @@ function markToday() {
         makeEl('strong', '', 'Today: '),
         document.createTextNode(hours.open + '–' + hours.close + '. ' + status.text + '.')
     );
+<<<<<<< HEAD
     byId('opening-hours-table').closest('.table-responsive').after(today);
 }
 
 // ---------- question form ----------
 const contactForm = byId('contact-form');
 const messageInput = byId('contact-message');
+=======
+    $('opening-hours-table').closest('.table-responsive').after(today);
+}
+
+const contactForm = $('contact-form');
+const messageInput = $('contact-message');
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 const MESSAGE_MIN = 10;
 const MESSAGE_MAX = 500;
 
@@ -54,7 +65,11 @@ function checkField(field) {
             if (!isValidEmail(value)) {
                 return setFieldState(field, 'Please repeat your e-mail address.');
             }
+<<<<<<< HEAD
             return setFieldState(field, value.trim().toLowerCase() === byId('contact-email').value.trim().toLowerCase() ? '' : 'The e-mail addresses are not the same.');
+=======
+            return setFieldState(field, value.trim().toLowerCase() === $('contact-email').value.trim().toLowerCase() ? '' : 'The e-mail addresses are not the same.');
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
         case 'contact-topic':
             return setFieldState(field, value !== '' ? '' : 'Please choose a topic.');
         case 'contact-message':
@@ -64,9 +79,14 @@ function checkField(field) {
     }
 }
 
+<<<<<<< HEAD
 addDemoNote(byId('contact-success'), 'This is a demo: your question is not sent anywhere.');
 
 // A second e-mail field, built here: the two addresses must be the same
+=======
+addDemoNote($('contact-success'), 'This is a demo: your question is not sent anywhere.');
+
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 const confirmCol = makeEl('div', 'col-12 col-md-6');
 const confirmLabel = makeEl('label', 'form-label', 'Repeat e-mail');
 confirmLabel.htmlFor = 'contact-email-confirm';
@@ -79,12 +99,20 @@ confirmInput.required = true;
 const confirmError = makeEl('div', 'invalid-feedback', 'The e-mail addresses are not the same.');
 confirmError.id = 'contact-email-confirm-error';
 confirmCol.append(confirmLabel, confirmInput, confirmError);
+<<<<<<< HEAD
 byId('contact-email').closest('.col-12').after(confirmCol);
+=======
+$('contact-email').closest('.col-12').after(confirmCol);
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 
 contactForm.setAttribute('novalidate', '');
 liveValidate(contactForm, checkField);
 messageInput.addEventListener('input', updateCounter);
+<<<<<<< HEAD
 byId('contact-email').addEventListener('input', () => {
+=======
+$('contact-email').addEventListener('input', () => {
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     if (confirmInput.value !== '') {
         checkField(confirmInput);
     }
@@ -92,6 +120,7 @@ byId('contact-email').addEventListener('input', () => {
 
 contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
+<<<<<<< HEAD
     const fields = ['contact-name', 'contact-email', 'contact-email-confirm', 'contact-topic', 'contact-message'].map(byId);
     const ok = fields.map(checkField).every(Boolean);
     reportErrors(contactForm, byId('contact-error'), ok);
@@ -104,12 +133,30 @@ contactForm.addEventListener('submit', (event) => {
     byId('contact-success-email').textContent = byId('contact-email').value.trim();
     showSuccess(byId('contact-result-text'), byId('contact-success'));
     byId('contact-result').scrollIntoView({ block: 'center' });
+=======
+    const fields = ['contact-name', 'contact-email', 'contact-email-confirm', 'contact-topic', 'contact-message'].map($);
+    const ok = fields.map(checkField).every(Boolean);
+    reportErrors(contactForm, $('contact-error'), ok);
+    if (!ok) {
+        return;
+    }
+    const topic = $('contact-topic');
+    $('contact-success-name').textContent = $('contact-name').value.trim();
+    $('contact-success-topic').textContent = topic.options[topic.selectedIndex].text;
+    $('contact-success-email').textContent = $('contact-email').value.trim();
+    showSuccess($('contact-result-text'), $('contact-success'));
+    $('contact-result').scrollIntoView({ block: 'center' });
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     contactForm.reset();
 });
 
 contactForm.addEventListener('reset', () => {
     resetFieldStates(contactForm);
+<<<<<<< HEAD
     byId('contact-error').classList.add('hidden');
+=======
+    $('contact-error').classList.add('hidden');
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     setTimeout(updateCounter, 0);
 });
 

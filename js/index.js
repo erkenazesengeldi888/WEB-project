@@ -1,8 +1,11 @@
 'use strict';
 
+<<<<<<< HEAD
 /* Home page: "What should I drink?" - the visitor says if they want milk and how much to spend,
    and gets the matching coffees from the DRINKS array (with the count, an empty state and a reset button). */
 
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function drinkResult(drink) {
     const li = makeEl('li', 'list-group-item d-flex justify-content-between align-items-center gap-2');
     const text = makeEl('span', '');
@@ -78,7 +81,11 @@ function buildPicker() {
 
     body.append(form, status, empty, list);
     section.append(body);
+<<<<<<< HEAD
     byId('welcome').after(section);
+=======
+    $('welcome').after(section);
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 
     let shown = DRINKS;
     function update() {

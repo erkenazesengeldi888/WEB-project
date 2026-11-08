@@ -4,8 +4,12 @@
    The plain-JavaScript original is in old-js-version.js (function 1). */
 
 $(function () {
+<<<<<<< HEAD
     // Function 1 of 3. $('<tag>', {...}).append() replaces createElement + properties + append; .each() + .toggleClass()
     // replace forEach + classList.toggle. A little shorter, the logic is the same.
+=======
+
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     function buildFaqSearch() {
         const $items = $('#faq-list .accordion-item');
 

@@ -1,6 +1,9 @@
 'use strict';
 
+<<<<<<< HEAD
 // Mark a field wrong (with a message) or right; returns true when the field is fine
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function jqFieldState($field, message) {
     const bad = message !== '';
     $field

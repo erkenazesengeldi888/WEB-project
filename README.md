@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Espresso Day: Web Technologies Midterm
+=======
+# Espresso Day: Web Technologies  
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
 Group: SE-2537

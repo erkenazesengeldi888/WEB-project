@@ -1,8 +1,11 @@
 'use strict';
 
+<<<<<<< HEAD
 /* One shared cart for the Menu and Order pages and the badge in the header.
    Items live in the browser (localStorage), so every page and tab sees the same cart.
    An item is { name, size, price, qty }; name + size identify it. */
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 const EDCart = (() => {
     const KEY = 'espressoday-cart';
     const MAX = 10;
@@ -25,14 +28,20 @@ const EDCart = (() => {
         try {
             localStorage.setItem(KEY, JSON.stringify(items));
         } catch (error) {
+<<<<<<< HEAD
             // private mode: the cart still works on this page
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
         }
         changed();
     };
 
     const find = (name, size) => items.find((c) => c.name === name && c.size === size);
 
+<<<<<<< HEAD
     // The cart was changed on another page or tab
+=======
+>>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     window.addEventListener('storage', (event) => {
         if (event.key === KEY) {
             items = read();
