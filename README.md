@@ -1,4 +1,3 @@
-# Espresso Day: Web Technologies Midterm
 # Espresso Day: Web Technologies Endterm
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
