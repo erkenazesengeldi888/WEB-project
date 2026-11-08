@@ -364,11 +364,12 @@ function initSurprise() {
 
     let marked = null;
     button.addEventListener('click', () => {
-        const pick = pickRandom(DRINKS);
+        const pick = pickRandom(MENU_DRINKS);
         const entry = menuIndex.find((e) => e.name === pick.name);
         if (!entry) {
             return;
         }
+        const size = pick.sizes.length ? pick.sizes[0][0] : pick.volume;
         // make sure the card is not hidden by a search
         searchForm.reset();
         if (marked) {
@@ -381,11 +382,11 @@ function initSurprise() {
         const add = makeEl('button', 'btn btn-primary btn-sm ms-2', 'Add to cart');
         add.type = 'button';
         add.addEventListener('click', () => {
-            EDCart.add(pick.name, pick.size, pick.price);
+            EDCart.add(pick.name, size, pick.price);
             flashAdded(add, '✓ Added');
         });
         message.replaceChildren(
-            document.createTextNode('How about a ' + pick.name + '? ' + formatPrice(pick.price) + ' for ' + pick.size + '.'),
+            document.createTextNode('How about a ' + pick.name + '? ' + formatPrice(pick.price) + ' for ' + size + '.'),
             add
         );
     });
