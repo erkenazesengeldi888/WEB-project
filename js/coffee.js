@@ -1,11 +1,8 @@
 'use strict';
 
-<<<<<<< HEAD
 /* Coffee page: "Build your coffee" - choose a drink, extras and the number of cups, see the price at once,
    then add the cup to the cart. The extras prices are the ones printed in "Customise Your Coffee". */
 
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function buildCalculator() {
     const section = makeEl('section', 'mb-5');
     section.id = 'coffee-calculator';
@@ -71,11 +68,7 @@ function buildCalculator() {
     body.append(form);
     card.append(body);
     section.append(card);
-<<<<<<< HEAD
     byId('work-info').before(section);
-=======
-    $('work-info').before(section);
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 
     function render() {
         const drink = DRINKS[Number(drinkSelect.value)];
@@ -103,10 +96,7 @@ function buildCalculator() {
             qty.focus();
             return;
         }
-<<<<<<< HEAD
         // the cart keeps one line per name + size, so the name carries the extras
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
         const name = extrasName(state.drink.name, picker.options());
         EDCart.setQty(name, state.drink.size, state.one, EDCart.qty(name, state.drink.size) + state.count);
         done.classList.remove('hidden');

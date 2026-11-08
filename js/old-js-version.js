@@ -1,6 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
 /* OLD PLAIN JAVASCRIPT VERSIONS (Assignment 4-5), kept for comparison with the jQuery versions
    This file is NOT linked to any page. The three functions below were rewritten with jQuery:
      1. FAQ search            about.js    (old buildFaqSearch)
@@ -9,8 +8,6 @@
    They use the helpers of main.js (byId, makeEl, setFieldState, reportErrors, ...) */
 
 // ======================= 1. FAQ search (old about.js) =======================
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 const faqItems = [...document.querySelectorAll('#faq-list .accordion-item')];
 
 function buildFaqSearch() {

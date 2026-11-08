@@ -1,6 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
 /* Order page.
    Feature 1: the shared cart becomes an order with pick-up or delivery, field validation and a confirmation.
    Feature 2: "Repeat my last order" brings back the drinks of the previous order on this device. */
@@ -25,27 +24,6 @@ function updateMethod() {
 }
 
 // ---------- the order list ----------
-=======
-const LAST_ORDER_KEY = 'espressoday-last-order';
-const LAST_BEFORE_CLOSE = 30; // minutes: the latest pick-up time is 30 minutes before closing
-const orderForm = $('order-form');
-const itemsList = $('order-items');
-
-const isDelivery = () => $('order-method-delivery').checked;
-
-function updateMethod() {
-    const delivery = isDelivery();
-    $('order-delivery-fields').classList.toggle('hidden', !delivery);
-    $('order-pickup-info').classList.toggle('hidden', delivery);
-    $('order-address').required = delivery;
-    $('order-time-label').textContent = delivery ? 'Delivery time' : 'Pick-up time';
-    $('order-method-text').textContent = delivery ? 'Delivery' : 'Pick up';
-    if (!delivery) {
-        $('order-address').classList.remove('is-invalid', 'is-valid');
-    }
-}
-
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function stepButton(sign, label, onClick) {
     const button = makeEl('button', 'btn btn-outline-primary btn-sm cart-step', sign);
     button.type = 'button';
@@ -89,7 +67,6 @@ function emptyRow() {
 function renderOrder() {
     const items = EDCart.items();
     itemsList.replaceChildren(...(items.length ? items.map(orderRow) : [emptyRow()]));
-<<<<<<< HEAD
     byId('order-count').textContent = EDCart.count();
     byId('order-total').textContent = EDCart.format(EDCart.total());
     renderRepeat();
@@ -100,17 +77,6 @@ const repeatButton = makeEl('button', 'btn btn-outline-secondary hidden', 'Repea
 repeatButton.type = 'button';
 repeatButton.id = 'order-repeat';
 byId('order-reset').before(repeatButton);
-=======
-    $('order-count').textContent = EDCart.count();
-    $('order-total').textContent = EDCart.format(EDCart.total());
-    renderRepeat();
-}
-
-const repeatButton = makeEl('button', 'btn btn-outline-secondary hidden', 'Repeat my last order');
-repeatButton.type = 'button';
-repeatButton.id = 'order-repeat';
-$('order-reset').before(repeatButton);
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 
 function renderRepeat() {
     const last = readStorage(LAST_ORDER_KEY, null);
@@ -125,18 +91,11 @@ repeatButton.addEventListener('click', () => {
     const last = readStorage(LAST_ORDER_KEY, null);
     if (last) {
         EDCart.replaceAll(last.items);
-<<<<<<< HEAD
         byId('order-error').classList.add('hidden');
     }
 });
 
 // ---------- validation ----------
-=======
-        $('order-error').classList.add('hidden');
-    }
-});
-
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function checkField(field) {
     const value = field.value;
     switch (field.id) {
@@ -158,10 +117,7 @@ function checkField(field) {
             if (!isTimeWithinHours(value, new Date(), LAST_BEFORE_CLOSE)) {
                 return setFieldState(field, 'Please choose a time between ' + hours.open + ' and ' + latest + ' today.');
             }
-<<<<<<< HEAD
             // an order for today cannot be in the past
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
             if (toMinutes(value) < toMinutes(toTimeString(new Date()))) {
                 return setFieldState(field, 'This time has already passed. Please choose a later time.');
             }
@@ -175,19 +131,12 @@ function checkField(field) {
 }
 
 function validateOrder() {
-<<<<<<< HEAD
     const fields = ['order-name', 'order-phone', 'order-address', 'order-time', 'order-consent'].map(byId);
-=======
-    const fields = ['order-name', 'order-phone', 'order-address', 'order-time', 'order-consent'].map($);
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     const results = fields.map(checkField); // run every check so all wrong fields are marked
     return results.every(Boolean) && EDCart.items().length > 0;
 }
 
-<<<<<<< HEAD
 // A good default pick-up time: in 30 minutes, rounded up to 5 minutes, kept inside today's hours
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function suggestTime() {
     const now = new Date();
     const hours = getHours(now);
@@ -196,7 +145,6 @@ function suggestTime() {
     return pad(Math.floor(minutes / 60)) + ':' + pad(minutes % 60);
 }
 
-<<<<<<< HEAD
 // ---------- confirmation ----------
 function showConfirmation(order) {
     byId('order-number').textContent = order.number;
@@ -215,25 +163,6 @@ function showConfirmation(order) {
 }
 
 addDemoNote(byId('order-success'), 'This is a demo: your data is not sent anywhere and no real order is placed. Nothing is paid or prepared.');
-=======
-function showConfirmation(order) {
-    $('order-number').textContent = order.number;
-    $('order-pickup').textContent = (order.delivery ? 'delivery to ' + order.address + ' at ' : 'pick-up at ') + order.time;
-    $('order-final-total').textContent = EDCart.format(calcTotal(order.items));
-
-    let list = $('order-success-items');
-    if (!list) {
-        list = makeEl('ul', 'mb-2');
-        list.id = 'order-success-items';
-        $('order-success').querySelector('p').after(list);
-    }
-    list.replaceChildren(...order.items.map((c) => makeEl('li', '', c.qty + ' × ' + EDCart.label(c) + ' — ' + EDCart.format(c.qty * c.price))));
-    showSuccess($('order-result-text'), $('order-success'));
-    $('order-result').scrollIntoView({ block: 'center' });
-}
-
-addDemoNote($('order-success'), 'This is a demo: your data is not sent anywhere and no real order is placed. Nothing is paid or prepared.');
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 orderForm.setAttribute('novalidate', '');
 liveValidate(orderForm, checkField);
 orderForm.addEventListener('change', (event) => {
@@ -245,27 +174,16 @@ orderForm.addEventListener('change', (event) => {
 orderForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const ok = validateOrder();
-<<<<<<< HEAD
     reportErrors(orderForm, byId('order-error'), ok);
     if (!ok) {
         byId('order-error').scrollIntoView({ block: 'center' });
-=======
-    reportErrors(orderForm, $('order-error'), ok);
-    if (!ok) {
-        $('order-error').scrollIntoView({ block: 'center' });
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
         return;
     }
     const order = {
         number: generateOrderNumber(),
         delivery: isDelivery(),
-<<<<<<< HEAD
         address: byId('order-address').value.trim(),
         time: byId('order-time').value,
-=======
-        address: $('order-address').value.trim(),
-        time: $('order-time').value,
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
         items: EDCart.items().map((c) => ({ ...c }))
     };
     writeStorage(LAST_ORDER_KEY, order);
@@ -276,7 +194,6 @@ orderForm.addEventListener('submit', (event) => {
 
 orderForm.addEventListener('reset', () => {
     resetFieldStates(orderForm);
-<<<<<<< HEAD
     byId('order-error').classList.add('hidden');
     setTimeout(() => {
         updateMethod();
@@ -287,25 +204,9 @@ orderForm.addEventListener('reset', () => {
 byId('order-reset').addEventListener('click', () => {
     EDCart.clear();
     hideSuccess(byId('order-result-text'), byId('order-success'));
-=======
-    $('order-error').classList.add('hidden');
-    setTimeout(() => {
-        updateMethod();
-        $('order-time').value = suggestTime();
-    }, 0);
-});
-
-$('order-reset').addEventListener('click', () => {
-    EDCart.clear();
-    hideSuccess($('order-result-text'), $('order-success'));
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 });
 
 EDCart.onChange(renderOrder);
 renderOrder();
 updateMethod();
-<<<<<<< HEAD
 byId('order-time').value = suggestTime();
-=======
-$('order-time').value = suggestTime();
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43

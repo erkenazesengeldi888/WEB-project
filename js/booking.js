@@ -12,10 +12,7 @@ $(function () {
 
     $date.attr('min', toDateInputValue(new Date()));
 
-<<<<<<< HEAD
     // ---------- time slots ----------
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     const $slots = $('<div>', {
         id: 'booking-slots',
         'class': 'd-flex flex-wrap gap-1 mt-2',
@@ -63,10 +60,7 @@ $(function () {
     $date.on('change', renderSlots);
     $time.on('input', renderSlots);
 
-<<<<<<< HEAD
     // ---------- validation ----------
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     // Function 2 of 3. .val() / .prop() / .attr() replace value / checked / setAttribute. The switch is the same,
     // so it is only a little shorter; the submit handler below became clearer.
     function checkField($field) {

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Espresso Day: Web Technologies Midterm
-=======
-# Espresso Day: Web Technologies  
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
+# Espresso Day: Web Technologies Endterm
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
 Group: SE-2537
@@ -88,12 +84,7 @@ The old Assignment 2 stylesheets are deleted; `removed-css.md` lists what Bootst
 - `removed-css.md`: what Bootstrap replaced from Assignment 2
 
 ## Freeze
-The final commit is tagged `midterm`:
-```
-git tag midterm
-git push origin midterm
-```
-After the tag, new elements and styles are produced by JavaScript only.
+The repository keeps the midterm baseline. The endterm version adds behavior in JavaScript; generated content is created by code, and existing CSS state classes are switched by the scripts.
 
 
 ## JavaScript (Assignments 4 and 5)
@@ -169,3 +160,27 @@ jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity has
 | Form validation | Booking form, `booking.js` l. 73-165: trimmed text, e-mail and phone format, guests 1-10, date not in the past, time inside the hours of that day, consent; one message beside each field; first wrong field gets focus; the error clears while typing; success summary only when all is valid, then the form is reset |
 
 Plain-language answers for the defense: `.text()` writes plain text (safe for anything the visitor typed), `.html()` parses markup (only for our own text). `.prop('checked')` is the current state of a checkbox; `.attr('checked')` is only what was written in the HTML. A delegated handler sits on a parent that already exists and checks, when a click bubbles up, whether the target matches the selector, so it also works for elements that were created later.
+
+## Endterm additions since the midterm
+
+The midterm pages supplied the layout, menu, forms, team information, FAQ, opening-hours table, address, and review content. The endterm work makes those existing visitor journeys interactive and complete:
+
+| Existing page feature | Endterm extension | Implementation | Student |
+|---|---|---|---|
+| Shared page header and order link | Live open/closed status and cart count on every page | Plain JavaScript: `js/main.js`, `js/cart.js` | Team |
+| Menu and category browsing | Search, category filtering, empty state, surprise suggestion, customization and cart add | Plain JavaScript: `js/menu.js`, `js/extras.js` | Aisha |
+| Order form | Cart summary, calculated total, validation, confirmation and repeat last order | Plain JavaScript: `js/order.js` | Aisha |
+| Coffee extras information | Interactive price builder and add-to-cart flow | Plain JavaScript: `js/coffee.js`, `js/extras.js` | Aisha |
+| Home drink discovery | Milk/price filtering, empty state, random pick and cart add | Plain JavaScript: `js/index.js` | Yerkenaz |
+| About FAQ | Search questions and answers, result count, empty state and clear | jQuery: `js/about.js` | Dilnaz |
+| Booking form | Per-field validation, available time slots and completed request summary | jQuery: `js/booking.js` | Yerkenaz |
+| Visit hours and contact form | Today's hours highlight, live message count, full validation and confirmation | Plain JavaScript: `js/visit.js` | Dilnaz |
+| Reviews and review form | Validated local reviews, delete own reviews, filter, sort and rating summary | jQuery: `js/reviews.js` | Dilnaz |
+
+The plain-JavaScript and jQuery page features are in separate files. `js/data.js` contains the project data and shared calculations. Shared plain-JavaScript helpers in `js/main.js` support the site-wide status and cart display; they do not implement the jQuery page features.
+
+### Endterm final checks
+
+The source was checked for leftover Git conflict markers, inline `onclick` handlers, and whitespace errors. The pages still need a live walkthrough in a browser, including all forms with empty and malformed values, the empty-result states, phone-width layout, and a W3C validation pass. The walkthrough should be completed by a teammate or on another device before submission.
+
+The `endterm` tag and commit history requirement (four commits across three days, or six commits when working alone) must be completed from the contributors' own Git accounts after the live quality pass. This change session does not fabricate commit history or claim that the browser walkthrough has happened.

@@ -1,6 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
 /* Shared by every page: helpers for forms and the two team features in the header
    (open/closed status and the cart badge on the Order link). */
 
@@ -9,12 +8,6 @@ const byId = (id) => document.getElementById(id);
 // Mark a field as wrong (message) or right (empty message). The red text is the page's own #<id>-error block.
 function setFieldState(field, message) {
     const error = byId(field.id + '-error');
-=======
-const $ = (id) => document.getElementById(id);
-
-function setFieldState(field, message) {
-    const error = $(field.id + '-error');
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     const bad = message !== '';
     field.classList.toggle('is-invalid', bad);
     field.classList.toggle('is-valid', !bad);
@@ -30,10 +23,7 @@ function resetFieldStates(form) {
     form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
 }
 
-<<<<<<< HEAD
 // Validate a field when the visitor leaves it, and again on every change once it was marked wrong
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function liveValidate(form, check) {
     form.addEventListener('focusout', (event) => {
         if (event.target.matches('input:not([type="radio"]):not([type="checkbox"]), textarea, select')) {
@@ -52,10 +42,7 @@ function liveValidate(form, check) {
     });
 }
 
-<<<<<<< HEAD
 // Show the red alert (ok = false) or hide it, and move focus to the first wrong field
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function reportErrors(form, alertEl, ok) {
     alertEl.classList.toggle('hidden', ok);
     if (!ok) {
@@ -66,10 +53,7 @@ function reportErrors(form, alertEl, ok) {
     }
 }
 
-<<<<<<< HEAD
 // Replace the "what happens next" text with the success box
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function showSuccess(textEl, successEl) {
     textEl.classList.add('hidden');
     successEl.classList.remove('hidden');
@@ -104,18 +88,12 @@ function writeStorage(key, value) {
     try {
         localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
-<<<<<<< HEAD
         // private mode: the data lives only until the page is closed
     }
 }
 
 // Team feature 1: "Open now / Closed" badge in the title band, updated every minute
 function initOpenStatus() {
-=======
-    }
-}
-
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     const band = document.querySelector('header .bg-primary');
     if (!band) {
         return;
@@ -130,18 +108,11 @@ function initOpenStatus() {
         badge.classList.toggle('text-bg-success', status.open);
         badge.classList.toggle('text-bg-secondary', !status.open);
     };
-<<<<<<< HEAD
-=======
-    {
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
     update();
     setInterval(update, 60000);
 }
 
-<<<<<<< HEAD
 // Team feature 2: number of drinks in the cart next to "Order" in the menu, on every page
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function initCartBadge() {
     const link = document.querySelector('#mainNav a[href="order.html"]');
     if (!link) {
@@ -163,10 +134,7 @@ function initCartBadge() {
 initOpenStatus();
 initCartBadge();
 
-<<<<<<< HEAD
 // Every success box says clearly that this is a demo
-=======
->>>>>>> 800ed67c0c9cad746f2be930d95b5ff51f75fe43
 function addDemoNote(successEl, text) {
     const note = makeEl('p', 'small mb-0 mt-2 fst-italic', text || 'This is a demo: your data is not sent anywhere and no real order or booking is made.');
     note.classList.add('demo-note');
