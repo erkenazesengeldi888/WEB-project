@@ -98,11 +98,7 @@ function initOpenStatus() {
     if (!band) {
         return;
     }
-<<<<<<< HEAD
     const badge = makeEl('span', 'badge rounded-pill mt-2 fs-6 fw-normal');
-=======
-    const badge = makeEl('span', 'badge rounded-pill mt-2');
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
     badge.id = 'open-status';
     badge.setAttribute('role', 'status');
     band.appendChild(badge);
@@ -110,11 +106,7 @@ function initOpenStatus() {
         const status = getOpenStatus(new Date());
         badge.textContent = status.text;
         badge.classList.toggle('text-bg-success', status.open);
-<<<<<<< HEAD
         badge.classList.toggle('text-bg-light', !status.open);
-=======
-        badge.classList.toggle('text-bg-secondary', !status.open);
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
     };
     update();
     setInterval(update, 60000);
@@ -148,7 +140,6 @@ function addDemoNote(successEl, text) {
     note.classList.add('demo-note');
     successEl.append(note);
 }
-<<<<<<< HEAD
 
 /* Look of the pages (the CSS is frozen): this only adds ready-made Bootstrap classes, the same on every page.
    Each rule is [selector, classes to add, classes to remove]. A MutationObserver runs the rules again for every element the
@@ -248,5 +239,3 @@ new MutationObserver((changes) => {
         });
     });
 }).observe(document.body, { childList: true, subtree: true });
-=======
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057

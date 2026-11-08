@@ -4,7 +4,6 @@
    Feature 1: search and category filter with highlighted matches, sizes that change the price, cart panel, drink window.
    Feature 2: "Surprise me" picks a random coffee and offers to add it to the cart. */
 
-<<<<<<< HEAD
 // ---------- the cards are made from MENU_DRINKS and MENU_LIST (js/menu-data.js) ----------
 function drinkCard(item) {
     const col = makeEl('div', 'col');
@@ -87,8 +86,6 @@ document.querySelectorAll('.menu-category').forEach((section) => {
     }
 });
 
-=======
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 const cards = [...document.querySelectorAll('.menu-item')];
 const menuIndex = cards.map((card) => ({
     name: card.dataset.name,
@@ -96,24 +93,6 @@ const menuIndex = cards.map((card) => ({
     card
 }));
 
-<<<<<<< HEAD
-=======
-// The orange juice card has an emoji box in the HTML: swap it for the real photo (same markup as the other cards)
-cards.filter((card) => card.dataset.name === 'Orange').forEach((card) => {
-    const empty = card.querySelector('.drink-photo-empty');
-    if (!empty) {
-        return;
-    }
-    const photo = makeEl('img', 'drink-photo');
-    photo.src = 'images/menu/orange.jpg';
-    photo.alt = 'Orange';
-    photo.width = 520;
-    photo.height = 520;
-    photo.loading = 'lazy';
-    empty.replaceWith(photo);
-});
-
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 // ---------- sizes: the price follows the chosen size ----------
 function selectedSize(card) {
     return card.querySelector('.drink-size.active');
@@ -121,15 +100,11 @@ function selectedSize(card) {
 
 function currentPrice(card) {
     const active = selectedSize(card);
-<<<<<<< HEAD
     if (active) {
         return Number(active.dataset.price);
     }
     // a list row (Baby Drinks, Extras) keeps its price in data-price, a card shows it in .drink-price
     return card.dataset.price ? Number(card.dataset.price) : Number(card.querySelector('.drink-price').textContent.replace(/\D/g, ''));
-=======
-    return active ? Number(active.dataset.price) : Number(card.querySelector('.drink-price').textContent.replace(/\D/g, ''));
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 }
 
 function currentSizeLabel(card) {
@@ -361,12 +336,9 @@ document.addEventListener('click', (event) => {
 });
 
 byId('drink-modal-add').addEventListener('click', (event) => {
-<<<<<<< HEAD
     if (openCard === null) {
         return;
     }
-=======
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
     if (isCustom(openCard)) {
         const options = picker.options();
         EDCart.add(extrasName(openCard.dataset.name, options), currentSizeLabel(openCard), modalPrice());
@@ -400,10 +372,10 @@ function initSurprise() {
         // make sure the card is not hidden by a search
         searchForm.reset();
         if (marked) {
-            marked.classList.remove('active');
+            marked.classList.remove('active', 'border', 'border-2', 'border-primary');
         }
         marked = entry.card;
-        marked.classList.add('active');
+        marked.classList.add('active', 'border', 'border-2', 'border-primary');
         marked.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         const add = makeEl('button', 'btn btn-primary btn-sm ms-2', 'Add to cart');

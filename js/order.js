@@ -9,13 +9,10 @@ const LAST_BEFORE_CLOSE = 30; // minutes: the latest pick-up time is 30 minutes 
 const orderForm = byId('order-form');
 const itemsList = byId('order-items');
 
-<<<<<<< HEAD
 // Payment: only cash, paid when the order is received (there is no online payment on this site)
 const CASH_TEXT = 'I will pay for this order in cash when I receive it.';
 const CASH_ERROR = 'Please confirm that you will pay for the order in cash when you receive it.';
 
-=======
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
 const isDelivery = () => byId('order-method-delivery').checked;
 
 function updateMethod() {
@@ -131,11 +128,7 @@ function checkField(field) {
             return setFieldState(field, '');
         }
         case 'order-consent':
-<<<<<<< HEAD
             return setFieldState(field, field.checked ? '' : CASH_ERROR);
-=======
-            return setFieldState(field, field.checked ? '' : 'Please confirm that you will pay for the order.');
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
         default:
             return true;
     }
@@ -221,7 +214,6 @@ EDCart.onChange(renderOrder);
 renderOrder();
 updateMethod();
 byId('order-time').value = suggestTime();
-<<<<<<< HEAD
 
 // Say clearly, in four places, that the payment is in cash on receipt (the texts are changed, no element is added)
 function showCashPayment() {
@@ -239,5 +231,3 @@ function showCashPayment() {
 }
 
 showCashPayment();
-=======
->>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
