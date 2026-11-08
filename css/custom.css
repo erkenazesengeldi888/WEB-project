@@ -164,6 +164,11 @@ tr.active > * {
     transition: box-shadow 0.15s ease, border-color 0.15s ease;   /* no movement, so the page never jumps */
 }
 
+.drink-card.surprise-selected {
+    border: 3px solid #dc3545 !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.18) !important;
+}
+
 .drink-card:hover {
     border-color: var(--bs-primary);
     box-shadow: 0 0.5rem 1rem rgba(27, 18, 17, 0.15) !important;

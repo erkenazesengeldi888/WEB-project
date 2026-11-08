@@ -372,10 +372,10 @@ function initSurprise() {
         // make sure the card is not hidden by a search
         searchForm.reset();
         if (marked) {
-            marked.classList.remove('active', 'border', 'border-2', 'border-primary');
+            marked.classList.remove('surprise-selected');
         }
         marked = entry.card;
-        marked.classList.add('active', 'border', 'border-2', 'border-primary');
+        marked.classList.add('surprise-selected');
         marked.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         const add = makeEl('button', 'btn btn-primary btn-sm ms-2', 'Add to cart');
