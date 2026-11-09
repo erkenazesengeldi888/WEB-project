@@ -220,3 +220,40 @@ new MutationObserver((changes) => {
         });
     });
 }).observe(document.body, { childList: true, subtree: true });
+
+const PERK_ICONS = [
+    ['M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z', 'M16 11h1.5a2.5 2.5 0 0 1 0 5H16', 'M8 3v3M12 3v3'],
+    ['M13 2 4 14h7l-1 8 9-12h-7z'],
+    ['M9 2v5M15 2v5', 'M6 7h12v4a6 6 0 0 1-12 0z', 'M12 17v5'],
+    ['M12 3l3 3-3 3-3-3z', 'M12 15l3 3-3 3-3-3z', 'M3 12l3-3 3 3-3 3z', 'M15 12l3-3 3 3-3 3z'],
+    ['M9 2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M11 18h2'],
+    ['M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z', 'M14.5 9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z']
+];
+
+function makeIcon(paths) {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    const attrs = { width: 48, height: 48, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor',
+        'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true' };
+    for (const [name, value] of Object.entries(attrs)) {
+        svg.setAttribute(name, value);
+    }
+    svg.setAttribute('class', 'text-primary');
+    for (const d of paths) {
+        const path = document.createElementNS(ns, 'path');
+        path.setAttribute('d', d);
+        svg.append(path);
+    }
+    return svg;
+}
+
+function initPerkIcons() {
+    const slots = document.querySelectorAll('#perk-list .card-body > span');
+    slots.forEach((slot, i) => {
+        if (PERK_ICONS[i]) {
+            slot.replaceChildren(makeIcon(PERK_ICONS[i]));
+        }
+    });
+}
+
+initPerkIcons();
