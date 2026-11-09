@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Espresso Day: Web Technologies Project (Midterm → Endterm)
+=======
+# Espresso Day: Web Technologies Endterm
+>>>>>>> e72849f51a35bc557c1555d5553ffdb059fc7ba9
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
 Group: SE-2537
@@ -92,6 +96,64 @@ git push origin midterm
 After the tag, new elements and styles are produced by JavaScript only.
 
 
+<<<<<<< HEAD
+## JavaScript (Assignments 4, 5 and Endterm)
+
+HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` tags at the end. No element is written by hand into the HTML and no rule is added to the CSS: every new element is created from JavaScript and styled with Bootstrap classes or the existing state classes (`.hidden`, `.active`, `.selected`, `.highlight`).
+
+The code is split into **two files**:
+
+| File | Technology | What it holds |
+|---|---|---|
+| `js/script.js` | Plain JavaScript | Data (`DRINKS`, `HOURS`, `EXTRAS`, `SYRUPS`...), pure functions with `return` (`formatPrice`, `calcTotal`, `calcCount`, `calcCashback`, `isValidEmail`, `isValidPhone`...), the shared cart, rendering of cards and lists from arrays (coffee cards of the "What should I drink?" picker on Home, cart lines, reviews, time slots), all events (`click`, `submit`, `input`, `change`, `reset`, `focusout`, `storage`), event delegation on parent elements, and full form validation (`preventDefault`, `trim`, an error under every field, e-mail and phone format, success only when everything is correct) |
+| `js/jq-main.js` | jQuery 3.7.1 (CDN), inside `$(function () { ... })` | Five features written only with jQuery: cart notification pop-up, Back to top (fades in, smooth scroll), FAQ answers that slide open one at a time, Menu category links (smooth jump, the pill follows the category you are reading), Coffee varieties filter on the Coffee page (with milk / black / iced, rows fade, count). DOM navigation with `$(this)`, `.closest()`, `.find()`, `.siblings()`, `.end()`, `.filter()` and chains of 3+ methods |
+
+`script.js` is wrapped in an IIFE, so it does not take the `$` name from jQuery. Each page feature (`initMenu`, `initOrder`, `initBooking`...) checks for its own elements and does nothing on other pages. The two files talk through one custom event, `edcart:added`.
+
+Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`, `document.write()`, inline handlers, and no user text through `innerHTML` (only `textContent`). `Math.random()` is used for the temporary order number (`ED-1234`, a reference for the page, not a server id) and for "Surprise me".
+
+## Endterm: Plain JS and jQuery
+
+For the endterm the JavaScript is split by technology into two files (see the table above). The HTML/CSS freeze from the `midterm` tag is kept: compared with `midterm`, the HTML files differ only in the `<script>` tags at the end, and `css/custom.css` is unchanged.
+
+### Requirements and where they are
+
+| Requirement | Where |
+|---|---|
+| Arrays and objects with real data | `script.js`: `DRINKS`, `HOURS`, `EXTRAS`, `MILK_TYPES`, `SYRUPS`, `FREE_EXTRAS`, `REVIEW_TITLES` |
+| Cards rendered by a loop from data | Home: "What should I drink?" coffee cards from `DRINKS` (`renderDrinkCards`); cart lines (Menu, Order); reviews; booking time slots |
+| Functions with parameters and `return`, called from several places | `formatPrice`, `calcTotal`, `calcCount`, `calcCashback`, `isValidEmail`, `isValidPhone`, `setFieldState`, `cartLine`, `makeEl` |
+| Calculated values | Order total and number of drinks, 10% app cashback (Order), price of a custom coffee with extras (Coffee, Menu), average rating (Reviews) |
+| At least 3 event types | `click`, `submit`, `input`, `change`, `reset`, `focusout`, `storage` |
+| Event delegation | Cart lines, Home coffee cards, Menu cards (size, Add, drink window), booking time slots, review delete buttons: one listener on the parent |
+| Full form validation | Booking, Order, Visit (question), Reviews: `e.preventDefault()`, `.trim()`, an error under each field, e-mail and phone format, success message only when every field is correct |
+| jQuery from CDN in `$(function () { ... })` | `jq-main.js`, jQuery 3.7.1 from code.jquery.com |
+| Traversal without extra ids, chaining of 3+ methods | `jq-main.js`: `$(this)`, `.closest()`, `.find()`, `.siblings()`, `.end()`, `.filter()`; for example the FAQ chain `$(this).toggleClass().attr().closest().find().stop().slideToggle()` |
+| Effects for user actions | `jq-main.js`, see below |
+
+### jQuery features
+
+| Page | Feature | Student |
+|---|---|---|
+| All pages | Pop-up notification when a drink is added to the order | Team |
+| All pages | "Back to top" appears after scrolling and scrolls up smoothly | Team |
+| About | FAQ answers slide open, only one is open at a time | Dilnaz |
+| Menu | Category links scroll smoothly to the category; the active category follows the scroll | Aisha |
+| Coffee | Coffee varieties filter: With milk or cream / Black coffee / Served with ice, rows fade, count | Aisha |
+
+Each feature is written with one technology only: the two files never work on the same feature. They share one custom event, `edcart:added` (the cart in `script.js` fires it, the notification in `jq-main.js` shows it).
+
+### Fixed for the endterm
+- `main.js` had a syntax error, so the "Open now" badge and the cart counter did not work on any page.
+- The **Add** button of 10 menu rows (Baby drinks, Extras, coffee beans) threw an error and added nothing.
+- The Raf price in `DRINKS` (1290 ₸) did not match the menu (1590 ₸).
+- Closing the drink window or the cart panel left an `aria-hidden` focus warning in the console.
+
+### Checks
+- [ ] Every page opened with the browser console (F12): no errors.
+- [ ] Every button on every page clicked: each one does something.
+
+=======
 ## JavaScript (Assignments 4 and 5)
 
 HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` tags at the end. The inline scripts that used to be in `menu.html` and `order.html` were moved to `js/menu.js` and `js/order.js`.
@@ -102,10 +164,15 @@ HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` t
 | `js/cart.js` | all pages | The shared cart, kept in `localStorage` |
 | `js/main.js` | all pages | Form helpers, the two team features (below), the common look (fonts, rounded cards, photo zoom) and the icons of "Why Espresso Day" on the Home page |
 | `js/extras.js` | Menu, Coffee | The drink extras picker: alternative milk with its kind, extra shot, decaf, any number of syrups, free additions (cinnamon, sugar, sweetener; milk for the Americano) |
+<<<<<<< HEAD
 | `menu.js`, `coffee.js`, `order.js`, `visit.js` (plain JS); `jq-about.js`, `jq-booking.js`, `jq-reviews.js` (jQuery) | one page each | Page features |
+=======
+| `js/index.js`, `about.js`, `menu.js`, `coffee.js`, `order.js`, `booking.js`, `visit.js`, `reviews.js` | one page each | Page features |
+>>>>>>> e72849f51a35bc557c1555d5553ffdb059fc7ba9
 
 Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`, `document.write()`, inline handlers, and no user text through `innerHTML` (only `textContent`). `Math.random()` is used for the temporary order number (`ED-1234`, a reference for the page, not a server id) and for "Surprise me" (a random drink of the menu).
 
+>>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
 ## Functionality Plan
 
 | Page | Visitor goal | Planned feature | Expected result | Student |
@@ -120,6 +187,10 @@ Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`
 | Booking | Choose a time quickly | Time slots every 30 minutes for the chosen date (today: only future times) | One press on a slot fills the time field | Yerkenaz |
 | Visit Us | Know today's hours | Today's row of the hours table is highlighted and a line "Today: ..." is added | The visitor sees today's hours and whether the shop is open | Dilnaz |
 | Visit Us | Ask a question | Question form: 5 fields checked, the second e-mail must equal the first, live character counter (10-500), confirmation saying nothing is sent | Confirmation with name, topic and e-mail | Dilnaz |
+<<<<<<< HEAD
+| Home | Decide what to drink | "What should I drink?": milk and maximum price choose coffees from the `DRINKS` array, with count, empty state, reset, "Pick one for me" (random) and Add | The matching coffees appear and can go to the cart | Yerkenaz |
+=======
+>>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
 | About | Find an answer fast | Search in the common questions (question and answer text), count, empty message, Clear | Only matching questions stay visible | Dilnaz |
 | Coffee | Know the price of my exact cup | "Build your coffee": coffee, kind of milk, extra shot, decaf, several syrups, free additions and number of cups give the price at once; Add to cart | Price per cup and total are shown and the cup goes to the cart | Aisha |
 | Reviews | Share an opinion | Review form with rating and text; the review is added to the list and kept in the browser; own reviews can be deleted | The new review appears first with a thank-you message | Dilnaz |
@@ -134,6 +205,13 @@ git tag assignment-5
 git push origin assignment-4 assignment-5
 ```
 
+<<<<<<< HEAD
+Endterm:
+```
+git tag endterm
+git push origin endterm
+```
+=======
 ## jQuery (Assignment 4, last assignment)
 
 jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity hash) on the three pages that use it: `about.html`, `booking.html`, `reviews.html`. The only HTML change is the `<script defer>` lines (jQuery first, then `js/jq-main.js`, then the page file). No plugins, no templates, no sliders. Our code runs inside `$(function () { ... })`.
@@ -165,6 +243,30 @@ jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity has
 
 Plain-language answers for the defense: `.text()` writes plain text (safe for anything the visitor typed), `.html()` parses markup (only for our own text). `.prop('checked')` is the current state of a checkbox; `.attr('checked')` is only what was written in the HTML. A delegated handler sits on a parent that already exists and checks, when a click bubbles up, whether the target matches the selector, so it also works for elements that were created later.
 
+## Endterm additions since the midterm
+
+The original pages, theme, navigation, Bootstrap layout, and content remain the project baseline. Endterm work extends their existing visitor journeys with usable interactions:
+
+| Existing feature | Endterm extension | Implementation | Student |
+|---|---|---|---|
+| Shared header and order link | Live open/closed status and cart count | Plain JavaScript: `js/main.js`, `js/cart.js` | Team |
+| Menu browsing | Search, category filter, empty state, drink customization, surprise suggestion, and cart | Plain JavaScript: `js/menu.js`, `js/extras.js` | Aisha |
+| Order form | Cart summary, calculated total, validation, confirmation, and repeat last order | Plain JavaScript: `js/order.js` | Aisha |
+| Home drink discovery | Milk and price filters, empty state, random pick, add to cart | Plain JavaScript: `js/index.js` | Yerkenaz |
+| About FAQ | Search answers, result count, empty state, clear | jQuery: `js/about.js` | Dilnaz |
+| Booking form | Per-field validation, available time slots, completed request summary | jQuery: `js/booking.js` | Yerkenaz |
+| Visit hours and contact form | Today's hours highlight, message counter, validation, confirmation | Plain JavaScript: `js/visit.js` | Dilnaz |
+| Coffee information | Price builder, cart flow, generated and searchable coffee varieties | Plain JavaScript: `js/coffee.js`, `js/extras.js` | Aisha |
+| Reviews and review form | Validated local reviews, filtering, sorting, editing/deleting own reviews | jQuery: `js/reviews.js` | Dilnaz |
+
+The plain-JavaScript and jQuery page features stay in separate files. `js/data.js` holds shared project data and calculations; menu items and coffee-variety rows are generated from arrays rather than duplicated in HTML.
+
+## Final quality pass and submission
+
+Source checks found no merge-conflict markers or inline `onclick` handlers, and `git diff --check` passes. Before submission, complete the required live walkthrough on another device or with a teammate: click every control, submit forms empty and with malformed values, check empty search states and phone-width layout, and run the W3C validator. No live browser walkthrough or validator result is claimed here.
+
+After that pass, contributors must create the required commits from their own accounts across the required days and tag the finished commit `endterm`. The history requirement cannot be met by manufacturing commits in this session.
+
 ## Endterm: Reviews and Coffee (Aisha)
 
 The HTML and CSS stay frozen. Everything new is made by the scripts; states are switched with Bootstrap classes and `.hidden`.
@@ -184,6 +286,7 @@ The HTML and CSS stay frozen. Everything new is made by the scripts; states are 
 - **Coffee Varieties:** the table body in `coffee.html` is now empty. The rows are made from the array `VARIETIES` in a loop. A search field filters them by name or by what the drink contains (found text is highlighted, there is a count and an empty message with a Clear button). A press on a name chooses that drink in "Build your coffee" and scrolls to it; a drink that is not in the order list says so.
 - **Events:** `submit`, `input`, `change`, `click`, `reset`, `mouseenter`, `mouseleave`. **Delegated handler:** one `click` handler on the table body catches the buttons that are made again at every search.
 - **Zoom:** the photos of the page grow when the mouse is over them.
+<<<<<<< HEAD
 
 ## Endterm: what was added
 
@@ -220,3 +323,6 @@ Every jQuery file starts with `jq-`, so the split is visible from the file names
 | The jQuery files are renamed with the `jq-` prefix: `about.js` → `jq-about.js`, `booking.js` → `jq-booking.js`, `reviews.js` → `jq-reviews.js` (only the `src` of their `<script>` changed in the HTML) | `js/` | jQuery | Team |
 
 (Please correct the names if the work was split differently.)
+=======
+>>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
+>>>>>>> e72849f51a35bc557c1555d5553ffdb059fc7ba9

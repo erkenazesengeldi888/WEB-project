@@ -146,6 +146,14 @@ tr.active > * {
     transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
+<<<<<<< HEAD
+=======
+.drink-card.surprise-selected {
+    border: 3px solid #dc3545 !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.18) !important;
+}
+
+>>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
 .drink-card:hover {
     border-color: var(--bs-primary);
     box-shadow: 0 0.5rem 1rem rgba(27, 18, 17, 0.15) !important;
@@ -241,6 +249,11 @@ tr.active > * {
 
 .drink-card .drink-size,
 .drink-card .add-to-cart {
+<<<<<<< HEAD
+=======
+.drink-card .add-to-cart {
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
+>>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
     position: relative;
     z-index: 2;
 }
@@ -252,3 +265,7 @@ tr.active > * {
 .drink-ingredients {
     padding-left: 1.2rem;
 }
+<<<<<<< HEAD
+=======
+>>>>>>> d5ea4a636a06830a42aa915d09eb55a357fb3057
+>>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
