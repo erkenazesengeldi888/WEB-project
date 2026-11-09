@@ -104,7 +104,7 @@ HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` t
 | `js/extras.js` | Menu, Coffee | The drink extras picker: alternative milk with its kind, extra shot, decaf, any number of syrups, free additions (cinnamon, sugar, sweetener; milk for the Americano) |
 | `about.js`, `menu.js`, `coffee.js`, `order.js`, `booking.js`, `visit.js`, `reviews.js` | one page each | Page features |
 
-Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`, `document.write()`, inline handlers, and no user text through `innerHTML` (only `textContent`). `Math.random()` is used for the temporary order number (`ED-1234`, a reference for the page, not a server id) and for "Surprise me".
+Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`, `document.write()`, inline handlers, and no user text through `innerHTML` (only `textContent`). `Math.random()` is used for the temporary order number (`ED-1234`, a reference for the page, not a server id) and for "Surprise me" (a random drink of the menu).
 
 ## Functionality Plan
 
@@ -113,7 +113,7 @@ Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`
 | All pages | Know if the shop is open | **Team feature:** "Open now / Closed" badge in the title band from the opening hours and the current time | Badge says "Open now · until 23:00" or when the shop opens next | Team |
 | All pages | See what is in the order while browsing | **Team feature:** drink counter on the Order link in the navigation | The number follows the cart on every page and tab | Team |
 | Menu | Find a drink fast | Search by name plus category filter, found text highlighted, result count, empty message; coffee drinks can be customised in the drink window with the same extras as on the Coffee page | Only matching drinks stay; Clear shows the whole menu | Aisha |
-| Menu | Not sure what to choose | "Surprise me": random coffee from the `DRINKS` array, scrolls to it and offers **Add to cart** | A random drink with its price is suggested and can be added | Aisha |
+| Menu | Not sure what to choose | "Surprise me": a random drink from the whole menu (every category except Extras), scrolls to it and offers **Add to cart** | A random drink with its price is suggested and can be added | Aisha |
 | Order | Place a pre-order | Cart becomes an order: quantities, pick-up or delivery, field validation, time inside today's hours, order number and list of drinks in the confirmation | Wrong fields are marked with a message; a valid order shows number, drinks, total | Aisha |
 | Order | Order the same again | "Repeat my last order" (last order kept in the browser) | The drinks of the previous order come back into the cart | Aisha |
 | Booking | Request a table | Validation of name, e-mail, phone, guests (1-10), date not in the past, time inside the opening hours of that day; summary | Wrong fields are marked; a valid request shows the summary | Yerkenaz |
@@ -214,7 +214,7 @@ No file mixes the two. The plain JS files have no `$` or `jQuery`; the jQuery fi
 |---|---|---|---|
 | Comments removed from the HTML, CSS and JS files (this README explains the code instead) | all | | Team |
 | Home, "Why Espresso Day": the emoji are replaced by simple line icons. The icons are paths in the array `PERK_ICONS`; `makeIcon(paths)` builds an SVG and `initPerkIcons()` puts them into the cards in a loop. The colour is Bootstrap's `text-primary` | `js/main.js` | plain JS | Team |
-| Menu, "Surprise me": the suggested drink gets a red outline (`border border-danger border-3`, `border-0` taken off) and its name in the message is red and bold (`text-danger fw-bold`). The previous pick goes back to normal | `js/menu.js` | plain JS | Aisha |
+| Menu, "Surprise me": the drink is picked from the whole menu (all categories except Extras: coffee, iced coffee, frappé, lemonades, matcha, teas, milkshakes, baby drinks...), not only from the 6 coffees of `DRINKS`. The suggested drink gets a red outline (`border border-danger border-3`, `border-0` taken off) and its name in the message is red and bold (`text-danger fw-bold`). The previous pick goes back to normal | `js/menu.js` | plain JS | Aisha |
 | `readStorage`/`writeStorage` moved from `main.js` to `data.js`, so the jQuery file `reviews.js` uses no helper of a plain-DOM file | `js/data.js` | shared | Team |
 | The photo canvas in the review form is made with `$('<canvas>')` | `js/reviews.js` | jQuery | Dilnaz |
 

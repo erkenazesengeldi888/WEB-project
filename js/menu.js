@@ -346,20 +346,21 @@ function initSurprise() {
     body.append(button);
     body.append(message);
 
+    const pool = menuIndex.filter((e) => e.category !== 'extras');
     let marked = null;
+    let hadNoBorder = false;
     button.addEventListener('click', () => {
-        const pick = pickRandom(DRINKS);
-        const entry = menuIndex.find((e) => e.name === pick.name);
-        if (!entry) {
-            return;
-        }
+        const entry = pickRandom(pool);
+        const price = currentPrice(entry.card);
+        const size = currentSizeLabel(entry.card);
 
         searchForm.reset();
         if (marked) {
             marked.classList.remove('active', 'border', 'border-danger', 'border-3');
-            marked.classList.add('border-0');
+            marked.classList.toggle('border-0', hadNoBorder);
         }
         marked = entry.card;
+        hadNoBorder = marked.classList.contains('border-0');
         marked.classList.remove('border-0');
         marked.classList.add('active', 'border', 'border-danger', 'border-3');
         marked.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -367,13 +368,13 @@ function initSurprise() {
         const add = makeEl('button', 'btn btn-primary btn-sm ms-2', 'Add to cart');
         add.type = 'button';
         add.addEventListener('click', () => {
-            EDCart.add(pick.name, pick.size, pick.price);
+            EDCart.add(entry.name, size, price);
             flashAdded(add, '✓ Added');
         });
         message.replaceChildren(
             document.createTextNode('How about a '),
-            makeEl('span', 'text-danger fw-bold', pick.name),
-            document.createTextNode('? ' + formatPrice(pick.price) + ' for ' + pick.size + '.'),
+            makeEl('span', 'text-danger fw-bold', entry.name),
+            document.createTextNode('? ' + formatPrice(price) + (size ? ' for ' + size : '') + '.'),
             add
         );
     });
