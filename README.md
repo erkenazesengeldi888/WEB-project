@@ -1,4 +1,4 @@
-# Espresso Day: Web Technologies Midterm
+# Espresso Day: Web Technologies Project (Midterm → Endterm)
 
 Project: Espresso Day Coffee Shop, Syganak 24, Nura District, Astana, Kazakhstan
 Group: SE-2537
@@ -6,7 +6,7 @@ Students: Yerkenaz, Aisha, Dilnaz
 
 Espresso Day is a coffee shop chain with 112 branches across Kazakhstan. This site is for the Syganak 24 branch. A visitor can read about the shop, look at the menu and prices, pre-order drinks for pick-up, book a table, find the address and hours, ask a question and leave a review.
 
-The midterm version was **HTML and CSS only**. Assignments 4 and 5 add JavaScript (folder `js/`) without changing the HTML or the CSS: new elements are created with the DOM and styles are switched with `classList`.
+The midterm version was **HTML and CSS only**. Assignments 4 and 5 and the endterm add JavaScript and jQuery (folder `js/`) without changing the HTML or the CSS: new elements are created by the scripts and styles are switched with existing classes. What the endterm added, the split between plain JavaScript and jQuery and the authors are in [Endterm](#endterm-what-was-added).
 
 ## Pages
 
@@ -65,23 +65,23 @@ Table booking works the same way: `booking.html`, press **Request table**, the s
 
 - **Containers for generated content:** `order-items` (lines of the order), `order-count`, `order-total`, `review-list` (new reviews are added here), `menu-search-status`.
 - **Data attributes:** every order row has `data-name`, `data-size`, `data-price` and `data-category`; every menu category has `data-category`. Menu items carry the class `menu-item`, categories `menu-category`, order rows `order-row`, quantity boxes `order-qty`.
-- **State classes** are defined in `css/custom.css` and are not used yet: `.hidden`, `.active`, `.selected`, `.error`, `.success`, `.highlight`. Bootstrap's `is-invalid` and `is-valid` are used for fields.
+- **State classes** are defined in `css/custom.css` (not used at the midterm, now switched by the scripts): `.hidden`, `.active`, `.selected`, `.error`, `.success`, `.highlight`. Bootstrap's `is-invalid` and `is-valid` are used for fields.
 
 ## Technologies
 - HTML5, semantic elements
 - Bootstrap 5.3.3 (CSS and JS bundle from the jsDelivr CDN) for all layout, plus one small correction stylesheet, `css/custom.css`
 - Git and GitHub
 
-The old Assignment 2 stylesheets are deleted; `removed-css.md` lists what Bootstrap replaced.
+The old Assignment 2 stylesheets are deleted; `css/removed-css.md` lists what Bootstrap replaced.
 
-## Checks (see `quality-pass.md`)
+## Checks (midterm, see `sketches/screenshots/checklist.md`)
 - W3C validator (Nu HTML Checker): 0 errors on all 8 pages.
 - No console errors, no broken images, no dead links, no `href="#"`, no horizontal scroll at 375 px.
-- Screenshots of every page at 375 px (phone) and 1280 px (desktop) are in `screenshots/`.
+- Screenshots: `sketches/screenshots/`, `before/`, `after/`.
 
 ## Other files
-- `quality-pass.md`: the quality-pass list
-- `removed-css.md`: what Bootstrap replaced from Assignment 2
+- `sketches/screenshots/checklist.md`: the quality-pass list
+- `css/removed-css.md`: what Bootstrap replaced from Assignment 2
 
 ## Freeze
 The final commit is tagged `midterm`:
@@ -98,9 +98,9 @@ HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` t
 
 | File | Used on | What it holds |
 |---|---|---|
-| `js/data.js` | all pages | Data and pure functions (Assignment 4): `DRINKS` (6 drinks with name, category, size, price, milk), `HOURS`, `formatPrice`, `getOpenStatus`, `isTimeWithinHours`, `buildTimeSlots`, `generateOrderNumber`, `calcTotal`, `pickRandom`, `searchDrinks`, `isValidPhone`, `isValidEmail`, `averageRating` and others |
+| `js/data.js` | all pages | Data and pure functions (Assignment 4): `DRINKS` (6 drinks with name, category, size, price, milk), `HOURS`, `formatPrice`, `getOpenStatus`, `isTimeWithinHours`, `buildTimeSlots`, `generateOrderNumber`, `calcTotal`, `pickRandom`, `searchDrinks`, `isValidPhone`, `isValidEmail`, `averageRating`, `readStorage`/`writeStorage` (`localStorage` with a fallback) and others. No DOM, so both the plain JS and the jQuery files may call them |
 | `js/cart.js` | all pages | The shared cart, kept in `localStorage` |
-| `js/main.js` | all pages | Form helpers and the two team features (below) |
+| `js/main.js` | all pages | Form helpers, the two team features (below), the common look (fonts, rounded cards, photo zoom) and the icons of "Why Espresso Day" on the Home page |
 | `js/extras.js` | Menu, Coffee | The drink extras picker: alternative milk with its kind, extra shot, decaf, any number of syrups, free additions (cinnamon, sugar, sweetener; milk for the Americano) |
 | `about.js`, `menu.js`, `coffee.js`, `order.js`, `booking.js`, `visit.js`, `reviews.js` | one page each | Page features |
 
@@ -146,22 +146,22 @@ jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity has
 | `js/about.js` | FAQ search (rewritten, function 1) |
 | `js/booking.js` | Booking slots and validation (rewritten, function 2) |
 | `js/reviews.js` | Review cards, list, filter/sort and the review form (rewritten, function 3) |
-| `js/old-js-version.js` | The **old plain-JavaScript** versions of the three functions, **not linked to any page**, for comparison |
+| `js/old-js-version.js` | The **old plain-JavaScript** versions of the three functions (`buildFaqSearch`, `checkField`/`validateBooking`, `reviewCard`/`renderReviews`), **not linked to any page**, for comparison |
 
 ### Where each requirement is
 | Requirement | Where |
 |---|---|
-| 3 rewritten functions with comments | `about.js` `buildFaqSearch` (l. 12); `booking.js` `checkField` (l. 73); `reviews.js` `reviewCard`. Old versions: `old-js-version.js` |
-| Selectors: id, class, element, attribute, `:checked`, `:not()`, `:first` | `booking.js` l. 56 (`button[data-time]`), `reviews.js` `checkRating` (`:checked`), `about.js` l. 51 (`:not(.hidden)`), `reviews.js` submit handler (`.review-item:first`) |
-| Traversal: `.closest()`, `.find()`, `.siblings()`, `.parent()`, `.each()` | `reviews.js` (`.closest('.review-item')` in `idOf`, `.find()` in `checkRating`); `booking.js` l. 62, 129 |
-| `$(this)` | `booking.js` l. 57, `reviews.js` (delegated handlers), `jq-main.js` l. 34 |
-| Chains of 3+ methods (one explained) | `booking.js` l. 60-62 (commented, 5 steps); `jq-main.js` l. 19-23 |
-| `.text()`, `.html()`, `.val()`, `.attr()`, `.prop()` | `about.js` l. 58-62 (`.html` with numbers only, `.text` for everything typed); `booking.js` l. 118-120 (`.prop('checked')` vs `.attr`) |
-| List made from an array with `.append()`/`.appendTo()` | `booking.js` l. 42 (slot buttons), `reviews.js` `reviewCard`, `starPicker`, `photoPicker` and `renderReviews` (cards from `savedReviews`) |
-| Delegated handler | `reviews.js` (`$list.on('click', '.review-edit' / '.review-delete' / '.review-edit-cancel', ...)`, `$list.on('submit', '.review-edit-form', ...)`, `$list.on('mouseenter', '.review-photo', ...)`), `booking.js` l. 56, `jq-main.js` l. 33 |
-| Event types | click, submit, input, change, focusout, reset |
-| Effects | `fadeIn` (success box, new review), `fadeOut` with callback (delete a review, after "Yes, delete" in the confirm window), `slideToggle(250, callback)` (filter panel), `animate` (scroll to the result, `jq-main.js`) |
-| Form validation | Booking form, `booking.js` l. 73-165: trimmed text, e-mail and phone format, guests 1-10, date not in the past, time inside the hours of that day, consent; one message beside each field; first wrong field gets focus; the error clears while typing; success summary only when all is valid, then the form is reset |
+| 3 rewritten functions | `about.js` `buildFaqSearch`; `booking.js` `checkField` and `validateBooking`; `reviews.js` `reviewCard` and `renderReviews`. Old versions: `old-js-version.js` |
+| Selectors: id, class, element, attribute, `:checked`, `:not()`, `:first` | `booking.js` slot handler (`button[data-time]`), `reviews.js` `checkRating` (`input[name="rating"]:checked`), `about.js` `update` (`:not(.hidden)`), `reviews.js` submit handler (`.review-item:first`), `jq-main.js` `jqLiveValidate` (`input:not(:radio):not(:checkbox)`) |
+| Traversal: `.closest()`, `.find()`, `.siblings()`, `.each()` | `reviews.js` (`.closest('.review-item')`, `$list.find(...)`); `booking.js` slot handler (`.siblings()`), `validateBooking` (`.each()`); `jq-main.js` `jqResetStates` (`.find()`) |
+| `$(this)` | `booking.js` slot handler and `validateBooking`, `about.js` `update`, `jq-main.js` `jqLiveValidate`, `reviews.js` delegated handlers |
+| Chains of 3+ methods | `booking.js` slot handler (`.addClass().attr().siblings().removeClass().attr()`); `jq-main.js` `jqFieldState`, `jqLiveValidate`, `jqReveal` |
+| `.text()`, `.html()`, `.val()`, `.attr()`, `.prop()` | `about.js` `update` (`.html` with numbers only, `.text` for everything typed); `booking.js` `checkField` (`.prop('checked')`) |
+| List made from an array with `.append()`/`.appendTo()` | `booking.js` `renderSlots` (slot buttons), `reviews.js` `reviewCard`, `starPicker`, `photoPicker` and `renderReviews` |
+| Delegated handler | `reviews.js` (`$list.on('click', '.review-edit' / '.review-delete' / '.review-edit-cancel', ...)`, `$list.on('submit', '.review-edit-form', ...)`), `booking.js` (`$slots.on('click', 'button[data-time]', ...)`), `jq-main.js` `jqLiveValidate` |
+| Event types | click, submit, input, change, focusout, reset, mouseenter |
+| Effects | `fadeIn` (`jqReveal`, new review), `fadeOut` with callback (`jqConceal`, delete a review), `slideToggle(250, callback)` (filter panel), `animate` (`jqScrollTo`) |
+| Form validation | Booking form, `booking.js` `checkField` / `validateBooking` / submit handler: `preventDefault()`, trimmed text, e-mail and phone format, guests 1-10, date not in the past, time inside the hours of that day, consent; one message beside each field; first wrong field gets focus; the error clears while typing; success summary only when all is valid, then the form is reset |
 
 Plain-language answers for the defense: `.text()` writes plain text (safe for anything the visitor typed), `.html()` parses markup (only for our own text). `.prop('checked')` is the current state of a checkbox; `.attr('checked')` is only what was written in the HTML. A delegated handler sits on a parent that already exists and checks, when a click bubbles up, whether the target matches the selector, so it also works for elements that were created later.
 
@@ -184,3 +184,38 @@ The HTML and CSS stay frozen. Everything new is made by the scripts; states are 
 - **Coffee Varieties:** the table body in `coffee.html` is now empty. The rows are made from the array `VARIETIES` in a loop. A search field filters them by name or by what the drink contains (found text is highlighted, there is a count and an empty message with a Clear button). A press on a name chooses that drink in "Build your coffee" and scrolls to it; a drink that is not in the order list says so.
 - **Events:** `submit`, `input`, `change`, `click`, `reset`, `mouseenter`, `mouseleave`. **Delegated handler:** one `click` handler on the table body catches the buttons that are made again at every search.
 - **Zoom:** the photos of the page grow when the mouse is over them.
+
+## Endterm: what was added
+
+### Plain JavaScript and jQuery are in separate files
+No file mixes the two. The plain JS files have no `$` or `jQuery`; the jQuery files have no `document.`, `querySelector` or `addEventListener` and do not call the DOM helpers of `main.js`.
+
+| Technology | Files | Pages |
+|---|---|---|
+| **jQuery 3.7.1** (CDN `code.jquery.com`, code inside `$(function () { ... })`) | `jq-main.js` (helpers), `about.js`, `booking.js`, `reviews.js` | About, Booking, Reviews |
+| **Plain JavaScript** | `main.js`, `cart.js`, `extras.js`, `menu.js`, `coffee.js`, `order.js`, `visit.js` (and `old-js-version.js`, not linked) | all pages |
+| **Shared data and pure functions** (no DOM, no jQuery) | `data.js`, `menu-data.js` | all pages / Menu |
+
+`main.js` and `cart.js` are also loaded on the jQuery pages, but for a different feature (the header: open/closed badge, cart counter, fonts); they never touch the jQuery features. jQuery is not loaded on Home, Menu, Coffee, Order and Visit Us.
+
+### Requirements and where they are
+| Requirement | Where |
+|---|---|
+| Data in arrays and objects at the top of the file, page built with loops | `data.js` (`DRINKS`, `HOURS`), `menu-data.js` (menu cards), `coffee.js` (`VARIETIES`), `reviews.js` (`SEED_REVIEWS`), `main.js` (`PERK_ICONS`, `LOOK_RULES`) |
+| Own functions with parameters and `return`, `if/else` | `data.js` (`formatPrice`, `calcTotal`, `isValidEmail`, `isValidPhone`, `averageRating`, ...), `main.js` `makeIcon(paths)` |
+| Calculated values | order total and count (`order.js`, `calcTotal`), price of a custom coffee (`coffee.js`), average rating and count of reviews (`reviews.js`), number of found drinks / questions |
+| No `onclick` in the HTML | all handlers are attached in the scripts (`addEventListener` / `.on()`) |
+| 3+ event types, delegation | plain JS: `click`, `submit`, `input`, `change`, `reset`, `mouseenter`, `mouseleave`, delegated `click` on the table body in `coffee.js`; jQuery: see the table above |
+| Main form validation | Booking (jQuery, `booking.js`): `preventDefault()`, `trim()`, e-mail and phone checks, a message beside each field, success only when everything is valid. Also checked in plain JS: Order (phone, `order.js`) and the Visit Us question form (e-mail, `visit.js`) |
+| HTML/CSS freeze | no new HTML or CSS rules after the midterm; new content is made by the scripts, states use existing classes (Bootstrap utilities, `.active`, `.hidden`) |
+
+### Latest changes
+| Change | File | Technology | Student |
+|---|---|---|---|
+| Comments removed from the HTML, CSS and JS files (this README explains the code instead) | all | | Team |
+| Home, "Why Espresso Day": the emoji are replaced by simple line icons. The icons are paths in the array `PERK_ICONS`; `makeIcon(paths)` builds an SVG and `initPerkIcons()` puts them into the cards in a loop. The colour is Bootstrap's `text-primary` | `js/main.js` | plain JS | Team |
+| Menu, "Surprise me": the suggested drink gets a red outline (`border border-danger border-3`, `border-0` taken off) and its name in the message is red and bold (`text-danger fw-bold`). The previous pick goes back to normal | `js/menu.js` | plain JS | Aisha |
+| `readStorage`/`writeStorage` moved from `main.js` to `data.js`, so the jQuery file `reviews.js` uses no helper of a plain-DOM file | `js/data.js` | shared | Team |
+| The photo canvas in the review form is made with `$('<canvas>')` | `js/reviews.js` | jQuery | Dilnaz |
+
+(Please correct the names if the work was split differently.)
