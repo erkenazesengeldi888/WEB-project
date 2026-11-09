@@ -356,10 +356,12 @@ function initSurprise() {
 
         searchForm.reset();
         if (marked) {
-            marked.classList.remove('active', 'border-danger', 'border-3');
+            marked.classList.remove('active', 'border', 'border-danger', 'border-3');
+            marked.classList.add('border-0');
         }
         marked = entry.card;
-        marked.classList.add('active', 'border-danger', 'border-3');
+        marked.classList.remove('border-0');
+        marked.classList.add('active', 'border', 'border-danger', 'border-3');
         marked.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         const add = makeEl('button', 'btn btn-primary btn-sm ms-2', 'Add to cart');
