@@ -68,23 +68,6 @@ function makeEl(tag, className, text) {
     return el;
 }
 
-function readStorage(key, fallback) {
-    try {
-        const data = JSON.parse(localStorage.getItem(key));
-        return data === null ? fallback : data;
-    } catch (error) {
-        return fallback;
-    }
-}
-
-function writeStorage(key, value) {
-    try {
-        localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-
-    }
-}
-
 function initOpenStatus() {
     const band = document.querySelector('header .bg-primary');
     if (!band) {

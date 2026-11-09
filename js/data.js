@@ -162,3 +162,20 @@ function extrasName(baseName, options) {
 function pickDrinks(list, milk, maxPrice) {
     return list.filter((d) => (milk === 'any' || d.milk === (milk === 'yes')) && (maxPrice === 0 || d.price <= maxPrice));
 }
+
+function readStorage(key, fallback) {
+    try {
+        const data = JSON.parse(localStorage.getItem(key));
+        return data === null ? fallback : data;
+    } catch (error) {
+        return fallback;
+    }
+}
+
+function writeStorage(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+        return;
+    }
+}
