@@ -356,10 +356,10 @@ function initSurprise() {
 
         searchForm.reset();
         if (marked) {
-            marked.classList.remove('active');
+            marked.classList.remove('active', 'border-danger', 'border-3');
         }
         marked = entry.card;
-        marked.classList.add('active');
+        marked.classList.add('active', 'border-danger', 'border-3');
         marked.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         const add = makeEl('button', 'btn btn-primary btn-sm ms-2', 'Add to cart');
@@ -369,7 +369,9 @@ function initSurprise() {
             flashAdded(add, '✓ Added');
         });
         message.replaceChildren(
-            document.createTextNode('How about a ' + pick.name + '? ' + formatPrice(pick.price) + ' for ' + pick.size + '.'),
+            document.createTextNode('How about a '),
+            makeEl('span', 'text-danger fw-bold', pick.name),
+            document.createTextNode('? ' + formatPrice(pick.price) + ' for ' + pick.size + '.'),
             add
         );
     });
