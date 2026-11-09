@@ -1,15 +1,10 @@
 'use strict';
 
-/* Order page.
-   Feature 1: the shared cart becomes an order with pick-up or delivery, field validation and a confirmation.
-   Feature 2: "Repeat my last order" brings back the drinks of the previous order on this device. */
-
 const LAST_ORDER_KEY = 'espressoday-last-order';
-const LAST_BEFORE_CLOSE = 30; // minutes: the latest pick-up time is 30 minutes before closing
+const LAST_BEFORE_CLOSE = 30;
 const orderForm = byId('order-form');
 const itemsList = byId('order-items');
 
-// Payment: only cash, paid when the order is received (there is no online payment on this site)
 const CASH_TEXT = 'I will pay for this order in cash when I receive it.';
 const CASH_ERROR = 'Please confirm that you will pay for the order in cash when you receive it.';
 
@@ -27,7 +22,6 @@ function updateMethod() {
     }
 }
 
-// ---------- the order list ----------
 function stepButton(sign, label, onClick) {
     const button = makeEl('button', 'btn btn-outline-primary btn-sm cart-step', sign);
     button.type = 'button';
@@ -76,7 +70,6 @@ function renderOrder() {
     renderRepeat();
 }
 
-// ---------- repeat the last order ----------
 const repeatButton = makeEl('button', 'btn btn-outline-secondary hidden', 'Repeat my last order');
 repeatButton.type = 'button';
 repeatButton.id = 'order-repeat';
@@ -99,7 +92,6 @@ repeatButton.addEventListener('click', () => {
     }
 });
 
-// ---------- validation ----------
 function checkField(field) {
     const value = field.value;
     switch (field.id) {
@@ -121,7 +113,7 @@ function checkField(field) {
             if (!isTimeWithinHours(value, new Date(), LAST_BEFORE_CLOSE)) {
                 return setFieldState(field, 'Please choose a time between ' + hours.open + ' and ' + latest + ' today.');
             }
-            // an order for today cannot be in the past
+
             if (toMinutes(value) < toMinutes(toTimeString(new Date()))) {
                 return setFieldState(field, 'This time has already passed. Please choose a later time.');
             }
@@ -136,11 +128,10 @@ function checkField(field) {
 
 function validateOrder() {
     const fields = ['order-name', 'order-phone', 'order-address', 'order-time', 'order-consent'].map(byId);
-    const results = fields.map(checkField); // run every check so all wrong fields are marked
+    const results = fields.map(checkField);
     return results.every(Boolean) && EDCart.items().length > 0;
 }
 
-// A good default pick-up time: in 30 minutes, rounded up to 5 minutes, kept inside today's hours
 function suggestTime() {
     const now = new Date();
     const hours = getHours(now);
@@ -149,7 +140,6 @@ function suggestTime() {
     return pad(Math.floor(minutes / 60)) + ':' + pad(minutes % 60);
 }
 
-// ---------- confirmation ----------
 function showConfirmation(order) {
     byId('order-number').textContent = order.number;
     byId('order-pickup').textContent = (order.delivery ? 'delivery to ' + order.address + ' at ' : 'pick-up at ') + order.time;
@@ -215,7 +205,6 @@ renderOrder();
 updateMethod();
 byId('order-time').value = suggestTime();
 
-// Say clearly, in four places, that the payment is in cash on receipt (the texts are changed, no element is added)
 function showCashPayment() {
     byId('order-consent').labels[0].textContent = CASH_TEXT;
     byId('order-consent-error').textContent = CASH_ERROR;

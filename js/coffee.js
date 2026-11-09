@@ -1,6 +1,5 @@
 'use strict';
 
-/* Data of this page: how each coffee variety is built. The table in "Coffee Varieties" is made from this array. */
 const VARIETIES = [
     { name: 'Espresso', recipe: '2 espresso shots, 60 ml' },
     { name: 'Americano', recipe: 'Espresso shot + hot water' },
@@ -13,9 +12,6 @@ const VARIETIES = [
     { name: '\u015eie Bumble', recipe: 'Espresso shot + cherry juice + ice' },
     { name: 'Bumble Coffee', recipe: 'Espresso shot + fresh orange juice + ice' }
 ];
-
-/* Coffee page: "Build your coffee" - choose a drink, extras and the number of cups, see the price at once,
-   then add the cup to the cart. The extras prices are the ones printed in "Customise Your Coffee". */
 
 function buildCalculator() {
     const section = makeEl('section', 'mb-5');
@@ -110,7 +106,7 @@ function buildCalculator() {
             qty.focus();
             return;
         }
-        // the cart keeps one line per name + size, so the name carries the extras
+
         const name = extrasName(state.drink.name, picker.options());
         EDCart.setQty(name, state.drink.size, state.one, EDCart.qty(name, state.drink.size) + state.count);
         done.classList.remove('hidden');
@@ -120,10 +116,6 @@ function buildCalculator() {
     render();
 }
 
-/* Coffee Varieties: the rows come from VARIETIES (the HTML table body is empty). A search field filters them, and a press on a
-   name chooses that drink in "Build your coffee" below. */
-
-// Put text into parent; the part that equals the search words goes into <mark> (the text is never parsed as HTML)
 function appendMarked(parent, text, query) {
     const at = query === '' ? -1 : text.toLowerCase().indexOf(query);
     if (at === -1) {
@@ -190,7 +182,6 @@ function buildVarieties() {
             : found.length + ' of ' + VARIETIES.length + ' varieties match \u201c' + input.value.trim() + '\u201d.';
     }
 
-    // delegated: the rows are made again at every render, so the handler sits on the table body, which stays
     tbody.addEventListener('click', (event) => {
         const pick = event.target.closest('.variety-pick');
         if (pick === null) {

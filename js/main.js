@@ -1,11 +1,7 @@
 'use strict';
 
-/* Shared by every page: helpers for forms and the two team features in the header
-   (open/closed status and the cart badge on the Order link). */
-
 const byId = (id) => document.getElementById(id);
 
-// Mark a field as wrong (message) or right (empty message). The red text is the page's own #<id>-error block.
 function setFieldState(field, message) {
     const error = byId(field.id + '-error');
     const bad = message !== '';
@@ -23,7 +19,6 @@ function resetFieldStates(form) {
     form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
 }
 
-// Validate a field when the visitor leaves it, and again on every change once it was marked wrong
 function liveValidate(form, check) {
     form.addEventListener('focusout', (event) => {
         if (event.target.matches('input:not([type="radio"]):not([type="checkbox"]), textarea, select')) {
@@ -42,7 +37,6 @@ function liveValidate(form, check) {
     });
 }
 
-// Show the red alert (ok = false) or hide it, and move focus to the first wrong field
 function reportErrors(form, alertEl, ok) {
     alertEl.classList.toggle('hidden', ok);
     if (!ok) {
@@ -53,7 +47,6 @@ function reportErrors(form, alertEl, ok) {
     }
 }
 
-// Replace the "what happens next" text with the success box
 function showSuccess(textEl, successEl) {
     textEl.classList.add('hidden');
     successEl.classList.remove('hidden');
@@ -88,11 +81,10 @@ function writeStorage(key, value) {
     try {
         localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
-        // private mode: the data lives only until the page is closed
+
     }
 }
 
-// Team feature 1: "Open now / Closed" badge in the title band, updated every minute
 function initOpenStatus() {
     const band = document.querySelector('header .bg-primary');
     if (!band) {
@@ -112,7 +104,6 @@ function initOpenStatus() {
     setInterval(update, 60000);
 }
 
-// Team feature 2: number of drinks in the cart next to "Order" in the menu, on every page
 function initCartBadge() {
     const link = document.querySelector('#mainNav a[href="order.html"]');
     if (!link) {
@@ -134,16 +125,12 @@ function initCartBadge() {
 initOpenStatus();
 initCartBadge();
 
-// Every success box says clearly that this is a demo
 function addDemoNote(successEl, text) {
     const note = makeEl('p', 'small mb-0 mt-2 fst-italic', text || 'This is a demo: your data is not sent anywhere and no real order or booking is made.');
     note.classList.add('demo-note');
     successEl.append(note);
 }
 
-/* Look of the pages (the CSS is frozen): this only adds ready-made Bootstrap classes, the same on every page.
-   Each rule is [selector, classes to add, classes to remove]. A MutationObserver runs the rules again for every element the
-   scripts create later (menu cards, review cards, windows), so new elements look the same as the old ones. */
 const LOOK_RULES = [
     ['.card', 'rounded-4', ''],
     ['.card:not(.border-primary):not(.border-2)', 'border-0', ''],
@@ -161,9 +148,6 @@ const LOOK_RULES = [
     ['.btn-link', 'text-primary', '']
 ];
 
-// Fonts: one family for the text and the headings, loaded from Google Fonts by a <link> made here (the HTML and the CSS are
-// frozen). The old fonts stay in the list, so the page is readable while the font loads or when it is off.
-// TRY A FONT: add ?font=Name to the address (for example reviews.html?font=Montserrat). Remove this when the font is chosen.
 const WANTED_FONT = new URLSearchParams(location.search).get('font');
 const FONT_NAME = /^[A-Za-z ]{2,30}$/.test(WANTED_FONT || '') ? WANTED_FONT : 'Montserrat';
 const BODY_FONT = '"' + FONT_NAME + '", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif';
@@ -196,9 +180,6 @@ function applyLook(root) {
     });
 }
 
-/* Smooth zoom of the pictures (the same on every page): the picture grows slowly inside its own frame, the frame clips the
-   edges, so nothing jumps over the neighbours. The frame is the parent of the picture: it gets overflow-hidden (and the same
-   rounded corners), the picture gets a long transition, and the mouse over the frame starts the zoom. */
 const ZOOM_SCALE = 1.1;
 const ZOOM_TRANSITION = 'transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1)';
 

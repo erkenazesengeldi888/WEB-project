@@ -1,10 +1,5 @@
 'use strict';
 
-/* Data of the Menu page: every drink and its prices. menu.js builds the cards (and the list rows of Baby Drinks and
-   Extras) from these arrays in a loop; the HTML only holds the empty category blocks.
-   sizes: [label, price] pairs, the first one is chosen at first. Drinks without sizes have one price and a "volume".
-   isNew: true puts the JANA ("new" in Kazakh) badge next to the name. */
-
 const MENU_DRINKS = [
     {category: "coffee", key: "espresso", name: "Espresso", desc: "A short, intense shot of coffee with a thick golden crema. The base of every other coffee drink.", ingredients: ["Espresso Day blend coffee"], volume: "", photo: "images/menu/espresso.jpg", sizes: [["250 ml", 690]], price: 690},
     {category: "coffee", key: "americano", name: "Americano", desc: "Espresso topped up with hot water: a long, clean cup with a deep roasted taste.", ingredients: ["Espresso Day blend coffee", "Hot water"], volume: "", photo: "images/menu/americano.jpg", sizes: [["250 ml", 890], ["350 ml", 1090], ["450 ml", 1190]], price: 890},
@@ -82,7 +77,6 @@ const MENU_DRINKS = [
     {category: "fresh-juice", key: "fresh-apple-orange", name: "Apple-Orange", desc: "Freshly pressed juice from apples and oranges.", ingredients: ["Fresh apples", "Fresh oranges"], volume: "450 ml", photo: "images/menu/fresh-apple-orange.jpg", sizes: [], price: 2190}
 ];
 
-// Rows of the two plain lists (Baby Drinks, Extras): name and price in tenge
 const MENU_LIST = [
     {category: "baby-drinks", name: "Cocoa", price: 990},
     {category: "baby-drinks", name: "Hot Chocolate", price: 1190},

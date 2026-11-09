@@ -1,11 +1,7 @@
 'use strict';
 
-/* About page: FAQ search. jQuery 3.7.1, loaded before this file, because $ must exist when this code runs.
-   The plain-JavaScript original is in old-js-version.js (function 1). */
-
 $(function () {
-    // Function 1 of 3. $('<tag>', {...}).append() replaces createElement + properties + append; .each() + .toggleClass()
-    // replace forEach + classList.toggle. A little shorter, the logic is the same.
+
     function buildFaqSearch() {
         const $items = $('#faq-list .accordion-item');
 
@@ -50,7 +46,7 @@ $(function () {
             } else {
                 jqConceal($empty);
             }
-            // .html() only for our own markup; typed text goes through .text()
+
             if (words.length === 0) {
                 $status.text('Showing all ' + $items.length + ' questions.');
             } else {
@@ -59,12 +55,12 @@ $(function () {
         }
 
         $form.on('submit', function (event) {
-            event.preventDefault(); // without it the page reloads and the search is lost
+            event.preventDefault();
             update();
         });
         $input.on('input', update);
         $form.on('reset', function () {
-            setTimeout(update, 0); // the field is emptied after the reset event
+            setTimeout(update, 0);
         });
         update();
     }

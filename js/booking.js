@@ -1,18 +1,14 @@
 'use strict';
 
-/* Booking page: time slots and form validation. jQuery 3.7.1, loaded before this file, because $ must exist when this code runs.
-   The plain-JavaScript validation is in old-js-version.js (function 2). */
-
 $(function () {
-    const LAST_BOOKING = 60; // minutes: the last table starts one hour before closing
-    const SLOT_STEP = 30;    // minutes between slots
+    const LAST_BOOKING = 60;
+    const SLOT_STEP = 30;
     const $form = $('#booking-form');
     const $date = $('#booking-date');
     const $time = $('#booking-time');
 
     $date.attr('min', toDateInputValue(new Date()));
 
-    // ---------- time slots ----------
     const $slots = $('<div>', {
         id: 'booking-slots',
         'class': 'd-flex flex-wrap gap-1 mt-2',
@@ -46,13 +42,11 @@ $(function () {
         });
     }
 
-    // Delegated: the buttons do not exist yet when this line runs, so a handler bound directly to them would attach to
-    // nothing. #booking-slots exists now and catches the click that bubbles up from any button made later.
     $slots.on('click', 'button[data-time]', function () {
         const $button = $(this);
         $time.val($button.attr('data-time'));
         checkField($time);
-        // Chain: 1) mark this button, 2) set its aria state, 3) go to its neighbours, 4) clear their mark, 5) and their aria state
+
         $button.addClass('active').attr('aria-pressed', 'true')
             .siblings().removeClass('active').attr('aria-pressed', 'false');
     });
@@ -60,9 +54,6 @@ $(function () {
     $date.on('change', renderSlots);
     $time.on('input', renderSlots);
 
-    // ---------- validation ----------
-    // Function 2 of 3. .val() / .prop() / .attr() replace value / checked / setAttribute. The switch is the same,
-    // so it is only a little shorter; the submit handler below became clearer.
     function checkField($field) {
         const value = String($field.val()).trim();
         switch ($field.attr('id')) {
@@ -108,7 +99,7 @@ $(function () {
                 return jqFieldState($field, '');
             }
             case 'booking-consent':
-                // .prop('checked') is the live state; .attr('checked') is only what the HTML says
+
                 return jqFieldState($field, $field.prop('checked') ? '' : 'Please agree so that we can call you to confirm.');
             default:
                 return true;
@@ -130,8 +121,7 @@ $(function () {
     }
 
     jqDemoNote($('#booking-success'), 'This is a demo: your data is not sent anywhere and no table is really reserved.');
-    // required stays in the HTML as the first line of defence; novalidate only hides the browser's bubbles.
-    // A browser check never replaces the server: the visitor can bypass it, so the server must check again.
+
     $form.attr('novalidate', '');
     jqLiveValidate($form, checkField);
     $date.on('change', function () {
@@ -141,7 +131,7 @@ $(function () {
     });
 
     $form.on('submit', function (event) {
-        // Without preventDefault the page reloads and the messages and summary are lost
+
         event.preventDefault();
         const ok = validateBooking();
         jqReport($form, $('#booking-error'), ok);

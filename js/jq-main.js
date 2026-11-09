@@ -1,6 +1,5 @@
 'use strict';
 
-// Mark a field wrong (with a message) or right; returns true when the field is fine
 function jqFieldState($field, message) {
     const bad = message !== '';
     $field
@@ -17,7 +16,6 @@ function jqResetStates($form) {
     $form.find('.is-invalid, .is-valid, .error').removeClass('is-invalid is-valid error').removeAttr('aria-invalid');
 }
 
-// Check a field when the visitor leaves it, and at every key once it is wrong (delegated on the form)
 function jqLiveValidate($form, check) {
     $form
         .on('focusout', 'input:not(:radio):not(:checkbox), textarea, select', function () {
@@ -31,7 +29,6 @@ function jqLiveValidate($form, check) {
         });
 }
 
-// Take .hidden away and fade the block in
 function jqReveal($el, duration) {
     if ($el.is(':visible') && !$el.hasClass('hidden')) {
         return $el;
@@ -39,7 +36,6 @@ function jqReveal($el, duration) {
     return $el.stop(true, true).hide().removeClass('hidden').fadeIn(duration === undefined ? 300 : duration);
 }
 
-// Fade a block out, then give it .hidden again in the callback
 function jqConceal($el, duration) {
     if ($el.hasClass('hidden')) {
         return $el;
@@ -49,7 +45,6 @@ function jqConceal($el, duration) {
     });
 }
 
-// Show the red alert or hide it; focus the first wrong field
 function jqReport($form, $alert, ok) {
     if (ok) {
         jqConceal($alert);
@@ -66,7 +61,6 @@ function jqDemoNote($success, text) {
     }).appendTo($success);
 }
 
-// Scroll smoothly to the result of the visitor's action
 function jqScrollTo($el) {
     $('html, body').animate({ scrollTop: Math.max($el.offset().top - 120, 0) }, 400);
 }

@@ -1,13 +1,5 @@
 'use strict';
 
-/* OLD PLAIN JAVASCRIPT VERSIONS (Assignment 4-5), kept for comparison with the jQuery versions
-   This file is NOT linked to any page. The three functions below were rewritten with jQuery:
-     1. FAQ search            about.js    (old buildFaqSearch)
-     2. Booking validation    booking.js  (old checkField, validateBooking and the submit handler)
-     3. Review cards and list reviews.js  (old reviewCard, deleteReview, renderReviews)
-   They use the helpers of main.js (byId, makeEl, setFieldState, reportErrors, ...) */
-
-// ======================= 1. FAQ search (old about.js) =======================
 const faqItems = [...document.querySelectorAll('#faq-list .accordion-item')];
 
 function buildFaqSearch() {
@@ -39,7 +31,6 @@ function buildFaqSearch() {
 
     byId('faq-list').before(form, status, empty);
 
-    // Which questions contain every word typed (question and answer are both searched)
     function matches(item, words) {
         const text = item.textContent.toLowerCase();
         return words.every((word) => text.includes(word));
@@ -70,8 +61,6 @@ function buildFaqSearch() {
     update();
 }
 
-// ======================= 2. Booking validation (old booking.js) =======================
-// ---------- validation ----------
 function checkField(field) {
     const value = field.value;
     switch (field.id) {
@@ -124,7 +113,7 @@ function checkField(field) {
 }
 
 function validateBooking() {
-    // the date is checked first: the time rules depend on it
+
     const fields = ['booking-name', 'booking-email', 'booking-phone', 'booking-guests', 'booking-date', 'booking-time', 'booking-consent'].map(byId);
     return fields.map(checkField).every(Boolean);
 }
@@ -147,8 +136,6 @@ bookingForm.addEventListener('submit', (event) => {
     bookingForm.reset();
 });
 
-// ======================= 3. Review cards and list (old reviews.js) =======================
-// ---------- one review card (same markup as the review already on the page) ----------
 function reviewCard(review) {
     const card = makeEl('div', 'card shadow-sm review-item');
     card.dataset.rating = review.rating;

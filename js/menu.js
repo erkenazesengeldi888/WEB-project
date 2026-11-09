@@ -1,10 +1,5 @@
 'use strict';
 
-/* Menu page.
-   Feature 1: search and category filter with highlighted matches, sizes that change the price, cart panel, drink window.
-   Feature 2: "Surprise me" picks a random coffee and offers to add it to the cart. */
-
-// ---------- the cards are made from MENU_DRINKS and MENU_LIST (js/menu-data.js) ----------
 function drinkCard(item) {
     const col = makeEl('div', 'col');
     const card = makeEl('article', 'card drink-card h-100 shadow-sm menu-item');
@@ -35,7 +30,6 @@ function drinkCard(item) {
     }
     body.append(title);
 
-    // sizes: one button per size; the first is chosen. A drink with one price has no size buttons.
     if (item.sizes.length > 0) {
         const sizes = makeEl('div', 'drink-sizes d-flex flex-wrap gap-1 mb-2');
         sizes.setAttribute('role', 'group');
@@ -73,7 +67,6 @@ function listRow(item) {
     return li;
 }
 
-// every category block in the page gets its own drinks (a card grid) or its own rows (a plain list)
 document.querySelectorAll('.menu-category').forEach((section) => {
     const category = section.dataset.category;
     const grid = section.querySelector('.row');
@@ -93,7 +86,6 @@ const menuIndex = cards.map((card) => ({
     card
 }));
 
-// ---------- sizes: the price follows the chosen size ----------
 function selectedSize(card) {
     return card.querySelector('.drink-size.active');
 }
@@ -103,7 +95,7 @@ function currentPrice(card) {
     if (active) {
         return Number(active.dataset.price);
     }
-    // a list row (Baby Drinks, Extras) keeps its price in data-price, a card shows it in .drink-price
+
     return card.dataset.price ? Number(card.dataset.price) : Number(card.querySelector('.drink-price').textContent.replace(/\D/g, ''));
 }
 
@@ -132,7 +124,6 @@ document.querySelectorAll('.drink-card').forEach((card) => {
     });
 });
 
-// ---------- search and filter ----------
 const searchForm = byId('menu-search-form');
 const searchInput = byId('menu-search');
 const categorySelect = byId('menu-category-filter');
@@ -141,7 +132,6 @@ const emptyEl = byId('menu-search-empty');
 const sections = [...document.querySelectorAll('.menu-category')];
 const DEFAULT_STATUS = statusEl.textContent;
 
-// Show the drink name with the found part marked (textContent only, the term is user input)
 function showName(card, term) {
     const button = card.querySelector('.drink-open');
     if (!button) {
@@ -191,7 +181,6 @@ searchInput.addEventListener('input', applyFilter);
 categorySelect.addEventListener('change', applyFilter);
 searchForm.addEventListener('reset', () => setTimeout(applyFilter, 0));
 
-// ---------- cart panel ----------
 function cartRow(item) {
     const li = makeEl('li', 'list-group-item px-0');
 
@@ -232,7 +221,6 @@ function renderCart() {
     byId('cart-fab-total').textContent = has ? EDCart.format(EDCart.total()) : '';
 }
 
-// Flash "Added" on a button for a moment
 function flashAdded(button, doneText) {
     const original = button.textContent;
     button.textContent = doneText;
@@ -256,12 +244,10 @@ byId('cart-clear').addEventListener('click', () => EDCart.clear());
 EDCart.onChange(renderCart);
 renderCart();
 
-// ---------- drink details window ----------
 const modalEl = byId('drink-modal');
 const modal = new bootstrap.Modal(modalEl);
 let openCard = null;
 
-// Coffee drinks can be customised in the window: milk, extra shot, decaf, syrups, free additions
 const CUSTOM_CATEGORIES = ['coffee', 'iced-coffee'];
 const picker = createExtrasPicker('menu-');
 const customBox = makeEl('div', 'mt-3 hidden');
@@ -272,7 +258,6 @@ byId('drink-modal-add').before(customBox);
 const isCustom = (card) => CUSTOM_CATEGORIES.includes(card.closest('.menu-category').dataset.category);
 const hasMilk = (card) => /milk/i.test(card.dataset.ingredients);
 
-// Price in the window: the size price plus the extras
 function modalPrice() {
     return currentPrice(openCard) + (isCustom(openCard) ? calcExtras(picker.options(), hasMilk(openCard)) : 0);
 }
@@ -350,7 +335,6 @@ byId('drink-modal-add').addEventListener('click', (event) => {
     setTimeout(() => { button.textContent = 'Add to cart'; }, 1000);
 });
 
-// ---------- Surprise me: a random coffee ----------
 function initSurprise() {
     const body = document.querySelector('#menu-tools .border-primary .card-body');
     const button = makeEl('button', 'btn btn-outline-primary btn-lg ms-2', 'Surprise me');
@@ -369,7 +353,7 @@ function initSurprise() {
         if (!entry) {
             return;
         }
-        // make sure the card is not hidden by a search
+
         searchForm.reset();
         if (marked) {
             marked.classList.remove('active');

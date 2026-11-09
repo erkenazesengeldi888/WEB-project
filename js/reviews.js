@@ -2,15 +2,13 @@
 
 const REVIEWS_KEY = 'espressoday-reviews';
 const TITLES = ['', 'A poor experience', 'Could be better', 'A good visit', 'A very good visit', 'An excellent visit'];
-const MAX_PHOTO_SIDE = 700;           // longest side of a saved photo, in pixels
-const MAX_PHOTO_FILE = 10 * 1024 * 1024; // biggest file we agree to open, in bytes
-const MIN_CHARS = 10;                    // shortest and longest review text
+const MAX_PHOTO_SIDE = 700;
+const MAX_PHOTO_FILE = 10 * 1024 * 1024;
+const MIN_CHARS = 10;
 const MAX_CHARS = 1000;
-const MAX_PHOTOS = 5;                    // photos in one review
-const PAGE_SIZE = 3;                     // reviews shown at first, and added by each press of "Show more"
+const MAX_PHOTOS = 5;
+const PAGE_SIZE = 3;
 
-// Reviews copied from 2GIS (the shop's page). They are data, the cards are built from them with a loop.
-// They belong to other people, so they have no Edit / Delete buttons.
 const SEED_REVIEWS = [
     {
         id: 'seed-ekaterina',
@@ -108,16 +106,13 @@ $(function () {
     const $form = $('#review-form');
     const $list = $('#review-list');
     let savedReviews = readStorage(REVIEWS_KEY, []);
-    let visibleCount = PAGE_SIZE; // how many matching reviews are on the page now
-    let editingId = null;   // id of the review that is open for editing (only one at a time)
-    let deleteId = null;    // id of the review that waits in the "Are you sure?" window
+    let visibleCount = PAGE_SIZE;
+    let editingId = null;
+    let deleteId = null;
 
-    // ---------- stars, as on 2GIS ----------
-    // A star is painted with a Bootstrap colour class: yellow when it is counted, pale grey when it is not.
     const STAR_ON = 'text-warning';
     const STAR_OFF = 'text-body-tertiary';
 
-    // Five stars for showing a rating (in a card)
     function ratingStars(rating) {
         const $row = $('<span>', { 'class': 'd-inline-flex align-items-center', role: 'img', 'aria-label': 'Rating: ' + rating + ' out of 5' });
         for (let i = 1; i <= 5; i++) {
@@ -126,8 +121,6 @@ $(function () {
         return $row.append($('<span>', { 'class': 'small text-muted ms-2', text: rating + ' / 5' }));
     }
 
-    // Five stars to choose a rating: the stars up to the pointer are painted while the mouse moves over them,
-    // the click keeps the choice. onPick(value) tells the caller.
     function starPicker(initial, onPick) {
         let value = initial;
         const $row = $('<div>', { 'class': 'd-flex align-items-center gap-1', role: 'radiogroup', 'aria-label': 'Your rating' });
@@ -166,7 +159,6 @@ $(function () {
         return { $el: $row, get: () => value, set: function (n) { value = n; paint(value); } };
     }
 
-    // localStorage can refuse (full, private mode): the caller must know, a photo is big
     function saveReviews() {
         try {
             localStorage.setItem(REVIEWS_KEY, JSON.stringify(savedReviews));
@@ -176,9 +168,6 @@ $(function () {
         }
     }
 
-    // ---------- photo ----------
-    // Read the chosen file, shrink it on a canvas and give back a small JPEG as text (data URL).
-    // Without shrinking, two phone photos would fill the 5 MB the browser gives to localStorage.
     function readPhoto(file) {
         return new Promise(function (resolve, reject) {
             if (!file.type.startsWith('image/')) {
@@ -208,8 +197,6 @@ $(function () {
         });
     }
 
-    // A file field for up to MAX_PHOTOS photos, with a small preview and a Remove button under each one,
-    // made with jQuery (the HTML is frozen). Used twice: in the review form and in the edit form of a card.
     function photoPicker(id, initial) {
         const photos = initial ? [...initial] : [];
         const $input = $('<input>', { type: 'file', id: id, 'class': 'form-control', accept: 'image/*', multiple: true });
@@ -252,7 +239,7 @@ $(function () {
                 note('You already have ' + MAX_PHOTOS + ' photos. Remove one to add another.');
                 return;
             }
-            // every file is read on its own; one bad file does not stop the others
+
             Promise.all(files.slice(0, room).map((file) => readPhoto(file).then((data) => ({ data: data }), (error) => ({ error: error })))).then(function (results) {
                 let message = files.length > room ? 'Only ' + MAX_PHOTOS + ' photos are allowed. The extra files were skipped.' : '';
                 results.forEach(function (result) {
@@ -267,7 +254,6 @@ $(function () {
             });
         });
 
-        // delegated: the Remove buttons are made again at every show()
         $thumbs.on('click', '.photo-remove', function () {
             photos.splice(Number($(this).attr('data-index')), 1);
             note('');
@@ -287,12 +273,8 @@ $(function () {
         };
     }
 
-    // old saved reviews have one photo in "photo", new ones a list in "photos"
     const photosOf = (review) => review.photos || (review.photo ? [review.photo] : []);
 
-    // ---------- one review card ----------
-    // $('<tag>', {props}) replaces createElement + className + textContent + dataset, and .append()
-    // takes several children at once: clearly shorter, and the nesting of the card is visible.
     function cardShell(review, $body) {
         return $('<div>', {
             'class': 'card shadow-sm review-item',
@@ -302,7 +284,6 @@ $(function () {
         }).append($body);
     }
 
-    // The footer: the rating and, for the visitor's own review, Edit / Delete; for a review taken from 2GIS, its source
     function cardFooter(review) {
         const $badge = ratingStars(review.rating);
         const $footer = $('<div>', { 'class': 'd-flex justify-content-between align-items-center flex-wrap gap-2' }).append($badge);
@@ -347,7 +328,6 @@ $(function () {
         return cardShell(review, $body);
     }
 
-    // The same card turned into a small form
     function editCard(review) {
         const $name = $('<input>', { type: 'text', id: 'edit-name', 'class': 'form-control', autocomplete: 'name' }).val(review.name);
         const rating = starPicker(review.rating);
@@ -380,8 +360,6 @@ $(function () {
     const idOf = (element) => String($(element).closest('.review-item').attr('data-id'));
     const findSaved = (id) => savedReviews.find((r) => r.id === id);
 
-    // Delegated: the buttons are made again at every render, so a handler bound to them directly would be lost.
-    // #review-list exists now and catches the click that bubbles up from any button made later.
     $list.on('click', '.review-edit', function () {
         editingId = idOf(this);
         renderReviews();
@@ -393,7 +371,6 @@ $(function () {
         renderReviews();
     });
 
-    // "Are you sure?" is a Bootstrap modal window, made here because the HTML is frozen. It is built once and shown again.
     const $modal = $('<div>', { 'class': 'modal fade', id: 'review-delete-modal', tabindex: '-1', 'aria-labelledby': 'review-delete-title', 'aria-hidden': 'true' }).append(
         $('<div>', { 'class': 'modal-dialog modal-dialog-centered' }).append(
             $('<div>', { 'class': 'modal-content' }).append(
@@ -422,7 +399,7 @@ $(function () {
         const id = deleteId;
         deleteModal.hide();
         deleteId = null;
-        // the card is removed from the data only when the fade has ended (callback)
+
         $list.find('[data-id="' + id + '"]').fadeOut(300, function () {
             savedReviews = savedReviews.filter((r) => r.id !== id);
             saveReviews();
@@ -460,8 +437,6 @@ $(function () {
         $list.find('[data-id="' + review.id + '"]').hide().fadeIn(400);
     });
 
-    // The manager's card is as high as its text, not as high as the long list of reviews; on a wide screen it stays in view
-    // (sticky) while the reviews are scrolled, so the right side is never an empty column.
     $('#manager-quote').closest('section')
         .addClass('align-self-start sticky-lg-top')
         .css('top', '1rem')
@@ -475,7 +450,6 @@ $(function () {
     });
     $staticCard.find('.badge').replaceWith(ratingStars(staticRating));
 
-    // ---------- filter and sort ----------
     const $controls = $('<div>', { id: 'review-controls', 'class': 'row g-2 mb-3' });
 
     function labelledSelect(id, label, options) {
@@ -504,8 +478,6 @@ $(function () {
     const $stats = $('<p>', { id: 'review-stats', 'class': 'small mb-3', 'aria-live': 'polite' });
     const $buttons = $('<div>', { 'class': 'd-flex flex-wrap gap-2 mb-3' }).append($reset, $toggle);
 
-    // The overview, as on 2GIS: the average with stars, and a bar for every rating with the number of reviews.
-    // It counts all reviews of the page, whatever the filter says.
     const $summary = $('<div>', { id: 'review-summary', 'class': 'card shadow-sm mb-3' });
     function renderSummary(all) {
         const ratings = all.map(($c) => Number($c.attr('data-rating')));
@@ -532,7 +504,6 @@ $(function () {
 
     $('#rating-summary').after($summary, $buttons, $controls, $stats);
 
-    // the button text changes in the callback, when the panel has finished moving
     $toggle.on('click', function () {
         $controls.slideToggle(250, function () {
             const open = $controls.is(':visible');
@@ -573,7 +544,6 @@ $(function () {
         });
     }
 
-    // "Show more" adds PAGE_SIZE reviews; when all are open the same button says "Show fewer"
     const $more = $('<button>', { type: 'button', id: 'review-more', 'class': 'btn btn-outline-primary align-self-center mt-3 hidden' });
     $list.after($more);
 
@@ -618,8 +588,6 @@ $(function () {
     $filter.on('change', resetPage);
     $sort.on('change', resetPage);
 
-    // ---------- the form ----------
-    // One check for both forms: the review form (review-*) and the edit form of a card (edit-*)
     function checkField($field) {
         const value = String($field.val()).trim();
         switch ($field.attr('id')) {
@@ -648,19 +616,16 @@ $(function () {
         .sort((x, y) => Number($(x).find('input').val()) - Number($(y).find('input').val()))
         .appendTo($ratingRow);
 
-    // The stars are what the visitor sees; the radio buttons stay in the page (the frozen HTML) and hold the value,
-    // so checkRating and the submit code read them as before.
     const formStars = starPicker(0, function (value) {
         $('#review-rating-' + value).prop('checked', true).trigger('change');
     });
     $ratingRow.addClass('hidden').before(formStars.$el);
 
     const $text = $('#review-text');
-    $text.attr('maxlength', MAX_CHARS); // the browser stops typing at the limit; checkField checks again (a pasted text, edited HTML)
+    $text.attr('maxlength', MAX_CHARS);
     const $counter = $('<div>', { id: 'review-text-counter', 'class': 'form-text', 'aria-live': 'off' });
     $text.after($counter);
 
-    // the photo field goes under the counter, inside the same column
     const photo = photoPicker('review-photo');
     $counter.after(photo.$el.addClass('mt-3'));
 
@@ -672,14 +637,12 @@ $(function () {
     $text.on('input', updateCounter);
     updateCounter();
 
-    // required stays in the HTML as the first line of defence; novalidate only hides the browser's bubbles.
-    // A browser check never replaces the server: the visitor can bypass it, so the server must check again.
     $form.attr('novalidate', '');
     jqLiveValidate($form, checkField);
     $form.on('change', 'input[name="rating"]', checkRating);
 
     $form.on('submit', function (event) {
-        event.preventDefault(); // without it the page reloads and the new card is lost
+        event.preventDefault();
         const results = [checkField($('#review-name')), checkRating(), checkField($('#review-text'))];
         const ok = results.every(Boolean);
         jqReport($form, $('#review-error'), ok);

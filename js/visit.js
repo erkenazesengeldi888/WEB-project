@@ -1,10 +1,5 @@
 'use strict';
 
-/* Visit page.
-   Feature 1: the row of the opening-hours table that is true today is highlighted, with a line "Today: ...".
-   Feature 2: the question form with validation, a live character counter and a confirmation. */
-
-// ---------- opening hours: today ----------
 function markToday() {
     const now = new Date();
     const rows = document.querySelectorAll('#opening-hours-table tbody tr');
@@ -25,7 +20,6 @@ function markToday() {
     byId('opening-hours-table').closest('.table-responsive').after(today);
 }
 
-// ---------- question form ----------
 const contactForm = byId('contact-form');
 const messageInput = byId('contact-message');
 const MESSAGE_MIN = 10;
@@ -66,7 +60,6 @@ function checkField(field) {
 
 addDemoNote(byId('contact-success'), 'This is a demo: your question is not sent anywhere.');
 
-// A second e-mail field, built here: the two addresses must be the same
 const confirmCol = makeEl('div', 'col-12 col-md-6');
 const confirmLabel = makeEl('label', 'form-label', 'Repeat e-mail');
 confirmLabel.htmlFor = 'contact-email-confirm';
