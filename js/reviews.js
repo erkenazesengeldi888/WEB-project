@@ -185,7 +185,7 @@ $(function () {
                 image.onerror = () => reject(new Error('This image could not be opened.'));
                 image.onload = function () {
                     const scale = Math.min(1, MAX_PHOTO_SIDE / Math.max(image.width, image.height));
-                    const canvas = document.createElement('canvas');
+                    const canvas = $('<canvas>')[0];
                     canvas.width = Math.round(image.width * scale);
                     canvas.height = Math.round(image.height * scale);
                     canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
