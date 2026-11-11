@@ -326,3 +326,7 @@ Every jQuery file starts with `jq-`, so the split is visible from the file names
 =======
 >>>>>>> a58e037318ecda0d3e0339ad369ad4d5e2d9b09a
 >>>>>>> e72849f51a35bc557c1555d5553ffdb059fc7ba9
+
+## AI use
+
+Parts of this project were made with the help of the AI assistant Claude (Claude Code). Which commits, what for and with which model is listed in [AI_LOG.md](AI_LOG.md).
