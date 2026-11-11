@@ -149,6 +149,13 @@
         return digits.length === 10 || (digits.length === 11 && (digits[0] === '7' || digits[0] === '8'));
     }
 
+    const PHONE_PREFIX = '+7 7';
+
+    function isPhoneKz(value) {
+        const compact = value.trim().replace(/[\s()-]/g, '');
+        return /^\+77\d{9}$/.test(compact);
+    }
+
     function isValidEmail(value) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
     }
@@ -1399,10 +1406,7 @@
                     }
                     return setFieldState(field, isValidEmail(value) ? '' : 'Please enter a valid e-mail address, for example name@mail.com.');
                 case 'booking-phone':
-                    if (value === '') {
-                        return setFieldState(field, 'Please enter your phone number.');
-                    }
-                    return setFieldState(field, isValidPhone(value) ? '' : 'Please enter a phone number we can call, for example +7 771 419 84 57.');
+                    return setFieldState(field, isPhoneKz(value) ? '' : 'The number must start with +7 7 and have 11 digits in all: +7 7XX XXX XX XX.');
                 case 'booking-guests': {
                     const guests = Number(value);
                     if (value === '' || !Number.isInteger(guests) || guests < 1 || guests > 10) {
@@ -1481,9 +1485,16 @@
         bookingForm.addEventListener('reset', () => {
             resetFieldStates(bookingForm);
             byId('booking-error').classList.add('hidden');
-            setTimeout(renderSlots, 0);
+            setTimeout(() => {
+                byId('booking-guests').value = '';
+                byId('booking-phone').value = PHONE_PREFIX;
+                renderSlots();
+            }, 0);
         });
 
+        byId('booking-phone').inputMode = 'tel';
+        byId('booking-phone').value = PHONE_PREFIX;
+        byId('booking-guests').value = '';
         renderSlots();
     }
 
@@ -1537,6 +1548,26 @@
         confirmCol.append(confirmLabel, confirmInput, confirmError);
         byId('contact-email').closest('.col-12').after(confirmCol);
 
+        function makePhoneField() {
+            const col = makeEl('div', 'col-12 col-md-6');
+            const label = makeEl('label', 'form-label', 'Phone number');
+            label.htmlFor = 'contact-phone';
+            const input = makeEl('input', 'form-control');
+            input.type = 'tel';
+            input.id = 'contact-phone';
+            input.name = 'phone';
+            input.autocomplete = 'tel';
+            input.inputMode = 'tel';
+            input.value = PHONE_PREFIX;
+            input.required = true;
+            const error = makeEl('div', 'invalid-feedback', 'Please enter a phone number.');
+            error.id = 'contact-phone-error';
+            col.append(label, input, error);
+            return col;
+        }
+
+        confirmCol.after(makePhoneField());
+
         function checkField(field) {
             const value = field.value.trim();
             switch (field.id) {
@@ -1549,6 +1580,8 @@
                         return setFieldState(field, 'Please repeat your e-mail address.');
                     }
                     return setFieldState(field, value.toLowerCase() === byId('contact-email').value.trim().toLowerCase() ? '' : 'The e-mail addresses are not the same.');
+                case 'contact-phone':
+                    return setFieldState(field, isPhoneKz(value) ? '' : 'The number must start with +7 7 and have 11 digits in all: +7 7XX XXX XX XX.');
                 case 'contact-topic':
                     return setFieldState(field, value !== '' ? '' : 'Please choose a topic.');
                 case 'contact-message':
@@ -1570,7 +1603,7 @@
 
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            const fields = ['contact-name', 'contact-email', 'contact-email-confirm', 'contact-topic', 'contact-message'].map(byId);
+            const fields = ['contact-name', 'contact-email', 'contact-email-confirm', 'contact-phone', 'contact-topic', 'contact-message'].map(byId);
             const ok = fields.map(checkField).every(Boolean);
             reportErrors(contactForm, byId('contact-error'), ok);
             if (!ok) {
@@ -1588,7 +1621,10 @@
         contactForm.addEventListener('reset', () => {
             resetFieldStates(contactForm);
             byId('contact-error').classList.add('hidden');
-            setTimeout(updateCounter, 0);
+            setTimeout(() => {
+                updateCounter();
+                byId('contact-phone').value = PHONE_PREFIX;
+            }, 0);
         });
 
         updateCounter();
