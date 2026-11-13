@@ -62,7 +62,7 @@ $(function () {
             case 'booking-email':
                 return jqFieldState($field, isValidEmail(value) ? '' : 'Please enter a valid e-mail address, for example name@mail.com.');
             case 'booking-phone':
-                return jqFieldState($field, isPhoneKz(value) ? '' : 'The number must start with +7 7 and have 11 digits in all: +7 7XX XXX XX XX.');
+                return jqFieldState($field, phoneError(value));
             case 'booking-guests': {
                 const guests = Number(value);
                 if (value === '' || !Number.isInteger(guests) || guests < 1 || guests > 10) {
@@ -155,13 +155,13 @@ $(function () {
         jqConceal($('#booking-error'));
         setTimeout(function () {
             $('#booking-guests').val('');
-            $('#booking-phone').val(PHONE_PREFIX);
             renderSlots();
         }, 0);
     });
 
-    $('#booking-phone').attr('inputmode', 'tel').val(PHONE_PREFIX);
+    $('#booking-phone').attr('inputmode', 'tel').val('');
     $('#booking-guests').val('');
 
     renderSlots();
 });
+
