@@ -105,11 +105,15 @@ function isValidPhone(value) {
     return digits.length === 10 || (digits.length === 11 && (digits[0] === '7' || digits[0] === '8'));
 }
 
-const PHONE_PREFIX = '+7 7';
+const PHONE_CODES = ['700', '702', '705', '747', '775'];
+const PHONE_ERROR = 'Please enter a phone number we can call, for example +7 771 419 84 57.';
 
-function isPhoneKz(value) {
+function phoneError(value) {
     const compact = value.trim().replace(/[\s()-]/g, '');
-    return /^\+77\d{9}$/.test(compact);
+    if (!/^\+7\d{10}$/.test(compact) || !PHONE_CODES.includes(compact.slice(2, 5))) {
+        return PHONE_ERROR;
+    }
+    return '';
 }
 
 function isValidEmail(value) {
