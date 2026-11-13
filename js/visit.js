@@ -50,7 +50,7 @@ function checkField(field) {
             }
             return setFieldState(field, value.trim().toLowerCase() === byId('contact-email').value.trim().toLowerCase() ? '' : 'The e-mail addresses are not the same.');
         case 'contact-phone':
-            return setFieldState(field, isPhoneKz(value) ? '' : 'The number must start with +7 7 and have 11 digits in all: +7 7XX XXX XX XX.');
+            return setFieldState(field, phoneError(value));
         case 'contact-topic':
             return setFieldState(field, value !== '' ? '' : 'Please choose a topic.');
         case 'contact-message':
@@ -86,7 +86,6 @@ function makePhoneField() {
     input.name = 'phone';
     input.autocomplete = 'tel';
     input.inputMode = 'tel';
-    input.value = PHONE_PREFIX;
     input.required = true;
     const error = makeEl('div', 'invalid-feedback', 'Please enter a phone number.');
     error.id = 'contact-phone-error';
@@ -125,11 +124,9 @@ contactForm.addEventListener('submit', (event) => {
 contactForm.addEventListener('reset', () => {
     resetFieldStates(contactForm);
     byId('contact-error').classList.add('hidden');
-    setTimeout(() => {
-        updateCounter();
-        byId('contact-phone').value = PHONE_PREFIX;
-    }, 0);
+    setTimeout(updateCounter, 0);
 });
 
 markToday();
 updateCounter();
+
