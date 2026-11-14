@@ -215,6 +215,3 @@ Every jQuery file starts with `jq-`, so the split is visible from the file names
 | Booking: **Number of guests** is empty when the page opens and after **Clear form** (before, the browser put the default 2); the visitor picks the number with the arrows of the field | `js/jq-booking.js` | jQuery | Team |
 
 (Please correct the names if the work was split differently.)
-
-
-Parts of this project were made with the help of the AI assistant Claude (Claude Code).
