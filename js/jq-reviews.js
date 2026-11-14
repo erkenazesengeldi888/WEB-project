@@ -330,6 +330,9 @@ $(function () {
 
     function editCard(review) {
         const $name = $('<input>', { type: 'text', id: 'edit-name', 'class': 'form-control', autocomplete: 'name' }).val(review.name);
+        $name.on('input', function () {
+            $(this).val($(this).val().replace(/[^\p{L} ]/gu, ''));
+        });
         const rating = starPicker(review.rating);
         const $text = $('<textarea>', { id: 'edit-text', 'class': 'form-control', rows: 4, maxlength: MAX_CHARS }).val(review.text);
         const picker = photoPicker('edit-photo', photosOf(review));

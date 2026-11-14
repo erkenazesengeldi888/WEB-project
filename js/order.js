@@ -96,9 +96,9 @@ function checkField(field) {
     const value = field.value;
     switch (field.id) {
         case 'order-name':
-            return setFieldState(field, isValidName(value) ? '' : 'Please enter your name (at least 2 letters).');
+            return setFieldState(field, isValidName(value) ? '' : 'Please enter your name using letters only (at least 2 letters).');
         case 'order-phone':
-            return setFieldState(field, isValidPhone(value) ? '' : 'Please enter a phone number we can call, for example +7 771 419 84 57.');
+            return setFieldState(field, isPhoneKz(value) ? '' : 'Enter +7 followed by 10 digits (11 digits in total).');
         case 'order-address':
             if (!isDelivery()) {
                 return true;
@@ -208,13 +208,6 @@ byId('order-time').value = suggestTime();
 function showCashPayment() {
     byId('order-consent').labels[0].textContent = CASH_TEXT;
     byId('order-consent-error').textContent = CASH_ERROR;
-
-    const lead = document.querySelector('main .lead');
-    lead.childNodes.forEach((node) => {
-        if (node.nodeType === Node.TEXT_NODE && node.textContent.includes('You pay when you receive the order.')) {
-            node.textContent = node.textContent.replace('You pay when you receive the order.', 'Payment is in cash when you receive the order.');
-        }
-    });
 
     byId('order-success').querySelectorAll('p')[1].append(' Payment: cash when you receive the order.');
 }

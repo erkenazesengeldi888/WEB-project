@@ -41,7 +41,7 @@ function checkField(field) {
     const value = field.value;
     switch (field.id) {
         case 'contact-name':
-            return setFieldState(field, isValidName(value) ? '' : 'Please enter your name (at least 2 letters).');
+            return setFieldState(field, isValidName(value) ? '' : 'Please enter your name using letters only (at least 2 letters).');
         case 'contact-email':
             return setFieldState(field, isValidEmail(value) ? '' : 'Please enter a valid e-mail address, for example name@mail.com.');
         case 'contact-email-confirm':
@@ -50,7 +50,7 @@ function checkField(field) {
             }
             return setFieldState(field, value.trim().toLowerCase() === byId('contact-email').value.trim().toLowerCase() ? '' : 'The e-mail addresses are not the same.');
         case 'contact-phone':
-            return setFieldState(field, phoneError(value));
+                return setFieldState(field, isPhoneKz(value) ? '' : 'Enter +7 followed by 10 digits (11 digits in total).');
         case 'contact-topic':
             return setFieldState(field, value !== '' ? '' : 'Please choose a topic.');
         case 'contact-message':
@@ -86,7 +86,9 @@ function makePhoneField() {
     input.name = 'phone';
     input.autocomplete = 'tel';
     input.inputMode = 'tel';
+    input.value = PHONE_PREFIX;
     input.required = true;
+    setUpPhoneField(input);
     const error = makeEl('div', 'invalid-feedback', 'Please enter a phone number.');
     error.id = 'contact-phone-error';
     col.append(label, input, error);
@@ -124,9 +126,11 @@ contactForm.addEventListener('submit', (event) => {
 contactForm.addEventListener('reset', () => {
     resetFieldStates(contactForm);
     byId('contact-error').classList.add('hidden');
-    setTimeout(updateCounter, 0);
+    setTimeout(() => {
+        updateCounter();
+        byId('contact-phone').value = PHONE_PREFIX;
+    }, 0);
 });
 
 markToday();
 updateCounter();
-

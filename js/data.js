@@ -5,15 +5,6 @@ const HOURS = {
     weekend: { open: '08:00', close: '23:00' }
 };
 
-const DRINKS = [
-    { name: 'Espresso', category: 'coffee', size: '250 ml', price: 690, milk: false },
-    { name: 'Americano', category: 'coffee', size: '250 ml', price: 890, milk: false, freeMilk: true },
-    { name: 'Cappuccino', category: 'coffee', size: '250 ml', price: 1090, milk: true },
-    { name: 'Latte', category: 'coffee', size: '350 ml', price: 1190, milk: true },
-    { name: 'Flat white', category: 'coffee', size: '250 ml', price: 1190, milk: true },
-    { name: 'Raf', category: 'coffee', size: '350 ml', price: 1290, milk: true }
-];
-
 const pad = (n) => String(n).padStart(2, '0');
 
 function formatPrice(amount) {
@@ -97,23 +88,24 @@ function searchDrinks(list, term, category) {
 }
 
 function isValidName(value) {
-    return value.trim().length >= 2;
+    return value.trim().length >= 2 && /^[\p{L} ]+$/u.test(value.trim());
 }
 
-function isValidPhone(value) {
+const PHONE_PREFIX = '+7';
+
+function formatPhone(value) {
     const digits = value.replace(/\D/g, '');
-    return digits.length === 10 || (digits.length === 11 && (digits[0] === '7' || digits[0] === '8'));
+    if (digits === '' && value.includes('+')) {
+        return '+';
+    }
+    const local = (/^[78]/.test(digits) ? digits.slice(1) : digits).slice(0, 10);
+    const groups = [local.slice(0, 3), local.slice(3, 6), local.slice(6, 8), local.slice(8, 10)].filter((group) => group !== '');
+    return [PHONE_PREFIX, ...groups].join(' ');
 }
 
-const PHONE_CODES = ['700', '702', '705', '747', '775'];
-const PHONE_ERROR = 'Please enter a phone number we can call, for example +7 771 419 84 57.';
-
-function phoneError(value) {
+function isPhoneKz(value) {
     const compact = value.trim().replace(/[\s()-]/g, '');
-    if (!/^\+7\d{10}$/.test(compact) || !PHONE_CODES.includes(compact.slice(2, 5))) {
-        return PHONE_ERROR;
-    }
-    return '';
+    return /^\+7\d{10}$/.test(compact);
 }
 
 function isValidEmail(value) {
@@ -147,10 +139,6 @@ function calcExtras(options, hasMilk) {
     return price;
 }
 
-function calcDrinkPrice(drink, options) {
-    return drink.price + calcExtras(options, drink.milk);
-}
-
 function extrasName(baseName, options) {
     const parts = [];
     if (options.milk) {
@@ -168,10 +156,6 @@ function extrasName(baseName, options) {
     }
     options.free.forEach((name) => parts.push(name.toLowerCase()));
     return parts.length ? baseName + ' (' + parts.join(', ') + ')' : baseName;
-}
-
-function pickDrinks(list, milk, maxPrice) {
-    return list.filter((d) => (milk === 'any' || d.milk === (milk === 'yes')) && (maxPrice === 0 || d.price <= maxPrice));
 }
 
 function readStorage(key, fallback) {

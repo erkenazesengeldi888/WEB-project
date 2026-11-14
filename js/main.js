@@ -108,6 +108,40 @@ function initCartBadge() {
 initOpenStatus();
 initCartBadge();
 
+document.querySelectorAll('input[name="name"]').forEach((field) => {
+    field.addEventListener('input', () => {
+        field.value = field.value.replace(/[^\p{L} ]/gu, '');
+    });
+});
+
+function setUpPhoneField(field) {
+    field.setAttribute('placeholder', '+7 XXX XXX XX XX');
+    field.setAttribute('maxlength', '16');
+    field.addEventListener('focus', () => {
+        if (field.value === '') {
+            field.value = PHONE_PREFIX;
+        }
+    });
+    field.addEventListener('input', () => {
+        if (field.value === PHONE_PREFIX + '+') {
+            field.value = '+';
+            return;
+        }
+        if (field.value === PHONE_PREFIX + '8') {
+            field.value = PHONE_PREFIX;
+            return;
+        }
+        field.value = formatPhone(field.value);
+    });
+    field.addEventListener('blur', () => {
+        if (field.value === '+') {
+            field.value = PHONE_PREFIX;
+        }
+    });
+}
+
+document.querySelectorAll('input[type="tel"][name="phone"]').forEach(setUpPhoneField);
+
 function addDemoNote(successEl, text) {
     const note = makeEl('p', 'small mb-0 mt-2 fst-italic', text || 'This is a demo: your data is not sent anywhere and no real order or booking is made.');
     note.classList.add('demo-note');

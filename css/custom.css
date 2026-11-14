@@ -203,7 +203,9 @@ tr.active > * {
     padding: 0.6rem 1.1rem;
 }
 
-.add-to-cart.added {
+.add-to-cart.added,
+#drink-modal-add.added,
+#drink-modal-add.added:hover {
     background-color: #198754;
     border-color: #198754;
 }
@@ -218,11 +220,6 @@ tr.active > * {
     min-width: 1.5rem;
     text-align: center;
     font-weight: 600;
-}
-
-#cart-panel {
-    --bs-offcanvas-width: 24rem;
-    background-color: var(--bs-body-bg);
 }
 
 .drink-open {
@@ -240,7 +237,8 @@ tr.active > * {
 }
 
 .drink-card .drink-size,
-.drink-card .add-to-cart {
+.drink-card .add-to-cart,
+.drink-card .qty-stepper {
     position: relative;
     z-index: 2;
 }
@@ -251,4 +249,20 @@ tr.active > * {
 
 .drink-ingredients {
     padding-left: 1.2rem;
+}
+
+#menu-category-nav .nav-link {
+    padding: 0.45rem 1rem;
+    color: var(--bs-primary);
+    background-color: #fff;
+    border: 1px solid var(--bs-primary);
+    border-radius: 2rem;
+    font-weight: 600;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#menu-category-nav .nav-link:hover,
+#menu-category-nav .nav-link:focus-visible {
+    color: #fff;
+    background-color: var(--bs-primary);
 }

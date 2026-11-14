@@ -1,5 +1,48 @@
 'use strict';
 
+const CUSTOM_CATEGORIES = ['coffee', 'iced-coffee'];
+
+function makeStepper(onChange) {
+    const element = makeEl('div', 'qty-stepper d-inline-flex align-items-center gap-2');
+    const minus = makeEl('button', 'btn btn-outline-primary btn-sm cart-step', '−');
+    minus.type = 'button';
+    minus.setAttribute('aria-label', 'Remove one');
+    minus.addEventListener('click', () => onChange(-1));
+    const count = makeEl('span', 'cart-qty qty-count', '0');
+    count.setAttribute('aria-live', 'polite');
+    const plus = makeEl('button', 'btn btn-outline-primary btn-sm cart-step', '+');
+    plus.type = 'button';
+    plus.setAttribute('aria-label', 'Add one more');
+    plus.addEventListener('click', () => onChange(1));
+    element.append(minus, count, plus);
+    return element;
+}
+
+function isCustomDrink(card) {
+    return card.classList.contains('drink-card') && CUSTOM_CATEGORIES.includes(card.closest('.menu-category').dataset.category);
+}
+
+function customLines(card) {
+    const name = card.dataset.name;
+    return EDCart.items().filter((line) => line.name === name || line.name.startsWith(name + ' ('));
+}
+
+function cardStepper(card) {
+    return makeStepper((delta) => {
+        if (isCustomDrink(card)) {
+            const lines = customLines(card);
+            const line = lines[lines.length - 1];
+            if (line) {
+                EDCart.setQty(line.name, line.size, line.price, line.qty + delta);
+            }
+            return;
+        }
+        const size = currentSizeLabel(card);
+        const price = currentPrice(card);
+        EDCart.setQty(card.dataset.name, size, price, EDCart.qty(card.dataset.name, size, price) + delta);
+    });
+}
+
 function drinkCard(item) {
     const col = makeEl('div', 'col');
     const card = makeEl('article', 'card drink-card h-100 shadow-sm menu-item');
@@ -47,8 +90,10 @@ function drinkCard(item) {
     const add = makeEl('button', 'btn btn-primary btn-sm add-to-cart', 'Add');
     add.type = 'button';
     add.setAttribute('aria-label', 'Add ' + item.name + ' to cart');
-    const row = makeEl('div', 'mt-auto d-flex justify-content-between align-items-center gap-2');
-    row.append(makeEl('span', 'drink-price fw-bold text-primary', formatPrice(item.price)), add);
+    const row = makeEl('div', 'mt-auto d-flex flex-wrap justify-content-between align-items-center gap-2');
+    const stepper = cardStepper(card);
+    stepper.classList.add('hidden', 'ms-auto');
+    row.append(makeEl('span', 'drink-price fw-bold text-primary', formatPrice(item.price)), add, stepper);
     body.append(row);
 
     card.append(body);
@@ -63,7 +108,9 @@ function listRow(item) {
     const li = makeEl('li', 'list-group-item menu-item d-flex justify-content-between align-items-center');
     li.dataset.name = item.name;
     li.dataset.price = String(item.price);
-    li.append(makeEl('span', '', item.name), makeEl('span', 'fw-bold text-nowrap ms-3', item.price + ' \u20b8'), add);
+    const stepper = cardStepper(li);
+    stepper.classList.add('hidden', 'ms-3');
+    li.append(makeEl('span', '', item.name), makeEl('span', 'fw-bold text-nowrap ms-3', item.price + ' \u20b8'), add, stepper);
     return li;
 }
 
@@ -120,6 +167,7 @@ document.querySelectorAll('.drink-card').forEach((card) => {
             button.classList.add('active');
             button.setAttribute('aria-pressed', 'true');
             price.textContent = formatPrice(Number(button.dataset.price));
+            syncCardControls();
         });
     });
 });
@@ -181,42 +229,8 @@ searchInput.addEventListener('input', applyFilter);
 categorySelect.addEventListener('change', applyFilter);
 searchForm.addEventListener('reset', () => setTimeout(applyFilter, 0));
 
-function cartRow(item) {
-    const li = makeEl('li', 'list-group-item px-0');
-
-    const top = makeEl('div', 'd-flex justify-content-between');
-    const remove = makeEl('button', 'btn-close btn-sm');
-    remove.type = 'button';
-    remove.setAttribute('aria-label', 'Remove ' + item.name);
-    remove.addEventListener('click', () => EDCart.setQty(item.name, item.size, item.price, 0));
-    top.append(makeEl('span', 'fw-semibold', EDCart.label(item)), remove);
-
-    const minus = makeEl('button', 'btn btn-outline-primary btn-sm cart-step', '−');
-    minus.type = 'button';
-    minus.setAttribute('aria-label', 'Less ' + item.name);
-    minus.addEventListener('click', () => EDCart.setQty(item.name, item.size, item.price, item.qty - 1));
-    const plus = makeEl('button', 'btn btn-outline-primary btn-sm cart-step', '+');
-    plus.type = 'button';
-    plus.setAttribute('aria-label', 'More ' + item.name);
-    plus.addEventListener('click', () => EDCart.setQty(item.name, item.size, item.price, item.qty + 1));
-    const stepper = makeEl('div', 'd-flex align-items-center gap-2');
-    stepper.append(minus, makeEl('span', 'cart-qty', String(item.qty)), plus);
-
-    const row = makeEl('div', 'd-flex justify-content-between align-items-center mt-1');
-    row.append(stepper, makeEl('strong', 'text-primary', EDCart.format(item.qty * item.price)));
-
-    li.append(top, row);
-    return li;
-}
-
-function renderCart() {
-    const items = EDCart.items();
-    const has = items.length > 0;
-    byId('cart-items').replaceChildren(...items.map(cartRow));
-    byId('cart-empty').classList.toggle('hidden', has);
-    byId('cart-total-row').classList.toggle('hidden', !has);
-    byId('cart-actions').classList.toggle('hidden', !has);
-    byId('cart-total').textContent = EDCart.format(EDCart.total());
+function renderCartButton() {
+    const has = EDCart.count() > 0;
     byId('cart-count').textContent = EDCart.count();
     byId('cart-fab-total').textContent = has ? EDCart.format(EDCart.total()) : '';
 }
@@ -237,33 +251,59 @@ document.addEventListener('click', (event) => {
         return;
     }
     const card = button.closest('.menu-item');
+    if (isCustomDrink(card)) {
+        openDrinkWindow(card);
+        return;
+    }
     EDCart.add(card.dataset.name, currentSizeLabel(card), currentPrice(card));
-    flashAdded(button, '✓ Added');
 });
-byId('cart-clear').addEventListener('click', () => EDCart.clear());
-EDCart.onChange(renderCart);
-renderCart();
+EDCart.onChange(renderCartButton);
+renderCartButton();
 
 const modalEl = byId('drink-modal');
 const modal = new bootstrap.Modal(modalEl);
 let openCard = null;
 
-const CUSTOM_CATEGORIES = ['coffee', 'iced-coffee'];
 const picker = createExtrasPicker('menu-');
 const customBox = makeEl('div', 'mt-3 hidden');
 customBox.id = 'drink-modal-custom';
 customBox.append(makeEl('p', 'small fw-semibold mb-2', 'Customise your drink'), picker.element);
 byId('drink-modal-add').before(customBox);
 
-const isCustom = (card) => CUSTOM_CATEGORIES.includes(card.closest('.menu-category').dataset.category);
+const modalAddButton = byId('drink-modal-add');
+let closeTimer = null;
+
+function resetModalAddButton() {
+    clearTimeout(closeTimer);
+    modalAddButton.classList.remove('added');
+    modalAddButton.textContent = 'Add to cart';
+}
+
+function syncCardControls() {
+    document.querySelectorAll('.menu-item').forEach((card) => {
+        const addButton = card.querySelector('.add-to-cart');
+        const stepper = card.querySelector('.qty-stepper');
+        const quantity = isCustomDrink(card)
+            ? customLines(card).reduce((sum, line) => sum + line.qty, 0)
+            : EDCart.qty(card.dataset.name, currentSizeLabel(card), currentPrice(card));
+        addButton.classList.toggle('hidden', quantity > 0);
+        stepper.classList.toggle('hidden', quantity === 0);
+        stepper.querySelector('.qty-count').textContent = String(quantity);
+    });
+}
+
 const hasMilk = (card) => /milk/i.test(card.dataset.ingredients);
 
+EDCart.onChange(syncCardControls);
+syncCardControls();
+
 function modalPrice() {
-    return currentPrice(openCard) + (isCustom(openCard) ? calcExtras(picker.options(), hasMilk(openCard)) : 0);
+    return currentPrice(openCard) + (isCustomDrink(openCard) ? calcExtras(picker.options(), hasMilk(openCard)) : 0);
 }
 
 picker.onChange(() => {
     byId('drink-modal-price').textContent = formatPrice(modalPrice());
+    resetModalAddButton();
 });
 
 function fillModal() {
@@ -288,18 +328,16 @@ function fillModal() {
         button.setAttribute('aria-pressed', String(isActive));
         button.addEventListener('click', () => {
             source.click();
+            resetModalAddButton();
             fillModal();
         });
         return button;
     }));
 }
 
-document.addEventListener('click', (event) => {
-    const opener = event.target.closest('.drink-open');
-    if (!opener) {
-        return;
-    }
-    openCard = opener.closest('.drink-card');
+function openDrinkWindow(card) {
+    openCard = card;
+    resetModalAddButton();
     const photo = openCard.querySelector('img.drink-photo');
     const modalPhoto = byId('drink-modal-photo');
     byId('drink-modal-title').textContent = openCard.dataset.name;
@@ -310,7 +348,7 @@ document.addEventListener('click', (event) => {
     modalPhoto.classList.toggle('hidden', !photo);
     byId('drink-modal-desc').textContent = openCard.dataset.desc;
     byId('drink-modal-ingredients').replaceChildren(...openCard.dataset.ingredients.split('|').map((text) => makeEl('li', '', text)));
-    const custom = isCustom(openCard);
+    const custom = isCustomDrink(openCard);
     customBox.classList.toggle('hidden', !custom);
     if (custom) {
         picker.reset();
@@ -318,21 +356,27 @@ document.addEventListener('click', (event) => {
     }
     fillModal();
     modal.show();
+}
+
+document.addEventListener('click', (event) => {
+    const opener = event.target.closest('.drink-open');
+    if (opener) {
+        openDrinkWindow(opener.closest('.drink-card'));
+    }
 });
 
-byId('drink-modal-add').addEventListener('click', (event) => {
+modalAddButton.addEventListener('click', () => {
     if (openCard === null) {
         return;
     }
-    if (isCustom(openCard)) {
-        const options = picker.options();
-        EDCart.add(extrasName(openCard.dataset.name, options), currentSizeLabel(openCard), modalPrice());
-    } else {
-        openCard.querySelector('.add-to-cart').click();
-    }
-    const button = event.currentTarget;
-    button.textContent = '✓ Added to cart';
-    setTimeout(() => { button.textContent = 'Add to cart'; }, 1000);
+    const name = isCustomDrink(openCard) ? extrasName(openCard.dataset.name, picker.options()) : openCard.dataset.name;
+    EDCart.add(name, currentSizeLabel(openCard), modalPrice());
+    modalAddButton.classList.add('added');
+    modalAddButton.textContent = '✓ Added';
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => {
+        modal.hide();
+    }, 700);
 });
 
 function initSurprise() {

@@ -12,16 +12,15 @@ The midterm version was **HTML and CSS only**. Assignments 4 and 5 and the endte
 
 | File | Page | What the visitor does there |
 |---|---|---|
-| `index.html` | Home | Sees what the shop offers, opening hours and address, and starts any of the main actions |
-| `about.html` | About | Reads the story, meets the team, reads the common questions (FAQ), goes to the question form |
+| `index.html` | Home (with About) | Sees what the shop offers, reads the story, meets the team, reads the common questions (FAQ), sees opening hours and address |
 | `menu.html` | Menu | Looks up prices, finds a drink with the search form, jumps to a category, starts a pre-order |
-| `order.html` | Order | Chooses drinks and quantities, sees the total, enters pick-up details, places the order |
+| `order.html` | Cart | Chooses drinks and quantities, sees the total, enters pick-up details, places the order |
 | `visit.html` | Visit Us | Finds the address, contacts and opening hours, sends a question |
 | `booking.html` | Booking | Requests a table, reads the summary of the request |
-| `coffee.html` | Coffee | Learns how each coffee is made, the extras and the shop concept |
+| `coffee.html` | Coffee | Learns how each coffee variety is made (static table), the extras and the shop concept |
 | `reviews.html` | Reviews | Reads reviews and the manager's statement, writes a review |
 
-All eight pages share the same header, navigation (same eight items in the same order), title band and footer. Titles follow one pattern: `Espresso Day — Page`.
+All seven pages share the same header, navigation (same seven items in the same order), title band and footer. Titles follow one pattern: `Espresso Day — Page`.
 
 ## Three user journeys
 
@@ -41,7 +40,7 @@ All eight pages share the same header, navigation (same eight items in the same 
 6. **End:** the **Order confirmation** box under the form (`#order-result`) is where the order number, drinks, total and pick-up time appear. The page also says that payment is at the counter.
 
 ### Journey 3: read about the team and send a question
-1. **Start:** `about.html`.
+1. **Start:** `index.html#about-intro` (About is part of the home page).
 2. The visitor reads the story, then **The people behind Espresso Day** (owner, franchise owners, branch manager) and the FAQ.
 3. The visitor presses **Ask us a question** and lands on `visit.html#contact-form`.
 4. The visitor fills in name, e-mail, topic and message, and presses **Send question**.
@@ -98,11 +97,11 @@ HTML/CSS freeze: the only change in the HTML files is the `<script ... defer>` t
 
 | File | Used on | What it holds |
 |---|---|---|
-| `js/data.js` | all pages | Data and pure functions (Assignment 4): `DRINKS` (6 drinks with name, category, size, price, milk), `HOURS`, `formatPrice`, `getOpenStatus`, `isTimeWithinHours`, `buildTimeSlots`, `generateOrderNumber`, `calcTotal`, `pickRandom`, `searchDrinks`, `isValidPhone`, `isValidEmail`, `averageRating`, `readStorage`/`writeStorage` (`localStorage` with a fallback) and others. No DOM, so both the plain JS and the jQuery files may call them |
+| `js/data.js` | all pages | Data and pure functions (Assignment 4): `HOURS`, `formatPrice`, `getOpenStatus`, `isTimeWithinHours`, `buildTimeSlots`, `generateOrderNumber`, `calcTotal`, `pickRandom`, `searchDrinks`, `isValidEmail`, `averageRating`, `readStorage`/`writeStorage` (`localStorage` with a fallback) and others. No DOM, so both the plain JS and the jQuery files may call them |
 | `js/cart.js` | all pages | The shared cart, kept in `localStorage` |
 | `js/main.js` | all pages | Form helpers, the two team features (below), the common look (fonts, rounded cards, photo zoom) and the icons of "Why Espresso Day" on the Home page |
-| `js/extras.js` | Menu, Coffee | The drink extras picker: alternative milk with its kind, extra shot, decaf, any number of syrups, free additions (cinnamon, sugar, sweetener; milk for the Americano) |
-| `menu.js`, `coffee.js`, `order.js`, `visit.js` (plain JS); `jq-about.js`, `jq-booking.js`, `jq-reviews.js` (jQuery) | one page each | Page features |
+| `js/extras.js` | Menu | The drink extras picker: alternative milk with its kind, extra shot, decaf, any number of syrups, free additions (cinnamon, sugar, sweetener; milk for the Americano) |
+| `menu.js`, `order.js`, `visit.js` (plain JS); `jq-about.js`, `jq-booking.js`, `jq-reviews.js` (jQuery) | one page each | Page features |
 
 Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`, `document.write()`, inline handlers, and no user text through `innerHTML` (only `textContent`). `Math.random()` is used for the temporary order number (`ED-1234`, a reference for the page, not a server id) and for "Surprise me" (a random drink of the menu).
 
@@ -121,7 +120,6 @@ Rules followed: `'use strict'` in every file, `const`/`let` only, no `var`, `==`
 | Visit Us | Know today's hours | Today's row of the hours table is highlighted and a line "Today: ..." is added | The visitor sees today's hours and whether the shop is open | Dilnaz |
 | Visit Us | Ask a question | Question form: 6 fields checked (the phone field is made by `visit.js`), the second e-mail must equal the first, live character counter (10-500), confirmation saying nothing is sent | Confirmation with name, topic and e-mail | Dilnaz |
 | About | Find an answer fast | Search in the common questions (question and answer text), count, empty message, Clear | Only matching questions stay visible | Dilnaz |
-| Coffee | Know the price of my exact cup | "Build your coffee": coffee, kind of milk, extra shot, decaf, several syrups, free additions and number of cups give the price at once; Add to cart | Price per cup and total are shown and the cup goes to the cart | Aisha |
 | Reviews | Share an opinion | Review form with rating and text; the review is added to the list and kept in the browser; own reviews can be deleted | The new review appears first with a thank-you message | Dilnaz |
 | Reviews | Read the reviews that matter | Filter by rating and sort order with a Reset button, the count and average rating of what is shown and an empty message | The list and the statistics change at once | Dilnaz |
 
@@ -136,7 +134,7 @@ git push origin assignment-4 assignment-5
 
 ## jQuery (Assignment 4, last assignment)
 
-jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity hash) on the three pages that use it: `about.html`, `booking.html`, `reviews.html`. The only HTML change is the `<script defer>` lines (jQuery first, then `js/jq-main.js`, then the page file). No plugins, no templates, no sliders. Our code runs inside `$(function () { ... })`.
+jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity hash) on the three pages that use it: `index.html` (the FAQ lives there since About became part of the home page), `booking.html`, `reviews.html`. The only HTML change is the `<script defer>` lines (jQuery first, then `js/jq-main.js`, then the page file). No plugins, no templates, no sliders. Our code runs inside `$(function () { ... })`.
 
 **Change in the old code:** the plain-JavaScript helper `const $ = (id) => document.getElementById(id)` was renamed to `byId`, because `$` now belongs to jQuery. (Rename only, no behaviour change; it is not a midterm HTML/CSS correction.)
 
@@ -146,12 +144,11 @@ jQuery **3.7.1** is loaded from the `code.jquery.com` CDN (with an integrity has
 | `js/jq-about.js` | FAQ search (rewritten, function 1) |
 | `js/jq-booking.js` | Booking slots and validation (rewritten, function 2) |
 | `js/jq-reviews.js` | Review cards, list, filter/sort and the review form (rewritten, function 3) |
-| `js/old-js-version.js` | The **old plain-JavaScript** versions of the three functions (`buildFaqSearch`, `checkField`/`validateBooking`, `reviewCard`/`renderReviews`), **not linked to any page**, for comparison |
 
 ### Where each requirement is
 | Requirement | Where |
 |---|---|
-| 3 rewritten functions | `jq-about.js` `buildFaqSearch`; `jq-booking.js` `checkField` and `validateBooking`; `jq-reviews.js` `reviewCard` and `renderReviews`. Old versions: `old-js-version.js` |
+| 3 rewritten functions | `jq-about.js` `buildFaqSearch`; `jq-booking.js` `checkField` and `validateBooking`; `jq-reviews.js` `reviewCard` and `renderReviews`.  |
 | Selectors: id, class, element, attribute, `:checked`, `:not()`, `:first` | `jq-booking.js` slot handler (`button[data-time]`), `jq-reviews.js` `checkRating` (`input[name="rating"]:checked`), `jq-about.js` `update` (`:not(.hidden)`), `jq-reviews.js` submit handler (`.review-item:first`), `jq-main.js` `jqLiveValidate` (`input:not(:radio):not(:checkbox)`) |
 | Traversal: `.closest()`, `.find()`, `.siblings()`, `.each()` | `jq-reviews.js` (`.closest('.review-item')`, `$list.find(...)`); `jq-booking.js` slot handler (`.siblings()`), `validateBooking` (`.each()`); `jq-main.js` `jqResetStates` (`.find()`) |
 | `$(this)` | `jq-booking.js` slot handler and `validateBooking`, `jq-about.js` `update`, `jq-main.js` `jqLiveValidate`, `jq-reviews.js` delegated handlers |
@@ -179,11 +176,6 @@ The HTML and CSS stay frozen. Everything new is made by the scripts; states are 
 - **Zoom:** a review photo and the two pictures of the page grow when the mouse is over them (delegated `mouseenter` / `mouseleave`).
 - **jQuery features used:** selectors (id, class, attribute, `:checked`, `:first`, `:visible`), `.closest()`, `.find()`, `.siblings()`-style traversal, `$(this)`, chains of 3+ methods, delegated handlers, `fadeIn`, `fadeOut`, `slideToggle`, `animate`.
 
-### Coffee page (plain JavaScript, `js/coffee.js`)
-- **Build your coffee:** the drink list comes from `DRINKS`, the price is calculated from the drink, the extras and the number of cups (validated, 1 to the cart limit), then added to the cart.
-- **Coffee Varieties:** the table body in `coffee.html` is now empty. The rows are made from the array `VARIETIES` in a loop. A search field filters them by name or by what the drink contains (found text is highlighted, there is a count and an empty message with a Clear button). A press on a name chooses that drink in "Build your coffee" and scrolls to it; a drink that is not in the order list says so.
-- **Events:** `submit`, `input`, `change`, `click`, `reset`, `mouseenter`, `mouseleave`. **Delegated handler:** one `click` handler on the table body catches the buttons that are made again at every search.
-- **Zoom:** the photos of the page grow when the mouse is over them.
 
 ## Endterm: what was added
 
@@ -193,19 +185,19 @@ Every jQuery file starts with `jq-`, so the split is visible from the file names
 | Technology | Files | Pages |
 |---|---|---|
 | **jQuery 3.7.1** (CDN `code.jquery.com`, code inside `$(function () { ... })`) | `jq-main.js` (helpers), `jq-about.js`, `jq-booking.js`, `jq-reviews.js` | About, Booking, Reviews |
-| **Plain JavaScript** | `main.js`, `cart.js`, `extras.js`, `menu.js`, `coffee.js`, `order.js`, `visit.js` (and `old-js-version.js`, not linked) | all pages |
+| **Plain JavaScript** | `main.js`, `cart.js`, `extras.js`, `menu.js`, `order.js`, `visit.js` | all pages |
 | **Shared data and pure functions** (no DOM, no jQuery) | `data.js`, `menu-data.js` | all pages / Menu |
 
-`main.js` and `cart.js` are also loaded on the jQuery pages, but for a different feature (the header: open/closed badge, cart counter, fonts); they never touch the jQuery features. jQuery is not loaded on Home, Menu, Coffee, Order and Visit Us.
+`main.js` and `cart.js` are also loaded on the jQuery pages, but for a different feature (the header: open/closed badge, cart counter, fonts); they never touch the jQuery features. jQuery is not loaded on Menu, Coffee, Order and Visit Us.
 
 ### Requirements and where they are
 | Requirement | Where |
 |---|---|
-| Data in arrays and objects at the top of the file, page built with loops | `data.js` (`DRINKS`, `HOURS`), `menu-data.js` (menu cards), `coffee.js` (`VARIETIES`), `jq-reviews.js` (`SEED_REVIEWS`), `main.js` (`PERK_ICONS`, `LOOK_RULES`) |
-| Own functions with parameters and `return`, `if/else` | `data.js` (`formatPrice`, `calcTotal`, `isValidEmail`, `isValidPhone`, `averageRating`, ...), `main.js` `makeIcon(paths)` |
-| Calculated values | order total and count (`order.js`, `calcTotal`), price of a custom coffee (`coffee.js`), average rating and count of reviews (`jq-reviews.js`), number of found drinks / questions |
+| Data in arrays and objects at the top of the file, page built with loops | `data.js` (`HOURS`), `menu-data.js` (menu cards), `jq-reviews.js` (`SEED_REVIEWS`), `main.js` (`PERK_ICONS`, `LOOK_RULES`) |
+| Own functions with parameters and `return`, `if/else` | `data.js` (`formatPrice`, `calcTotal`, `isValidEmail`, `averageRating`, ...), `main.js` `makeIcon(paths)` |
+| Calculated values | order total and count (`order.js`, `calcTotal`), average rating and count of reviews (`jq-reviews.js`), number of found drinks / questions |
 | No `onclick` in the HTML | all handlers are attached in the scripts (`addEventListener` / `.on()`) |
-| 3+ event types, delegation | plain JS: `click`, `submit`, `input`, `change`, `reset`, `mouseenter`, `mouseleave`, delegated `click` on the table body in `coffee.js`; jQuery: see the table above |
+| 3+ event types, delegation | plain JS: `click`, `submit`, `input`, `change`, `reset`, `mouseenter`, `mouseleave`; jQuery: see the table above |
 | Main form validation | Booking (jQuery, `jq-booking.js`): `preventDefault()`, `trim()`, e-mail and phone checks (the phone must start with `+7 7` and have 11 digits, `isPhoneKz` in `data.js`), a message beside each field, success only when everything is valid. Also checked in plain JS: Order (phone, `order.js`) and the Visit Us question form (e-mail and the same `+7 7` phone rule, `visit.js`) |
 | HTML/CSS freeze | no new HTML or CSS rules after the midterm; new content is made by the scripts, states use existing classes (Bootstrap utilities, `.active`, `.hidden`) |
 
@@ -224,6 +216,5 @@ Every jQuery file starts with `jq-`, so the split is visible from the file names
 
 (Please correct the names if the work was split differently.)
 
-## AI use
 
 Parts of this project were made with the help of the AI assistant Claude (Claude Code).

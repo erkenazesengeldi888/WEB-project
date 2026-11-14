@@ -27,7 +27,7 @@ const EDCart = (() => {
         changed();
     };
 
-    const find = (name, size) => items.find((c) => c.name === name && c.size === size);
+    const find = (name, size, price) => items.find((c) => c.name === name && c.size === size && c.price === price);
 
     window.addEventListener('storage', (event) => {
         if (event.key === KEY) {
@@ -41,12 +41,12 @@ const EDCart = (() => {
         items: () => items,
         count: () => items.reduce((sum, c) => sum + c.qty, 0),
         total: () => calcTotal(items),
-        qty(name, size) {
-            const found = find(name, size);
+        qty(name, size, price) {
+            const found = find(name, size, price);
             return found ? found.qty : 0;
         },
         add(name, size, price) {
-            const found = find(name, size);
+            const found = find(name, size, price);
             if (found) {
                 found.qty = Math.min(MAX, found.qty + 1);
             } else {
@@ -55,7 +55,7 @@ const EDCart = (() => {
             write();
         },
         setQty(name, size, price, qty) {
-            const found = find(name, size);
+            const found = find(name, size, price);
             const safeQty = Math.max(0, Math.min(MAX, qty || 0));
             if (found && safeQty === 0) {
                 items.splice(items.indexOf(found), 1);
