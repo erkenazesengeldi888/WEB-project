@@ -4,50 +4,76 @@ function createExtrasPicker(prefix) {
     const element = makeEl('div', 'extras-picker');
     const listeners = [];
 
-    function check(parent, id, text, value) {
-        const wrap = makeEl('div', 'form-check');
-        const input = makeEl('input', 'form-check-input');
+    function section(title, hint) {
+        const box = makeEl('fieldset', 'extras-section');
+        box.append(makeEl('legend', 'extras-title', title));
+        if (hint) {
+            box.append(makeEl('p', 'extras-hint', hint));
+        }
+        return box;
+    }
+
+    function chip(parent, id, text, value) {
+        const wrap = makeEl('span', 'extra-chip');
+        const input = makeEl('input', 'btn-check');
         input.type = 'checkbox';
         input.id = prefix + id;
         input.value = value || '';
-        const label = makeEl('label', 'form-check-label', text);
+        input.autocomplete = 'off';
+        const label = makeEl('label', 'btn btn-outline-primary', text);
         label.htmlFor = input.id;
         wrap.append(input, label);
         parent.append(wrap);
         return input;
     }
 
-    const syrupBox = makeEl('fieldset', 'mb-3');
-    syrupBox.append(makeEl('legend', 'form-label fs-6', 'Syrups (+' + formatPrice(EXTRAS.syrup) + ' each, choose as many as you like)'));
-    const grid = makeEl('div', 'row row-cols-2 row-cols-md-3 g-1');
-    const syrupBoxes = SYRUPS.map((name) => {
-        const col = makeEl('div', 'col');
-        const box = check(col, 'syrup-' + name.toLowerCase().replace(/\s+/g, '-'), name, name);
-        grid.append(col);
-        return box;
-    });
-    syrupBox.append(grid);
+    function option(parent, id, title, price, note) {
+        const row = makeEl('div', 'extra-option');
+        const wrap = makeEl('div', 'form-check form-switch');
+        const input = makeEl('input', 'form-check-input');
+        input.type = 'checkbox';
+        input.role = 'switch';
+        input.id = prefix + id;
+        const label = makeEl('label', 'form-check-label', title);
+        label.htmlFor = input.id;
+        wrap.append(input, label);
+        row.append(wrap, makeEl('span', 'badge text-bg-primary', '+' + formatPrice(price)));
+        if (note) {
+            row.append(makeEl('small', 'text-muted w-100', note));
+        }
+        parent.append(row);
+        return { input, row };
+    }
 
-    const checks = makeEl('div', '');
-    const milk = check(checks, 'milk', 'Plant-based or lactose-free milk (+' + formatPrice(EXTRAS.milk) + ')');
-    const milkType = makeEl('select', 'form-select form-select-sm mt-1 mb-1 hidden');
+    const syrupBox = section('Syrups \u00b7 +' + formatPrice(EXTRAS.syrup) + ' each', 'Choose as many as you like.');
+    const syrupChips = makeEl('div', 'extra-chips');
+    const syrupBoxes = SYRUPS.map((name) => chip(syrupChips, 'syrup-' + name.toLowerCase().replace(/\s+/g, '-'), name, name));
+    syrupBox.append(syrupChips);
+
+    const optionsBox = section('Make it yours');
+    const milkOption = option(optionsBox, 'milk', 'Plant-based or lactose-free milk', EXTRAS.milk);
+    const milk = milkOption.input;
+    const milkType = makeEl('select', 'form-select form-select-sm hidden');
     milkType.id = prefix + 'milk-type';
     milkType.setAttribute('aria-label', 'Kind of milk');
     MILK_TYPES.forEach((name) => {
-        const option = makeEl('option', '', name);
-        option.value = name;
-        milkType.append(option);
+        const item = makeEl('option', '', name);
+        item.value = name;
+        milkType.append(item);
     });
-    checks.append(milkType);
     const milkHint = makeEl('div', 'form-text hidden', 'This drink has no milk, so this option is off.');
-    checks.append(milkHint);
-    const shot = check(checks, 'shot', 'Extra shot of espresso (+' + formatPrice(EXTRAS.shot) + ')');
-    const decaf = check(checks, 'decaf', 'Decaf (+' + formatPrice(EXTRAS.decaf) + ')');
-    const freeMilk = check(checks, 'free-milk', 'Add milk (free, 0 \u20b8)');
-    const freeMilkRow = freeMilk.closest('.form-check');
-    const freeBoxes = FREE_EXTRAS.map((name) => check(checks, 'free-' + name.toLowerCase(), name + ' (free, 0 \u20b8)', name));
+    milkOption.row.append(milkType, milkHint);
+    const shot = option(optionsBox, 'shot', 'Extra shot of espresso', EXTRAS.shot, 'Stronger and richer.').input;
+    const decaf = option(optionsBox, 'decaf', 'Decaf', EXTRAS.decaf, 'Same taste, without the caffeine.').input;
 
-    element.append(syrupBox, checks);
+    const freeBox = section('Free additions');
+    const freeChips = makeEl('div', 'extra-chips');
+    const freeMilk = chip(freeChips, 'free-milk', 'Add milk', '');
+    const freeMilkRow = freeMilk.closest('.extra-chip');
+    const freeBoxes = FREE_EXTRAS.map((name) => chip(freeChips, 'free-' + name.toLowerCase(), name, name));
+    freeBox.append(freeChips);
+
+    element.append(syrupBox, optionsBox, freeBox);
 
     const all = [...syrupBoxes, milk, shot, decaf, freeMilk, ...freeBoxes];
     const changed = () => listeners.forEach((fn) => fn());

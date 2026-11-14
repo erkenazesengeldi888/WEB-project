@@ -116,26 +116,21 @@ document.querySelectorAll('input[name="name"]').forEach((field) => {
 
 function setUpPhoneField(field) {
     field.setAttribute('placeholder', '+7 XXX XXX XX XX');
-    field.setAttribute('maxlength', '16');
     field.addEventListener('focus', () => {
         if (field.value === '') {
             field.value = PHONE_PREFIX;
         }
     });
-    field.addEventListener('input', () => {
+    field.addEventListener('input', (event) => {
         if (field.value === PHONE_PREFIX + '+') {
             field.value = '+';
             return;
         }
-        if (field.value === PHONE_PREFIX + '8') {
-            field.value = PHONE_PREFIX;
-            return;
-        }
-        field.value = formatPhone(field.value);
+        field.value = formatPhone(field.value, event.inputType === 'insertFromPaste');
     });
     field.addEventListener('blur', () => {
-        if (field.value === '+') {
-            field.value = PHONE_PREFIX;
+        if (field.value.replace(/\D/g, '') === PHONE_PREFIX.slice(1)) {
+            field.value = '';
         }
     });
 }
@@ -161,7 +156,6 @@ const LOOK_RULES = [
     ['#site-footer', 'py-5', 'py-4'],
     ['main h2:not(.modal-title)', 'fw-semibold', ''],
     ['main .lead', 'fw-normal', ''],
-    ['#menu-category-nav .nav-link', 'text-primary fw-semibold', ''],
     ['.btn-link', 'text-primary', '']
 ];
 

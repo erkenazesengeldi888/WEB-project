@@ -230,9 +230,7 @@ categorySelect.addEventListener('change', applyFilter);
 searchForm.addEventListener('reset', () => setTimeout(applyFilter, 0));
 
 function renderCartButton() {
-    const has = EDCart.count() > 0;
     byId('cart-count').textContent = EDCart.count();
-    byId('cart-fab-total').textContent = has ? EDCart.format(EDCart.total()) : '';
 }
 
 function flashAdded(button, doneText) {
@@ -267,7 +265,7 @@ let openCard = null;
 const picker = createExtrasPicker('menu-');
 const customBox = makeEl('div', 'mt-3 hidden');
 customBox.id = 'drink-modal-custom';
-customBox.append(makeEl('p', 'small fw-semibold mb-2', 'Customise your drink'), picker.element);
+customBox.append(makeEl('h3', 'h5 fw-bold mb-3', 'Customise your drink'), picker.element);
 byId('drink-modal-add').before(customBox);
 
 const modalAddButton = byId('drink-modal-add');

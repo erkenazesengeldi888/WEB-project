@@ -98,7 +98,7 @@ function checkField(field) {
         case 'order-name':
             return setFieldState(field, isValidName(value) ? '' : 'Please enter your name using letters only (at least 2 letters).');
         case 'order-phone':
-            return setFieldState(field, isPhoneKz(value) ? '' : 'Enter +7 followed by 10 digits (11 digits in total).');
+            return setFieldState(field, isValidPhone(value) ? '' : PHONE_ERROR);
         case 'order-address':
             if (!isDelivery()) {
                 return true;

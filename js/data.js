@@ -93,19 +93,25 @@ function isValidName(value) {
 
 const PHONE_PREFIX = '+7';
 
-function formatPhone(value) {
+const PHONE_ERROR = 'Please enter your real phone number, for example +7 771 419 84 57.';
+
+function formatPhone(value, isPasted) {
     const digits = value.replace(/\D/g, '');
     if (digits === '' && value.includes('+')) {
         return '+';
     }
-    const local = (/^[78]/.test(digits) ? digits.slice(1) : digits).slice(0, 10);
+    const hasCountryCode = value.trim().startsWith('+') || digits.length > 10;
+    let typed = hasCountryCode ? digits.slice(1) : digits;
+    if (isPasted && digits.length > 10) {
+        typed = digits.slice(-10);
+    }
+    const local = /^[3-9]/.test(typed) ? typed.slice(0, 10) : '';
     const groups = [local.slice(0, 3), local.slice(3, 6), local.slice(6, 8), local.slice(8, 10)].filter((group) => group !== '');
     return [PHONE_PREFIX, ...groups].join(' ');
 }
 
-function isPhoneKz(value) {
-    const compact = value.trim().replace(/[\s()-]/g, '');
-    return /^\+7\d{10}$/.test(compact);
+function isValidPhone(value) {
+    return /^\+7[3-9]\d{9}$/.test(value.trim().replace(/[\s()-]/g, ''));
 }
 
 function isValidEmail(value) {
