@@ -387,3 +387,17 @@ tr.active > * {
 .extra-option .form-text {
     flex-basis: 100%;
 }
+
+.review-toolbar .form-label {
+    letter-spacing: 0.06em;
+}
+
+.review-toolbar .form-select {
+    padding-block: 0.6rem;
+    border-radius: 0.75rem;
+    background-color: #fffdf9;
+}
+
+.review-toolbar .form-select:hover {
+    border-color: var(--bs-primary);
+}

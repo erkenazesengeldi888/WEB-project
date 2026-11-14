@@ -453,15 +453,15 @@ $(function () {
     });
     $staticCard.find('.badge').replaceWith(ratingStars(staticRating));
 
-    const $controls = $('<div>', { id: 'review-controls', 'class': 'row g-2 mb-3' });
+    const $controls = $('<div>', { id: 'review-controls', 'class': 'row g-3' });
 
     function labelledSelect(id, label, options) {
-        const $select = $('<select>', { id: id, 'class': 'form-select form-select-sm' });
+        const $select = $('<select>', { id: id, 'class': 'form-select' });
         $.each(options, function (index, pair) {
             $('<option>', { value: pair[0], text: pair[1] }).appendTo($select);
         });
         $('<div>', { 'class': 'col-12 col-sm-6' })
-            .append($('<label>', { 'class': 'form-label small mb-1', 'for': id, text: label }), $select)
+            .append($('<label>', { 'class': 'form-label small text-uppercase fw-semibold text-muted mb-1', 'for': id, text: label }), $select)
             .appendTo($controls);
         return $select;
     }
@@ -469,17 +469,22 @@ $(function () {
     const $filter = labelledSelect('review-filter', 'Show', [['all', 'All ratings'], ['5', '5 stars only'], ['4', '4 stars and more'], ['3', '3 stars and less']]);
     const $sort = labelledSelect('review-sort', 'Order', [['new', 'Newest first'], ['high', 'Highest rating first'], ['low', 'Lowest rating first']]);
 
-    const $reset = $('<button>', { type: 'button', id: 'review-filter-reset', 'class': 'btn btn-outline-primary btn-sm', text: 'Reset filters' });
+    const $reset = $('<button>', { type: 'button', id: 'review-filter-reset', 'class': 'btn btn-outline-primary btn-sm px-3', text: 'Reset filters' });
     const $toggle = $('<button>', {
         type: 'button',
         id: 'review-filter-toggle',
-        'class': 'btn btn-outline-secondary btn-sm',
+        'class': 'btn btn-light border btn-sm px-3',
         'aria-expanded': 'true',
-        'aria-controls': 'review-controls',
-        text: 'Hide filters'
+        'aria-controls': 'review-list',
+        text: 'Hide reviews'
     });
-    const $stats = $('<p>', { id: 'review-stats', 'class': 'small mb-3', 'aria-live': 'polite' });
-    const $buttons = $('<div>', { 'class': 'd-flex flex-wrap gap-2 mb-3' }).append($reset, $toggle);
+    const $stats = $('<p>', { id: 'review-stats', 'class': 'small mb-0 mt-3 pt-3 border-top', 'aria-live': 'polite' });
+    const $title = $('<h3>', { 'class': 'h6 text-uppercase fw-bold text-primary mb-0 d-flex align-items-center gap-2' })
+        .append($.parseHTML('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg>'), document.createTextNode('Filter and sort'));
+    const $header = $('<div>', { 'class': 'd-flex flex-wrap justify-content-between align-items-center gap-2 mb-3' })
+        .append($title, $('<div>', { 'class': 'd-flex gap-2' }).append($reset, $toggle));
+    const $toolbar = $('<div>', { id: 'review-toolbar', 'class': 'card review-toolbar shadow-sm border-0 border-top border-4 border-primary mb-3' })
+        .append($('<div>', { 'class': 'card-body' }).append($header, $controls, $stats));
 
     const $summary = $('<div>', { id: 'review-summary', 'class': 'card shadow-sm mb-3' });
     function renderSummary(all) {
@@ -505,18 +510,26 @@ $(function () {
         $summary.empty().append($('<div>', { 'class': 'card-body d-flex align-items-center gap-4' }).append($left, $right));
     }
 
-    $('#rating-summary').after($summary, $buttons, $controls, $stats);
+    $('#rating-summary').after($summary, $toolbar);
+
+    function setReviewsOpen(open) {
+        $toggle.text(open ? 'Hide reviews' : 'Show reviews').attr('aria-expanded', String(open));
+        $more.toggleClass('d-none', !open);
+        $list.toggleClass('d-none', !open);
+    }
 
     $toggle.on('click', function () {
-        $controls.slideToggle(250, function () {
-            const open = $controls.is(':visible');
-            $toggle.text(open ? 'Hide filters' : 'Show filters').attr('aria-expanded', String(open));
-        });
+        setReviewsOpen($toggle.attr('aria-expanded') !== 'true');
+    });
+
+    $filter.add($sort).on('change', function () {
+        setReviewsOpen(true);
     });
 
     $reset.on('click', function () {
         $filter.val('all');
         $sort.val('new');
+        setReviewsOpen(true);
         resetPage();
     });
 
